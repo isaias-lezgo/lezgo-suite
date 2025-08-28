@@ -20,8 +20,12 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Lezgo Suite - La Suite Empresarial que Transforma Organizaciones",
   description:
-    "Potencia tu empresa con la plataforma integral más avanzada del mercado. Gestión completa de CRM, automatización inteligente y analytics empresariales en una sola solución escalable y segura."
-}
+    "Potencia tu empresa con la plataforma integral más avanzada del mercado. Gestión completa de CRM, automatización inteligente y analytics empresariales en una sola solución escalable y segura.",
+    icons: {
+      icon: '/favicon-32x32.png',   // single favicon
+      apple: '/favicon-32x32.png',  // use the same for Apple devices
+    }
+  }
 
 export default function RootLayout({
   children,

@@ -31,7 +31,7 @@ export default function LandingPage() {
       <div className="fixed inset-0 pointer-events-none">
         {/* Floating background elements */}
 
-       
+
         <motion.div
           className="absolute w-[80%] h-[80%] bg-gradient-to-br blur-3xl from-orange-200 via-[#F59B1B] to-orange-400/50 opacity-5 rounded-2xl"
           animate={{
@@ -121,35 +121,50 @@ export default function LandingPage() {
               <div className="flex flex-col gap-4">
 
                 <Button
+                  asChild
                   size="lg"
-                  className="bg-gradient-to-r from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-gradient-to-r animate-bounce from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  Comienza tu prueba de 30 días GRATIS
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <a href="https://www.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">
+                    Comienza tu prueba de 30 días GRATIS
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </a>
+                 
                 </Button>
                 <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="border-2 border-[#F59B1B] text-[#F59B1B] hover:bg-[#F59B1B] hover:text-white px-8 py-4 text-lg font-semibold transition-all duration-300 bg-transparent"
                 >
-                  Habla con un especialista
+                  <a href="https://www.lezgosuite.com/widget/bookings/conocelezgosuite">
+
+                    Habla con un especialista
+                  </a>
                 </Button>
               </div>
 
-              <div className="flex items-center space-x-8 pt-4">
+              <div className="flex flex-wrap items-center justify-center gap-12 pt-10">
+                {/* Ahorro de tiempo */}
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-[#F59B1B]">250K+</div>
-                  <div className="text-sm text-gray-600">Empresas Globales</div>
+                  <div className="text-4xl font-extrabold text-[#F59B1B]">+40%</div>
+                  <div className="text-sm text-gray-600">Tiempo ahorrado con automatizaciones</div>
                 </div>
+
+                {/* Incremento en ventas */}
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-[#F59B1B]">99.99%</div>
-                  <div className="text-sm text-gray-600">Uptime Empresarial</div>
+                  <div className="text-4xl font-extrabold text-[#F59B1B]">+60%</div>
+                  <div className="text-sm text-gray-600">Aumento en cierres de ventas</div>
                 </div>
+
+                {/* Canales conectados */}
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-[#F59B1B]">150+</div>
-                  <div className="text-sm text-gray-600">Países Activos</div>
+                  <div className="text-4xl font-extrabold text-[#F59B1B]">10+</div>
+                  <div className="text-sm text-gray-600">Canales en un solo inbox</div>
                 </div>
+
               </div>
+
             </motion.div>
 
             <motion.div
@@ -226,7 +241,7 @@ export default function LandingPage() {
                   icon: <BarChart3 className="h-8 w-8" />,
                   color: "from-orange-500 to-[#F59B1B]",
                   delay: 0.1,
-                  link: "/analisis-reportes",
+                  link: "/analisis-empresarial",
                 },
                 {
                   category: "Automatización",
@@ -238,7 +253,7 @@ export default function LandingPage() {
                   icon: <Zap className="h-8 w-8" />,
                   color: "from-[#F59B1B] to-orange-700",
                   delay: 0.2,
-                  link: "/automatizacion",
+                  link: "/automatizacion-ia",
                 },
                 {
                   category: "Integraciones",
@@ -250,7 +265,7 @@ export default function LandingPage() {
                   icon: <Workflow className="h-8 w-8" />,
                   color: "from-orange-600 to-[#F59B1B]",
                   delay: 0.3,
-                  link: "/integraciones",
+                  link: "/integracion-total",
                 },
               ].map((item, index) => (
                 <motion.div
@@ -306,6 +321,7 @@ export default function LandingPage() {
                       </motion.div>
                     </CardContent>
                   </Card>
+
                 </motion.div>
               ))}
             </div>
@@ -313,37 +329,38 @@ export default function LandingPage() {
         </section>
 
         {/* Stats Section */}
-        <section className="relative py-12 overflow-hidden">
+        <section className="relative py-8 overflow-hidden">
           {/* Liquid Glass Gradient Background */}
-          <div className="justify-center h-1 bg-gradient-to-r from-orange-200 via-orange-400 to-orange-600 rounded-full my-8"></div>
+          {/* <div className="justify-center h-1 bg-gradient-to-r from-orange-200 via-orange-400 to-orange-600 rounded-full my-8"></div> */}
           <div className="container relative mx-auto px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
               {[
-                { value: "250K+", label: "Empresas Globales", delay: 0 },
-                { value: "99.9%", label: "Uptime Empresarial", delay: 0.1 },
-                { value: "50M+", label: "Contactos Procesados", delay: 0.2 },
-                { value: "150+", label: "Países Activos", delay: 0.3 },
-              ].map((stat, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: stat.delay }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.08, y: -4 }}
-                  className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-2xl border border-white/20 shadow-lg"
-                >
-                  <div className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#F59B1B] to-orange-600 drop-shadow-md">
-                    {stat.value}
-                  </div>
-                  <div className="mt-2 text-lg font-medium text-gray-800">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
+                { value: "40+", label: "Clientes Atendidos", delay: 0 },
+                { value: "99.9%", label: "Tiempo de Servicio Activo", delay: 0.1 },
+                { value: "400K+", label: "Contactos Procesados", delay: 0.2 },
+                { value: "1000+", label: "Horas Ahorradas", delay: 0.2 },
+
+              ]
+                .map((stat, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: stat.delay }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.08, y: -4 }}
+                    className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-2xl border border-white/20 shadow-lg"
+                  >
+                    <div className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#F59B1B] to-orange-600 drop-shadow-md">
+                      {stat.value}
+                    </div>
+                    <div className="mt-2 text-lg font-medium text-gray-800">
+                      {stat.label}
+                    </div>
+                  </motion.div>
+                ))}
             </div>
           </div>
-          <div className="justify-center h-1 bg-gradient-to-r from-orange-200 via-orange-400 to-orange-600 rounded-full my-8"></div>
 
         </section>
 
@@ -373,7 +390,7 @@ export default function LandingPage() {
               </p>
             </motion.div>
 
-            <div className="space-y-32">
+            <div className="space-y-12">
               {[
                 {
                   title: "Marketing Inteligente",
@@ -450,10 +467,10 @@ export default function LandingPage() {
                       ))}
                     </div>
 
-                    <Button className="bg-gradient-to-r from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white px-6 py-3 font-semibold">
+                    {/* <Button className="bg-gradient-to-r from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white px-6 py-3 font-semibold">
                       Explorar Característica
                       <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
+                    </Button> */}
                   </div>
 
                   <motion.div
@@ -511,48 +528,40 @@ export default function LandingPage() {
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {[
                 {
-                  name: "Starter",
-                  price: "$99",
+                  name: "Lezgo Growth",
+                  price: "$197 USD",
                   period: "/mes",
                   description: "Perfecto para equipos pequeños",
                   features: [
-                    "Hasta 10 usuarios",
-                    "CRM básico",
-                    "Reportes estándar",
-                    "Soporte por email",
-                    "Integraciones básicas",
+                    "ACCESO A TODAS LAS FUNCIONALIDADES",
+                    "Equipo de 3 usuarios",
+                    "500 contactos",
                   ],
                   popular: false,
                   color: "border-gray-200",
                 },
                 {
-                  name: "Professional",
-                  price: "$299",
+                  name: "Lezgo Elite",
+                  price: "$297 USD",
                   period: "/mes",
                   description: "Ideal para empresas en crecimiento",
                   features: [
-                    "Hasta 100 usuarios",
-                    "CRM avanzado + IA",
-                    "Análisis predictivo",
-                    "Soporte prioritario",
-                    "Todas las integraciones",
-                    "Automatización avanzada",
+                    "ACCESO A TODAS LAS FUNCIONALIDADES",
+                    "Equipo de 10 usuarios",
+                    "15,000 contactos",
                   ],
                   popular: true,
                   color: "border-[#F59B1B]",
                 },
                 {
                   name: "Enterprise",
-                  price: "Personalizado",
-                  period: "",
+                  price: "$497 USD",
+                  period: "/mes",
                   description: "Para grandes organizaciones",
                   features: [
-                    "Usuarios ilimitados",
-                    "Personalización completa",
-                    "Consultoría dedicada",
-                    "SLA garantizado",
-                    "Implementación guiada",
-                    "Soporte 24/7",
+                    "ACCESO A TODAS LAS FUNCIONALIDADES",
+                    "Usuarios ilímitados",
+                    "Contactos ilímitados",
                   ],
                   popular: false,
                   color: "border-gray-200",
@@ -568,7 +577,7 @@ export default function LandingPage() {
                   className="relative"
                 >
                   {plan.popular && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <div className="absolute z-20 -top-4 left-1/2 transform -translate-x-1/2">
                       <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-4 py-2">
                         Más Popular
                       </Badge>
@@ -598,24 +607,45 @@ export default function LandingPage() {
                       </ul>
 
                       <Button
+                        asChild
                         className={`w-full ${plan.popular
                           ? "bg-gradient-to-r from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white"
                           : "border-2 border-[#F59B1B] text-[#F59B1B] hover:bg-[#F59B1B] hover:text-white"
                           } font-semibold py-3 transition-all duration-300`}
                         variant={plan.popular ? "default" : "outline"}
                       >
-                        {plan.name === "Enterprise" ? "Contactar Ventas" : "Comenzar Ahora"}
+                        <a href="https://www.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">Comenzar Ahora</a>
                       </Button>
                     </CardContent>
                   </Card>
                 </motion.div>
               ))}
+
             </div>
+            <div className="flex flex-col gap-4 items-center justify-center py-12">
+              <div className="">
+                <div className="w-24 h-24 bg-gradient-to-br from-[#F59B1B] to-orange-500 rounded-full mx-auto flex items-center justify-center shadow-lg">
+                  <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                </div>
+              </div>
+              <p className="text-gray-700 font-medium text-4xl mb-2">
+                ¿Tienes dudas?
+              </p>
+              <Button asChild variant="secondary" className="animate-bounce">
+                <a href="https://www.lezgosuite.com/widget/bookings/conocelezgosuite">
+                  Agenda una llamada con un especialista
+                </a>
+              </Button>
+            </div>
+                      <div className="justify-center h-1 bg-gradient-to-r from-orange-200 via-orange-400 to-orange-600 rounded-full my-8"></div>
+
           </div>
         </section>
 
         {/* Testimonials Section */}
-        <section id="testimonios" className="py-24 relative overflow-hidden">
+        <section id="testimonios" className=" relative overflow-hidden">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -778,48 +808,7 @@ export default function LandingPage() {
         </section>
 
         {/* Final CTA Section */}
-        <section className="py-24 bg-gradient-to-br from-[#F59B1B] to-orange-600 relative overflow-hidden">
-          <div className="container mx-auto px-4 text-center relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="max-w-4xl mx-auto"
-            >
-              <h2 className="text-4xl lg:text-6xl font-bold font-heading text-white mb-6">
-                Transforma tu Empresa
-                <br />
-                <span className="text-orange-100">Hoy Mismo</span>
-              </h2>
-              <p className="text-xl text-orange-100 mb-8 leading-relaxed">
-                Únete a más de 250,000 empresas que ya confían en Lezgo Suite para impulsar su crecimiento
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <a href="https://www.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56" target="_blank" rel="noopener noreferrer">
-                  <Button
-                    size="lg"
-                    className="bg-white text-[#F59B1B] hover:bg-orange-50 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    Comenzar Prueba Gratuita
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </a>
-
-                <a href="https://www.lezgosuite.com/widget/bookings/conocelezgosuite" target="_blank" rel="noopener noreferrer">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-2 border-white text-white hover:bg-white hover:text-[#F59B1B] px-8 py-4 text-lg font-semibold transition-all duration-300 bg-transparent"
-                  >
-                    Habla con un especialista
-                  </Button>
-                </a>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+        
       </div>
     </div>
   )

@@ -187,12 +187,18 @@ export default function AutomatizacionIAPage() {
               y se adapta a tu negocio.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-[#F59B1B] hover:bg-[#E8890B] text-white px-8 py-3 text-lg">Probar IA Gratis</Button>
+              <Button asChild className="bg-[#F59B1B] hover:bg-[#E8890B] text-white px-8 py-3 text-lg">
+                <a href="https://www.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">
+                  Probar Gratis
+                </a>
+              </Button>
               <Button
                 variant="outline"
                 className="border-[#F59B1B] text-[#F59B1B] hover:bg-[#F59B1B] hover:text-white px-8 py-3 text-lg bg-transparent"
               >
-                Ver Demo en Vivo
+                <a href="https://www.lezgosuite.com/widget/bookings/conocelezgosuite">
+                  Habla con un especialista
+                </a>
               </Button>
             </div>
           </motion.div>
@@ -294,37 +300,6 @@ export default function AutomatizacionIAPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="bg-gradient-to-r from-[#F59B1B] to-[#E8890B] rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden"
-          >
-            <div className="absolute inset-0 bg-black/10 rounded-3xl" />
-            <div className="relative z-10">
-              <Star className="w-12 h-12 mx-auto mb-6 text-white/90" />
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">¿Listo para Automatizar tu Negocio?</h2>
-              <p className="text-xl mb-8 text-white/90">
-                Descubre cómo la IA puede transformar tu operación y liberar tiempo valioso para tu equipo.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="bg-white text-[#F59B1B] hover:bg-gray-100 px-8 py-3 text-lg font-semibold">
-                  Comenzar Automatización
-                </Button>
-                <Button
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-[#F59B1B] px-8 py-3 text-lg bg-transparent"
-                >
-                  Consulta Personalizada
-                </Button>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </div>
   )
 }

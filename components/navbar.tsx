@@ -53,7 +53,7 @@ export default function Navbar() {
               Testimonios
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#F59B1B] to-orange-400 transition-all duration-300 group-hover:w-full" />
             </Link>
-           
+
 
             <div className="flex items-center space-x-4">
               <Link
@@ -62,10 +62,25 @@ export default function Navbar() {
               >
                 Contacto
               </Link>
-              <Button className="relative bg-gradient-to-r from-[#F59B1B] to-orange-500 hover:from-orange-500 hover:to-[#F59B1B] text-white font-semibold mx-8 px-6 py-2.5 rounded-full shadow-lg shadow-[#F59B1B]/25 hover:shadow-[#F59B1B]/40 transition-all duration-300 transform hover:scale-105">
-                <span className="relative z-10">Comenzar Gratis</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-full" />
+              <Button
+                asChild
+                className="relative bg-gradient-to-r from-[#F59B1B] to-orange-500 hover:from-orange-500 hover:to-[#F59B1B] text-white font-semibold ml-8 px-6 py-2.5 rounded-full shadow-lg shadow-[#F59B1B]/25 hover:shadow-[#F59B1B]/40 transition-all duration-300 transform hover:scale-105"
+              >
+                <a href="https://www.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">
+                  <span className="relative z-10">Comenzar Gratis</span>
+                </a>
               </Button>
+              <div>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="rounded-full border border-orange-400 bg-transparent"
+                >
+                  <a href="https://login.lezgosuite.com">
+                    <span className="relative z-10">Iniciar Sesión</span>
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
 
