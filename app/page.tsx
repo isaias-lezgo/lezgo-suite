@@ -27,64 +27,64 @@ export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden pt-8">
       <div className="fixed inset-0 pointer-events-none">
         {/* Floating background elements */}
 
-
-        <motion.div
-          className="absolute w-[80%] h-[80%] bg-gradient-to-br blur-3xl from-orange-200 via-[#F59B1B] to-orange-400/50 opacity-5 rounded-2xl"
-          animate={{
-            x: [-200, -120, 80, -60, 100, 200, -80, -120, -200],
-            y: [50, -50, 80, -200, 60],
-            scale: [1, 1.1, 0.95, 1.05, 1],
-            opacity: [0.15, 0.25, 0.2, 0.3, 0.18],
-          }}
-          transition={{
-            duration: 27,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-
-
-
-        {/* Floating particles */}
-        {[
-          { left: 20, top: 30, duration: 3.2, delay: 0.5, size: 'w-3 h-3', color: 'bg-amber-400', blur: false },
-          { left: 80, top: 15, duration: 4.1, delay: 1.2, size: 'w-2 h-2', color: 'bg-orange-300', blur: true },
-          { left: 45, top: 70, duration: 3.8, delay: 0.8, size: 'w-4 h-4', color: 'bg-yellow-400', blur: false },
-          { left: 90, top: 85, duration: 3.5, delay: 1.5, size: 'w-1.5 h-1.5', color: 'bg-amber-500', blur: true },
-          { left: 15, top: 60, duration: 4.3, delay: 0.3, size: 'w-3 h-3', color: 'bg-orange-400', blur: false },
-          { left: 70, top: 40, duration: 3.9, delay: 1.0, size: 'w-2.5 h-2.5', color: 'bg-yellow-300', blur: true },
-        ].map((particle, i) => (
+        <div className="hidden lg:block">
           <motion.div
-            key={i}
-            className={`absolute ${particle.size} ${particle.color} rounded-full ${particle.blur ? 'blur-[10px]' : 'blur-[0px]'
-              }`}
-            style={{
-              left: `${particle.left}%`,
-              top: `${particle.top}%`,
-              boxShadow: particle.blur
-                ? '0 0 20px rgba(245, 155, 27, 0.3)'
-                : '0 0 10px rgba(245, 155, 27, 0.2)',
-            }}
+            className="absolute w-[80%] h-[80%] bg-gradient-to-br blur-3xl from-orange-200 via-[#F59B1B] to-orange-400/50 opacity-5 rounded-2xl"
             animate={{
-              y: [0, -30, 0],
-              x: [0, Math.sin(i) * 15, 0],
-              opacity: [0.3, 1, 0.3],
-              scale: [0.8, 1.2, 0.8],
+              x: [-200, -120, 80, -60, 100, 200, -80, -120, -200],
+              y: [50, -50, 80, -200, 60],
+              scale: [1, 1.1, 0.95, 1.05, 1],
+              opacity: [0.15, 0.25, 0.2, 0.3, 0.18],
             }}
             transition={{
-              duration: particle.duration,
+              duration: 27,
               repeat: Infinity,
-              delay: particle.delay,
               ease: "easeInOut",
             }}
           />
-        ))}
-      </div>
 
+
+
+          {/* Floating particles */}
+          {[
+            { left: 20, top: 30, duration: 3.2, delay: 0.5, size: 'w-3 h-3', color: 'bg-amber-400', blur: false },
+            { left: 80, top: 15, duration: 4.1, delay: 1.2, size: 'w-2 h-2', color: 'bg-orange-300', blur: true },
+            { left: 45, top: 70, duration: 3.8, delay: 0.8, size: 'w-4 h-4', color: 'bg-yellow-400', blur: false },
+            { left: 90, top: 85, duration: 3.5, delay: 1.5, size: 'w-1.5 h-1.5', color: 'bg-amber-500', blur: true },
+            { left: 15, top: 60, duration: 4.3, delay: 0.3, size: 'w-3 h-3', color: 'bg-orange-400', blur: false },
+            { left: 70, top: 40, duration: 3.9, delay: 1.0, size: 'w-2.5 h-2.5', color: 'bg-yellow-300', blur: true },
+          ].map((particle, i) => (
+            <motion.div
+              key={i}
+              className={`absolute ${particle.size} ${particle.color} rounded-full ${particle.blur ? 'blur-[10px]' : 'blur-[0px]'
+                }`}
+              style={{
+                left: `${particle.left}%`,
+                top: `${particle.top}%`,
+                boxShadow: particle.blur
+                  ? '0 0 20px rgba(245, 155, 27, 0.3)'
+                  : '0 0 10px rgba(245, 155, 27, 0.2)',
+              }}
+              animate={{
+                y: [0, -30, 0],
+                x: [0, Math.sin(i) * 15, 0],
+                opacity: [0.3, 1, 0.3],
+                scale: [0.8, 1.2, 0.8],
+              }}
+              transition={{
+                duration: particle.duration,
+                repeat: Infinity,
+                delay: particle.delay,
+                ease: "easeInOut",
+              }}
+            />
+          ))}
+        </div>
+      </div>
       {/* Content with relative positioning */}
       <div className="relative">
 
@@ -129,7 +129,7 @@ export default function LandingPage() {
                     Comienza tu prueba de 30 días GRATIS
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </a>
-                 
+
                 </Button>
                 <Button
                   asChild
@@ -333,7 +333,7 @@ export default function LandingPage() {
           {/* Liquid Glass Gradient Background */}
           {/* <div className="justify-center h-1 bg-gradient-to-r from-orange-200 via-orange-400 to-orange-600 rounded-full my-8"></div> */}
           <div className="container relative mx-auto px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
               {[
                 { value: "40+", label: "Clientes Atendidos", delay: 0 },
                 { value: "99.9%", label: "Tiempo de Servicio Activo", delay: 0.1 },
@@ -351,7 +351,7 @@ export default function LandingPage() {
                     whileHover={{ scale: 1.08, y: -4 }}
                     className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-2xl border border-white/20 shadow-lg"
                   >
-                    <div className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#F59B1B] to-orange-600 drop-shadow-md">
+                    <div className=" text-4xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#F59B1B] to-orange-600 drop-shadow-md">
                       {stat.value}
                     </div>
                     <div className="mt-2 text-lg font-medium text-gray-800">
@@ -639,7 +639,7 @@ export default function LandingPage() {
                 </a>
               </Button>
             </div>
-                      <div className="justify-center h-1 bg-gradient-to-r from-orange-200 via-orange-400 to-orange-600 rounded-full my-8"></div>
+            <div className="justify-center h-1 bg-gradient-to-r from-orange-200 via-orange-400 to-orange-600 rounded-full my-8"></div>
 
           </div>
         </section>
@@ -808,7 +808,7 @@ export default function LandingPage() {
         </section>
 
         {/* Final CTA Section */}
-        
+
       </div>
     </div>
   )
