@@ -22,6 +22,7 @@ import {
 } from "lucide-react"
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
@@ -513,6 +514,9 @@ export default function LandingPage() {
         </section>
 
         <section id="precios" className="py-24 relative">
+
+
+
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -532,10 +536,20 @@ export default function LandingPage() {
                 <br />
                 <span className="text-black">para tu Crecimiento</span>
               </h2>
+              <div className="pb-8 flex justify-center">
+                <Image
+                  src="/tablafeatures.png"
+                  alt="Tabla de Features"
+                  width={800} // set the right width
+                  height={1000} // set the right height
+                />
+              </div>
+
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Elige el plan que se adapte a las necesidades de tu empresa
               </p>
             </motion.div>
+
 
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {[
@@ -803,7 +817,7 @@ export default function LandingPage() {
                         onClick={() => setOpenFaq(openFaq === index ? null : index)}
                       >
                         <span className="font-semibold text-black text-lg">{faq.question}</span>
-                        <motion.div  animate={{ rotate: openFaq === index ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                        <motion.div animate={{ rotate: openFaq === index ? 180 : 0 }} transition={{ duration: 0.2 }}>
                           <ChevronDown className="h-5 w-5 text-[#F59B1B]" />
                         </motion.div>
                       </button>
