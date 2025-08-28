@@ -4,6 +4,8 @@ import { DM_Sans, Space_Grotesk } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -35,9 +37,12 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${dmSans.variable} ${spaceGrotesk.variable}`}>
       <body className="font-sans antialiased global-bg">
+        
         <Navbar />
         <main className="pt-16">
           {children}
+          <Analytics />
+          <SpeedInsights />
         </main>
         <Footer />
       </body>
