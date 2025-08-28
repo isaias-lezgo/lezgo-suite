@@ -96,6 +96,7 @@ export default function LandingPage() {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
+              style={{ willChange: 'transform, opacity' }}
               className="space-y-10"
             >
               <div className="space-y-2">
@@ -172,6 +173,7 @@ export default function LandingPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
+              style={{ willChange: 'transform, opacity' }}
             >
               <div className="aspect-video bg-gradient-to-br from-gray-900 to-gray-800 flex items-center relative rounded-2xl overflow-hidden">
                 <video
@@ -200,6 +202,7 @@ export default function LandingPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
               className="text-center mb-16"
+              style={{ willChange: 'transform, opacity' }}
             >
               <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-4 py-2 mb-6">
                 <Building2 className="w-4 h-4 mr-2" />
@@ -276,6 +279,7 @@ export default function LandingPage() {
                   viewport={{ once: true }}
                   whileHover={{ y: -8, scale: 1.02 }}
                   className="group relative"
+                  style={{ willChange: 'transform, opacity' }}
                 >
                   <Card className="h-full bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
                     <div
@@ -308,6 +312,7 @@ export default function LandingPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5 + item.delay }}
                         className="mt-6"
+                        style={{ willChange: 'transform, opacity' }}
                       >
                         <Link href={item.link}>
                           <Button
@@ -349,6 +354,7 @@ export default function LandingPage() {
                     transition={{ duration: 0.6, delay: stat.delay }}
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.08, y: -4 }}
+                    style={{ willChange: 'transform, opacity' }}
                     className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-2xl border border-white/20 shadow-lg"
                   >
                     <div className=" text-4xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#F59B1B] to-orange-600 drop-shadow-md">
@@ -372,6 +378,7 @@ export default function LandingPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              style={{ willChange: 'transform, opacity' }}
               className="text-center mb-20"
             >
               <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-4 py-2 mb-6">
@@ -439,6 +446,7 @@ export default function LandingPage() {
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
+                  style={{ willChange: 'transform, opacity' }}
                   viewport={{ once: true }}
                   className={`grid lg:grid-cols-2 gap-16 items-center ${item.reverse ? "lg:grid-flow-col-dense" : ""}`}
                 >
@@ -459,6 +467,7 @@ export default function LandingPage() {
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.5, delay: 0.2 + featureIndex * 0.1 }}
                           viewport={{ once: true }}
+                          style={{ willChange: 'transform, opacity' }}
                           className="flex items-center space-x-3 p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-[#F59B1B]/10"
                         >
                           <CheckCircle className="h-5 w-5 text-[#F59B1B] flex-shrink-0" />
@@ -479,6 +488,7 @@ export default function LandingPage() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.02 }}
+                    style={{ willChange: 'transform, opacity' }}
                     className={`relative ${item.reverse ? "lg:col-start-1" : ""}`}
                   >
                     <div className={`relative  ${index === 0 || index === 1 ? 'rounded-none' : 'rounded-2xl backdrop-blur-sm bg-white/80 shadow-2xl border border-[#F59B1B]/10'} overflow-hidden `}>
@@ -491,6 +501,7 @@ export default function LandingPage() {
 
                     <motion.div
                       animate={{ rotate: [0, 360] }}
+                      style={{ willChange: 'transform, opacity' }}
                       transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
                       className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-[#F59B1B] to-orange-600 rounded-full opacity-20"
                     />
@@ -509,6 +520,7 @@ export default function LandingPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
               className="text-center mb-16"
+              style={{ willChange: 'transform, opacity' }}
             >
               <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-4 py-2 mb-6">
                 💰 Planes Empresariales
@@ -574,6 +586,7 @@ export default function LandingPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -8, scale: 1.02 }}
+                  style={{ willChange: 'transform, opacity' }}
                   className="relative"
                 >
                   {plan.popular && (
@@ -653,6 +666,7 @@ export default function LandingPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
               className="text-center mb-16"
+              style={{ willChange: 'transform, opacity' }}
             >
               <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-4 py-2 mb-6">
                 ⭐ Testimonios Empresariales
@@ -698,6 +712,7 @@ export default function LandingPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -5, scale: 1.02 }}
+                  style={{ willChange: 'transform, opacity' }}
                 >
                   <Card className="h-full bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300">
                     <CardContent className="p-8">
@@ -731,6 +746,7 @@ export default function LandingPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
               className="text-center mb-16"
+              style={{ willChange: 'transform, opacity' }}
             >
               <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-4 py-2 mb-6">
                 ❓ Preguntas Frecuentes
@@ -778,6 +794,7 @@ export default function LandingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
+                  style={{ willChange: 'transform, opacity' }}
                 >
                   <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300">
                     <CardContent className="p-0">
@@ -786,7 +803,7 @@ export default function LandingPage() {
                         onClick={() => setOpenFaq(openFaq === index ? null : index)}
                       >
                         <span className="font-semibold text-black text-lg">{faq.question}</span>
-                        <motion.div animate={{ rotate: openFaq === index ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                        <motion.div  animate={{ rotate: openFaq === index ? 180 : 0 }} transition={{ duration: 0.2 }}>
                           <ChevronDown className="h-5 w-5 text-[#F59B1B]" />
                         </motion.div>
                       </button>
@@ -796,6 +813,7 @@ export default function LandingPage() {
                         animate={{ height: openFaq === index ? "auto" : 0 }}
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
+                        style={{ willChange: 'transform, opacity' }}
                       >
                         <div className="p-6 pt-0 text-gray-600 leading-relaxed">{faq.answer}</div>
                       </motion.div>
@@ -807,7 +825,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Final CTA Section */}
+
 
       </div>
     </div>
