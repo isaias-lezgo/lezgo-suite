@@ -91,21 +91,20 @@ export default function LandingPage() {
 
 
         {/* Hero Section */}
-        <section className="min-h-[90vh] flex items-center justify-center overflow-hidden">
-          <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+        <section className="min-h-[90vh] flex items-center justify-center">
+          <div className="container mx-auto whitespace-normal px-4 flex flex-col lg:flex-row gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               style={{ willChange: 'transform, opacity' }}
-              className="space-y-10"
+              className="space-y-6 sm:space-y-8 lg:space-y-10"
             >
-              <div className="space-y-2">
-                <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-4 py-2 text-sm font-medium">
+              <div className="space-y-3 sm:space-y-4">
+                <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium">
                   🚀 Plataforma Empresarial #1 en Latinoamérica
                 </Badge>
-
-                <h1 className="text-5xl lg:text-7xl font-bold font-heading leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-heading leading-tight">
                   <span className="bg-gradient-to-r from-[#F59B1B] to-orange-600 bg-clip-text text-transparent">
                     Transformación
                   </span>
@@ -114,69 +113,59 @@ export default function LandingPage() {
                   <br />
                   <span className="text-black">Completa</span>
                 </h1>
-
-                <p className="text-xl text-gray-600 leading-relaxed max-w-2xl">
+                <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl">
                   Lezgo Suite revoluciona la gestión empresarial con IA avanzada, automatizaciones inteligentes e integraciones todo-en-uno para empresas que buscan liderar el futuro.
                 </p>
               </div>
-
-              <div className="flex flex-col gap-4">
-
+              <div className="flex flex-col  gap-3 sm:gap-4 justify-center" >
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r animate-bounce from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-gradient-to-r animate-bounce from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
                 >
-                  <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">
-                    Comienza tu prueba de 30 días GRATIS
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                  <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56" className="flex items-center justify-center">
+                    <span className="text-sm sm:text-base lg:text-lg">Comienza tu prueba de 30 días GRATIS</span>
+                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
                   </a>
-
                 </Button>
                 <Button
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-2 border-[#F59B1B] text-[#F59B1B] hover:bg-[#F59B1B] hover:text-white px-8 py-4 text-lg font-semibold transition-all duration-300 bg-transparent"
+                  className="border-2 border-[#F59B1B] text-[#F59B1B] hover:bg-[#F59B1B] hover:text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 bg-transparent w-full sm:w-auto"
                 >
-                  <a href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite">
-
-                    Habla con un especialista
+                  <a href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite" className="flex items-center justify-center">
+                    <span className="text-sm sm:text-base lg:text-lg">Habla con un especialista</span>
                   </a>
                 </Button>
               </div>
-
-              <div className="flex flex-wrap items-center justify-center gap-12 pt-10">
+              <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-6 sm:gap-8 lg:gap-12 pt-6 sm:pt-8 lg:pt-10">
                 {/* Ahorro de tiempo */}
                 <div className="text-center">
-                  <div className="text-4xl font-extrabold text-[#F59B1B]">+40%</div>
-                  <div className="text-sm text-gray-600">Tiempo ahorrado con automatizaciones</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F59B1B]">+40%</div>
+                  <div className="text-xs sm:text-sm text-gray-600 max-w-[120px]">Tiempo ahorrado</div>
                 </div>
-
                 {/* Incremento en ventas */}
                 <div className="text-center">
-                  <div className="text-4xl font-extrabold text-[#F59B1B]">+60%</div>
-                  <div className="text-sm text-gray-600">Aumento en cierres de ventas</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F59B1B]">+60%</div>
+                  <div className="text-xs sm:text-sm text-gray-600 max-w-[120px]">Cierres de ventas</div>
                 </div>
-
                 {/* Canales conectados */}
                 <div className="text-center">
-                  <div className="text-4xl font-extrabold text-[#F59B1B]">10+</div>
-                  <div className="text-sm text-gray-600">Canales en un solo inbox</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F59B1B]">10+</div>
+                  <div className="text-xs sm:text-sm text-gray-600 max-w-[120px]">Canales juntos</div>
                 </div>
-
               </div>
-
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
+              className="relative px-4"
               style={{ willChange: 'transform, opacity' }}
             >
-              <div className="aspect-video bg-gradient-to-br from-gray-900 to-gray-800 flex items-center relative rounded-2xl overflow-hidden">
+              <div className="aspect-video bg-gradient-to-br from-gray-900 to-gray-800 flex relative rounded-2xl overflow-hidden">
                 <video
                   className="w-full h-full"
                   poster=""
