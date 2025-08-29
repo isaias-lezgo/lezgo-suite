@@ -188,7 +188,7 @@ export default function AutomatizacionIAPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild className="bg-[#F59B1B] hover:bg-[#E8890B] text-white px-8 py-3 text-lg">
-                <a href="https://www.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">
+                <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">
                   Probar Gratis
                 </a>
               </Button>
@@ -196,7 +196,7 @@ export default function AutomatizacionIAPage() {
                 variant="outline"
                 className="border-[#F59B1B] text-[#F59B1B] hover:bg-[#F59B1B] hover:text-white px-8 py-3 text-lg bg-transparent"
               >
-                <a href="https://www.lezgosuite.com/widget/bookings/conocelezgosuite">
+                <a href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite">
                   Habla con un especialista
                 </a>
               </Button>
