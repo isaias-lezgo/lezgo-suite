@@ -104,6 +104,29 @@ export default function LandingPage() {
                 <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium">
                   🚀 Plataforma Empresarial #1 en Latinoamérica
                 </Badge>
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="relative px-4 md: block"
+                  style={{ willChange: 'transform, opacity' }}
+                >
+                  {/* Video Movil */}
+                  <div className="aspect-video bg-gradient-to-br lg:hidden from-gray-900 to-gray-800 flex relative rounded-2xl overflow-hidden">
+                    <video
+                      className="w-full h-full"
+                      poster=""
+                      muted
+                      loop
+                      autoPlay
+                      playsInline
+                      controls
+                    >
+                      <source src="/VIDEOSUITE.mp4" type="video/mp4" />
+                      Tu navegador no soporta el elemento de video.
+                    </video>
+                  </div>
+                </motion.div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-heading leading-tight">
                   <span className="bg-gradient-to-r from-[#F59B1B] to-orange-600 bg-clip-text text-transparent">
                     Transformación
@@ -158,11 +181,12 @@ export default function LandingPage() {
               </div>
             </motion.div>
 
+            {/* Video Compu */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative px-4"
+              className="relative px-4 hidden lg:block"
               style={{ willChange: 'transform, opacity' }}
             >
               <div className="aspect-video bg-gradient-to-br from-gray-900 to-gray-800 flex relative rounded-2xl overflow-hidden">
