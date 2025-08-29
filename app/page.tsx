@@ -127,7 +127,7 @@ export default function LandingPage() {
                   size="lg"
                   className="bg-gradient-to-r animate-bounce from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <a href="https://www.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">
+                  <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">
                     Comienza tu prueba de 30 días GRATIS
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </a>
@@ -139,7 +139,7 @@ export default function LandingPage() {
                   variant="outline"
                   className="border-2 border-[#F59B1B] text-[#F59B1B] hover:bg-[#F59B1B] hover:text-white px-8 py-4 text-lg font-semibold transition-all duration-300 bg-transparent"
                 >
-                  <a href="https://www.lezgosuite.com/widget/bookings/conocelezgosuite">
+                  <a href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite">
 
                     Habla con un especialista
                   </a>
@@ -561,7 +561,7 @@ export default function LandingPage() {
                   features: [
                     "ACCESO A TODAS LAS FUNCIONALIDADES",
                     "Equipo de 3 usuarios",
-                    "500 contactos",
+                    "1000 contactos",
                   ],
                   popular: false,
                   color: "border-gray-200",
@@ -641,7 +641,7 @@ export default function LandingPage() {
                           } font-semibold py-3 transition-all duration-300`}
                         variant={plan.popular ? "default" : "outline"}
                       >
-                        <a href="https://www.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">Comenzar Ahora</a>
+                        <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">Comenzar Ahora</a>
                       </Button>
                     </CardContent>
                   </Card>
@@ -661,7 +661,7 @@ export default function LandingPage() {
                 ¿Tienes dudas?
               </p>
               <Button asChild variant="secondary" className="animate-bounce">
-                <a href="https://www.lezgosuite.com/widget/bookings/conocelezgosuite">
+                <a href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite">
                   Agenda una llamada con un especialista
                 </a>
               </Button>
