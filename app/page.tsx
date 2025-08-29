@@ -127,7 +127,7 @@ export default function LandingPage() {
                   size="lg"
                   className="bg-gradient-to-r animate-bounce from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <a href="www.app.lezgosuite.compayment-link/68ae46632ba55c5eda290d56">
+                  <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">
                     Comienza tu prueba de 30 días GRATIS
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </a>
@@ -139,7 +139,7 @@ export default function LandingPage() {
                   variant="outline"
                   className="border-2 border-[#F59B1B] text-[#F59B1B] hover:bg-[#F59B1B] hover:text-white px-8 py-4 text-lg font-semibold transition-all duration-300 bg-transparent"
                 >
-                  <a href="www.app.lezgosuite.comwidget/bookings/conocelezgosuite">
+                  <a href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite">
 
                     Habla con un especialista
                   </a>
@@ -565,9 +565,10 @@ export default function LandingPage() {
                   ],
                   popular: false,
                   color: "border-gray-200",
+                  link: "https://app.lezgosuite.com/payment-link/68b0f4a72ba55c7e86291f58"
                 },
                 {
-                  name: "Lezgo Elite",
+                  name: "Lezgo Pro",
                   price: "$297 USD",
                   period: "/mes",
                   description: "Ideal para empresas en crecimiento",
@@ -576,11 +577,12 @@ export default function LandingPage() {
                     "Equipo de 10 usuarios",
                     "15,000 contactos",
                   ],
+                  link: "https://app.lezgosuite.com/payment-link/68b0f50d613b1b1360cd8265",
                   popular: true,
                   color: "border-[#F59B1B]",
                 },
                 {
-                  name: "Enterprise",
+                  name: "Lezgo Elite",
                   price: "$497 USD",
                   period: "/mes",
                   description: "Para grandes organizaciones",
@@ -589,6 +591,7 @@ export default function LandingPage() {
                     "Usuarios ilímitados",
                     "Contactos ilímitados",
                   ],
+                  link: "https://app.lezgosuite.com/payment-link/68b0f54767ee3baa9068a1de",
                   popular: false,
                   color: "border-gray-200",
                 },
@@ -641,7 +644,7 @@ export default function LandingPage() {
                           } font-semibold py-3 transition-all duration-300`}
                         variant={plan.popular ? "default" : "outline"}
                       >
-                        <a href="www.app.lezgosuite.compayment-link/68ae46632ba55c5eda290d56">Comenzar Ahora</a>
+                        <a href={plan.link}>Comenzar Ahora</a>
                       </Button>
                     </CardContent>
                   </Card>
@@ -661,7 +664,7 @@ export default function LandingPage() {
                 ¿Tienes dudas?
               </p>
               <Button asChild variant="secondary" className="animate-bounce">
-                <a href="www.app.lezgosuite.comwidget/bookings/conocelezgosuite">
+                <a target="_blank" rel="noopener noreferrer" href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite">
                   Agenda una llamada con un especialista
                 </a>
               </Button>
@@ -699,23 +702,23 @@ export default function LandingPage() {
                 {
                   quote:
                     "Lezgo Suite transformó completamente nuestra operación. El ROI fue del 340% en el primer año.",
-                  author: "María González",
-                  position: "CEO, TechCorp Latinoamérica",
-                  company: "Fortune 500",
+                  author: "Jerry Medina",
+                  position: "Dueño",
+                  company: "Soy Jerry Medina",
                   rating: 5,
                 },
                 {
                   quote: "La automatización IA nos permitió escalar 10x sin aumentar el equipo. Increíble plataforma.",
-                  author: "Carlos Mendoza",
-                  position: "Director de Operaciones",
-                  company: "Grupo Empresarial Global",
+                  author: "Fernanda Villafana",
+                  position: "Directora de Operaciones",
+                  company: "Tiempo Cero",
                   rating: 5,
                 },
                 {
-                  quote: "Implementación perfecta y soporte excepcional. Nuestras ventas aumentaron 250% en 6 meses.",
-                  author: "Ana Rodríguez",
+                  quote: "Implementación perfecta y soporte excepcional. Nuestra productividad aumentó 250% en 6 meses.",
+                  author: "",
                   position: "VP de Ventas",
-                  company: "Multinacional Retail",
+                  company: "Cellarium",
                   rating: 5,
                 },
               ].map((testimonial, index) => (

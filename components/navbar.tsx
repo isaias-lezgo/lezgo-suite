@@ -59,7 +59,7 @@ export default function Navbar() {
                 asChild
                 className="relative bg-gradient-to-r from-[#F59B1B] to-orange-500 hover:from-orange-500 hover:to-[#F59B1B] text-white font-semibold ml-8 px-6 py-2.5 rounded-full shadow-lg shadow-[#F59B1B]/25 hover:shadow-[#F59B1B]/40 transition-all duration-300 transform hover:scale-105"
               >
-                <a href="https://www.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">
+                <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">
                   <span className="relative z-10">Comenzar Gratis</span>
                 </a>
               </Button>
@@ -118,7 +118,7 @@ export default function Navbar() {
                   className="w-full bg-gradient-to-r from-[#F59B1B] to-orange-500 hover:from-orange-500 hover:to-[#F59B1B] text-white font-semibold rounded-full shadow-lg shadow-[#F59B1B]/25 transition-all duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <a href="https://www.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">Comenzar Gratis</a>
+                  <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">Comenzar Gratis</a>
                 </Button>
                 <Button
                   asChild
