@@ -278,21 +278,7 @@ export default function ContactPage() {
                         />
                       </div>
 
-                      <div className="space-y-2">
-                        <Label htmlFor="contacto" className="text-gray-700 font-medium">
-                          Preferencia de contacto
-                        </Label>
-                        <Select value={formData.contacto} onValueChange={(value) => handleInputChange("contacto", value)}>
-                          <SelectTrigger className="border-gray-300 focus:border-[#F59B1B] focus:ring-[#F59B1B] text-black placeholder-gray-500">
-                            <SelectValue />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="email">Email</SelectItem>
-                            <SelectItem value="telefono">Teléfono</SelectItem>
-                            <SelectItem value="whatsapp">WhatsApp</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
+                     
 
                       <div className="flex items-center space-x-2">
                         <Checkbox
@@ -362,7 +348,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Teléfono</h4>
-                      <p className="text-gray-600">+1 (555) 123-4567</p>
+                      <p className="text-gray-600">+52 1 442 454 7818</p>
                       <p className="text-sm text-gray-500">Lun-Vie 9:00 AM - 6:00 PM</p>
                     </div>
                   </div>
@@ -373,7 +359,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Oficina</h4>
-                      <p className="text-gray-600">Miami, FL - Estados Unidos</p>
+                      <p className="text-gray-600">Coorporativo High Park, Lic. Manuel Gómez Morin 3960-Torre 100 Oficina 7A, Centro Sur, 76090 Santiago de Querétaro, Qro.</p>
                       <p className="text-sm text-gray-500">Sede principal</p>
                     </div>
                   </div>
