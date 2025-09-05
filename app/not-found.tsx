@@ -1,6 +1,6 @@
 'use client'
 import { Button } from '@/components/ui/button'
-import { ArrowLeft, Home, Mail, Search } from 'lucide-react'
+import { ArrowLeft, Home, Mail, Phone, Search } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
@@ -65,7 +65,7 @@ const NotFound = () => {
 
                     <Button asChild className=" items-center space-x-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors">
                         <Link href="/contacto">
-                            <Home size={20} />
+                            <Phone size={20} />
                             <span>Contáctanos</span>
                         </Link>
                     </Button>
