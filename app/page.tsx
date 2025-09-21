@@ -877,11 +877,7 @@ export default function LandingPage() {
 
       <div className="space-y-4">
         {[
-          {
-            question: "¿Qué incluye la implementación empresarial?",
-            answer:
-              "Incluye migración completa de datos, configuración personalizada, capacitación del equipo, integración con sistemas existentes y soporte dedicado durante los primeros 90 días.",
-          },
+          
           {
             question: "¿Cómo garantizan la seguridad de nuestros datos?",
             answer:
@@ -892,11 +888,7 @@ export default function LandingPage() {
             answer:
               "Sí, ofrecemos más de 500 integraciones nativas y APIs robustas. Nuestro equipo técnico asegura una integración perfecta con ERP, contabilidad, marketing y otras herramientas empresariales.",
           },
-          {
-            question: "¿Qué tipo de soporte técnico ofrecen?",
-            answer:
-              "Ofrecemos soporte 24/7 para planes Enterprise, soporte prioritario para Professional, y soporte por email para Starter. Incluye chat en vivo, llamadas técnicas y un gerente de cuenta dedicado.",
-          },
+          
           {
             question: "¿Cómo funciona la escalabilidad de la plataforma?",
             answer:
