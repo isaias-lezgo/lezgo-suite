@@ -7,6 +7,7 @@ import Footer from "@/components/footer"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import FloatingWhatsApp from "@/components/custom/FloatingWhatsapp"
+import Script from "next/script"
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -38,8 +39,9 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${dmSans.variable} ${spaceGrotesk.variable}`}>
       <head>
-        {/* Meta Pixel Code */}
-        <script
+        <Script
+          id="facebook-pixel-script"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               !function(f,b,e,v,n,t,s)
@@ -63,7 +65,7 @@ export default function RootLayout({
             src="https://www.facebook.com/tr?id=798232442657226&ev=PageView&noscript=1"
           />
         </noscript>
-        {/* End Meta Pixel Code */}
+        {/* End Meta Pixel */}
       </head>
       <body className="font-sans antialiased global-bg">
 

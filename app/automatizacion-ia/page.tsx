@@ -12,75 +12,76 @@ export default function AutomatizacionIAPage() {
       icon: Bot,
       title: "Chatbots Inteligentes",
       description:
-        "Chatbots con IA que entienden el contexto y proporcionan respuestas personalizadas 24/7 en múltiples canales de comunicación.",
+        "Chatbots con IA que manejan consultas frecuentes, reservaciones y soporte a través de distintos canales de comunicación.",
       benefits: [
-        "Respuestas contextuales inteligentes",
-        "Integración con WhatsApp, Instagram, TikTok",
-        "Escalamiento automático a humanos",
-        "Aprendizaje continuo de conversaciones",
+        "Respuestas automáticas en canales como Facebook, Instagram, Web Chat",  // soportado en Conversation AI Bot. :contentReference[oaicite:0]{index=0}
+        "Modo sugerido o auto-piloto para que responda automáticamente o que proponga respuesta al agente",  // modos Suggestive y Auto-Pilot. :contentReference[oaicite:1]{index=1}
+        "Capacidad de entrenarlo con preguntas frecuentes, URLs públicas o documentos",  // entrenamiento desde FAQs, URLs, Google Docs. :contentReference[oaicite:2]{index=2}
+        "Reserva de citas integrada (cuando el contexto lo requiere)",  // Booking appointments como parte del bot. :contentReference[oaicite:3]{index=3}
       ],
     },
     {
       icon: Workflow,
       title: "Automatización de Procesos",
       description:
-        "Automatiza flujos de trabajo complejos con reglas inteligentes que se adaptan y optimizan según el comportamiento de tus clientes.",
+        "Flujos de trabajo robustos con disparadores, condiciones y acciones para automatizar tareas operativas, seguimientos y notificaciones.",
       benefits: [
-        "Workflows visuales drag & drop",
-        "Triggers inteligentes basados en IA",
-        "Automatización de seguimientos",
-        "Optimización continua de procesos",
+        "Disparadores múltiples: creación de contacto, envío de formularios, cambio de estado, acción de tag, entrega de documento, etc.",  // triggers muy variados. :contentReference[oaicite:4]{index=4}
+        "Acciones automatizadas: emails, asignaciones, tags, recordatorios, etc.",  // acciones disponibles en workflows. :contentReference[oaicite:5]{index=5}
+        "Condiciones If/Else y filtros para personalizar rutas del flujo",  // workflows permiten rutas condicionales. :contentReference[oaicite:6]{index=6}
+        "Registro histórico de ejecución del workflow para seguimiento y análisis",  // logs / historial de workflows. :contentReference[oaicite:7]{index=7}
       ],
     },
     {
       icon: MessageSquare,
       title: "Respuestas Automáticas",
       description:
-        "Sistema de respuestas automáticas que aprende de tus mejores vendedores para mantener conversaciones naturales y efectivas.",
+        "Sistema que utiliza plantillas, inteligencia contextual y respuestas predefinidas para contestar de forma coherente y rápida.",
       benefits: [
-        "Templates inteligentes personalizables",
-        "Análisis de sentimiento en tiempo real",
-        "Respuestas adaptadas al perfil del cliente",
-        "A/B testing automático de mensajes",
+        "Plantillas configurables para email/respuestas de chatbot",  // templates se pueden usar. :contentReference[oaicite:8]{index=8}
+        "Bot entrenado con datos propios de negocio para mayor personalización",  // entrenamiento con FAQs o documentos propios. :contentReference[oaicite:9]{index=9}
+        "Cambiar el canal según respuesta del usuario o tipo de consulta",  // bot puede operar en distintos canales y se puede configurar por canal. :contentReference[oaicite:10]{index=10}
+        "Transición automática a intervención humana si es necesario",  // auto escalamiento cuando límite de mensajes o canal humano requerido. :contentReference[oaicite:11]{index=11}
       ],
     },
     {
       icon: Brain,
       title: "Predicción de Comportamiento",
       description:
-        "IA predictiva que anticipa las necesidades del cliente y sugiere las mejores acciones para maximizar las conversiones.",
+        "Funciones basadas en IA para prever necesidades del cliente, optimizar puntuaciones de leads y anticipar acciones relevantes.",
       benefits: [
-        "Scoring predictivo de leads",
-        "Recomendaciones de próximos pasos",
-        "Detección de intención de compra",
-        "Prevención de churn automática",
+        "Lead scoring basado en interacciones y comportamiento",  // puntuación de leads. :contentReference[oaicite:12]{index=12}
+        "Recomendaciones automáticas en workflows usando acciones AI",  // Workflow AI permite acciones basadas en prompts. :contentReference[oaicite:13]{index=13}
+        "Intención de reserva o compra mediante contexto de conversación",  // bot de conversación con intención ‘Appointment Booking’. :contentReference[oaicite:14]{index=14}
+        "Prevención de abandono o seguimiento proactivo según inactividad",  // triggers de contacto que no responde, workflows que actúan tras cierto tiempo. :contentReference[oaicite:15]{index=15}
       ],
     },
     {
       icon: Zap,
       title: "Automatización de Tareas",
       description:
-        "Elimina tareas repetitivas con automatización inteligente que aprende de tus patrones de trabajo y se mejora continuamente.",
+        "Elimina trabajo manual con tareas automáticas: asignaciones, recordatorios, seguimiento y sincronización de datos.",
       benefits: [
-        "Creación automática de tareas",
-        "Asignación inteligente de leads",
-        "Recordatorios contextuales",
-        "Actualización automática de datos",
+        "Creación automática de tareas tras eventos como formulario enviado o oportunidad ganada",  // acción tras triggers. :contentReference[oaicite:16]{index=16}
+        "Asignación automática de leads o contactos según reglas definidas",  // workflows permiten asignación automática. :contentReference[oaicite:17]{index=17}
+        "Recordatorios automáticos orientados al contexto del cliente o cita",  // recordatorios de cita, seguimiento. :contentReference[oaicite:18]{index=18}
+        "Sincronización u actualización de campos del CRM según actividad",  // acciones que modifican datos del contacto. :contentReference[oaicite:19]{index=19}
       ],
     },
     {
       icon: Clock,
       title: "Programación Inteligente",
       description:
-        "Sistema de programación que optimiza automáticamente horarios, citas y seguimientos basado en disponibilidad y prioridades.",
+        "Funciones que optimizan horarios, citas y seguimientos automáticamente según disponibilidad y prioridades.",
       benefits: [
-        "Scheduling automático de reuniones",
-        "Optimización de calendarios",
-        "Recordatorios inteligentes",
-        "Reprogramación automática",
+        "Programación automática de citas mediante el bot o formularios",  // Conversation AI bot puede reservar citas automáticamente. :contentReference[oaicite:20]{index=20}
+        "Sincronización de calendario con diferentes servicios o recursos",  // múltiples calendarios, tipo de servicio, equipo, etc. :contentReference[oaicite:21]{index=21}
+        "Recordatorios programados previos a citas",  // workflows con triggers basados en cita reservada + recordatorios. :contentReference[oaicite:22]{index=22}
+        "Reprogramación o cancelación automática según cambios o no-asistencia",  // aunque reprogramación automática específica puede estar sujeta a configuración del workflow/recordatorio. :contentReference[oaicite:23]{index=23}
       ],
     },
-  ]
+  ];
+  
 
   const stats = [
     { number: "80%", label: "Reducción en tareas manuales" },
@@ -96,13 +97,13 @@ export default function AutomatizacionIAPage() {
       icon: MessageSquare,
     },
     {
-      title: "Machine Learning Adaptativo",
-      description: "Aprende continuamente de tus datos y mejora automáticamente",
+      title: "Machine Learning con bases de datos",
+      description: "Aprende con una base de datos",
       icon: Brain,
     },
     {
-      title: "Análisis Predictivo",
-      description: "Predice tendencias y comportamientos futuros con alta precisión",
+      title: "Análisis contextual",
+      description: "Se adapta al contexto de las conversaciones y del negocio",
       icon: Sparkles,
     },
     {

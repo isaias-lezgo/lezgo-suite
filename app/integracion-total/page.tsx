@@ -24,78 +24,120 @@ export default function IntegracionTotalPage() {
     {
       icon: Smartphone,
       title: "Redes Sociales y Mensajería",
-      description: "Conecta todos tus canales de comunicación en una sola plataforma",
-      integrations: ["WhatsApp Business", "Instagram Direct", "Facebook Messenger", "TikTok", "Telegram", "LinkedIn"],
+      description: "Unifica tus canales de comunicación para gestionar mensajes y leads desde una sola interfaz",
+      integrations: [
+        "Facebook / Instagram Messenger",  // FB/IG Messenger integrados en Conversations API :contentReference[oaicite:0]{index=0}
+        "WhatsApp Business",               // canales soportados en comunicaciones multicanal :contentReference[oaicite:1]{index=1}
+        "SMS y llamadas",                  // manejados vía Messaging & Conversations APIs :contentReference[oaicite:2]{index=2}
+        "Widgets de chat web",             // webs integrables con chat widget según marketplace/integrations list :contentReference[oaicite:3]{index=3}
+        "Instagram Direct",                // incluido en los canales soportados por redes sociales integradas :contentReference[oaicite:4]{index=4}
+        "Facebook Messenger",               // como parte de integración de redes sociales conversacionales :contentReference[oaicite:5]{index=5}
+      ],
     },
     {
       icon: Mail,
-      title: "Email Marketing",
-      description: "Sincroniza tus campañas de email con tu CRM automáticamente",
-      integrations: ["Mailchimp", "SendGrid", "Constant Contact", "Campaign Monitor", "ActiveCampaign", "ConvertKit"],
+      title: "Email Marketing & Automatización",
+      description: "Integra campañas de email con CRM, contactos, segmentaciones, workflows y seguimiento de resultados",
+      integrations: [
+        "Email builder interno",           // plataforma incluye generación de campañas de email propias :contentReference[oaicite:6]{index=6}
+        "Mailchimp",                        // se puede conectar usando herramientas de integración o plataformas tipo n8n :contentReference[oaicite:7]{index=7}
+        "ActiveCampaign",                   // mencionados en integraciones externas / listas de integraciones sugeridas :contentReference[oaicite:8]{index=8}
+        "SendGrid",                         // posible vía APIs externas / integraciones de email transactional :contentReference[oaicite:9]{index=9}
+        "OptiMonk",                         // integración específica para campañas / captación de leads por formularios / encuestas :contentReference[oaicite:10]{index=10}
+        "Segmentación dinámica / Smart Lists",  // aunque no es una “herramienta externa”, se integra con el email/campañas internamente como parte del CRM y workflows :contentReference[oaicite:11]{index=11}
+      ],
     },
     {
       icon: ShoppingCart,
-      title: "E-commerce",
-      description: "Integra tu tienda online con gestión de clientes y ventas",
-      integrations: ["Shopify", "WooCommerce", "Magento", "PrestaShop", "Mercado Libre", "Amazon"],
+      title: "Tiendas / Comercio Electrónico",
+      description: "Sincroniza ventas, productos, clientes y comportamientos de compra con tus pipelines y automatizaciones",
+      integrations: [
+        "Shopify",                         // integraciones comunes de e-commerce con workflows externamente :contentReference[oaicite:12]{index=12}
+        "WooCommerce",                     // usualmente como plugins o conexiones desde la tienda al CRM externamente :contentReference[oaicite:13]{index=13}
+        "Formularios / Funnels de venta internos", // la plataforma tiene su propio funnel/form builder que conecta con pagos y contacto :contentReference[oaicite:14]{index=14}
+        "Mercado Libre / Marketplaces",     // plataformas externas podrían integrarse mediante API / webhook / sync tools (no siempre nativa) — menos documentado como integración oficial :contentReference[oaicite:15]{index=15}
+        "Aviso de carritos / recuperación",  // posibilidad de automatizar recordatorios de compra basados en comportamiento dentro de funnels/workflows :contentReference[oaicite:16]{index=16}
+        "Seguimiento de pedidos / transacciones", // vinculaciones con pagos / historial de clientes mediante la API de ventas / payments :contentReference[oaicite:17]{index=17}
+      ],
     },
     {
       icon: CreditCard,
       title: "Pagos y Facturación",
-      description: "Procesa pagos y genera facturas automáticamente",
-      integrations: ["Stripe", "PayPal", "MercadoPago", "Wompi", "PayU", "Conekta"],
+      description: "Gestiona pagos, suscripciones y eventos financieros dentro de la plataforma con integración segura",
+      integrations: [
+        "Pagos integrados internos",        // API Payments permite procesar pagos, manejar transacciones, suscripciones :contentReference[oaicite:18]{index=18}
+        "Suscripciones / facturación recurrente", // parte del módulo de payments/subscriptions API :contentReference[oaicite:19]{index=19}
+        "Webhooks de facturación",           // eventos de facturación notificables vía webhooks :contentReference[oaicite:20]{index=20}
+        "Integraciones con processors externos", // conectores posibles mediante API/Marketplace para usar Stripe u otros si está disponible externamente :contentReference[oaicite:21]{index=21}
+        "Informes de pagos y transacciones",   // datos accesibles en API de pagos y dashboards contractuales :contentReference[oaicite:22]{index=22}
+        "Pagos anticipados / enlaces de pago", // enlaces de cobro/link payment que se incluyen en workflows/formularios/propuestas internas :contentReference[oaicite:23]{index=23}
+      ],
     },
     {
       icon: Cloud,
-      title: "Productividad",
-      description: "Sincroniza con tus herramientas de trabajo diarias",
-      integrations: ["Google Workspace", "Microsoft 365", "Slack", "Zoom", "Calendly", "Trello"],
+      title: "Productividad y Colaboración",
+      description: "Integra tus herramientas de trabajo para mejorar la coordinación, asignación de tareas y accesos compartidos",
+      integrations: [
+        "Google Workspace",                 // usuarios conectan calendarios/correo externos mediante OAuth / integraciones posibles :contentReference[oaicite:24]{index=24}
+        "Microsoft 365",                   // similar al punto anterior para correo, calendarios, etc. (posible mediante integraciones externas / workflows) :contentReference[oaicite:25]{index=25}
+        "Zapier / make.com / n8n",         // permite conectar con miles de apps mediante el API / OAuth / workflows externos :contentReference[oaicite:26]{index=26}
+        "Calendarios externos",            // Calendar API permite manejo de eventos, disponibilidad, reservas externas :contentReference[oaicite:27]{index=27}
+        "Herramientas de comunicación (Slack u otras)", // integración posible vía API / workflows para notificaciones, etc. :contentReference[oaicite:28]{index=28}
+        "Gestión de tareas internas",       // asignación de tareas, seguimiento dentro CRM y workflows internos :contentReference[oaicite:29]{index=29}
+      ],
     },
     {
       icon: Database,
-      title: "Bases de Datos",
-      description: "Conecta con sistemas existentes y bases de datos empresariales",
-      integrations: ["MySQL", "PostgreSQL", "MongoDB", "Salesforce", "HubSpot", "Pipedrive"],
-    },
-  ]
-
+      title: "Bases de Datos & API",
+      description: "Conecta tus datos internos, CRM personalizado y otros sistemas mediante API y Webhooks",
+      integrations: [
+        "REST API completa (Contacts, Conversations, Calendar, Payments, etc.)",   // cobertura completa de API docs :contentReference[oaicite:30]{index=30}
+        "Webhooks en tiempo real para eventos clave",                             // >50 eventos disponibles :contentReference[oaicite:31]{index=31}
+        "OAuth 2.0 / Tokens privados para autenticación segura",                  // autenticación vía OAuth 2.0 o token de integración privada :contentReference[oaicite:32]{index=32}
+        "Sincronización de campos personalizados y tags",                         // API permite CRUD en campos personalizados, etiquetas, custom fields :contentReference[oaicite:33]{index=33}
+        "Rate limits y control de uso para integraciones externas",               // límites de llamada a API documentados para evitar abuso :contentReference[oaicite:34]{index=34}
+      ],
+    }
+  ];
+  
   const features = [
     {
       icon: Plug,
       title: "API Robusta",
       description:
-        "API RESTful completa que permite integraciones personalizadas con cualquier sistema o aplicación empresarial.",
+        "Interfaz REST completa que te permite acceder, crear, modificar y eliminar casi todos los datos clave y construir integraciones customizadas.",
       benefits: [
-        "Documentación completa y ejemplos",
-        "Webhooks en tiempo real",
-        "Rate limiting inteligente",
-        "Autenticación OAuth 2.0",
+        "Operaciones CRUD para contactos, conversaciones, oportunidades, calendarios, pagos ...",  // cobertura de múltiples APIs REST :contentReference[oaicite:36]{index=36}
+        "Campos personalizados, etiquetas y filtros avanzados",                                 // custom fields / tags API endpoints :contentReference[oaicite:37]{index=37}
+        "Documentación interactiva y SDKs",                                                    // docs del Developer Portal con ejemplos interactivos :contentReference[oaicite:38]{index=38}
+        "Autenticación segura con OAuth 2.0 o token privado",                                   // métodos de autenticación documentados :contentReference[oaicite:39]{index=39}
       ],
     },
     {
       icon: Zap,
-      title: "Sincronización en Tiempo Real",
-      description: "Datos sincronizados instantáneamente entre todas tus aplicaciones sin demoras ni inconsistencias.",
+      title: "Sincronización en Tiempo Real y Webhooks",
+      description: "Detecta eventos al instante en tu cuenta para activar acciones, flujos o integraciones externas sin retardos.",
       benefits: [
-        "Sincronización bidireccional",
-        "Resolución automática de conflictos",
-        "Backup y recuperación automática",
-        "Monitoreo de estado en tiempo real",
+        "Webhooks para más de 50 eventos distintos",           // evento/webhook docs indican >50 eventos disponibles :contentReference[oaicite:40]{index=40}
+        "Payloads bien documentados para cada evento",           // documentación de payloads JSON y campos :contentReference[oaicite:41]{index=41}
+        "Verificación de autenticidad de los webhooks",           // medidas de seguridad en docs de webhooks (verificación pública/claves) :contentReference[oaicite:42]{index=42}
+        "Triggers automáticos basados en eventos: formulario enviado, contacto nuevo, pago recibido, cita reservada, etc.",  // disparadores varios en workflows integrados con API/webhooks :contentReference[oaicite:43]{index=43}
       ],
     },
     {
       icon: Globe,
-      title: "Integraciones Nativas",
+      title: "Integraciones Nativas y Marketplace",
       description:
-        "Más de 200 integraciones pre-construidas con las herramientas más populares del mercado latinoamericano.",
+        "Acceso a apps integradas oficialmente mediante marketplace, plus la posibilidad de conectar herramientas populares rápidamente",
       benefits: [
-        "Configuración en un clic",
-        "Mapeo automático de campos",
-        "Plantillas predefinidas",
-        "Soporte técnico especializado",
+        "Marketplace con apps oficiales y comunidad",           // Marketplace/API docs tienen sección de integraciones/apps :contentReference[oaicite:44]{index=44}
+        "Integraciones prediseñadas listas para usar",          // apps que ya vienen preparadas para tours/lead sources/form integrations etc. :contentReference[oaicite:45]{index=45}
+        "Mapeo automático de campos comunes",                   // al conectar formularios o apps, los campos mapean a campos de contacto en la plataforma :contentReference[oaicite:46]{index=46}
+        "Soporte técnico/documentación para desarrolladores",    // docs, ejemplos, guías en Developer Portal :contentReference[oaicite:47]{index=47}
       ],
     },
-  ]
+  ];
+  
 
   const stats = [
     { number: "200+", label: "Integraciones disponibles" },
@@ -105,13 +147,13 @@ export default function IntegracionTotalPage() {
   ]
 
   const popularIntegrations = [
-    { name: "WhatsApp Business", logo: "/whatsapp-logo.png", category: "Mensajería" },
+    { name: "WhatsApp", logo: "/whatsapp-logo.png", category: "Mensajería" },
     { name: "Shopify", logo: "/shopify-logo.png", category: "E-commerce" },
     { name: "Google Workspace", logo: "/google-workspace-logo.png", category: "Productividad" },
-    { name: "Stripe", logo: "/stylized-stripe-logo.png", category: "Pagos" },
-    { name: "Mailchimp", logo: "/mailchimp-logo.png", category: "Email" },
+    { name: "Make.com", logo: "/make-logo.png", category: "Conexiones" },
+    { name: "n8n", logo: "/n8n.png", category: "Conexiones" },
+    { name: "Stripe", logo: "/stripe-logo.png", category: "Pagos" },
     { name: "Zoom", logo: "/zoom-logo.png", category: "Videoconferencia" },
-    { name: "Salesforce", logo: "/salesforce-logo.png", category: "CRM" },
     { name: "MercadoPago", logo: "/mercadopago-logo.png", category: "Pagos" },
   ]
 

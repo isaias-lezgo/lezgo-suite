@@ -13,74 +13,76 @@ export default function GestionVentasPage() {
       icon: Users,
       title: "Gestión Completa de CRM",
       description:
-        "Sistema integral para administrar todos los aspectos de la relación con clientes con contactos ilimitados y listas inteligentes.",
+        "CRM robusto para manejar todos tus contactos sin límites, con comunicaciones unificadas, Smart Lists y etiquetado avanzado.",
       benefits: [
-        "Contactos ilimitados",
-        "Listas inteligentes de contactos y etiquetado",
-        "Feed de conversaciones unificado",
-        "Segmentación avanzada automática",
+        "Contactos ilimitados",  // característica estándar en los planes pagados :contentReference[oaicite:0]{index=0}
+        "Smart Lists dinámicas con filtros múltiples",  // actualizan automáticamente según comportamiento, etiquetas, campos personalizados :contentReference[oaicite:1]{index=1}
+        "Feed unificado de conversaciones: , correo, llamadas, redes sociales",  // todas las interacciones en un solo lugar :contentReference[oaicite:2]{index=2}
+        "Etiquetado y campos personalizados para segmentación granular"  // permite organizar y filtrar por varios criterios :contentReference[oaicite:3]{index=3}
       ],
     },
     {
       icon: TrendingUp,
       title: "Gestión de Pipelines de Ventas",
       description:
-        "Seguimiento visual del progreso de ventas con gestión completa de oportunidades y análisis de rendimiento.",
+        "Visualiza y automatiza el flujo de oportunidades con pipelines personalizables, seguimiento de etapas y análisis de desempeño.",
       benefits: [
-        "Pipelines de ventas visuales",
-        "Seguimiento de oportunidades detallado",
-        "Análisis de rendimiento de campañas",
-        "Métricas de engagement de clientes",
+        "Pipelines visuales personalizables",  // se pueden crear pipelines con etapas definidas :contentReference[oaicite:4]{index=4}
+        "Movimiento automático de oportunidades basado en acciones",  // disparadores automáticos como formulario enviado, estado de cita, pago, etc. :contentReference[oaicite:5]{index=5}
+        "Visión del valor total de oportunidades y conversión por etapa",  // dashboards muestran distribución por etapa, valor de pipeline :contentReference[oaicite:6]{index=6}
+        "Alertas o flujos de seguimiento para oportunidades estancadas",  // workflows permiten automatizar seguimientos y mover oportunidades según condiciones como inactividad :contentReference[oaicite:7]{index=7}
       ],
     },
     {
       icon: Target,
       title: "Herramientas de Prospección",
       description:
-        "Identificación y captación de leads potenciales con automatización de seguimiento y nutrición automática.",
+        "Captura y nutre leads automáticamente con flujos multicanal, scoring inteligente y seguimiento sin intervención manual constante.",
       benefits: [
-        "Herramientas de prospección avanzadas",
-        "Automatización de seguimiento de leads",
-        "Nutrición automática de prospects",
-        "Scoring automático de leads",
+        "Formularios, embudos y anuncios integrados para captación",  // formularios integrados y lead capture desde landing/funnels/anuncios :contentReference[oaicite:8]{index=8}
+        "Scoring automático de leads basado en comportamiento",  // puntuación de leads según interacciones como apertura de email, actividad reciente, etc. :contentReference[oaicite:9]{index=9}
+        "Nutrición mediante automatizaciones (envíos, seguimientos)",  // flujos automáticos que envían mensajes, recordatorios, etc. :contentReference[oaicite:10]{index=10}
+        "Acciones automáticas según estado del lead o respuesta",  // triggers en workflows que cambian estado cuando formulario enviado, cita agendada, no show, etc. :contentReference[oaicite:11]{index=11}
       ],
     },
     {
       icon: Calendar,
       title: "Calendarios y Reservas",
-      description: "Calendarios ilimitados con múltiples tipos, programación automática de citas y pagos anticipados.",
+      description:
+        "Gestiona citas con calendarios ilimitados, diferentes tipos de servicio, sincronización, reservas automáticas y pagos anticipados.",
       benefits: [
-        "Calendarios ilimitados",
-        "Múltiples tipos de calendario",
-        "Programación automática de citas",
-        "Pagos anticipados para citas",
+        "Calendarios ilimitados con distintos tipos de servicio",  // se pueden tener varios calendarios para diferentes servicios o miembros del equipo :contentReference[oaicite:12]{index=12}
+        "Sincronización y menú de servicios",  // tipo de calendarios de menú de servicios, Round-Robin, etc. :contentReference[oaicite:13]{index=13}
+        "Reservas automáticas y recordatorios previos",  // programación automática y avisos para reducir no-shows :contentReference[oaicite:14]{index=14}
+        "Pagos adelantados para asegurar citas",  // opción de pagos anticipados integrados al momento de reservar :contentReference[oaicite:15]{index=15}
       ],
     },
     {
       icon: FileText,
-      title: "Generador de Propuestas",
+      title: "Generador de Propuestas y Cotizaciones",
       description:
-        "Documentos comerciales automatizados con generador de propuestas, estimaciones y creador de precios de suscripción.",
+        "Crea y envía propuestas, estimaciones y facturas desde la plataforma, incluyendo cobros, suscripciones y enlaces de pago.",
       benefits: [
-        "Generador de propuestas y estimaciones",
-        "Creador de precios de suscripción",
-        "Generador de cupones",
-        "Formularios de pago optimizados",
+        "Generador de propuestas y estimaciones profesionales",  // enviar cotizaciones/propuestas integradas :contentReference[oaicite:16]{index=16}
+        "Facturación y suscripciones integradas",  // pagos recurrentes, suscripciones y facturas integradas en flujos de venta :contentReference[oaicite:17]{index=17}
+        "Enlaces de pago rápidos (ej. envío por email)",  // Text2Pay u otras funciones de enlace de pago desde mensaje o factura :contentReference[oaicite:18]{index=18}
+        "Plantillas personalizables de propuesta y cotización",  // uso de plantillas para acelerar generación de documentos de venta :contentReference[oaicite:19]{index=19}
       ],
     },
     {
       icon: BarChart3,
       title: "Análisis y Reportes",
       description:
-        "Panel de control personalizable con reportes detallados y visualización de datos publicitarios integrados.",
+        "Tableros personalizables con reportes detallados, seguimiento de métricas clave y visualización de datos de campañas publicitarias integradas.",
       benefits: [
-        "Panel de control personalizable",
-        "Reportes personalizados",
-        "Visualización de datos de Google y Facebook",
-        "Análisis de rendimiento completo",
+        "Dashboard personalizable con widgets definidos por usuario",  // se pueden seleccionar qué métricas y widgets ver :contentReference[oaicite:20]{index=20}
+        "Reportes a medida exportables",  // informes que se pueden extraer con criterios customizados y formatos exportables :contentReference[oaicite:21]{index=21}
+        "Integración de datos de anuncios de Google, Facebook, etc.",  // visualizar datos de campañas publicitarias dentro de la plataforma :contentReference[oaicite:22]{index=22}
+        "Análisis completo del rendimiento de ventas, marketing y reservas",  // métricas cruzadas entre canales, pipeline, reservas, etc. :contentReference[oaicite:23]{index=23}
       ],
     },
-  ]
+  ];
+  
 
   const stats = [
     { number: "45%", label: "Aumento en conversiones" },

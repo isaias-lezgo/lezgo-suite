@@ -721,7 +721,7 @@ export default function LandingPage() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="text-center mb-16"
+        className="text-center lg:mb-16"
         style={{ willChange: 'transform, opacity' }}
       >
         <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-6 py-3 mb-8 text-sm font-semibold shadow-lg">
