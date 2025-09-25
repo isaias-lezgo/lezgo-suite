@@ -5,9 +5,14 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { track } from "@vercel/analytics" // Import Vercel's track function
 
-// Handler for all button clicks with Pixel tracking
-const handlePixelAndNavigate = (eventName: string, link: string, params?: Record<string, any>) => {
+// Handler for all button clicks with Pixel and Vercel tracking
+const handleTrackingAndNavigate = (eventName: string, link: string, params?: Record<string, any>) => {
+  // Vercel Analytics
+  track(eventName, params);
+  
+  // Facebook Pixel
   if (typeof (window as any).fbq === "function") {
     (window as any).fbq("trackCustom", eventName, params);
   }
@@ -26,8 +31,8 @@ export const HeroButtons = () => {
         asChild
         size="lg"
         onClick={() => 
-          handlePixelAndNavigate(
-            "Start_Free_Trial",
+          handleTrackingAndNavigate(
+            "Prueba Gratis Hero",
             "https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56"
           )
         }
@@ -49,8 +54,8 @@ export const HeroButtons = () => {
         asChild
         size="lg"
         onClick={() =>
-          handlePixelAndNavigate(
-            "Schedule_Specialist_Call",
+          handleTrackingAndNavigate(
+            "Demo Hero",
             "https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
           )
         }
@@ -85,7 +90,7 @@ export const ExploreFeatureButton = ({ href }: { href: string }) => {
         asChild
         variant="ghost"
         onClick={() => 
-          handlePixelAndNavigate("Explore_Features_Click", href)
+          handleTrackingAndNavigate("Explorar funcionalidades", href, { target_href: href })
         }
         className="text-[#F59B1B] cursor-pointer p-0 font-semibold"
       >
@@ -103,8 +108,8 @@ export const PricingButton = ({ plan }: { plan: Plan }) => {
     <Button
       asChild
       onClick={() =>
-        handlePixelAndNavigate(
-          "Initiate_Payment",
+        handleTrackingAndNavigate(
+          `Empezar plan - ${plan}`,
           plan.link,
           { plan_name: plan.name }
         )
@@ -127,8 +132,8 @@ export const ContactSpecialistButton = () => {
   return (
     <Button asChild variant="secondary" className="animate-bounce"
         onClick={() =>
-          handlePixelAndNavigate(
-            "Schedule_Specialist_Call",
+          handleTrackingAndNavigate(
+            "Demo",
             "https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
           )
         }>
@@ -153,11 +158,18 @@ export const FaqToggleButton = ({
   isOpen: boolean
 }) => {
   const handleToggle = () => {
-    if (typeof (window as any).fbq === "function") {
-      (window as any).fbq("trackCustom", "FAQ_Toggle", {
+    const eventName = "Toggle - FAQ";
+    const eventParams = {
         question: question,
         state: isOpen ? "closed" : "opened"
-      });
+    };
+
+    // Vercel Analytics
+    track(eventName, eventParams);
+
+    // Facebook Pixel
+    if (typeof (window as any).fbq === "function") {
+      (window as any).fbq("trackCustom", eventName, eventParams);
     }
     onClick();
   };
