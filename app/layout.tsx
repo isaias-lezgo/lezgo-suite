@@ -8,6 +8,8 @@ import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import FloatingWhatsApp from "@/components/custom/FloatingWhatsapp"
 import Script from "next/script"
+import PixelPrincipal from "@/components/custom/Pixel/PixelPrincipal"
+import PixelRouter from "@/components/custom/Pixel/PixelRouter" // Corrected import path
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -26,8 +28,8 @@ export const metadata: Metadata = {
   description:
     "Potencia tu empresa con la plataforma integral más avanzada del mercado. Gestión completa de CRM, automatización inteligente y analytics empresariales en una sola solución escalable y segura.",
   icons: {
-    icon: '/favicon-32x32.png',   // single favicon
-    apple: '/favicon-32x32.png',  // use the same for Apple devices
+    icon: '/favicon-32x32.png',
+    apple: '/favicon-32x32.png',
   }
 }
 
@@ -38,37 +40,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${dmSans.variable} ${spaceGrotesk.variable}`}>
-      <head>
-        <Script
-          id="facebook-pixel-script"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              !function(f,b,e,v,n,t,s)
-              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-              n.queue=[];t=b.createElement(e);t.async=!0;
-              t.src=v;s=b.getElementsByTagName(e)[0];
-              s.parentNode.insertBefore(t,s)}(window, document,'script',
-              'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '798232442657226');
-              fbq('track', 'PageView');
-            `,
-          }}
-        />
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=798232442657226&ev=PageView&noscript=1"
-          />
-        </noscript>
-        {/* End Meta Pixel */}
-      </head>
-      <body className="font-sans antialiased global-bg">
-
+      <body>
+        <PixelPrincipal />
+        <PixelRouter />
         <Navbar />
         <main className="pt-16">
           {children}

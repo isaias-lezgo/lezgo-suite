@@ -7,6 +7,13 @@ const FloatingWhatsApp = () => {
     "¡Hola! Me interesa más información de Lezgo Suite. Vengo de la Página Web.";
 
   const handleWhatsAppClick = () => {
+    // 1. Trigger the Facebook Pixel event
+    // Using 'as any' to bypass the TypeScript error for window.fbq
+    if (typeof (window as any).fbq === 'function') {
+      (window as any).fbq('track', 'Contact');
+    }
+
+    // 2. Open the WhatsApp chat
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     window.open(whatsappURL, "_blank");

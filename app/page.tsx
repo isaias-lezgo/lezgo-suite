@@ -25,8 +25,50 @@ import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 
+
+const ButtonDemo = () => {
+  return (
+    <div>page</div>
+  )
+}
+const ButtonLezgoTODOS = () => {
+  return (
+    <div>page</div>
+  )
+}
+const ButtonLezgoPro = () => {
+  return (
+    <div>page</div>
+  )
+}
+const ButtonLezgoGrowth = () => {
+  return (
+    <div>page</div>
+  )
+}
+const ButtonLezgoElite = () => {
+  return (
+    <div>page</div>
+  )
+}
+
+
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+
+  // Función para manejar el clic y el evento del píxel
+  const handleButtonClickPagos = (planName: string, link: string) => {
+    // 1. Envía el evento personalizado al píxel
+    if (typeof (window as any).fbq === 'function') {
+      (window as any).fbq('trackCustom', 'Initiate_Payment', {
+        plan_name: planName
+      });
+    }
+
+    // 2. Redirige al usuario al enlace de pago
+    window.open(link, "_blank");
+  };
+
 
   return (
     <div className="relative overflow-hidden pt-8">
@@ -651,20 +693,19 @@ export default function LandingPage() {
                       </ul>
 
                       <Button
-                        asChild
+                        onClick={() => handleButtonClickPagos(plan.name, plan.link)}
                         className={`w-full ${plan.popular
                           ? "bg-gradient-to-r from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white"
                           : "border-2 border-[#F59B1B] text-[#F59B1B] hover:bg-[#F59B1B] hover:text-white"
                           } font-semibold py-3 transition-all duration-300`}
                         variant={plan.popular ? "default" : "outline"}
                       >
-                        <a href={plan.link}>Comenzar Ahora</a>
+                        Comenzar Ahora
                       </Button>
                     </CardContent>
                   </Card>
                 </motion.div>
               ))}
-
             </div>
             {/*seccion onboarding, etc*/}
             <div className="mt-8 p-8 ">
@@ -687,250 +728,250 @@ export default function LandingPage() {
                     <span>Soporte a través de WhatsApp</span>
                   </div>
 
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="flex flex-col gap-4 items-center justify-center py-12">
-            <div className="">
-              <div className="w-24 h-24 bg-gradient-to-br from-[#F59B1B] to-orange-500 rounded-full mx-auto flex items-center justify-center shadow-lg">
-                <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                </svg>
+            <div className="flex flex-col gap-4 items-center justify-center py-12">
+              <div className="">
+                <div className="w-24 h-24 bg-gradient-to-br from-[#F59B1B] to-orange-500 rounded-full mx-auto flex items-center justify-center shadow-lg">
+                  <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                </div>
               </div>
+              <p className="text-gray-700 font-medium text-4xl mb-2">
+                ¿Tienes dudas?
+              </p>
+              <Button asChild variant="secondary" className="animate-bounce">
+                <a target="_blank" rel="noopener noreferrer" href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite">
+                  Agenda una llamada con un especialista
+                </a>
+              </Button>
             </div>
-            <p className="text-gray-700 font-medium text-4xl mb-2">
-              ¿Tienes dudas?
-            </p>
-            <Button asChild variant="secondary" className="animate-bounce">
-              <a target="_blank" rel="noopener noreferrer" href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite">
-                Agenda una llamada con un especialista
-              </a>
-            </Button>
+            <div className="justify-center h-1 bg-gradient-to-r from-orange-200 via-orange-400 to-orange-600 rounded-full my-8"></div>
+
           </div>
-          <div className="justify-center h-1 bg-gradient-to-r from-orange-200 via-orange-400 to-orange-600 rounded-full my-8"></div>
+        </section>
 
-      </div>
-    </section>
-
-        {/* Testimonials Section */ }
-  <section id="testimonios" className="relative overflow-hidden py-16">
-    <div className="container mx-auto px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="text-center lg:mb-16"
-        style={{ willChange: 'transform, opacity' }}
-      >
-        <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-6 py-3 mb-8 text-sm font-semibold shadow-lg">
-          ⭐ Testimonios Empresariales
-        </Badge>
-        <h2 className="text-4xl lg:text-6xl font-bold font-heading mb-8 leading-tight">
-          <span className="bg-gradient-to-r from-[#F59B1B] to-orange-600 bg-clip-text text-transparent">
-            Líderes Confían
-          </span>
-          <br />
-          <span className="text-black">en Lezgo Suite</span>
-        </h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          Empresas líderes han transformado sus operaciones con resultados extraordinarios
-        </p>
-      </motion.div>
-
-      {/* Enhanced Testimonials Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="relative w-full px-4">
-          <Image
-            src="/empresas.png"
-            alt="Empresas que confían en Lezgo Suite"
-            width={500}
-            height={700}
-            className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto h-auto mb-8 sm:mb-12 md:mb-16 rounded-xl sm:rounded-2xl transition-all duration-500 transform hover:scale-105"
-          />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-
-
-          {[
-            {
-              quote: "Lezgo Suite transformó completamente nuestra operación. El ROI fue del 340% en el primer año.",
-              author: "Jerry Medina",
-              position: "Dueño",
-              company: "Soy Jerry Medina",
-              rating: 5,
-              highlight: "340% ROI",
-            },
-
-            {
-              "quote": "Con Lezgo Suite logramos organizar nuestros procesos y escalar más rápido de lo esperado. La eficiencia en el equipo mejoró un 70%.",
-              "author": "Evelyn",
-              "position": "Directora de Operaciones",
-              "company": "Yconia",
-              "rating": 5,
-              "highlight": "70% más eficiencia"
-            },
-            {
-              quote: "La automatización IA nos permitió escalar 10x sin aumentar el equipo. Increíble plataforma.",
-              author: "Fernanda Villafana",
-              position: "Directora de Operaciones",
-              company: "Tiempo Cero",
-              rating: 5,
-              highlight: "10x Escalabilidad",
-            },
-            {
-              quote: "Implementación perfecta y soporte excepcional. Nuestra productividad aumentó 250% en 6 meses.",
-              author: "Líder de Ventas",
-              position: "VP de Ventas",
-              company: "Cellarium",
-              rating: 5,
-              highlight: "250% Productividad",
-            },
-          ].map((testimonial, index) => (
+        {/* Testimonials Section */}
+        <section id="testimonios" className="relative overflow-hidden py-16">
+          <div className="container mx-auto px-4">
             <motion.div
-              key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
+              transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              whileHover={{ y: -8, scale: 1.03 }}
+              className="text-center lg:mb-16"
               style={{ willChange: 'transform, opacity' }}
-              className="group"
             >
-              <Card className="h-full bg-white/90 backdrop-blur-lg border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden group-hover:border-[#F59B1B]/30">
-                <CardContent className="p-8 relative">
-                  {/* Decorative gradient overlay */}
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#F59B1B] to-orange-600"></div>
-
-                  {/* Rating Stars */}
-                  <div className="flex mb-6 justify-center">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="h-5 w-5 text-[#F59B1B] fill-current mx-1 drop-shadow-sm"
-                      />
-                    ))}
-                  </div>
-
-                  {/* Highlight Badge */}
-                  <div className="text-center mb-4">
-                    <span className="inline-block bg-gradient-to-r from-[#F59B1B]/10 to-orange-600/10 text-[#F59B1B] px-4 py-2 rounded-full text-sm font-bold border border-[#F59B1B]/20">
-                      {testimonial.highlight}
-                    </span>
-                  </div>
-
-                  {/* Quote */}
-                  <blockquote className="text-gray-700 mb-8 italic leading-relaxed text-center relative">
-                    <span className="text-4xl text-[#F59B1B]/30 absolute -top-2 -left-2">"</span>
-                    {testimonial.quote}
-                    <span className="text-4xl text-[#F59B1B]/30 absolute -bottom-4 -right-2">"</span>
-                  </blockquote>
-
-                  {/* Author Info */}
-                  <div className="text-center border-t border-gray-100 pt-6">
-                    <div className="font-bold text-black text-lg mb-1">{testimonial.author}</div>
-                    <div className="text-sm text-gray-600 mb-2">{testimonial.position}</div>
-                    <div className="text-sm text-[#F59B1B] font-semibold bg-gradient-to-r from-[#F59B1B]/10 to-orange-600/10 px-3 py-1 rounded-full inline-block">
-                      {testimonial.company}
-                    </div>
-                  </div>
-
-                  {/* Decorative background pattern */}
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#F59B1B]/5 to-orange-600/5 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-700"></div>
-                </CardContent>
-              </Card>
+              <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-6 py-3 mb-8 text-sm font-semibold shadow-lg">
+                ⭐ Testimonios Empresariales
+              </Badge>
+              <h2 className="text-4xl lg:text-6xl font-bold font-heading mb-8 leading-tight">
+                <span className="bg-gradient-to-r from-[#F59B1B] to-orange-600 bg-clip-text text-transparent">
+                  Líderes Confían
+                </span>
+                <br />
+                <span className="text-black">en Lezgo Suite</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Empresas líderes han transformado sus operaciones con resultados extraordinarios
+              </p>
             </motion.div>
-          ))}
-        </div>
-      </div>
 
-    </div>
+            {/* Enhanced Testimonials Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="relative w-full px-4">
+                <Image
+                  src="/empresas.png"
+                  alt="Empresas que confían en Lezgo Suite"
+                  width={500}
+                  height={700}
+                  className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto h-auto mb-8 sm:mb-12 md:mb-16 rounded-xl sm:rounded-2xl transition-all duration-500 transform hover:scale-105"
+                />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
 
-    {/* Background decorative elements */}
-    <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-[#F59B1B]/5 to-orange-600/5 rounded-full -translate-x-32 -translate-y-32"></div>
-    <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-[#F59B1B]/5 to-orange-600/5 rounded-full translate-x-48 translate-y-48"></div>
-  </section>
 
-  {/* FAQ Section */ }
-  <section id="faq" className="py-24 relative">
-    <div className="container mx-auto px-4 max-w-4xl">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="text-center mb-16"
-        style={{ willChange: 'transform, opacity' }}
-      >
-        <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-4 py-2 mb-6">
-          ❓ Preguntas Frecuentes
-        </Badge>
-        <h2 className="text-4xl lg:text-5xl font-bold font-heading mb-6">
-          <span className="bg-gradient-to-r from-[#F59B1B] to-orange-600 bg-clip-text text-transparent">
-            Resolvemos
-          </span>
-          <br />
-          <span className="text-black">tus Dudas</span>
-        </h2>
-      </motion.div>
+                {[
+                  {
+                    quote: "Lezgo Suite transformó completamente nuestra operación. El ROI fue del 340% en el primer año.",
+                    author: "Jerry Medina",
+                    position: "Dueño",
+                    company: "Soy Jerry Medina",
+                    rating: 5,
+                    highlight: "340% ROI",
+                  },
 
-      <div className="space-y-4">
-        {[
-          
-          {
-            question: "¿Cómo garantizan la seguridad de nuestros datos?",
-            answer:
-              "Utilizamos encriptación AES-256, certificación ISO 27001, servidores en múltiples regiones, backups automáticos y cumplimos con GDPR y regulaciones locales de protección de datos.",
-          },
-          {
-            question: "¿Puedo integrar Lezgo Suite con nuestros sistemas actuales?",
-            answer:
-              "Sí, ofrecemos más de 500 integraciones nativas y APIs robustas. Nuestro equipo técnico asegura una integración perfecta con ERP, contabilidad, marketing y otras herramientas empresariales.",
-          },
-          
-          {
-            question: "¿Cómo funciona la escalabilidad de la plataforma?",
-            answer:
-              "La plataforma escala automáticamente según tus necesidades. Desde equipos pequeños hasta organizaciones con miles de usuarios, sin límites de almacenamiento o procesamiento.",
-          },
-        ].map((faq, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            style={{ willChange: 'transform, opacity' }}
-          >
-            <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-              <CardContent className="p-0">
-                <button
-                  className="w-full p-6 text-left flex items-center justify-between hover:bg-[#F59B1B]/5 transition-colors"
-                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                >
-                  <span className="font-semibold text-black text-lg">{faq.question}</span>
-                  <motion.div animate={{ rotate: openFaq === index ? 180 : 0 }} transition={{ duration: 0.2 }}>
-                    <ChevronDown className="h-5 w-5 text-[#F59B1B]" />
+                  {
+                    "quote": "Con Lezgo Suite logramos organizar nuestros procesos y escalar más rápido de lo esperado. La eficiencia en el equipo mejoró un 70%.",
+                    "author": "Evelyn",
+                    "position": "Directora de Operaciones",
+                    "company": "Yconia",
+                    "rating": 5,
+                    "highlight": "70% más eficiencia"
+                  },
+                  {
+                    quote: "La automatización IA nos permitió escalar 10x sin aumentar el equipo. Increíble plataforma.",
+                    author: "Fernanda Villafana",
+                    position: "Directora de Operaciones",
+                    company: "Tiempo Cero",
+                    rating: 5,
+                    highlight: "10x Escalabilidad",
+                  },
+                  {
+                    quote: "Implementación perfecta y soporte excepcional. Nuestra productividad aumentó 250% en 6 meses.",
+                    author: "Líder de Ventas",
+                    position: "VP de Ventas",
+                    company: "Cellarium",
+                    rating: 5,
+                    highlight: "250% Productividad",
+                  },
+                ].map((testimonial, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.15 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -8, scale: 1.03 }}
+                    style={{ willChange: 'transform, opacity' }}
+                    className="group"
+                  >
+                    <Card className="h-full bg-white/90 backdrop-blur-lg border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden group-hover:border-[#F59B1B]/30">
+                      <CardContent className="p-8 relative">
+                        {/* Decorative gradient overlay */}
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#F59B1B] to-orange-600"></div>
+
+                        {/* Rating Stars */}
+                        <div className="flex mb-6 justify-center">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className="h-5 w-5 text-[#F59B1B] fill-current mx-1 drop-shadow-sm"
+                            />
+                          ))}
+                        </div>
+
+                        {/* Highlight Badge */}
+                        <div className="text-center mb-4">
+                          <span className="inline-block bg-gradient-to-r from-[#F59B1B]/10 to-orange-600/10 text-[#F59B1B] px-4 py-2 rounded-full text-sm font-bold border border-[#F59B1B]/20">
+                            {testimonial.highlight}
+                          </span>
+                        </div>
+
+                        {/* Quote */}
+                        <blockquote className="text-gray-700 mb-8 italic leading-relaxed text-center relative">
+                          <span className="text-4xl text-[#F59B1B]/30 absolute -top-2 -left-2">"</span>
+                          {testimonial.quote}
+                          <span className="text-4xl text-[#F59B1B]/30 absolute -bottom-4 -right-2">"</span>
+                        </blockquote>
+
+                        {/* Author Info */}
+                        <div className="text-center border-t border-gray-100 pt-6">
+                          <div className="font-bold text-black text-lg mb-1">{testimonial.author}</div>
+                          <div className="text-sm text-gray-600 mb-2">{testimonial.position}</div>
+                          <div className="text-sm text-[#F59B1B] font-semibold bg-gradient-to-r from-[#F59B1B]/10 to-orange-600/10 px-3 py-1 rounded-full inline-block">
+                            {testimonial.company}
+                          </div>
+                        </div>
+
+                        {/* Decorative background pattern */}
+                        <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#F59B1B]/5 to-orange-600/5 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-700"></div>
+                      </CardContent>
+                    </Card>
                   </motion.div>
-                </button>
+                ))}
+              </div>
+            </div>
 
+          </div>
+
+          {/* Background decorative elements */}
+          <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-[#F59B1B]/5 to-orange-600/5 rounded-full -translate-x-32 -translate-y-32"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-[#F59B1B]/5 to-orange-600/5 rounded-full translate-x-48 translate-y-48"></div>
+        </section>
+
+        {/* FAQ Section */}
+        <section id="faq" className="py-24 relative">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+              style={{ willChange: 'transform, opacity' }}
+            >
+              <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-4 py-2 mb-6">
+                ❓ Preguntas Frecuentes
+              </Badge>
+              <h2 className="text-4xl lg:text-5xl font-bold font-heading mb-6">
+                <span className="bg-gradient-to-r from-[#F59B1B] to-orange-600 bg-clip-text text-transparent">
+                  Resolvemos
+                </span>
+                <br />
+                <span className="text-black">tus Dudas</span>
+              </h2>
+            </motion.div>
+
+            <div className="space-y-4">
+              {[
+
+                {
+                  question: "¿Cómo garantizan la seguridad de nuestros datos?",
+                  answer:
+                    "Utilizamos encriptación AES-256, certificación ISO 27001, servidores en múltiples regiones, backups automáticos y cumplimos con GDPR y regulaciones locales de protección de datos.",
+                },
+                {
+                  question: "¿Puedo integrar Lezgo Suite con nuestros sistemas actuales?",
+                  answer:
+                    "Sí, ofrecemos más de 500 integraciones nativas y APIs robustas. Nuestro equipo técnico asegura una integración perfecta con ERP, contabilidad, marketing y otras herramientas empresariales.",
+                },
+
+                {
+                  question: "¿Cómo funciona la escalabilidad de la plataforma?",
+                  answer:
+                    "La plataforma escala automáticamente según tus necesidades. Desde equipos pequeños hasta organizaciones con miles de usuarios, sin límites de almacenamiento o procesamiento.",
+                },
+              ].map((faq, index) => (
                 <motion.div
-                  initial={false}
-                  animate={{ height: openFaq === index ? "auto" : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden"
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
                   style={{ willChange: 'transform, opacity' }}
                 >
-                  <div className="p-6 pt-0 text-gray-600 leading-relaxed">{faq.answer}</div>
+                  <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <CardContent className="p-0">
+                      <button
+                        className="w-full p-6 text-left flex items-center justify-between hover:bg-[#F59B1B]/5 transition-colors"
+                        onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                      >
+                        <span className="font-semibold text-black text-lg">{faq.question}</span>
+                        <motion.div animate={{ rotate: openFaq === index ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                          <ChevronDown className="h-5 w-5 text-[#F59B1B]" />
+                        </motion.div>
+                      </button>
+
+                      <motion.div
+                        initial={false}
+                        animate={{ height: openFaq === index ? "auto" : 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
+                        style={{ willChange: 'transform, opacity' }}
+                      >
+                        <div className="p-6 pt-0 text-gray-600 leading-relaxed">{faq.answer}</div>
+                      </motion.div>
+                    </CardContent>
+                  </Card>
                 </motion.div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  </section>
+              ))}
+            </div>
+          </div>
+        </section>
 
 
 

@@ -45,7 +45,7 @@ export default function BienvenidaPage() {
           </h1>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Gracias por confiar en nosotros. Estás a un paso de modernizar completamente tu operación empresarial con la plataforma de gestión más avanzada de Latinoamérica.
+            Gracias por confiar en nosotros. Estás muy cerca de modernizar completamente tu operación empresarial con la plataforma de gestión más avanzada de Latinoamérica.
           </p>
         </motion.div>
       </section>
