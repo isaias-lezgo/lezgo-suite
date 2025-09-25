@@ -5,9 +5,21 @@ import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
 import Link from "next/link"
+import { track } from "@vercel/analytics"
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const handleTrackingAndNavigate = (eventName: string, link: string, params?: Record<string, any>) => {
+    // Vercel Analytics
+    track(eventName, params);
+
+    // Facebook Pixel
+    if (typeof (window as any).fbq === "function") {
+      (window as any).fbq("trackCustom", eventName, params);
+    }
+  };
+
 
   // Centralized navigation links for consistency
   const navLinks = [
@@ -111,14 +123,26 @@ export default function Navbar() {
               >
                 Contacto
               </Link>
-              
+
               <div className="pt-5 border-t border-white/10 flex flex-col space-y-4">
                 <Button
                   asChild
                   className="w-full bg-gradient-to-r from-[#F59B1B] to-orange-500 hover:from-orange-500 hover:to-[#F59B1B] text-white font-semibold rounded-full shadow-lg shadow-[#F59B1B]/25 transition-all duration-300"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => {
+                    // 1. Prevent the link from navigating immediately
+                    e.preventDefault();
+                    // 2. Close the menu
+                    setIsMenuOpen(false);
+                    // 3. Call your tracking and navigation function
+                    handleTrackingAndNavigate(
+                      "Prueba Gratis Navbar",
+                      "https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56"
+                    );
+                  }}
                 >
-                  <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">Comenzar Gratis</a>
+                  <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">
+                    Comenzar Gratis
+                  </a>
                 </Button>
                 <Button
                   asChild

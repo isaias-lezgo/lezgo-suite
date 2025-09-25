@@ -3,9 +3,19 @@ import Link from "next/link"
 import { Button } from "./ui/button"
 import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
+import { track } from "@vercel/analytics"
 
 export default function Footer() {
-
+  const handleTrackingAndNavigate = (eventName: string, link: string, params?: Record<string, any>) => {
+    // Vercel Analytics
+    track(eventName, params);
+    
+    // Facebook Pixel
+    if (typeof (window as any).fbq === "function") {
+      (window as any).fbq("trackCustom", eventName, params);
+    }
+  };
+  
   return (
     <footer className="bg-[#081737] text-white">
       <section className="py-24 bg-gradient-to-br from-[#F59B1B] to-orange-600 relative overflow-hidden">
@@ -32,6 +42,12 @@ export default function Footer() {
                 asChild
                 size="lg"
                 className="bg-white text-[#F59B1B] hover:bg-orange-50 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                onClick={() =>
+                  handleTrackingAndNavigate(
+                    "Prueba Gratis Footer",
+                    "https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
+                  )
+                }
               >
                 <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56" target="_blank" rel="noopener noreferrer">
                   Comenzar Prueba Gratuita
@@ -41,14 +57,19 @@ export default function Footer() {
 
 
 
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-[#F59B1B] px-8 py-4 text-lg font-semibold transition-all duration-300 bg-transparent"
-              >
-                <a href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite" target="_blank" rel="noopener noreferrer">
-                  Habla con un especialista
+              <Button asChild variant="outline"
+                onClick={() =>
+                  handleTrackingAndNavigate(
+                    "Demo Footer",
+                    "https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
+                  )
+                }>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
+                >
+                  Agenda una llamada con un especialista
                 </a>
               </Button>
 

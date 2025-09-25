@@ -1,4 +1,5 @@
 'use client'
+import { track } from "@vercel/analytics";
 import React from "react";
 
 const FloatingWhatsApp = () => {
@@ -7,6 +8,7 @@ const FloatingWhatsApp = () => {
     "¡Hola! Me interesa más información de Lezgo Suite. Vengo de la Página Web.";
 
   const handleWhatsAppClick = () => {
+    track("Botón Whatsapp Página");
     // 1. Trigger the Facebook Pixel event
     // Using 'as any' to bypass the TypeScript error for window.fbq
     if (typeof (window as any).fbq === 'function') {
