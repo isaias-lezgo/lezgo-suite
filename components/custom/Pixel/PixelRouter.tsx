@@ -1,27 +1,30 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+'use client'
+import { useEffect, useRef } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 const PixelRouter = () => {
-  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const initialized = useRef(false);
 
   useEffect(() => {
-    // Function to handle the page view event
+    // Skip the initial page load
+    if (!initialized.current) {
+      initialized.current = true;
+      return;
+    }
+
+    // Function to handle the page view event on route changes
     const handleRouteChange = () => {
       // Check if the fbq function exists before calling it
-      // Using 'as any' to bypass TypeScript error
       if (typeof (window as any).fbq === 'function') {
         (window as any).fbq('track', 'PageView');
       }
     };
 
-    // Listen for route changes
-    router.events.on('routeChangeComplete', handleRouteChange);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
-  }, [router.events]);
+    // Track page view only on route changes (not initial load)
+    handleRouteChange();
+  }, [pathname, searchParams]);
 
   return null; // This component doesn't render anything
 };
