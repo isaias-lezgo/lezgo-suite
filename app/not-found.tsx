@@ -4,7 +4,7 @@ import { ArrowLeft, Home, Mail, Phone, Search } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
-const NotFound = () => {
+export default function NotFound() {
     return (
         <main className="max-w-7xl mx-auto px-6 py-20">
             <div className="text-center">
@@ -75,4 +75,3 @@ const NotFound = () => {
     )
 }
 
-export default NotFound

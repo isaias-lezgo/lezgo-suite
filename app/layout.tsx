@@ -10,6 +10,7 @@ import FloatingWhatsApp from "@/components/custom/FloatingWhatsapp"
 import Script from "next/script"
 import PixelPrincipal from "@/components/custom/Pixel/PixelPrincipal"
 import PixelRouter from "@/components/custom/Pixel/PixelRouter" // Corrected import path
+import { Suspense } from "react"
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -42,7 +43,9 @@ export default function RootLayout({
     <html lang="es" className={`${dmSans.variable} ${spaceGrotesk.variable}`}>
       <body>
         <PixelPrincipal />
-        <PixelRouter />
+        <Suspense>
+          <PixelRouter />
+        </Suspense>
         <Navbar />
         <main className="pt-16">
           {children}
