@@ -1,7 +1,6 @@
-"use client"
 
+'use client'
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
@@ -11,70 +10,31 @@ import {
   CheckCircle,
   Star,
   Play,
-  ArrowRight,
   Building2,
-  TrendingUp,
   Target,
   Workflow,
-  ChevronDown,
   Menu,
   X,
   MessageCircle,
 } from "lucide-react"
-import { useState } from "react"
-import Link from "next/link"
 import Image from "next/image"
 
-
-const ButtonDemo = () => {
-  return (
-    <div>page</div>
-  )
-}
-const ButtonLezgoTODOS = () => {
-  return (
-    <div>page</div>
-  )
-}
-const ButtonLezgoPro = () => {
-  return (
-    <div>page</div>
-  )
-}
-const ButtonLezgoGrowth = () => {
-  return (
-    <div>page</div>
-  )
-}
-const ButtonLezgoElite = () => {
-  return (
-    <div>page</div>
-  )
-}
-
+// Import the new, centralized button components
+import {
+  HeroButtons,
+  ExploreFeatureButton,
+  PricingButton,
+  ContactSpecialistButton,
+  FaqToggleButton,
+} from "@/components/custom/BotonesLanding" // Adjust the import path as needed
+import { FaqSection } from "./landing/FAQ"
 
 export default function LandingPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null)
-
-  // Función para manejar el clic y el evento del píxel
-  const handleButtonClickPagos = (planName: string, link: string) => {
-    // 1. Envía el evento personalizado al píxel
-    if (typeof (window as any).fbq === 'function') {
-      (window as any).fbq('trackCustom', 'Initiate_Payment', {
-        plan_name: planName
-      });
-    }
-
-    // 2. Redirige al usuario al enlace de pago
-    window.open(link, "_blank");
-  };
-
-
+ 
   return (
     <div className="relative overflow-hidden pt-8">
       <div className="fixed inset-0 pointer-events-none">
         {/* Floating background elements */}
-
         <div className="hidden lg:block">
           <motion.div
             className="absolute w-[80%] h-[80%] bg-gradient-to-br blur-3xl from-orange-200 via-[#F59B1B] to-orange-400/50 opacity-5 rounded-2xl"
@@ -91,27 +51,74 @@ export default function LandingPage() {
             }}
           />
 
-
-
           {/* Floating particles */}
           {[
-            { left: 20, top: 30, duration: 3.2, delay: 0.5, size: 'w-3 h-3', color: 'bg-amber-400', blur: false },
-            { left: 80, top: 15, duration: 4.1, delay: 1.2, size: 'w-2 h-2', color: 'bg-orange-300', blur: true },
-            { left: 45, top: 70, duration: 3.8, delay: 0.8, size: 'w-4 h-4', color: 'bg-yellow-400', blur: false },
-            { left: 90, top: 85, duration: 3.5, delay: 1.5, size: 'w-1.5 h-1.5', color: 'bg-amber-500', blur: true },
-            { left: 15, top: 60, duration: 4.3, delay: 0.3, size: 'w-3 h-3', color: 'bg-orange-400', blur: false },
-            { left: 70, top: 40, duration: 3.9, delay: 1.0, size: 'w-2.5 h-2.5', color: 'bg-yellow-300', blur: true },
+            {
+              left: 20,
+              top: 30,
+              duration: 3.2,
+              delay: 0.5,
+              size: "w-3 h-3",
+              color: "bg-amber-400",
+              blur: false,
+            },
+            {
+              left: 80,
+              top: 15,
+              duration: 4.1,
+              delay: 1.2,
+              size: "w-2 h-2",
+              color: "bg-orange-300",
+              blur: true,
+            },
+            {
+              left: 45,
+              top: 70,
+              duration: 3.8,
+              delay: 0.8,
+              size: "w-4 h-4",
+              color: "bg-yellow-400",
+              blur: false,
+            },
+            {
+              left: 90,
+              top: 85,
+              duration: 3.5,
+              delay: 1.5,
+              size: "w-1.5 h-1.5",
+              color: "bg-amber-500",
+              blur: true,
+            },
+            {
+              left: 15,
+              top: 60,
+              duration: 4.3,
+              delay: 0.3,
+              size: "w-3 h-3",
+              color: "bg-orange-400",
+              blur: false,
+            },
+            {
+              left: 70,
+              top: 40,
+              duration: 3.9,
+              delay: 1.0,
+              size: "w-2.5 h-2.5",
+              color: "bg-yellow-300",
+              blur: true,
+            },
           ].map((particle, i) => (
             <motion.div
               key={i}
-              className={`absolute ${particle.size} ${particle.color} rounded-full ${particle.blur ? 'blur-[10px]' : 'blur-[0px]'
-                }`}
+              className={`absolute ${particle.size} ${
+                particle.color
+              } rounded-full ${particle.blur ? "blur-[10px]" : "blur-[0px]"}`}
               style={{
                 left: `${particle.left}%`,
                 top: `${particle.top}%`,
                 boxShadow: particle.blur
-                  ? '0 0 20px rgba(245, 155, 27, 0.3)'
-                  : '0 0 10px rgba(245, 155, 27, 0.2)',
+                  ? "0 0 20px rgba(245, 155, 27, 0.3)"
+                  : "0 0 10px rgba(245, 155, 27, 0.2)",
               }}
               animate={{
                 y: [0, -30, 0],
@@ -131,8 +138,6 @@ export default function LandingPage() {
       </div>
       {/* Content with relative positioning */}
       <div className="relative">
-
-
         {/* Hero Section */}
         <section className="min-h-[90vh] flex items-center justify-center">
           <div className="container mx-auto whitespace-normal px-4 flex flex-col lg:flex-row gap-12 items-center">
@@ -140,7 +145,7 @@ export default function LandingPage() {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              style={{ willChange: 'transform, opacity' }}
+              style={{ willChange: "transform, opacity" }}
               className="space-y-6 sm:space-y-8 lg:space-y-10"
             >
               <div className="space-y-3 sm:space-y-4">
@@ -152,7 +157,7 @@ export default function LandingPage() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className="relative px-4 md: block"
-                  style={{ willChange: 'transform, opacity' }}
+                  style={{ willChange: "transform, opacity" }}
                 >
                   {/* Video Movil */}
                   <div className="aspect-video bg-gradient-to-br lg:hidden from-gray-900 to-gray-800 flex relative rounded-2xl overflow-hidden">
@@ -180,46 +185,39 @@ export default function LandingPage() {
                   <span className="text-black">Completa</span>
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl">
-                  Lezgo Suite revoluciona la gestión empresarial con IA avanzada, automatizaciones inteligentes e integraciones todo-en-uno para empresas que buscan liderar el futuro.
+                  Lezgo Suite revoluciona la gestión empresarial con IA
+                  avanzada, automatizaciones inteligentes e integraciones
+                  todo-en-uno para empresas que buscan liderar el futuro.
                 </p>
               </div>
-              <div className="flex flex-col  gap-3 sm:gap-4 justify-center" >
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-gradient-to-r animate-bounce from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
-                >
-                  <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56" className="flex items-center justify-center">
-                    <span className="text-sm sm:text-base lg:text-lg">Comienza tu prueba de 30 días GRATIS</span>
-                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-[#F59B1B] text-[#F59B1B] hover:bg-[#F59B1B] hover:text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 bg-transparent w-full sm:w-auto"
-                >
-                  <a href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite" className="flex items-center justify-center">
-                    <span className="text-sm sm:text-base lg:text-lg">Habla con un especialista</span>
-                  </a>
-                </Button>
-              </div>
+              <HeroButtons />
               <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-6 sm:gap-8 lg:gap-12 pt-6 sm:pt-8 lg:pt-10">
                 {/* Ahorro de tiempo */}
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F59B1B]">+40%</div>
-                  <div className="text-xs sm:text-sm text-gray-600 max-w-[120px]">Tiempo ahorrado</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F59B1B]">
+                    +40%
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-600 max-w-[120px]">
+                    Tiempo ahorrado
+                  </div>
                 </div>
                 {/* Incremento en ventas */}
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F59B1B]">+60%</div>
-                  <div className="text-xs sm:text-sm text-gray-600 max-w-[120px]">Cierres de ventas</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F59B1B]">
+                    +60%
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-600 max-w-[120px]">
+                    Cierres de ventas
+                  </div>
                 </div>
                 {/* Canales conectados */}
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F59B1B]">10+</div>
-                  <div className="text-xs sm:text-sm text-gray-600 max-w-[120px]">Canales juntos</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F59B1B]">
+                    10+
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-600 max-w-[120px]">
+                    Canales juntos
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -230,7 +228,7 @@ export default function LandingPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative px-4 hidden lg:block"
-              style={{ willChange: 'transform, opacity' }}
+              style={{ willChange: "transform, opacity" }}
             >
               <div className="aspect-video bg-gradient-to-br from-gray-900 to-gray-800 flex relative rounded-2xl overflow-hidden">
                 <video
@@ -259,7 +257,7 @@ export default function LandingPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
               className="text-center mb-16"
-              style={{ willChange: 'transform, opacity' }}
+              style={{ willChange: "transform, opacity" }}
             >
               <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-4 py-2 mb-6">
                 <Building2 className="w-4 h-4 mr-2" />
@@ -273,7 +271,8 @@ export default function LandingPage() {
                 <span className="text-black">para Empresas Modernas</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Descubre cómo Lezgo Suite transforma cada aspecto de tu negocio con tecnología de vanguardia
+                Descubre cómo Lezgo Suite transforma cada aspecto de tu negocio
+                con tecnología de vanguardia
               </p>
             </motion.div>
 
@@ -336,7 +335,7 @@ export default function LandingPage() {
                   viewport={{ once: true }}
                   whileHover={{ y: -8, scale: 1.02 }}
                   className="group relative"
-                  style={{ willChange: 'transform, opacity' }}
+                  style={{ willChange: "transform, opacity" }}
                 >
                   <Card className="h-full bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
                     <div
@@ -360,30 +359,15 @@ export default function LandingPage() {
                             className="flex items-center text-gray-600 group-hover:text-gray-700 transition-colors"
                           >
                             <CheckCircle className="h-4 w-4 text-[#F59B1B] mr-3 flex-shrink-0" />
-                            <span className="text-sm font-medium">{feature}</span>
+                            <span className="text-sm font-medium">
+                              {feature}
+                            </span>
                           </li>
                         ))}
                       </ul>
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5 + item.delay }}
-                        className="mt-6"
-                        style={{ willChange: 'transform, opacity' }}
-                      >
-                        <Link href={item.link}>
-                          <Button
-                            variant="ghost"
-                            className="text-[#F59B1B] cursor-pointer p-0 font-semibold"
-                          >
-                            Explorar más
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </Button>
-                        </Link>
-                      </motion.div>
+                      <ExploreFeatureButton href={item.link} />
                     </CardContent>
                   </Card>
-
                 </motion.div>
               ))}
             </div>
@@ -392,50 +376,52 @@ export default function LandingPage() {
 
         {/* Stats Section */}
         <section className="relative py-8 overflow-hidden">
-          {/* Liquid Glass Gradient Background */}
-          {/* <div className="justify-center h-1 bg-gradient-to-r from-orange-200 via-orange-400 to-orange-600 rounded-full my-8"></div> */}
           <div className="container relative mx-auto px-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
               {[
                 { value: "40+", label: "Clientes Atendidos", delay: 0 },
-                { value: "99.9%", label: "Tiempo de Servicio Activo", delay: 0.1 },
+                {
+                  value: "99.9%",
+                  label: "Tiempo de Servicio Activo",
+                  delay: 0.1,
+                },
                 { value: "400K+", label: "Contactos Procesados", delay: 0.2 },
                 { value: "1000+", label: "Horas Ahorradas", delay: 0.2 },
-
-              ]
-                .map((stat, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: stat.delay }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.08, y: -4 }}
-                    style={{ willChange: 'transform, opacity' }}
-                    className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-2xl border border-white/20 shadow-lg"
-                  >
-                    <div className=" text-4xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#F59B1B] to-orange-600 drop-shadow-md">
-                      {stat.value}
-                    </div>
-                    <div className="mt-2 text-lg font-medium text-gray-800">
-                      {stat.label}
-                    </div>
-                  </motion.div>
-                ))}
+              ].map((stat, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: stat.delay }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.08, y: -4 }}
+                  style={{ willChange: "transform, opacity" }}
+                  className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-2xl border border-white/20 shadow-lg"
+                >
+                  <div className=" text-4xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#F59B1B] to-orange-600 drop-shadow-md">
+                    {stat.value}
+                  </div>
+                  <div className="mt-2 text-lg font-medium text-gray-800">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
-
         </section>
 
-
-        <section id="caracteristicas" className="py-24 relative overflow-hidden">
+        {/* Characteristics Section */}
+        <section
+          id="caracteristicas"
+          className="py-24 relative overflow-hidden"
+        >
           <div className="container mx-auto px-4 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              style={{ willChange: 'transform, opacity' }}
+              style={{ willChange: "transform, opacity" }}
               className="text-center mb-20"
             >
               <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-4 py-2 mb-6">
@@ -450,10 +436,10 @@ export default function LandingPage() {
                 <span className="text-black">Sin Límites</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Descubre las capacidades que hacen de Lezgo Suite la elección preferida de empresas líderes
+                Descubre las capacidades que hacen de Lezgo Suite la elección
+                preferida de empresas líderes
               </p>
             </motion.div>
-
             <div className="space-y-12">
               {[
                 {
@@ -475,7 +461,12 @@ export default function LandingPage() {
                   subtitle: "Ventas Optimizadas",
                   description:
                     "Gestiona el ciclo completo de ventas con IA predictiva. Pipeline inteligente, scoring automático de leads y predicciones ML para cerrar más deals.",
-                  features: ["Pipeline Inteligente", "Lead Scoring IA", "Predicciones ML", "360° Cliente"],
+                  features: [
+                    "Pipeline Inteligente",
+                    "Lead Scoring IA",
+                    "Predicciones ML",
+                    "360° Cliente",
+                  ],
                   image: "/MOCKUP2.png",
                   reverse: true,
                 },
@@ -484,7 +475,12 @@ export default function LandingPage() {
                   subtitle: "Comunicación Inteligente",
                   description:
                     "Integra IA conversacional en todos tus canales de comunicación. Respuestas automáticas inteligentes, chatbots avanzados y atención 24/7 en WhatsApp, Instagram, TikTok y más.",
-                  features: ["WhatsApp Business", "Instagram Direct", "TikTok Messaging", "Chatbots IA"],
+                  features: [
+                    "WhatsApp Business",
+                    "Instagram Direct",
+                    "TikTok Messaging",
+                    "Chatbots IA",
+                  ],
                   image: "/MOCKUP3.jpg",
                   reverse: false,
                 },
@@ -493,7 +489,12 @@ export default function LandingPage() {
                   subtitle: "Ecosistema Conectado",
                   description:
                     "Conecta todas tus herramientas empresariales en un ecosistema unificado. APIs robustas, conectores nativos y sincronización en tiempo real con más de 500 aplicaciones.",
-                  features: ["500+ Integraciones", "APIs Empresariales", "Sync Tiempo Real", "Conectores Nativos"],
+                  features: [
+                    "500+ Integraciones",
+                    "APIs Empresariales",
+                    "Sync Tiempo Real",
+                    "Conectores Nativos",
+                  ],
                   image: "/MOCKUP4.jpg",
                   reverse: true,
                 },
@@ -503,63 +504,85 @@ export default function LandingPage() {
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
-                  style={{ willChange: 'transform, opacity' }}
+                  style={{ willChange: "transform, opacity" }}
                   viewport={{ once: true }}
-                  className={`grid lg:grid-cols-2 gap-16 items-center ${item.reverse ? "lg:grid-flow-col-dense" : ""}`}
+                  className={`grid lg:grid-cols-2 gap-16 items-center ${
+                    item.reverse ? "lg:grid-flow-col-dense" : ""
+                  }`}
                 >
-                  <div className={`space-y-8 ${item.reverse ? "lg:col-start-2" : ""}`}>
+                  <div
+                    className={`space-y-8 ${
+                      item.reverse ? "lg:col-start-2" : ""
+                    }`}
+                  >
                     <div className="space-y-4">
                       <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-3 py-1">
                         {item.subtitle}
                       </Badge>
-                      <h3 className="text-3xl lg:text-4xl font-bold font-heading text-black">{item.title}</h3>
-                      <p className="text-lg text-gray-600 leading-relaxed">{item.description}</p>
+                      <h3 className="text-3xl lg:text-4xl font-bold font-heading text-black">
+                        {item.title}
+                      </h3>
+                      <p className="text-lg text-gray-600 leading-relaxed">
+                        {item.description}
+                      </p>
                     </div>
-
                     <div className="grid grid-cols-2 gap-4">
                       {item.features.map((feature, featureIndex) => (
                         <motion.div
                           key={featureIndex}
                           initial={{ opacity: 0, x: -20 }}
                           whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.5, delay: 0.2 + featureIndex * 0.1 }}
+                          transition={{
+                            duration: 0.5,
+                            delay: 0.2 + featureIndex * 0.1,
+                          }}
                           viewport={{ once: true }}
-                          style={{ willChange: 'transform, opacity' }}
+                          style={{ willChange: "transform, opacity" }}
                           className="flex items-center space-x-3 p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-[#F59B1B]/10"
                         >
                           <CheckCircle className="h-5 w-5 text-[#F59B1B] flex-shrink-0" />
-                          <span className="text-sm font-medium text-black">{feature}</span>
+                          <span className="text-sm font-medium text-black">
+                            {feature}
+                          </span>
                         </motion.div>
                       ))}
                     </div>
-
-                    {/* <Button className="bg-gradient-to-r from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white px-6 py-3 font-semibold">
-                      Explorar Característica
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button> */}
                   </div>
-
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.02 }}
-                    style={{ willChange: 'transform, opacity' }}
-                    className={`relative ${item.reverse ? "lg:col-start-1" : ""}`}
+                    style={{ willChange: "transform, opacity" }}
+                    className={`relative ${
+                      item.reverse ? "lg:col-start-1" : ""
+                    }`}
                   >
-                    <div className={`relative  ${index === 0 || index === 1 ? 'rounded-none' : 'rounded-2xl backdrop-blur-sm bg-white/80 shadow-2xl border border-[#F59B1B]/10'} overflow-hidden `}>
-                      <img src={item.image || "/placeholder.svg"} alt={item.title} className="w-full h-auto" />
-
+                    <div
+                      className={`relative  ${
+                        index === 0 || index === 1
+                          ? "rounded-none"
+                          : "rounded-2xl backdrop-blur-sm bg-white/80 shadow-2xl border border-[#F59B1B]/10"
+                      } overflow-hidden `}
+                    >
+                      <img
+                        src={item.image || "/placeholder.svg"}
+                        alt={item.title}
+                        className="w-full h-auto"
+                      />
                       {index !== 0 && index !== 1 && (
                         <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
                       )}
                     </div>
-
                     <motion.div
                       animate={{ rotate: [0, 360] }}
-                      style={{ willChange: 'transform, opacity' }}
-                      transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                      style={{ willChange: "transform, opacity" }}
+                      transition={{
+                        duration: 20,
+                        repeat: Number.POSITIVE_INFINITY,
+                        ease: "linear",
+                      }}
                       className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-[#F59B1B] to-orange-600 rounded-full opacity-20"
                     />
                   </motion.div>
@@ -569,10 +592,8 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* Pricing Section */}
         <section id="precios" className="py-24 relative">
-
-
-
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -580,7 +601,7 @@ export default function LandingPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
               className="text-center mb-16"
-              style={{ willChange: 'transform, opacity' }}
+              style={{ willChange: "transform, opacity" }}
             >
               <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-4 py-2 mb-6">
                 💰 Planes Empresariales
@@ -596,16 +617,14 @@ export default function LandingPage() {
                 <Image
                   src="/tablafeatures.png"
                   alt="Tabla de Features"
-                  width={800} // set the right width
-                  height={1000} // set the right height
+                  width={800}
+                  height={1000}
                 />
               </div>
-
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Elige el plan que se adapte a las necesidades de tu empresa
               </p>
             </motion.div>
-
 
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {[
@@ -621,7 +640,7 @@ export default function LandingPage() {
                   ],
                   popular: false,
                   color: "border-gray-200",
-                  link: "https://app.lezgosuite.com/payment-link/68b0f4a72ba55c7e86291f58"
+                  link: "https://app.lezgosuite.com/payment-link/68b0f4a72ba55c7e86291f58",
                 },
                 {
                   name: "Lezgo Pro",
@@ -659,7 +678,7 @@ export default function LandingPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  style={{ willChange: 'transform, opacity' }}
+                  style={{ willChange: "transform, opacity" }}
                   className="relative"
                 >
                   {plan.popular && (
@@ -669,20 +688,28 @@ export default function LandingPage() {
                       </Badge>
                     </div>
                   )}
-
                   <Card
-                    className={`h-full bg-white/80 backdrop-blur-sm border-2 ${plan.color} ${plan.popular ? "shadow-2xl scale-105" : "shadow-lg"} hover:shadow-2xl transition-all duration-300`}
+                    className={`h-full bg-white/80 backdrop-blur-sm border-2 ${
+                      plan.color
+                    } ${
+                      plan.popular ? "shadow-2xl scale-105" : "shadow-lg"
+                    } hover:shadow-2xl transition-all duration-300`}
                   >
                     <CardContent className="p-8">
                       <div className="text-center mb-8">
-                        <h3 className="text-2xl font-bold font-heading mb-2 text-black">{plan.name}</h3>
-                        <p className="text-gray-600 mb-4">{plan.description}</p>
+                        <h3 className="text-2xl font-bold font-heading mb-2 text-black">
+                          {plan.name}
+                        </h3>
+                        <p className="text-gray-600 mb-4">
+                          {plan.description}
+                        </p>
                         <div className="mb-6">
-                          <span className="text-4xl font-bold text-[#F59B1B]">{plan.price}</span>
+                          <span className="text-4xl font-bold text-[#F59B1B]">
+                            {plan.price}
+                          </span>
                           <span className="text-gray-600">{plan.period}</span>
                         </div>
                       </div>
-
                       <ul className="space-y-4 mb-8">
                         {plan.features.map((feature, featureIndex) => (
                           <li key={featureIndex} className="flex items-center">
@@ -691,17 +718,7 @@ export default function LandingPage() {
                           </li>
                         ))}
                       </ul>
-
-                      <Button
-                        onClick={() => handleButtonClickPagos(plan.name, plan.link)}
-                        className={`w-full ${plan.popular
-                          ? "bg-gradient-to-r from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white"
-                          : "border-2 border-[#F59B1B] text-[#F59B1B] hover:bg-[#F59B1B] hover:text-white"
-                          } font-semibold py-3 transition-all duration-300`}
-                        variant={plan.popular ? "default" : "outline"}
-                      >
-                        Comenzar Ahora
-                      </Button>
+                      <PricingButton plan={plan} />
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -710,24 +727,22 @@ export default function LandingPage() {
             {/*seccion onboarding, etc*/}
             <div className="mt-8 p-8 ">
               <div className="text-center">
-                <h3 className="font-semibold text-gray-900 mb-3">Todo plan incluye:</h3>
-
+                <h3 className="font-semibold text-gray-900 mb-3">
+                  Todo plan incluye:
+                </h3>
                 <div className="space-y-3 text-sm text-gray-700">
                   <div className="flex items-center justify-center space-x-2">
                     <Users className="w-4 h-4 text-orange-500 flex-shrink-0" />
                     <span>Sesión de onboarding personalizada</span>
                   </div>
-
                   <div className="flex items-center justify-center space-x-2">
                     <Play className="w-4 h-4 text-orange-500 flex-shrink-0" />
                     <span>Acceso a comunidad con video tutoriales</span>
                   </div>
-
                   <div className="flex items-center justify-center space-x-2">
                     <MessageCircle className="w-4 h-4 text-orange-500 flex-shrink-0" />
                     <span>Soporte a través de WhatsApp</span>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -735,22 +750,27 @@ export default function LandingPage() {
             <div className="flex flex-col gap-4 items-center justify-center py-12">
               <div className="">
                 <div className="w-24 h-24 bg-gradient-to-br from-[#F59B1B] to-orange-500 rounded-full mx-auto flex items-center justify-center shadow-lg">
-                  <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  <svg
+                    className="w-12 h-12 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                    />
                   </svg>
                 </div>
               </div>
               <p className="text-gray-700 font-medium text-4xl mb-2">
                 ¿Tienes dudas?
               </p>
-              <Button asChild variant="secondary" className="animate-bounce">
-                <a target="_blank" rel="noopener noreferrer" href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite">
-                  Agenda una llamada con un especialista
-                </a>
-              </Button>
+              <ContactSpecialistButton />
             </div>
             <div className="justify-center h-1 bg-gradient-to-r from-orange-200 via-orange-400 to-orange-600 rounded-full my-8"></div>
-
           </div>
         </section>
 
@@ -763,7 +783,7 @@ export default function LandingPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
               className="text-center lg:mb-16"
-              style={{ willChange: 'transform, opacity' }}
+              style={{ willChange: "transform, opacity" }}
             >
               <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-6 py-3 mb-8 text-sm font-semibold shadow-lg">
                 ⭐ Testimonios Empresariales
@@ -776,7 +796,8 @@ export default function LandingPage() {
                 <span className="text-black">en Lezgo Suite</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Empresas líderes han transformado sus operaciones con resultados extraordinarios
+                Empresas líderes han transformado sus operaciones con
+                resultados extraordinarios
               </p>
             </motion.div>
 
@@ -792,11 +813,10 @@ export default function LandingPage() {
                 />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-
-
                 {[
                   {
-                    quote: "Lezgo Suite transformó completamente nuestra operación. El ROI fue del 340% en el primer año.",
+                    quote:
+                      "Lezgo Suite transformó completamente nuestra operación. El ROI fue del 340% en el primer año.",
                     author: "Jerry Medina",
                     position: "Dueño",
                     company: "Soy Jerry Medina",
@@ -805,15 +825,17 @@ export default function LandingPage() {
                   },
 
                   {
-                    "quote": "Con Lezgo Suite logramos organizar nuestros procesos y escalar más rápido de lo esperado. La eficiencia en el equipo mejoró un 70%.",
-                    "author": "Evelyn",
-                    "position": "Directora de Operaciones",
-                    "company": "Yconia",
-                    "rating": 5,
-                    "highlight": "70% más eficiencia"
+                    quote:
+                      "Con Lezgo Suite logramos organizar nuestros procesos y escalar más rápido de lo esperado. La eficiencia en el equipo mejoró un 70%.",
+                    author: "Evelyn",
+                    position: "Directora de Operaciones",
+                    company: "Yconia",
+                    rating: 5,
+                    highlight: "70% más eficiencia",
                   },
                   {
-                    quote: "La automatización IA nos permitió escalar 10x sin aumentar el equipo. Increíble plataforma.",
+                    quote:
+                      "La automatización IA nos permitió escalar 10x sin aumentar el equipo. Increíble plataforma.",
                     author: "Fernanda Villafana",
                     position: "Directora de Operaciones",
                     company: "Tiempo Cero",
@@ -821,7 +843,8 @@ export default function LandingPage() {
                     highlight: "10x Escalabilidad",
                   },
                   {
-                    quote: "Implementación perfecta y soporte excepcional. Nuestra productividad aumentó 250% en 6 meses.",
+                    quote:
+                      "Implementación perfecta y soporte excepcional. Nuestra productividad aumentó 250% en 6 meses.",
                     author: "Líder de Ventas",
                     position: "VP de Ventas",
                     company: "Cellarium",
@@ -836,15 +859,12 @@ export default function LandingPage() {
                     transition={{ duration: 0.6, delay: index * 0.15 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -8, scale: 1.03 }}
-                    style={{ willChange: 'transform, opacity' }}
+                    style={{ willChange: "transform, opacity" }}
                     className="group"
                   >
                     <Card className="h-full bg-white/90 backdrop-blur-lg border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden group-hover:border-[#F59B1B]/30">
                       <CardContent className="p-8 relative">
-                        {/* Decorative gradient overlay */}
                         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#F59B1B] to-orange-600"></div>
-
-                        {/* Rating Stars */}
                         <div className="flex mb-6 justify-center">
                           {[...Array(testimonial.rating)].map((_, i) => (
                             <Star
@@ -853,31 +873,31 @@ export default function LandingPage() {
                             />
                           ))}
                         </div>
-
-                        {/* Highlight Badge */}
                         <div className="text-center mb-4">
                           <span className="inline-block bg-gradient-to-r from-[#F59B1B]/10 to-orange-600/10 text-[#F59B1B] px-4 py-2 rounded-full text-sm font-bold border border-[#F59B1B]/20">
                             {testimonial.highlight}
                           </span>
                         </div>
-
-                        {/* Quote */}
                         <blockquote className="text-gray-700 mb-8 italic leading-relaxed text-center relative">
-                          <span className="text-4xl text-[#F59B1B]/30 absolute -top-2 -left-2">"</span>
+                          <span className="text-4xl text-[#F59B1B]/30 absolute -top-2 -left-2">
+                            "
+                          </span>
                           {testimonial.quote}
-                          <span className="text-4xl text-[#F59B1B]/30 absolute -bottom-4 -right-2">"</span>
+                          <span className="text-4xl text-[#F59B1B]/30 absolute -bottom-4 -right-2">
+                            "
+                          </span>
                         </blockquote>
-
-                        {/* Author Info */}
                         <div className="text-center border-t border-gray-100 pt-6">
-                          <div className="font-bold text-black text-lg mb-1">{testimonial.author}</div>
-                          <div className="text-sm text-gray-600 mb-2">{testimonial.position}</div>
+                          <div className="font-bold text-black text-lg mb-1">
+                            {testimonial.author}
+                          </div>
+                          <div className="text-sm text-gray-600 mb-2">
+                            {testimonial.position}
+                          </div>
                           <div className="text-sm text-[#F59B1B] font-semibold bg-gradient-to-r from-[#F59B1B]/10 to-orange-600/10 px-3 py-1 rounded-full inline-block">
                             {testimonial.company}
                           </div>
                         </div>
-
-                        {/* Decorative background pattern */}
                         <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#F59B1B]/5 to-orange-600/5 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-700"></div>
                       </CardContent>
                     </Card>
@@ -885,97 +905,13 @@ export default function LandingPage() {
                 ))}
               </div>
             </div>
-
           </div>
-
-          {/* Background decorative elements */}
           <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-[#F59B1B]/5 to-orange-600/5 rounded-full -translate-x-32 -translate-y-32"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-[#F59B1B]/5 to-orange-600/5 rounded-full translate-x-48 translate-y-48"></div>
         </section>
 
-        {/* FAQ Section */}
-        <section id="faq" className="py-24 relative">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-              style={{ willChange: 'transform, opacity' }}
-            >
-              <Badge className="bg-gradient-to-r from-[#F59B1B] to-orange-600 text-white px-4 py-2 mb-6">
-                ❓ Preguntas Frecuentes
-              </Badge>
-              <h2 className="text-4xl lg:text-5xl font-bold font-heading mb-6">
-                <span className="bg-gradient-to-r from-[#F59B1B] to-orange-600 bg-clip-text text-transparent">
-                  Resolvemos
-                </span>
-                <br />
-                <span className="text-black">tus Dudas</span>
-              </h2>
-            </motion.div>
-
-            <div className="space-y-4">
-              {[
-
-                {
-                  question: "¿Cómo garantizan la seguridad de nuestros datos?",
-                  answer:
-                    "Utilizamos encriptación AES-256, certificación ISO 27001, servidores en múltiples regiones, backups automáticos y cumplimos con GDPR y regulaciones locales de protección de datos.",
-                },
-                {
-                  question: "¿Puedo integrar Lezgo Suite con nuestros sistemas actuales?",
-                  answer:
-                    "Sí, ofrecemos más de 500 integraciones nativas y APIs robustas. Nuestro equipo técnico asegura una integración perfecta con ERP, contabilidad, marketing y otras herramientas empresariales.",
-                },
-
-                {
-                  question: "¿Cómo funciona la escalabilidad de la plataforma?",
-                  answer:
-                    "La plataforma escala automáticamente según tus necesidades. Desde equipos pequeños hasta organizaciones con miles de usuarios, sin límites de almacenamiento o procesamiento.",
-                },
-              ].map((faq, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  style={{ willChange: 'transform, opacity' }}
-                >
-                  <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-                    <CardContent className="p-0">
-                      <button
-                        className="w-full p-6 text-left flex items-center justify-between hover:bg-[#F59B1B]/5 transition-colors"
-                        onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                      >
-                        <span className="font-semibold text-black text-lg">{faq.question}</span>
-                        <motion.div animate={{ rotate: openFaq === index ? 180 : 0 }} transition={{ duration: 0.2 }}>
-                          <ChevronDown className="h-5 w-5 text-[#F59B1B]" />
-                        </motion.div>
-                      </button>
-
-                      <motion.div
-                        initial={false}
-                        animate={{ height: openFaq === index ? "auto" : 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
-                        style={{ willChange: 'transform, opacity' }}
-                      >
-                        <div className="p-6 pt-0 text-gray-600 leading-relaxed">{faq.answer}</div>
-                      </motion.div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-
-
-      </div >
-    </div >
+       <FaqSection />
+      </div>
+    </div>
   )
 }
