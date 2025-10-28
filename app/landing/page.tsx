@@ -1,157 +1,100 @@
+import { Metadata } from 'next'
+import LandingPageContent from './LandingPageContent'
 
-'use client'
-import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import {
-  Users,
-  BarChart3,
-  Zap,
-  CheckCircle,
-  Star,
-  Play,
-  Building2,
-  Target,
-  Workflow,
-  Menu,
-  X,
-  MessageCircle,
-  Rocket,
-  TrendingUp,
-  Settings,
-  Link2,
-  MessageSquare,
-} from "lucide-react"
-import Image from "next/image"
+// SEO Metadata
+export const metadata: Metadata = {
+  title: 'Lezgo Suite | Solución Empresarial de Automatización',
+  description: 'Optimiza tu negocio con Lezgo Suite. Gestión de equipos, análisis avanzado y flujos de trabajo inteligentes para impulsar tu crecimiento.',
+  keywords: [
+    'automatización empresarial',
+    'gestión de equipos',
+    'análisis de datos',
+    'flujos de trabajo',
+    'productividad empresarial',
+    'software de negocios',
+    'CRM',
+    'gestión de proyectos'
+  ],
+  authors: [{ name: 'Lezgo Suite' }],
+  creator: 'Lezgo Suite',
+  publisher: 'Lezgo Suite',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://www.lezgosuite.com'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Lezgo Suite | La Suite Empresarial Que Transforma Organizaciones',
+    description: 'Optimiza tu negocio con Lezgo Suite. Gestión de equipos, análisis avanzado y flujos de trabajo inteligentes.',
+    url: 'https://www.lezgosuite.com',
+    siteName: 'Lezgo Suite',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Lezgo Suite - Automatización Empresarial',
+      },
+    ],
+    locale: 'es_MX',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Lezgo Suite | Solución Empresarial de Automatización',
+    description: 'Optimiza tu negocio con Lezgo Suite. Gestión de equipos, análisis avanzado y flujos de trabajo.',
+    images: ['/twitter-image.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+}
 
-// Import the new, centralized button components
-import {
-  HeroButtons,
-  ExploreFeatureButton,
-  PricingButton,
-  ContactSpecialistButton,
-  FaqToggleButton,
-} from "@/components/custom/BotonesLanding" // Adjust the import path as needed
-import { FaqSection } from "./FAQ"
-import { Button } from "@/components/ui/button"
-import HeroSection from "./Hero"
-import Funcionalidades from "./Funcionalidades"
-import Precios from "./Precios"
-import Pasos from "./Pasos"
+// JSON-LD Structured Data
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Lezgo Suite',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web Browser',
+  description: 'Plataforma de automatización empresarial para gestión de equipos, análisis de datos y optimización de flujos de trabajo.',
+}
+
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Lezgo Suite',
+  url: 'https://www.lezgosuite.com',
+  logo: 'https://www.lezgosuite.com/logo.png',
+}
 
 export default function LandingPage() {
-
   return (
-    <div className="relative overflow-hidden pt-8">
-      <div className="fixed inset-0 pointer-events-none">
-        {/* Floating background elements */}
-        <div className="hidden lg:block">
-          <motion.div
-            className="absolute w-[80%] h-[80%] bg-gradient-to-br blur-3xl from-orange-200 via-[#F59B1B] to-orange-400/50 opacity-5 rounded-2xl"
-            animate={{
-              x: [-200, -120, 80, -60, 100, 200, -80, -120, -200],
-              y: [50, -50, 80, -200, 60],
-              scale: [1, 1.1, 0.95, 1.05, 1],
-              opacity: [0.15, 0.25, 0.2, 0.3, 0.18],
-            }}
-            transition={{
-              duration: 27,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-
-          {/* Floating particles */}
-          {[
-            {
-              left: 20,
-              top: 30,
-              duration: 3.2,
-              delay: 0.5,
-              size: "w-3 h-3",
-              color: "bg-amber-400",
-              blur: false,
-            },
-            {
-              left: 80,
-              top: 15,
-              duration: 4.1,
-              delay: 1.2,
-              size: "w-2 h-2",
-              color: "bg-orange-300",
-              blur: true,
-            },
-            {
-              left: 45,
-              top: 70,
-              duration: 3.8,
-              delay: 0.8,
-              size: "w-4 h-4",
-              color: "bg-yellow-400",
-              blur: false,
-            },
-            {
-              left: 90,
-              top: 85,
-              duration: 3.5,
-              delay: 1.5,
-              size: "w-1.5 h-1.5",
-              color: "bg-amber-500",
-              blur: true,
-            },
-            {
-              left: 15,
-              top: 60,
-              duration: 4.3,
-              delay: 0.3,
-              size: "w-3 h-3",
-              color: "bg-orange-400",
-              blur: false,
-            },
-            {
-              left: 70,
-              top: 40,
-              duration: 3.9,
-              delay: 1.0,
-              size: "w-2.5 h-2.5",
-              color: "bg-yellow-300",
-              blur: true,
-            },
-          ].map((particle, i) => (
-            <motion.div
-              key={i}
-              className={`absolute ${particle.size} ${particle.color
-                } rounded-full ${particle.blur ? "blur-[10px]" : "blur-[0px]"}`}
-              style={{
-                left: `${particle.left}%`,
-                top: `${particle.top}%`,
-                boxShadow: particle.blur
-                  ? "0 0 20px rgba(245, 155, 27, 0.3)"
-                  : "0 0 10px rgba(245, 155, 27, 0.2)",
-              }}
-              animate={{
-                y: [0, -30, 0],
-                x: [0, Math.sin(i) * 15, 0],
-                opacity: [0.3, 1, 0.3],
-                scale: [0.8, 1.2, 0.8],
-              }}
-              transition={{
-                duration: particle.duration,
-                repeat: Infinity,
-                delay: particle.delay,
-                ease: "easeInOut",
-              }}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div className="relative">
-        <HeroSection />
-        <Funcionalidades />
-        <Pasos />
-        <Precios />
-      </div>
-    </div>
+    <>
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
+      
+      {/* Main Content */}
+      <LandingPageContent />
+    </>
   )
 }
