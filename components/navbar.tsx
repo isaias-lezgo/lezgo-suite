@@ -40,7 +40,7 @@ export default function Navbar() {
                 <img
                   src="/LOGONUEVO.png"
                   alt="Lezgo Suite"
-                  className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+                  className="h-auto w-auto max-w-[56px] max-h-[48px] transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-[#F59B1B]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
               </div>
@@ -48,7 +48,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation - now activates at the 'lg' breakpoint */}
-          <div className="hidden lg:flex items-center space-x-10">
+          <div className="hidden lg:flex items-center md:space-x-10 space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -124,6 +124,7 @@ export default function Navbar() {
                 Contacto
               </Link>
 
+              
               <div className="pt-5 border-t border-white/10 flex flex-col space-y-4">
                 <Button
                   asChild
