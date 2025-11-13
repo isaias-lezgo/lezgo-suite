@@ -3,7 +3,7 @@ import { track } from "@vercel/analytics";
 import React from "react";
 
 const FloatingWhatsApp = () => {
-  const phoneNumber = "5214424547818";
+  const phoneNumber = "5214426702559";
   const message =
     "¡Hola! Me interesa más información de Lezgo Suite. Vengo de la Página Web.";
 
