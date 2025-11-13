@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Script from 'next/script'
 import LandingPageContent from './LandingPageContent'
 
 // SEO Metadata
@@ -84,11 +85,13 @@ export default function LandingPage() {
   return (
     <>
       {/* JSON-LD Structured Data */}
-      <script
+      <Script
+        id="software-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <script
+      <Script
+        id="organization-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />

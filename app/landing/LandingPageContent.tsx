@@ -33,7 +33,7 @@ import {
   FaqToggleButton,
 } from "@/components/custom/BotonesLanding" // Adjust the import path as needed
 import { FaqSection } from "./FAQ"
-import { Button } from "@/components/ui/button"
+
 import HeroSection from "./Hero"
 import Funcionalidades from "./Funcionalidades"
 import Precios from "./Precios"
