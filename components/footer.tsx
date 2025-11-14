@@ -103,7 +103,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/#caracteristicas" className="hover:text-white transition-colors">
-                  Carácteristicas
+                  Características
                 </Link>
               </li>
               <li>
