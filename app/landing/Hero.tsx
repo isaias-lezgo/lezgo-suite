@@ -48,7 +48,7 @@ const HeroSection = () => {
                 <span className="text-black">implementado con IA</span>
               </h1>
               <p className="text-center lg:text-left sm:text-lg lg:text-xl text-gray-600 leading-relaxed">
-                Estás a un clic de probar Lezgo Suite, la plataforma todo en uno de marketing digital y ventas que te ayudará a crecer tu negecio y tus ventas de manera acelerada
+                Estás a un clic de probar Lezgo Suite, la plataforma todo en uno de marketing digital y ventas que te ayudará a crecer tu negocio y tus ventas de manera acelerada
               </p>
             </div>
           </div>
