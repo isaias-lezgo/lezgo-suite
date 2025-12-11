@@ -50,7 +50,7 @@ export default function ContactPage() {
 
     try {
       // Webhook URL - replace with your actual webhook endpoint
-      const webhookUrl = "https://hook.us1.make.com/18p4tna5wx6g3qfhj7du7q7k1inouh2g"
+      const webhookUrl = "https://hook.us1.make.com/2awdberglvsm3jwv411t7sm9qft4ay9e"
       const response = await fetch(webhookUrl, {
         method: "POST",
         headers: {

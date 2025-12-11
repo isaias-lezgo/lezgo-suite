@@ -158,7 +158,7 @@ export default function GestionVentasPage() {
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               Transforma tu proceso de ventas con herramientas inteligentes que automatizan tareas repetitivas y te
-              ayudan a cerrar más deals en menos tiempo.
+              ayudan a cerrar más ventas en menos tiempo.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild className="bg-[#F59B1B] hover:bg-[#E8890B] text-white px-8 py-3 text-lg">
