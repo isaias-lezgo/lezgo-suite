@@ -175,7 +175,7 @@ export default function LandingPage() {
                     </video>
                   </div>
                 </motion.div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-heading leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-heading leading-tight sm:text-center md:text-justify">
                   <span className="bg-gradient-to-r from-[#F59B1B] to-orange-600 bg-clip-text text-transparent">
                     Transformación
                   </span>
@@ -184,7 +184,7 @@ export default function LandingPage() {
                   <br />
                   <span className="text-black">Completa</span>
                 </h1>
-                <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl">
+                <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl sm:text-center md:text-justify">
                   Lezgo Suite revoluciona la gestión empresarial con IA
                   avanzada, automatizaciones inteligentes e integraciones
                   todo-en-uno para empresas que buscan liderar el futuro.
@@ -630,7 +630,7 @@ export default function LandingPage() {
               {[
                 {
                   name: "Lezgo Growth",
-                  price: "$197 USD",
+                  price: "$207 USD",
                   period: "/mes",
                   description: "Perfecto para equipos pequeños",
                   features: [
@@ -644,7 +644,7 @@ export default function LandingPage() {
                 },
                 {
                   name: "Lezgo Pro",
-                  price: "$297 USD",
+                  price: "$317 USD",
                   period: "/mes",
                   description: "Ideal para empresas en crecimiento",
                   features: [
@@ -658,7 +658,7 @@ export default function LandingPage() {
                 },
                 {
                   name: "Lezgo Elite",
-                  price: "$497 USD",
+                  price: "$567 USD",
                   period: "/mes",
                   description: "Para grandes organizaciones",
                   features: [
@@ -669,6 +669,7 @@ export default function LandingPage() {
                   link: "https://app.lezgosuite.com/payment-link/68b0f54767ee3baa9068a1de",
                   popular: false,
                   color: "border-gray-200",
+                  note: "Limitado a 20 conexiones por WhatsApp QR",
                 },
               ].map((plan, index) => (
                 <motion.div
@@ -718,11 +719,24 @@ export default function LandingPage() {
                           </li>
                         ))}
                       </ul>
+                      {plan.note && (
+                        <div className="mb-6 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+                          <p className="text-xs text-amber-800 text-center font-medium">
+                            {plan.note}
+                          </p>
+                        </div>
+                      )}
                       <PricingButton plan={plan} />
                     </CardContent>
                   </Card>
                 </motion.div>
               ))}
+            </div>
+            {/* Precio + IVA notice */}
+            <div className="text-center mt-6 mb-4">
+              <p className="text-sm text-gray-600 italic">
+                * Precios + IVA
+              </p>
             </div>
             {/*seccion onboarding, etc*/}
             <div className="mt-8 p-8 ">

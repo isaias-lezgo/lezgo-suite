@@ -39,13 +39,16 @@ const Precios = () => {
         <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
           Elige el plan que se adapte a las necesidades de tu empresa
         </p>
+        <p className="text-sm text-gray-500 mt-4 italic">
+          son precios + IVA
+        </p>
       </motion.div>
 
       <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {[
           {
             name: "Lezgo Growth",
-            price: "$197 USD",
+            price: "$207 Dlls",
             period: "/mes",
             description: "Perfecto para equipos pequeños",
             features: [
@@ -59,7 +62,7 @@ const Precios = () => {
           },
           {
             name: "Lezgo Pro",
-            price: "$297 USD",
+            price: "$317 Dlls",
             period: "/mes",
             description: "Ideal para empresas en crecimiento",
             features: [
@@ -73,7 +76,7 @@ const Precios = () => {
           },
           {
             name: "Lezgo Elite",
-            price: "$497 USD",
+            price: "$567 Dlls",
             period: "/mes",
             description: "Para grandes organizaciones",
             features: [
@@ -81,6 +84,7 @@ const Precios = () => {
               "Usuarios ilímitados",
               "Contactos ilímitados",
             ],
+            note: "Limitado a 20 conexiones por WhatsApp QR",
             link: "https://app.lezgosuite.com/payment-link/68b0f54767ee3baa9068a1de",
             popular: false,
             color: "border-gray-200",
@@ -131,6 +135,13 @@ const Precios = () => {
                     </li>
                   ))}
                 </ul>
+                {plan.note && (
+                  <div className="mb-6 p-3 bg-orange-50 border border-orange-200 rounded-lg">
+                    <p className="text-sm text-orange-800 text-center">
+                      {plan.note}
+                    </p>
+                  </div>
+                )}
                 <PricingButton plan={plan} />
               </CardContent>
             </Card>
