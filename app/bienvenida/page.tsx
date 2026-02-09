@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, ArrowRight, Users, Zap, Target, Gift } from 'lucide-react';
+import { CheckCircle, ArrowRight, Users, Zap, Target, Gift, Link2, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
@@ -138,15 +138,34 @@ export default function BienvenidaPage() {
           <br />
         </h1>
 
-        <iframe
-          src="https://app.lezgosuite.com/widget/booking/AN1LKwpuOmHNHso08b8C"
-          style={{ width: "100%", border: "none", overflow: "hidden" }}
-          scrolling="no"
-          id="xp0MKw05UApkNIuu37jG_1758655720794"
-        />
+        <div className='py-4'>
+
+          <Button
+            asChild
+            size="lg"
+            variant="default"
+            className="bg-gradient-to-r from-[#F59B1B] to-orange-500 hover:from-[#F59B1B] hover:to-orange-600 text-white"
+          >
+            <Link href="https://app.lezgosuite.com/widget/booking/AN1LKwpuOmHNHso08b8C" target="_blank" rel="noopener noreferrer">
+              Agendar sesión
+              <ExternalLink className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+        <div className="w-full min-h-[600px] rounded-lg overflow-hidden">
+          <iframe
+            src="https://app.lezgosuite.com/widget/booking/AN1LKwpuOmHNHso08b8C"
+            title="Agendar sesión de onboarding"
+            className="w-full border-none"
+            style={{ minHeight: "600px", height: "100%" }}
+            id="xp0MKw05UApkNIuu37jG_1758655720794"
+            allow="clipboard-write"
+            loading="lazy"
+          />
+        </div>
         <Script
           src="https://app.lezgosuite.com/js/form_embed.js"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
       </section>
 
