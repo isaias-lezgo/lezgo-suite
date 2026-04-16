@@ -40,7 +40,7 @@ const Precios = () => {
           Elige el plan que se adapte a las necesidades de tu empresa
         </p>
         <p className="text-sm text-gray-500 mt-4 italic">
-          son precios + IVA
+          Precios en pesos mexicanos (MXN) + IVA
         </p>
       </motion.div>
 
@@ -48,7 +48,7 @@ const Precios = () => {
         {[
           {
             name: "Lezgo Growth",
-            price: "$207 Dlls",
+            price: "$3,527",
             period: "/mes",
             description: "Perfecto para equipos pequeños",
             features: [
@@ -58,11 +58,11 @@ const Precios = () => {
             ],
             popular: false,
             color: "border-gray-200",
-            link: "https://app.lezgosuite.com/payment-link/68b0f4a72ba55c7e86291f58",
+            link: "https://app.lezgosuite.com/payment-link/698fa8069577be2fe0b6c9a4",
           },
           {
             name: "Lezgo Pro",
-            price: "$317 Dlls",
+            price: "$5,797",
             period: "/mes",
             description: "Ideal para empresas en crecimiento",
             features: [
@@ -70,13 +70,13 @@ const Precios = () => {
               "Equipo de 10 usuarios",
               "15,000 contactos",
             ],
-            link: "https://app.lezgosuite.com/payment-link/68b0f50d613b1b1360cd8265",
+            link: "https://app.lezgosuite.com/payment-link/69deb4ce557558e89e51fe1d",
             popular: true,
             color: "border-[#F59B1B]",
           },
           {
             name: "Lezgo Elite",
-            price: "$567 Dlls",
+            price: "$10,567",
             period: "/mes",
             description: "Para grandes organizaciones",
             features: [
@@ -85,7 +85,7 @@ const Precios = () => {
               "Contactos ilímitados",
             ],
             note: "Limitado a 20 conexiones por WhatsApp QR",
-            link: "https://app.lezgosuite.com/payment-link/68b0f54767ee3baa9068a1de",
+            link: "https://app.lezgosuite.com/payment-link/69deb5fb80425dc02fbc82e1",
             popular: false,
             color: "border-gray-200",
           },

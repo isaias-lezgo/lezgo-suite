@@ -52,7 +52,9 @@ const HeroSection = () => {
               </p>
             </div>
           </div>
-          <HeroButtons />
+          <div className='display-flex'>
+            <HeroButtons />
+          </div>
         </motion.div>
         {/* Video Compu */}
         <motion.div

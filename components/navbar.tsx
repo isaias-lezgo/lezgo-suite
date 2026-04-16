@@ -72,7 +72,7 @@ export default function Navbar() {
                 className="relative bg-gradient-to-r from-[#F59B1B] to-orange-500 hover:from-orange-500 hover:to-[#F59B1B] text-white font-semibold px-4 xl:px-6 py-2.5 rounded-full shadow-lg shadow-[#F59B1B]/25 hover:shadow-[#F59B1B]/40 transition-all duration-300 transform hover:scale-105 text-sm whitespace-nowrap"
               >
                 <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">
-                  <span className="relative z-10">Comenzar Gratis</span>
+                  <span className="relative z-10">Comenzar ahora</span>
                 </a>
               </Button>
               <Button
@@ -136,13 +136,13 @@ export default function Navbar() {
                     setIsMenuOpen(false);
                     // 3. Call your tracking and navigation function
                     handleTrackingAndNavigate(
-                      "Prueba Gratis Navbar",
+                      "CTA Navbar",
                       "https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56"
                     );
                   }}
                 >
                   <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">
-                    Comenzar Gratis
+                    Comenzar ahora
                   </a>
                 </Button>
                 <Button

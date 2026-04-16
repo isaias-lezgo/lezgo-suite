@@ -44,13 +44,13 @@ export default function Footer() {
                 className="bg-white text-[#F59B1B] hover:bg-orange-50 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={() =>
                   handleTrackingAndNavigate(
-                    "Prueba Gratis Footer",
+                    "CTA Footer",
                     "https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
                   )
                 }
               >
                 <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56" target="_blank" rel="noopener noreferrer">
-                  Comenzar Prueba Gratuita
+                  Comenzar ahora
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>

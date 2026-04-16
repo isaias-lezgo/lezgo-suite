@@ -92,8 +92,8 @@ const Pasos = () => {
         className="text-center mt-12"
       >
         <Button asChild className="bg-gradient-to-r from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white px-8 py-6 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
-          <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56">
-            Actívalo ahora, primer mes gratis
+          <a href="#precios">
+            ¡Empieza ahora!
           </a>
         </Button>
       </motion.div>

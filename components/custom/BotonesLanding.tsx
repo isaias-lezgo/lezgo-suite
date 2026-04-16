@@ -32,20 +32,20 @@ export const HeroButtons = () => {
         size="lg"
         onClick={() => 
           handleTrackingAndNavigate(
-            "Prueba Gratis Hero",
-            "https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56"
+            "CTA Hero",
+            "#precios"
           )
         }
         className="bg-gradient-to-r animate-bounce from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transition-all rounded-4xl duration-300 w-full sm:w-auto"
       >
         <a
-          href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56"
+          href="#precios"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center"
         >
           <span className="text-sm sm:text-base lg:text-lg ">
-            Tu primer mes es gratis
+            Comenzar ahora
           </span>
           <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
         </a>
