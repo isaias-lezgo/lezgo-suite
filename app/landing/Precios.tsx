@@ -62,7 +62,7 @@ const Precios = () => {
           },
           {
             name: "Lezgo Pro",
-            price: "$5,797",
+            price: "$5,397",
             period: "/mes",
             description: "Ideal para empresas en crecimiento",
             features: [
