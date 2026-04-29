@@ -23,7 +23,7 @@ const FloatingWhatsApp = () => {
 
   return (
     <div
-      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 cursor-pointer group"
+      className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 cursor-pointer group"
       onClick={handleWhatsAppClick}
     >
       <div className="relative">
@@ -46,9 +46,9 @@ const FloatingWhatsApp = () => {
         <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20"></div>
 
         {/* Tooltip */}
-        <div className="hidden md:block absolute bottom-full right-0 mb-2 px-2 py-1 md:px-3 md:py-1 xl:px-4 xl:py-2 bg-gray-800 text-white text-xs md:text-sm xl:text-base rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+        <div className="hidden md:block absolute bottom-full left-0 mb-2 px-2 py-1 md:px-3 md:py-1 xl:px-4 xl:py-2 bg-gray-800 text-white text-xs md:text-sm xl:text-base rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
           ¡Chatea con nosotros!
-          <div className="absolute top-full right-2 md:right-4 w-1.5 h-1.5 md:w-2 md:h-2 bg-gray-800 transform rotate-45 translate-y-[-50%]"></div>
+          <div className="absolute top-full left-2 md:left-4 w-1.5 h-1.5 md:w-2 md:h-2 bg-gray-800 transform rotate-45 translate-y-[-50%]"></div>
         </div>
       </div>
     </div>

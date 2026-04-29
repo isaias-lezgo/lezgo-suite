@@ -42,6 +42,13 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${dmSans.variable} ${spaceGrotesk.variable}`}>
       <body>
+        <Script
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="69f26a5a1913345eeb7ba164"
+          data-source="WEB_USER"
+          strategy="afterInteractive"
+        />
         <PixelPrincipal />
         <Suspense>
           <PixelRouter />
@@ -52,6 +59,7 @@ export default function RootLayout({
           <Analytics />
           <SpeedInsights />
           <FloatingWhatsApp />
+          
         </main>
         <Footer />
       </body>
