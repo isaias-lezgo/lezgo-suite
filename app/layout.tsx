@@ -7,10 +7,11 @@ import Footer from "@/components/footer"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import FloatingWhatsApp from "@/components/custom/FloatingWhatsapp"
-import Script from "next/script"
 import PixelPrincipal from "@/components/custom/Pixel/PixelPrincipal"
-import PixelRouter from "@/components/custom/Pixel/PixelRouter" // Corrected import path
+import PixelRouter from "@/components/custom/Pixel/PixelRouter"
 import { Suspense } from "react"
+import { JsonLd } from "@/components/custom/JsonLd"
+import { SITE_CONFIG } from "@/lib/seo"
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -25,13 +26,45 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: "Lezgo Suite - La Suite Empresarial que Transforma Organizaciones",
+  title: {
+    default: "Lezgo Suite — CRM y Automatización Empresarial para México",
+    template: "%s | Lezgo Suite",
+  },
   description:
-    "Potencia tu empresa con la plataforma integral más avanzada del mercado. Gestión completa de CRM, automatización inteligente y analytics empresariales en una sola solución escalable y segura.",
+    "Gestiona ventas, automatiza procesos y conecta todos tus canales con IA. La plataforma empresarial #1 para empresas mexicanas.",
+  metadataBase: new URL("https://www.lezgosuite.com"),
   icons: {
-    icon: '/favicon-32x32.png',
-    apple: '/favicon-32x32.png',
-  }
+    icon: "/favicon-32x32.png",
+    apple: "/favicon-32x32.png",
+  },
+}
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE_CONFIG.name,
+  url: SITE_CONFIG.url,
+  logo: SITE_CONFIG.logoUrl,
+  email: SITE_CONFIG.email,
+  telephone: SITE_CONFIG.telephone,
+}
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: SITE_CONFIG.name,
+  url: SITE_CONFIG.url,
+  telephone: SITE_CONFIG.telephone,
+  email: SITE_CONFIG.email,
+  openingHours: SITE_CONFIG.openingHours,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: SITE_CONFIG.address.streetAddress,
+    addressLocality: SITE_CONFIG.address.addressLocality,
+    addressRegion: SITE_CONFIG.address.addressRegion,
+    postalCode: SITE_CONFIG.address.postalCode,
+    addressCountry: SITE_CONFIG.address.addressCountry,
+  },
 }
 
 export default function RootLayout({
@@ -42,13 +75,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${dmSans.variable} ${spaceGrotesk.variable}`}>
       <body>
-        <Script
-          src="https://widgets.leadconnectorhq.com/loader.js"
-          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="69f26a5a1913345eeb7ba164"
-          data-source="WEB_USER"
-          strategy="afterInteractive"
-        />
+        <JsonLd data={[organizationJsonLd, localBusinessJsonLd]} />
         <PixelPrincipal />
         <Suspense>
           <PixelRouter />
@@ -59,7 +86,6 @@ export default function RootLayout({
           <Analytics />
           <SpeedInsights />
           <FloatingWhatsApp />
-          
         </main>
         <Footer />
       </body>
