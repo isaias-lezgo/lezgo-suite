@@ -70,6 +70,33 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
       {/* ── Body ──────────────────────────────────────────────────────────────── */}
       <div className="max-w-3xl mx-auto px-4 md:px-6 py-10 space-y-6">
 
+        {/* ── Required-reading notice ─────────────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.05 }}
+          className="rounded-2xl border-2 p-6 flex items-start gap-5"
+          style={{ background: 'linear-gradient(135deg, #1B2B4B 0%, #2E5490 100%)', borderColor: '#F59B1B' }}
+        >
+          <div
+            className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
+            style={{ background: 'rgba(245,155,27,.2)', border: '1px solid rgba(245,155,27,.4)' }}
+            aria-hidden="true"
+          >
+            🔒
+          </div>
+          <div>
+            <p className="font-extrabold text-lg leading-snug text-white mb-1">
+              Antes de continuar, lee con atención
+            </p>
+            <p style={{ color: '#93c5fd' }} className="text-sm leading-relaxed">
+              Para poder agendar tu sesión de onboarding deberás leer y confirmar que entiendes
+              las condiciones de tu plan. El calendario se habilitará únicamente una vez que
+              aceptes los términos a continuación.
+            </p>
+          </div>
+        </motion.div>
+
         {/* ── Intro block ─────────────────────────────────────────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
