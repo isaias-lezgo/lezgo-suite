@@ -1,0 +1,79 @@
+<h2>SEO Audit — Lezgo Suite</h2>
+<p class="subtitle">Resultados del análisis con Playwright en todas las páginas del sitio</p>
+
+<div class="section">
+  <span class="label">🔴 Crítico — Impacto Alto</span>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px;">
+    <div style="background:#2a1a1a;border-left:3px solid #ef4444;padding:14px 16px;border-radius:6px;">
+      <strong style="color:#ef4444;">Sin sitemap.xml ni robots.txt</strong>
+      <p style="margin:6px 0 0;color:#aaa;font-size:0.88em;">Google no puede rastrear eficientemente el sitio. No hay archivo <code>sitemap.xml</code> ni <code>robots.txt</code> en <code>/public/</code>.</p>
+    </div>
+    <div style="background:#2a1a1a;border-left:3px solid #ef4444;padding:14px 16px;border-radius:6px;">
+      <strong style="color:#ef4444;">8 páginas sin metadata propia</strong>
+      <p style="margin:6px 0 0;color:#aaa;font-size:0.88em;">
+        <code>/gestion-ventas</code>, <code>/automatizacion-ia</code>, <code>/analisis-empresarial</code>, <code>/integracion-total</code>, <code>/sobre-nosotros</code>, <code>/contacto</code>, <code>/aviso-privacidad</code>, <code>/bienvenida</code> — todas muestran el mismo título genérico de la raíz. Búsquedas específicas no las encontrarán.
+      </p>
+    </div>
+    <div style="background:#2a1a1a;border-left:3px solid #ef4444;padding:14px 16px;border-radius:6px;">
+      <strong style="color:#ef4444;">app/page.tsx usa 'use client' — no puede exportar metadata</strong>
+      <p style="margin:6px 0 0;color:#aaa;font-size:0.88em;">La página principal <code>/</code> hereda metadata del layout global en lugar de tener su propio SEO optimizado. El contenido rico de la landing no está representado en las etiquetas meta.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <span class="label">🟠 Importante — Impacto Medio</span>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px;">
+    <div style="background:#241e10;border-left:3px solid #f97316;padding:14px 16px;border-radius:6px;">
+      <strong style="color:#f97316;">OG image referenciada no existe</strong>
+      <p style="margin:6px 0 0;color:#aaa;font-size:0.88em;"><code>/og-image.jpg</code> y <code>/twitter-image.jpg</code> están en el metadata de <code>/landing/</code> pero no existen en <code>/public/</code>. Links compartidos en redes sociales aparecerán sin imagen.</p>
+    </div>
+    <div style="background:#241e10;border-left:3px solid #f97316;padding:14px 16px;border-radius:6px;">
+      <strong style="color:#f97316;">Sin metadataBase en el layout raíz</strong>
+      <p style="margin:6px 0 0;color:#aaa;font-size:0.88em;"><code>app/layout.tsx</code> no define <code>metadataBase</code>. Next.js no puede construir URLs absolutas para Open Graph correctamente.</p>
+    </div>
+    <div style="background:#241e10;border-left:3px solid #f97316;padding:14px 16px;border-radius:6px;">
+      <strong style="color:#f97316;">JSON-LD solo en /landing/, ninguna otra página</strong>
+      <p style="margin:6px 0 0;color:#aaa;font-size:0.88em;">Los rich results de Google (SoftwareApplication, FAQPage, Organization) solo están en <code>/landing/</code>. Las páginas de funcionalidades no tienen datos estructurados.</p>
+    </div>
+    <div style="background:#241e10;border-left:3px solid #f97316;padding:14px 16px;border-radius:6px;">
+      <strong style="color:#f97316;">Imágenes sin alt text descriptivo</strong>
+      <p style="margin:6px 0 0;color:#aaa;font-size:0.88em;">Múltiples <code>&lt;img&gt;</code> en la landing sin atributo alt, o con alt vacío. Impacta accesibilidad y SEO de imágenes.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <span class="label">🟡 Mejoras — Impacto Bajo–Medio</span>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px;">
+    <div style="background:#1e1e10;border-left:3px solid #eab308;padding:14px 16px;border-radius:6px;">
+      <strong style="color:#eab308;">Keywords genéricas, sin foco local</strong>
+      <p style="margin:6px 0 0;color:#aaa;font-size:0.88em;">Las keywords actuales son amplias ("automatización empresarial", "CRM"). Para México/LATAM habría que agregar términos locales: "software CRM México", "automatización empresarial CDMX".</p>
+    </div>
+    <div style="background:#1e1e10;border-left:3px solid #eab308;padding:14px 16px;border-radius:6px;">
+      <strong style="color:#eab308;">Copyright dice © 2025</strong>
+      <p style="margin:6px 0 0;color:#aaa;font-size:0.88em;">El footer muestra "© 2025 Lezgo Suite" — estamos en 2026. Señal de contenido desactualizado para crawlers.</p>
+    </div>
+    <div style="background:#1e1e10;border-left:3px solid #eab308;padding:14px 16px;border-radius:6px;">
+      <strong style="color:#eab308;">FAQ sin schema FAQPage</strong>
+      <p style="margin:6px 0 0;color:#aaa;font-size:0.88em;">La landing tiene sección de preguntas frecuentes interactiva pero no agrega JSON-LD de tipo <code>FAQPage</code>, perdiendo los rich snippets en resultados de búsqueda.</p>
+    </div>
+    <div style="background:#1e1e10;border-left:3px solid #eab308;padding:14px 16px;border-radius:6px;">
+      <strong style="color:#eab308;">Sin canonical tags en páginas interiores</strong>
+      <p style="margin:6px 0 0;color:#aaa;font-size:0.88em;">Las páginas de funcionalidades no declaran URL canónica, lo que puede causar contenido duplicado si se accede por múltiples rutas.</p>
+    </div>
+  </div>
+</div>
+
+<div style="background:#141a1f;border:1px solid #334;padding:16px;border-radius:8px;margin-top:16px;">
+  <strong style="color:#60a5fa;">✅ Lo que ya está bien</strong>
+  <ul style="margin:10px 0 0;padding-left:20px;color:#aaa;font-size:0.88em;line-height:1.8;">
+    <li>H1 presente y descriptivo en homepage</li>
+    <li>Jerarquía H1 → H2 → H3 correcta en landing</li>
+    <li><code>lang="es"</code> declarado en &lt;html&gt;</li>
+    <li>Open Graph y Twitter Card en /landing/ bien configurados</li>
+    <li>robots: index/follow en /landing/</li>
+    <li>Fonts cargados con <code>display: swap</code></li>
+    <li>Vercel Analytics + Speed Insights activos</li>
+  </ul>
+</div>

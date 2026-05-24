@@ -1,0 +1,496 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "Lezgo Suite" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Lezgo Suite" [ref=e8]
+      - generic [ref=e10]:
+        - link "Funcionalidades" [ref=e11] [cursor=pointer]:
+          - /url: /#funcionalidades
+          - text: Funcionalidades
+        - link "Características" [ref=e12] [cursor=pointer]:
+          - /url: /#caracteristicas
+          - text: Características
+        - link "Precios" [ref=e13] [cursor=pointer]:
+          - /url: /#precios
+          - text: Precios
+        - link "Testimonios" [ref=e14] [cursor=pointer]:
+          - /url: /#testimonios
+          - text: Testimonios
+        - generic [ref=e15]:
+          - link "Contacto" [ref=e16] [cursor=pointer]:
+            - /url: /contacto
+          - link "Comenzar ahora" [ref=e17] [cursor=pointer]:
+            - /url: https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56
+            - generic [ref=e18]: Comenzar ahora
+          - link "Iniciar Sesión" [ref=e19] [cursor=pointer]:
+            - /url: https://login.lezgosuite.com
+            - generic [ref=e20]: Iniciar Sesión
+  - main [ref=e21]:
+    - generic [ref=e23]:
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - generic [ref=e27]:
+            - generic [ref=e28]: "🚀 Plataforma Empresarial #1 en Latinoamérica"
+            - heading "Transformación Empresarial Completa" [level=1] [ref=e29]:
+              - text: Transformación
+              - text: Empresarial
+              - text: Completa
+            - paragraph [ref=e30]: Lezgo Suite revoluciona la gestión empresarial con IA avanzada, automatizaciones inteligentes e integraciones todo-en-uno para empresas que buscan liderar el futuro.
+          - link "Comenzar ahora" [ref=e32] [cursor=pointer]:
+            - /url: "#precios"
+            - generic [ref=e33]: Comenzar ahora
+            - img
+          - generic [ref=e34]:
+            - generic [ref=e35]:
+              - generic [ref=e36]: +40%
+              - generic [ref=e37]: Tiempo ahorrado
+            - generic [ref=e38]:
+              - generic [ref=e39]: +60%
+              - generic [ref=e40]: Cierres de ventas
+            - generic [ref=e41]:
+              - generic [ref=e42]: 10+
+              - generic [ref=e43]: Canales juntos
+        - generic [ref=e46]: Tu navegador no soporta el elemento de video.
+      - generic [ref=e48]:
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - img
+            - text: Funcionalidades Empresariales
+          - heading "Plataforma Integral para Empresas Modernas" [level=2] [ref=e51]:
+            - text: Plataforma Integral
+            - text: para Empresas Modernas
+          - paragraph [ref=e52]: Descubre cómo Lezgo Suite transforma cada aspecto de tu negocio con tecnología de vanguardia
+        - generic [ref=e53]:
+          - generic [ref=e57]:
+            - img [ref=e59]
+            - heading "Gestión de Ventas" [level=3] [ref=e63]
+            - list [ref=e64]:
+              - listitem [ref=e65]:
+                - img [ref=e66]
+                - generic [ref=e69]: CRM de Contactos
+              - listitem [ref=e70]:
+                - img [ref=e71]
+                - generic [ref=e74]: Pipeline de Oportunidades
+              - listitem [ref=e75]:
+                - img [ref=e76]
+                - generic [ref=e79]: Tareas y Recordatorios
+            - link "Explorar más" [ref=e81] [cursor=pointer]:
+              - /url: /gestion-ventas
+              - text: Explorar más
+              - img
+          - generic [ref=e85]:
+            - img [ref=e87]
+            - heading "Análisis y Reportes" [level=3] [ref=e89]
+            - list [ref=e90]:
+              - listitem [ref=e91]:
+                - img [ref=e92]
+                - generic [ref=e95]: Reportes de Conversión
+              - listitem [ref=e96]:
+                - img [ref=e97]
+                - generic [ref=e100]: Seguimiento de Embudos
+              - listitem [ref=e101]:
+                - img [ref=e102]
+                - generic [ref=e105]: Analítica de Campañas
+            - link "Explorar más" [ref=e107] [cursor=pointer]:
+              - /url: /analisis-empresarial
+              - text: Explorar más
+              - img
+          - generic [ref=e111]:
+            - img [ref=e113]
+            - heading "Automatización" [level=3] [ref=e115]
+            - list [ref=e116]:
+              - listitem [ref=e117]:
+                - img [ref=e118]
+                - generic [ref=e121]: Workflows Dinámicos
+              - listitem [ref=e122]:
+                - img [ref=e123]
+                - generic [ref=e126]: Automatización de Correos y Mensajería
+              - listitem [ref=e127]:
+                - img [ref=e128]
+                - generic [ref=e131]: Respuestas Automáticas
+            - link "Explorar más" [ref=e133] [cursor=pointer]:
+              - /url: /automatizacion-ia
+              - text: Explorar más
+              - img
+          - generic [ref=e137]:
+            - img [ref=e139]
+            - heading "Integraciones" [level=3] [ref=e143]
+            - list [ref=e144]:
+              - listitem [ref=e145]:
+                - img [ref=e146]
+                - generic [ref=e149]: Integración con Calendarios
+              - listitem [ref=e150]:
+                - img [ref=e151]
+                - generic [ref=e154]: Conexión nativa con Redes Sociales
+              - listitem [ref=e155]:
+                - img [ref=e156]
+                - generic [ref=e159]: APIs y Webhooks
+            - link "Explorar más" [ref=e161] [cursor=pointer]:
+              - /url: /integracion-total
+              - text: Explorar más
+              - img
+      - generic [ref=e164]:
+        - generic [ref=e165]:
+          - generic [ref=e166]: 40+
+          - generic [ref=e167]: Clientes Atendidos
+        - generic [ref=e168]:
+          - generic [ref=e169]: 99.9%
+          - generic [ref=e170]: Tiempo de Servicio Activo
+        - generic [ref=e171]:
+          - generic [ref=e172]: 400K+
+          - generic [ref=e173]: Contactos Procesados
+        - generic [ref=e174]:
+          - generic [ref=e175]: 1000+
+          - generic [ref=e176]: Horas Ahorradas
+      - generic [ref=e178]:
+        - generic [ref=e179]:
+          - generic [ref=e180]:
+            - img
+            - text: Características Destacadas
+          - heading "Potencia Empresarial Sin Límites" [level=2] [ref=e181]:
+            - text: Potencia Empresarial
+            - text: Sin Límites
+          - paragraph [ref=e182]: Descubre las capacidades que hacen de Lezgo Suite la elección preferida de empresas líderes
+        - generic [ref=e183]:
+          - generic [ref=e184]:
+            - generic [ref=e185]:
+              - generic [ref=e186]:
+                - generic [ref=e187]: Campañas que Convierten
+                - heading "Marketing Inteligente" [level=3] [ref=e188]
+                - paragraph [ref=e189]: Automatiza campañas multi-canal con IA predictiva. Segmentación avanzada, personalización en tiempo real y análisis de comportamiento para maximizar el ROI de cada campaña.
+              - generic [ref=e190]:
+                - generic [ref=e191]:
+                  - img [ref=e192]
+                  - generic [ref=e195]: Segmentación IA
+                - generic [ref=e196]:
+                  - img [ref=e197]
+                  - generic [ref=e200]: Automatización Multi-canal
+                - generic [ref=e201]:
+                  - img [ref=e202]
+                  - generic [ref=e205]: ROI Predictivo
+                - generic [ref=e206]:
+                  - img [ref=e207]
+                  - generic [ref=e210]: Personalización Dinámica
+            - img "Marketing Inteligente" [ref=e213]
+          - generic [ref=e215]:
+            - generic [ref=e216]:
+              - generic [ref=e217]:
+                - generic [ref=e218]: Ventas Optimizadas
+                - heading "CRM Inteligente" [level=3] [ref=e219]
+                - paragraph [ref=e220]: Gestiona el ciclo completo de ventas con IA predictiva. Pipeline inteligente, scoring automático de leads y predicciones ML para cerrar más deals.
+              - generic [ref=e221]:
+                - generic [ref=e222]:
+                  - img [ref=e223]
+                  - generic [ref=e226]: Pipeline Inteligente
+                - generic [ref=e227]:
+                  - img [ref=e228]
+                  - generic [ref=e231]: Lead Scoring IA
+                - generic [ref=e232]:
+                  - img [ref=e233]
+                  - generic [ref=e236]: Predicciones ML
+                - generic [ref=e237]:
+                  - img [ref=e238]
+                  - generic [ref=e241]: 360° Cliente
+            - img "CRM Inteligente" [ref=e244]
+          - generic [ref=e246]:
+            - generic [ref=e247]:
+              - generic [ref=e248]:
+                - generic [ref=e249]: Comunicación Inteligente
+                - heading "IA en tus diferentes canales de contacto" [level=3] [ref=e250]
+                - paragraph [ref=e251]: Integra IA conversacional en todos tus canales de comunicación. Respuestas automáticas inteligentes, chatbots avanzados y atención 24/7 en WhatsApp, Instagram, TikTok y más.
+              - generic [ref=e252]:
+                - generic [ref=e253]:
+                  - img [ref=e254]
+                  - generic [ref=e257]: WhatsApp Business
+                - generic [ref=e258]:
+                  - img [ref=e259]
+                  - generic [ref=e262]: Instagram Direct
+                - generic [ref=e263]:
+                  - img [ref=e264]
+                  - generic [ref=e267]: TikTok Messaging
+                - generic [ref=e268]:
+                  - img [ref=e269]
+                  - generic [ref=e272]: Chatbots IA
+            - img "IA en tus diferentes canales de contacto" [ref=e275]
+          - generic [ref=e278]:
+            - generic [ref=e279]:
+              - generic [ref=e280]:
+                - generic [ref=e281]: Ecosistema Conectado
+                - heading "Integraciones Empresariales" [level=3] [ref=e282]
+                - paragraph [ref=e283]: Conecta todas tus herramientas empresariales en un ecosistema unificado. APIs robustas, conectores nativos y sincronización en tiempo real con más de 500 aplicaciones.
+              - generic [ref=e284]:
+                - generic [ref=e285]:
+                  - img [ref=e286]
+                  - generic [ref=e289]: 500+ Integraciones
+                - generic [ref=e290]:
+                  - img [ref=e291]
+                  - generic [ref=e294]: APIs Empresariales
+                - generic [ref=e295]:
+                  - img [ref=e296]
+                  - generic [ref=e299]: Sync Tiempo Real
+                - generic [ref=e300]:
+                  - img [ref=e301]
+                  - generic [ref=e304]: Conectores Nativos
+            - img "Integraciones Empresariales" [ref=e307]
+      - generic [ref=e311]:
+        - generic [ref=e312]:
+          - generic [ref=e313]: 💰 Planes Empresariales
+          - heading "Inversión Inteligente para tu Crecimiento" [level=2] [ref=e314]:
+            - text: Inversión Inteligente
+            - text: para tu Crecimiento
+          - img "Tabla de Features" [ref=e316]
+          - paragraph [ref=e317]: Elige el plan que se adapte a las necesidades de tu empresa
+        - generic [ref=e318]:
+          - generic [ref=e321]:
+            - generic [ref=e322]:
+              - heading "Lezgo Growth" [level=3] [ref=e323]
+              - paragraph [ref=e324]: Perfecto para equipos pequeños
+              - generic [ref=e325]: $3,527/mes
+            - list [ref=e326]:
+              - listitem [ref=e327]:
+                - img [ref=e328]
+                - generic [ref=e331]: ACCESO A TODAS LAS FUNCIONALIDADES
+              - listitem [ref=e332]:
+                - img [ref=e333]
+                - generic [ref=e336]: Equipo de 3 usuarios
+              - listitem [ref=e337]:
+                - img [ref=e338]
+                - generic [ref=e341]: 1000 contactos
+            - link "Comenzar Ahora" [ref=e342] [cursor=pointer]:
+              - /url: https://app.lezgosuite.com/payment-link/698fa8069577be2fe0b6c9a4
+          - generic [ref=e343]:
+            - generic [ref=e345]: Más Popular
+            - generic [ref=e347]:
+              - generic [ref=e348]:
+                - heading "Lezgo Pro" [level=3] [ref=e349]
+                - paragraph [ref=e350]: Ideal para empresas en crecimiento
+                - generic [ref=e351]: $5,397/mes
+              - list [ref=e352]:
+                - listitem [ref=e353]:
+                  - img [ref=e354]
+                  - generic [ref=e357]: ACCESO A TODAS LAS FUNCIONALIDADES
+                - listitem [ref=e358]:
+                  - img [ref=e359]
+                  - generic [ref=e362]: Equipo de 10 usuarios
+                - listitem [ref=e363]:
+                  - img [ref=e364]
+                  - generic [ref=e367]: 15,000 contactos
+              - link "Comenzar Ahora" [ref=e368] [cursor=pointer]:
+                - /url: https://app.lezgosuite.com/payment-link/69deb4ce557558e89e51fe1d
+          - generic [ref=e371]:
+            - generic [ref=e372]:
+              - heading "Lezgo Elite" [level=3] [ref=e373]
+              - paragraph [ref=e374]: Para grandes organizaciones
+              - generic [ref=e375]: $10,567/mes
+            - list [ref=e376]:
+              - listitem [ref=e377]:
+                - img [ref=e378]
+                - generic [ref=e381]: ACCESO A TODAS LAS FUNCIONALIDADES
+              - listitem [ref=e382]:
+                - img [ref=e383]
+                - generic [ref=e386]: Usuarios ilímitados
+              - listitem [ref=e387]:
+                - img [ref=e388]
+                - generic [ref=e391]: Contactos ilímitados
+            - paragraph [ref=e393]: Limitado a 20 conexiones por WhatsApp QR
+            - link "Comenzar Ahora" [ref=e394] [cursor=pointer]:
+              - /url: https://app.lezgosuite.com/payment-link/69deb5fb80425dc02fbc82e1
+        - paragraph [ref=e396]: "* Precios en pesos mexicanos (MXN) + IVA"
+        - generic [ref=e398]:
+          - heading "Todo plan incluye:" [level=3] [ref=e399]
+          - generic [ref=e400]:
+            - generic [ref=e401]:
+              - img [ref=e402]
+              - generic [ref=e407]: Sesión de onboarding personalizada
+            - generic [ref=e408]:
+              - img [ref=e409]
+              - generic [ref=e411]: Acceso a comunidad con video tutoriales
+            - generic [ref=e412]:
+              - img [ref=e413]
+              - generic [ref=e415]: Soporte a través de WhatsApp
+        - generic [ref=e416]:
+          - img [ref=e419]
+          - paragraph [ref=e421]: ¿Tienes dudas?
+          - link "Agenda una llamada con un especialista" [ref=e422] [cursor=pointer]:
+            - /url: https://app.lezgosuite.com/widget/bookings/conocelezgosuite
+      - generic [ref=e425]:
+        - generic [ref=e426]:
+          - generic [ref=e427]: ⭐ Testimonios Empresariales
+          - heading "Líderes Confían en Lezgo Suite" [level=2] [ref=e428]:
+            - text: Líderes Confían
+            - text: en Lezgo Suite
+          - paragraph [ref=e429]: Empresas líderes han transformado sus operaciones con resultados extraordinarios
+        - generic [ref=e430]:
+          - img "Empresas que confían en Lezgo Suite" [ref=e432]
+          - generic [ref=e433]:
+            - generic [ref=e436]:
+              - generic [ref=e438]:
+                - img [ref=e439]
+                - img [ref=e441]
+                - img [ref=e443]
+                - img [ref=e445]
+                - img [ref=e447]
+              - generic [ref=e450]: 340% ROI
+              - blockquote [ref=e451]:
+                - generic [ref=e452]: "\""
+                - text: Lezgo Suite transformó completamente nuestra operación. El ROI fue del 340% en el primer año.
+                - generic [ref=e453]: "\""
+              - generic [ref=e454]:
+                - generic [ref=e455]: Jerry Medina
+                - generic [ref=e456]: Dueño
+                - generic [ref=e457]: Soy Jerry Medina
+            - generic [ref=e461]:
+              - generic [ref=e463]:
+                - img [ref=e464]
+                - img [ref=e466]
+                - img [ref=e468]
+                - img [ref=e470]
+                - img [ref=e472]
+              - generic [ref=e475]: 70% más eficiencia
+              - blockquote [ref=e476]:
+                - generic [ref=e477]: "\""
+                - text: Con Lezgo Suite logramos organizar nuestros procesos y escalar más rápido de lo esperado. La eficiencia en el equipo mejoró un 70%.
+                - generic [ref=e478]: "\""
+              - generic [ref=e479]:
+                - generic [ref=e480]: Evelyn
+                - generic [ref=e481]: Directora de Operaciones
+                - generic [ref=e482]: Yconia
+            - generic [ref=e486]:
+              - generic [ref=e488]:
+                - img [ref=e489]
+                - img [ref=e491]
+                - img [ref=e493]
+                - img [ref=e495]
+                - img [ref=e497]
+              - generic [ref=e500]: 10x Escalabilidad
+              - blockquote [ref=e501]:
+                - generic [ref=e502]: "\""
+                - text: La automatización IA nos permitió escalar 10x sin aumentar el equipo. Increíble plataforma.
+                - generic [ref=e503]: "\""
+              - generic [ref=e504]:
+                - generic [ref=e505]: Fernanda Villafana
+                - generic [ref=e506]: Directora de Operaciones
+                - generic [ref=e507]: Tiempo Cero
+            - generic [ref=e511]:
+              - generic [ref=e513]:
+                - img [ref=e514]
+                - img [ref=e516]
+                - img [ref=e518]
+                - img [ref=e520]
+                - img [ref=e522]
+              - generic [ref=e525]: 250% Productividad
+              - blockquote [ref=e526]:
+                - generic [ref=e527]: "\""
+                - text: Implementación perfecta y soporte excepcional. Nuestra productividad aumentó 250% en 6 meses.
+                - generic [ref=e528]: "\""
+              - generic [ref=e529]:
+                - generic [ref=e530]: Líder de Ventas
+                - generic [ref=e531]: VP de Ventas
+                - generic [ref=e532]: Cellarium
+      - generic [ref=e537]:
+        - generic [ref=e538]:
+          - generic [ref=e539]: ❓ Preguntas Frecuentes
+          - heading "Resolvemos tus Dudas" [level=2] [ref=e540]:
+            - text: Resolvemos
+            - text: tus Dudas
+        - generic [ref=e541]:
+          - generic [ref=e544]:
+            - button "¿Cómo garantizan la seguridad de nuestros datos?" [ref=e545]:
+              - generic [ref=e546]: ¿Cómo garantizan la seguridad de nuestros datos?
+              - img [ref=e548]
+            - generic [ref=e550]: Utilizamos encriptación AES-256, certificación ISO 27001, servidores en múltiples regiones, backups automáticos y cumplimos con GDPR y regulaciones locales de protección de datos.
+          - generic [ref=e553]:
+            - button "¿Puedo integrar Lezgo Suite con nuestros sistemas actuales?" [ref=e554]:
+              - generic [ref=e555]: ¿Puedo integrar Lezgo Suite con nuestros sistemas actuales?
+              - img [ref=e557]
+            - generic [ref=e559]: Sí, ofrecemos más de 500 integraciones nativas y APIs robustas. Nuestro equipo técnico asegura una integración perfecta con ERP, contabilidad, marketing y otras herramientas empresariales.
+          - generic [ref=e562]:
+            - button "¿Cómo funciona la escalabilidad de la plataforma?" [ref=e563]:
+              - generic [ref=e564]: ¿Cómo funciona la escalabilidad de la plataforma?
+              - img [ref=e566]
+            - generic [ref=e568]: La plataforma escala automáticamente según tus necesidades. Desde equipos pequeños hasta organizaciones con miles de usuarios, sin límites de almacenamiento o procesamiento.
+    - generic [ref=e570] [cursor=pointer]:
+      - img [ref=e572]
+      - generic [ref=e575]: ¡Chatea con nosotros!
+  - contentinfo [ref=e577]:
+    - generic [ref=e580]:
+      - heading "Transforma tu Empresa Hoy Mismo" [level=2] [ref=e581]:
+        - text: Transforma tu Empresa
+        - text: Hoy Mismo
+      - paragraph [ref=e582]: Únete a más de 100 empresas que ya confían en Lezgo Suite para impulsar su crecimiento
+      - generic [ref=e583]:
+        - link "Comenzar ahora" [ref=e584] [cursor=pointer]:
+          - /url: https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56
+          - text: Comenzar ahora
+          - img
+        - link "Agenda una llamada con un especialista" [ref=e585] [cursor=pointer]:
+          - /url: https://app.lezgosuite.com/widget/bookings/conocelezgosuite
+    - generic [ref=e586]:
+      - generic [ref=e587]:
+        - generic [ref=e588]:
+          - img "Lezgo Suite" [ref=e589]
+          - paragraph [ref=e590]: La plataforma empresarial más avanzada para transformar tu negocio con IA y automatizaciones.
+        - generic [ref=e591]:
+          - heading "Producto" [level=4] [ref=e592]
+          - list [ref=e593]:
+            - listitem [ref=e594]:
+              - link "Inicio" [ref=e595] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e596]:
+              - link "Funcionalidades" [ref=e597] [cursor=pointer]:
+                - /url: /#funcionalidades
+            - listitem [ref=e598]:
+              - link "Características" [ref=e599] [cursor=pointer]:
+                - /url: /#caracteristicas
+            - listitem [ref=e600]:
+              - link "Precios" [ref=e601] [cursor=pointer]:
+                - /url: "#precios"
+            - listitem [ref=e602]:
+              - link "Testimonios" [ref=e603] [cursor=pointer]:
+                - /url: "#testimonios"
+        - generic [ref=e604]:
+          - heading "Empresa" [level=4] [ref=e605]
+          - list [ref=e606]:
+            - listitem [ref=e607]:
+              - link "Sobre Nosotros" [ref=e608] [cursor=pointer]:
+                - /url: /sobre-nosotros
+            - listitem [ref=e609]:
+              - link "Contacto" [ref=e610] [cursor=pointer]:
+                - /url: /contacto
+            - listitem [ref=e611]:
+              - link "Terminos y condiciones" [ref=e612] [cursor=pointer]:
+                - /url: /terminos-y-condiciones
+            - listitem [ref=e613]:
+              - link "Aviso de privacidad" [ref=e614] [cursor=pointer]:
+                - /url: /aviso-privacidad
+        - generic [ref=e615]:
+          - heading "Soporte" [level=4] [ref=e616]
+          - list [ref=e617]:
+            - listitem [ref=e618]:
+              - link "Centro de Ayuda - PROXIMAMENTE" [ref=e619] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e620]:
+              - link "Documentación - PROXIMAMENTE" [ref=e621] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e622]:
+              - link "Comunidad - PROXIMAMENTE" [ref=e623] [cursor=pointer]:
+                - /url: "#"
+      - generic [ref=e624]:
+        - paragraph [ref=e625]: © 2025 Lezgo Suite. Todos los derechos reservados.
+        - generic [ref=e626]:
+          - link "Privacidad" [ref=e627] [cursor=pointer]:
+            - /url: "#"
+          - link "Términos y condiciones" [ref=e628] [cursor=pointer]:
+            - /url: /terminos-y-condiciones
+  - button "Open Next.js Dev Tools" [ref=e634] [cursor=pointer]:
+    - img [ref=e635]
+  - alert [ref=e638]
+  - generic [ref=e639]:
+    - generic [ref=e641] [cursor=pointer]:
+      - img "Avatar" [ref=e642]
+      - generic [ref=e643]: Hi there! Have a question? Chat with us.
+      - button "Close prompt" [ref=e644]:
+        - img [ref=e645]
+    - button "Select to open the chat widget" [ref=e647] [cursor=pointer]:
+      - img [ref=e649]

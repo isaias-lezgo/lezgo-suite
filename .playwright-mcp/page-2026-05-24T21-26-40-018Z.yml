@@ -1,0 +1,261 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "Lezgo Suite" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Lezgo Suite" [ref=e8]
+      - generic [ref=e10]:
+        - link "Funcionalidades" [ref=e11] [cursor=pointer]:
+          - /url: /#funcionalidades
+          - text: Funcionalidades
+        - link "Características" [ref=e12] [cursor=pointer]:
+          - /url: /#caracteristicas
+          - text: Características
+        - link "Precios" [ref=e13] [cursor=pointer]:
+          - /url: /#precios
+          - text: Precios
+        - link "Testimonios" [ref=e14] [cursor=pointer]:
+          - /url: /#testimonios
+          - text: Testimonios
+        - generic [ref=e15]:
+          - link "Contacto" [ref=e16] [cursor=pointer]:
+            - /url: /contacto
+          - link "Comenzar ahora" [ref=e17] [cursor=pointer]:
+            - /url: https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56
+            - generic [ref=e18]: Comenzar ahora
+          - link "Iniciar Sesión" [ref=e19] [cursor=pointer]:
+            - /url: https://login.lezgosuite.com
+            - generic [ref=e20]: Iniciar Sesión
+  - main [ref=e21]:
+    - generic [ref=e22]:
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - img [ref=e32]
+            - generic [ref=e35]: Automatización IA
+          - heading "Inteligencia Artificial que Trabaja por Ti" [level=1] [ref=e36]:
+            - text: Inteligencia Artificial que
+            - generic [ref=e37]: Trabaja por Ti
+          - paragraph [ref=e38]: Automatiza procesos complejos, responde clientes 24/7 y optimiza tu operación con IA avanzada que aprende y se adapta a tu negocio.
+          - generic [ref=e39]:
+            - link "Probar Gratis" [ref=e40] [cursor=pointer]:
+              - /url: https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56
+            - button "Habla con un especialista" [ref=e41]:
+              - link "Habla con un especialista" [ref=e42] [cursor=pointer]:
+                - /url: https://app.lezgosuite.com/widget/bookings/conocelezgosuite
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - generic [ref=e45]: 80%
+            - generic [ref=e46]: Reducción en tareas manuales
+          - generic [ref=e47]:
+            - generic [ref=e48]: 24/7
+            - generic [ref=e49]: Disponibilidad de atención
+          - generic [ref=e50]:
+            - generic [ref=e51]: 95%
+            - generic [ref=e52]: Precisión en automatizaciones
+          - generic [ref=e53]:
+            - generic [ref=e54]: 3x
+            - generic [ref=e55]: Aumento en productividad
+      - generic [ref=e57]:
+        - generic [ref=e58]:
+          - heading "Capacidades de IA Avanzada" [level=2] [ref=e59]
+          - paragraph [ref=e60]: Tecnología de inteligencia artificial de última generación adaptada específicamente para empresas latinoamericanas.
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - img [ref=e64]
+            - heading "Procesamiento de Lenguaje Natural" [level=3] [ref=e66]
+            - paragraph [ref=e67]: Comprende y responde en español con contexto empresarial
+          - generic [ref=e68]:
+            - img [ref=e70]
+            - heading "Machine Learning con bases de datos" [level=3] [ref=e80]
+            - paragraph [ref=e81]: Aprende con una base de datos
+          - generic [ref=e82]:
+            - img [ref=e84]
+            - heading "Análisis contextual" [level=3] [ref=e86]
+            - paragraph [ref=e87]: Se adapta al contexto de las conversaciones y del negocio
+          - generic [ref=e88]:
+            - img [ref=e90]
+            - heading "Automatización Inteligente" [level=3] [ref=e94]
+            - paragraph [ref=e95]: Ejecuta procesos complejos con lógica empresarial avanzada
+      - generic [ref=e97]:
+        - generic [ref=e98]:
+          - heading "Automatizaciones Inteligentes" [level=2] [ref=e99]
+          - paragraph [ref=e100]: Herramientas de automatización que transforman la manera en que tu equipo trabaja y se relaciona con los clientes.
+        - generic [ref=e101]:
+          - generic [ref=e102]:
+            - img [ref=e104]
+            - heading "Chatbots Inteligentes" [level=3] [ref=e107]
+            - paragraph [ref=e108]: Chatbots con IA que manejan consultas frecuentes, reservaciones y soporte a través de distintos canales de comunicación.
+            - list [ref=e109]:
+              - listitem [ref=e110]:
+                - img [ref=e111]
+                - text: Respuestas automáticas en canales como Facebook, Instagram, Web Chat
+              - listitem [ref=e114]:
+                - img [ref=e115]
+                - text: Modo sugerido o auto-piloto para que responda automáticamente o que proponga respuesta al agente
+              - listitem [ref=e118]:
+                - img [ref=e119]
+                - text: Capacidad de entrenarlo con preguntas frecuentes, URLs públicas o documentos
+              - listitem [ref=e122]:
+                - img [ref=e123]
+                - text: Reserva de citas integrada (cuando el contexto lo requiere)
+          - generic [ref=e126]:
+            - img [ref=e128]
+            - heading "Automatización de Procesos" [level=3] [ref=e132]
+            - paragraph [ref=e133]: Flujos de trabajo robustos con disparadores, condiciones y acciones para automatizar tareas operativas, seguimientos y notificaciones.
+            - list [ref=e134]:
+              - listitem [ref=e135]:
+                - img [ref=e136]
+                - text: "Disparadores múltiples: creación de contacto, envío de formularios, cambio de estado, acción de tag, entrega de documento, etc."
+              - listitem [ref=e139]:
+                - img [ref=e140]
+                - text: "Acciones automatizadas: emails, asignaciones, tags, recordatorios, etc."
+              - listitem [ref=e143]:
+                - img [ref=e144]
+                - text: Condiciones If/Else y filtros para personalizar rutas del flujo
+              - listitem [ref=e147]:
+                - img [ref=e148]
+                - text: Registro histórico de ejecución del workflow para seguimiento y análisis
+          - generic [ref=e151]:
+            - img [ref=e153]
+            - heading "Respuestas Automáticas" [level=3] [ref=e155]
+            - paragraph [ref=e156]: Sistema que utiliza plantillas, inteligencia contextual y respuestas predefinidas para contestar de forma coherente y rápida.
+            - list [ref=e157]:
+              - listitem [ref=e158]:
+                - img [ref=e159]
+                - text: Plantillas configurables para email/respuestas de chatbot
+              - listitem [ref=e162]:
+                - img [ref=e163]
+                - text: Bot entrenado con datos propios de negocio para mayor personalización
+              - listitem [ref=e166]:
+                - img [ref=e167]
+                - text: Cambiar el canal según respuesta del usuario o tipo de consulta
+              - listitem [ref=e170]:
+                - img [ref=e171]
+                - text: Transición automática a intervención humana si es necesario
+          - generic [ref=e174]:
+            - img [ref=e176]
+            - heading "Predicción de Comportamiento" [level=3] [ref=e186]
+            - paragraph [ref=e187]: Funciones basadas en IA para prever necesidades del cliente, optimizar puntuaciones de leads y anticipar acciones relevantes.
+            - list [ref=e188]:
+              - listitem [ref=e189]:
+                - img [ref=e190]
+                - text: Lead scoring basado en interacciones y comportamiento
+              - listitem [ref=e193]:
+                - img [ref=e194]
+                - text: Recomendaciones automáticas en workflows usando acciones AI
+              - listitem [ref=e197]:
+                - img [ref=e198]
+                - text: Intención de reserva o compra mediante contexto de conversación
+              - listitem [ref=e201]:
+                - img [ref=e202]
+                - text: Prevención de abandono o seguimiento proactivo según inactividad
+          - generic [ref=e205]:
+            - img [ref=e207]
+            - heading "Automatización de Tareas" [level=3] [ref=e209]
+            - paragraph [ref=e210]: "Elimina trabajo manual con tareas automáticas: asignaciones, recordatorios, seguimiento y sincronización de datos."
+            - list [ref=e211]:
+              - listitem [ref=e212]:
+                - img [ref=e213]
+                - text: Creación automática de tareas tras eventos como formulario enviado o oportunidad ganada
+              - listitem [ref=e216]:
+                - img [ref=e217]
+                - text: Asignación automática de leads o contactos según reglas definidas
+              - listitem [ref=e220]:
+                - img [ref=e221]
+                - text: Recordatorios automáticos orientados al contexto del cliente o cita
+              - listitem [ref=e224]:
+                - img [ref=e225]
+                - text: Sincronización u actualización de campos del CRM según actividad
+          - generic [ref=e228]:
+            - img [ref=e230]
+            - heading "Programación Inteligente" [level=3] [ref=e233]
+            - paragraph [ref=e234]: Funciones que optimizan horarios, citas y seguimientos automáticamente según disponibilidad y prioridades.
+            - list [ref=e235]:
+              - listitem [ref=e236]:
+                - img [ref=e237]
+                - text: Programación automática de citas mediante el bot o formularios
+              - listitem [ref=e240]:
+                - img [ref=e241]
+                - text: Sincronización de calendario con diferentes servicios o recursos
+              - listitem [ref=e244]:
+                - img [ref=e245]
+                - text: Recordatorios programados previos a citas
+              - listitem [ref=e248]:
+                - img [ref=e249]
+                - text: Reprogramación o cancelación automática según cambios o no-asistencia
+    - generic [ref=e253] [cursor=pointer]:
+      - img [ref=e255]
+      - generic [ref=e258]: ¡Chatea con nosotros!
+  - contentinfo [ref=e260]:
+    - generic [ref=e263]:
+      - heading "Transforma tu Empresa Hoy Mismo" [level=2] [ref=e264]:
+        - text: Transforma tu Empresa
+        - text: Hoy Mismo
+      - paragraph [ref=e265]: Únete a más de 100 empresas que ya confían en Lezgo Suite para impulsar su crecimiento
+      - generic [ref=e266]:
+        - link "Comenzar ahora" [ref=e267] [cursor=pointer]:
+          - /url: https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56
+          - text: Comenzar ahora
+          - img
+        - link "Agenda una llamada con un especialista" [ref=e268] [cursor=pointer]:
+          - /url: https://app.lezgosuite.com/widget/bookings/conocelezgosuite
+    - generic [ref=e269]:
+      - generic [ref=e270]:
+        - generic [ref=e271]:
+          - img "Lezgo Suite" [ref=e272]
+          - paragraph [ref=e273]: La plataforma empresarial más avanzada para transformar tu negocio con IA y automatizaciones.
+        - generic [ref=e274]:
+          - heading "Producto" [level=4] [ref=e275]
+          - list [ref=e276]:
+            - listitem [ref=e277]:
+              - link "Inicio" [ref=e278] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e279]:
+              - link "Funcionalidades" [ref=e280] [cursor=pointer]:
+                - /url: /#funcionalidades
+            - listitem [ref=e281]:
+              - link "Características" [ref=e282] [cursor=pointer]:
+                - /url: /#caracteristicas
+            - listitem [ref=e283]:
+              - link "Precios" [ref=e284] [cursor=pointer]:
+                - /url: "#precios"
+            - listitem [ref=e285]:
+              - link "Testimonios" [ref=e286] [cursor=pointer]:
+                - /url: "#testimonios"
+        - generic [ref=e287]:
+          - heading "Empresa" [level=4] [ref=e288]
+          - list [ref=e289]:
+            - listitem [ref=e290]:
+              - link "Sobre Nosotros" [ref=e291] [cursor=pointer]:
+                - /url: /sobre-nosotros
+            - listitem [ref=e292]:
+              - link "Contacto" [ref=e293] [cursor=pointer]:
+                - /url: /contacto
+            - listitem [ref=e294]:
+              - link "Terminos y condiciones" [ref=e295] [cursor=pointer]:
+                - /url: /terminos-y-condiciones
+            - listitem [ref=e296]:
+              - link "Aviso de privacidad" [ref=e297] [cursor=pointer]:
+                - /url: /aviso-privacidad
+        - generic [ref=e298]:
+          - heading "Soporte" [level=4] [ref=e299]
+          - list [ref=e300]:
+            - listitem [ref=e301]:
+              - link "Centro de Ayuda - PROXIMAMENTE" [ref=e302] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e303]:
+              - link "Documentación - PROXIMAMENTE" [ref=e304] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e305]:
+              - link "Comunidad - PROXIMAMENTE" [ref=e306] [cursor=pointer]:
+                - /url: "#"
+      - generic [ref=e307]:
+        - paragraph [ref=e308]: © 2025 Lezgo Suite. Todos los derechos reservados.
+        - generic [ref=e309]:
+          - link "Privacidad" [ref=e310] [cursor=pointer]:
+            - /url: "#"
+          - link "Términos y condiciones" [ref=e311] [cursor=pointer]:
+            - /url: /terminos-y-condiciones
+  - button "Open Next.js Dev Tools" [ref=e317] [cursor=pointer]:
+    - img [ref=e318]

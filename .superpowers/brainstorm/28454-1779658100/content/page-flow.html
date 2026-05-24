@@ -1,0 +1,76 @@
+<h2>¿Cómo fluye cada página de onboarding?</h2>
+<p class="subtitle">Elige la estructura que mejor refleja cómo quieres que el cliente experimente la aceptación de condiciones.</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Scroll + Reveal</h3>
+      <p>El cliente lee las condiciones en una página. Al final aparece un checkbox de aceptación. Una vez marcado, el calendario se despliega justo debajo — todo en una sola página.</p>
+      <div class="mockup" style="margin-top:12px">
+        <div class="mockup-header">Vista previa</div>
+        <div class="mockup-body" style="padding:12px; font-size:12px; line-height:1.8">
+          <div style="background:#1B2B4B;color:white;padding:10px;border-radius:6px;text-align:center;margin-bottom:8px;font-weight:bold">📋 Condiciones de tu plan</div>
+          <div style="border:1px solid #e2e8f0;border-radius:6px;padding:8px;margin-bottom:6px;font-size:11px">• Horario de atención: Lun–Vie 9–18 hrs</div>
+          <div style="border:1px solid #e2e8f0;border-radius:6px;padding:8px;margin-bottom:6px;font-size:11px">• Soporte vía WhatsApp para dudas</div>
+          <div style="border:1px solid #e2e8f0;border-radius:6px;padding:8px;margin-bottom:10px;font-size:11px">• No incluye automatizaciones</div>
+          <div style="background:#fff7ed;border:1px solid #F59B1B;border-radius:6px;padding:8px;margin-bottom:8px;font-size:11px">
+            ☐ &nbsp;<strong>Sí, leí y acepto las condiciones</strong>
+          </div>
+          <div style="background:#f1f5f9;border-radius:6px;padding:10px;text-align:center;font-size:11px;color:#64748b">
+            📅 El calendario aparece aquí al aceptar
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Wizard de 2 pasos</h3>
+      <p>Paso 1: el cliente lee las condiciones con un indicador de progreso. Paso 2: acepta y el calendario toma toda la pantalla. Más guiado y formal.</p>
+      <div class="mockup" style="margin-top:12px">
+        <div class="mockup-header">Vista previa</div>
+        <div class="mockup-body" style="padding:12px; font-size:12px; line-height:1.8">
+          <div style="display:flex;gap:4px;margin-bottom:10px">
+            <div style="flex:1;height:6px;background:#F59B1B;border-radius:9px"></div>
+            <div style="flex:1;height:6px;background:#e2e8f0;border-radius:9px"></div>
+          </div>
+          <div style="text-align:center;margin-bottom:8px;font-size:11px;color:#64748b">Paso 1 de 2 — Condiciones</div>
+          <div style="border:1px solid #e2e8f0;border-radius:6px;padding:8px;margin-bottom:6px;font-size:11px">• Horario de atención: Lun–Vie 9–18 hrs</div>
+          <div style="border:1px solid #e2e8f0;border-radius:6px;padding:8px;margin-bottom:10px;font-size:11px">• No incluye automatizaciones</div>
+          <div style="background:#F59B1B;color:white;padding:8px;border-radius:6px;text-align:center;font-size:11px;font-weight:bold">
+            Acepto y continuar →
+          </div>
+          <div style="text-align:center;margin-top:6px;font-size:10px;color:#94a3b8">→ Siguiente: Agendar sesión</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Split: condiciones + calendario juntos</h3>
+      <p>En desktop: condiciones a la izquierda, calendario sticky a la derecha (bloqueado hasta aceptar). En móvil: uno debajo del otro. Muy eficiente.</p>
+      <div class="mockup" style="margin-top:12px">
+        <div class="mockup-header">Vista previa (desktop)</div>
+        <div class="mockup-body" style="padding:12px; font-size:12px">
+          <div style="display:flex;gap:8px">
+            <div style="flex:1;border:1px solid #e2e8f0;border-radius:6px;padding:8px;font-size:10px">
+              <div style="font-weight:bold;margin-bottom:4px">Condiciones</div>
+              <div style="margin-bottom:3px">• Horario Lun–Vie 9–18</div>
+              <div style="margin-bottom:3px">• Soporte WhatsApp</div>
+              <div style="margin-bottom:6px">• Sin automatizaciones</div>
+              <div style="background:#fff7ed;border:1px solid #F59B1B;border-radius:4px;padding:4px;font-size:9px">☐ Acepto</div>
+            </div>
+            <div style="flex:1;border:1px dashed #cbd5e1;border-radius:6px;padding:8px;font-size:10px;background:#f8fafc;text-align:center;color:#94a3b8">
+              🔒 Calendario<br/>(se desbloquea al aceptar)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

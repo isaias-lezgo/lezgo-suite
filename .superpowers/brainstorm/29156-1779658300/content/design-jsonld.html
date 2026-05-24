@@ -1,0 +1,90 @@
+<h2>Diseño — Sección 3: JSON-LD por página</h2>
+<p class="subtitle">Datos estructurados que Google usa para rich results. Verde = nuevo, gris = ya existe.</p>
+
+<div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;">
+
+  <div style="background:#111827;border:1px solid #374151;border-radius:8px;padding:16px;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+      <span style="color:#f9fafb;font-weight:600;">app/layout.tsx <span style="color:#6b7280;font-weight:400;">(todas las páginas)</span></span>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <span style="background:#14532d;color:#86efac;padding:4px 12px;border-radius:20px;font-size:0.82em;">🟢 Organization</span>
+      <span style="background:#14532d;color:#86efac;padding:4px 12px;border-radius:20px;font-size:0.82em;">🟢 LocalBusiness</span>
+    </div>
+    <div style="margin-top:10px;font-size:0.82em;color:#9ca3af;line-height:1.7;">
+      <strong style="color:#d1d5db;">Organization:</strong> nombre, url, logo, redes sociales.<br>
+      <strong style="color:#d1d5db;">LocalBusiness:</strong> nombre, dirección en México, teléfono, horario. Aparece en búsquedas locales tipo <em>"CRM empresarial [ciudad]"</em> y en Google Maps.<br>
+      <span style="color:#6b7280;">Necesitamos: dirección completa, teléfono, horario de atención.</span>
+    </div>
+  </div>
+
+  <div style="background:#111827;border:1px solid #374151;border-radius:8px;padding:16px;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+      <span style="color:#f9fafb;font-weight:600;">/ (Homepage)</span>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <span style="background:#14532d;color:#86efac;padding:4px 12px;border-radius:20px;font-size:0.82em;">🟢 SoftwareApplication</span>
+      <span style="background:#14532d;color:#86efac;padding:4px 12px;border-radius:20px;font-size:0.82em;">🟢 FAQPage</span>
+      <span style="background:#14532d;color:#86efac;padding:4px 12px;border-radius:20px;font-size:0.82em;">🟢 AggregateRating</span>
+    </div>
+    <div style="margin-top:10px;font-size:0.82em;color:#9ca3af;line-height:1.7;">
+      <strong style="color:#d1d5db;">SoftwareApplication:</strong> categoría "BusinessApplication", precio desde $3,527 MXN/mes, rating.<br>
+      <strong style="color:#d1d5db;">FAQPage:</strong> las 3 preguntas de la sección FAQ de la landing → rich snippets que ocupan más espacio en SERP.<br>
+      <strong style="color:#d1d5db;">AggregateRating:</strong> estrellas basadas en los testimonios (340% ROI, etc.) → aparecen como ⭐⭐⭐⭐⭐ en resultados.
+    </div>
+  </div>
+
+  <div style="background:#111827;border:1px solid #374151;border-radius:8px;padding:16px;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+      <span style="color:#f9fafb;font-weight:600;">/gestion-ventas, /automatizacion-ia, /analisis-empresarial, /integracion-total</span>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <span style="background:#14532d;color:#86efac;padding:4px 12px;border-radius:20px;font-size:0.82em;">🟢 WebPage</span>
+      <span style="background:#14532d;color:#86efac;padding:4px 12px;border-radius:20px;font-size:0.82em;">🟢 BreadcrumbList</span>
+    </div>
+    <div style="margin-top:10px;font-size:0.82em;color:#9ca3af;line-height:1.7;">
+      <strong style="color:#d1d5db;">WebPage:</strong> nombre, description, url canónica, isPartOf → lezgosuite.com.<br>
+      <strong style="color:#d1d5db;">BreadcrumbList:</strong> Inicio → [Nombre de página]. Aparece como migas de pan en SERP: <em>lezgosuite.com › Gestión de Ventas</em>
+    </div>
+  </div>
+
+  <div style="background:#111827;border:1px solid #374151;border-radius:8px;padding:16px;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+      <span style="color:#f9fafb;font-weight:600;">/sobre-nosotros</span>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <span style="background:#14532d;color:#86efac;padding:4px 12px;border-radius:20px;font-size:0.82em;">🟢 AboutPage</span>
+    </div>
+    <div style="margin-top:10px;font-size:0.82em;color:#9ca3af;line-height:1.7;">
+      <strong style="color:#d1d5db;">AboutPage:</strong> nombre, description, url. Conecta con la Organization del layout. Mejora E-E-A-T (Experience, Expertise, Authority, Trust) — señal importante para Google en B2B.
+    </div>
+  </div>
+
+  <div style="background:#111827;border:1px solid #374151;border-radius:8px;padding:16px;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+      <span style="color:#f9fafb;font-weight:600;">/contacto</span>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <span style="background:#14532d;color:#86efac;padding:4px 12px;border-radius:20px;font-size:0.82em;">🟢 ContactPage</span>
+    </div>
+    <div style="margin-top:10px;font-size:0.82em;color:#9ca3af;line-height:1.7;">
+      <strong style="color:#d1d5db;">ContactPage:</strong> url, name. Refuerza la señal de confianza y localización.
+    </div>
+  </div>
+
+  <div style="background:#111827;border:1px solid #374151;border-radius:8px;padding:16px;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+      <span style="color:#f9fafb;font-weight:600;">/landing/</span>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <span style="background:#1e3a5f;color:#93c5fd;padding:4px 12px;border-radius:20px;font-size:0.82em;">✓ SoftwareApplication (ya existe)</span>
+      <span style="background:#1e3a5f;color:#93c5fd;padding:4px 12px;border-radius:20px;font-size:0.82em;">✓ Organization (ya existe)</span>
+    </div>
+    <div style="margin-top:10px;font-size:0.82em;color:#9ca3af;">Sin cambios necesarios.</div>
+  </div>
+
+</div>
+
+<div style="background:#1a1208;border:1px solid #3d2e0a;border-radius:8px;padding:14px;margin-top:16px;font-size:0.82em;color:#d97706;">
+  ⚠️ Para LocalBusiness necesitamos la dirección, teléfono y horario de Lezgo Suite. Si prefieres no publicarlos en el código fuente, podemos usar variables de entorno o un archivo de config separado.
+</div>

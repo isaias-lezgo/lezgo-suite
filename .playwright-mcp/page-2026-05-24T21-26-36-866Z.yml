@@ -1,0 +1,240 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "Lezgo Suite" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Lezgo Suite" [ref=e8]
+      - generic [ref=e10]:
+        - link "Funcionalidades" [ref=e11] [cursor=pointer]:
+          - /url: /#funcionalidades
+          - text: Funcionalidades
+        - link "Características" [ref=e12] [cursor=pointer]:
+          - /url: /#caracteristicas
+          - text: Características
+        - link "Precios" [ref=e13] [cursor=pointer]:
+          - /url: /#precios
+          - text: Precios
+        - link "Testimonios" [ref=e14] [cursor=pointer]:
+          - /url: /#testimonios
+          - text: Testimonios
+        - generic [ref=e15]:
+          - link "Contacto" [ref=e16] [cursor=pointer]:
+            - /url: /contacto
+          - link "Comenzar ahora" [ref=e17] [cursor=pointer]:
+            - /url: https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56
+            - generic [ref=e18]: Comenzar ahora
+          - link "Iniciar Sesión" [ref=e19] [cursor=pointer]:
+            - /url: https://login.lezgosuite.com
+            - generic [ref=e20]: Iniciar Sesión
+  - main [ref=e21]:
+    - generic [ref=e22]:
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - img [ref=e32]
+            - generic [ref=e35]: Gestión de Ventas
+          - heading "Potencia tu Equipo de Ventas" [level=1] [ref=e36]:
+            - text: Potencia tu
+            - generic [ref=e37]: Equipo de Ventas
+          - paragraph [ref=e38]: Transforma tu proceso de ventas con herramientas inteligentes que automatizan tareas repetitivas y te ayudan a cerrar más ventas en menos tiempo.
+          - generic [ref=e39]:
+            - link "Probar Gratis" [ref=e40] [cursor=pointer]:
+              - /url: https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56
+            - button "Habla con un especialista" [ref=e41]:
+              - link "Habla con un especialista" [ref=e42] [cursor=pointer]:
+                - /url: https://app.lezgosuite.com/widget/bookings/conocelezgosuite
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - generic [ref=e45]: 45%
+            - generic [ref=e46]: Aumento en conversiones
+          - generic [ref=e47]:
+            - generic [ref=e48]: 60%
+            - generic [ref=e49]: Reducción en tiempo de cierre
+          - generic [ref=e50]:
+            - generic [ref=e51]: 35%
+            - generic [ref=e52]: Mejora en productividad
+          - generic [ref=e53]:
+            - generic [ref=e54]: 90%
+            - generic [ref=e55]: Satisfacción del cliente
+      - generic [ref=e57]:
+        - generic [ref=e58]:
+          - heading "Funcionalidades Completas" [level=2] [ref=e59]
+          - paragraph [ref=e60]: Todo lo que necesitas para gestionar tu proceso de ventas de manera eficiente y profesional.
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - img [ref=e64]
+            - heading "Gestión Completa de CRM" [level=3] [ref=e69]
+            - paragraph [ref=e70]: CRM robusto para manejar todos tus contactos sin límites, con comunicaciones unificadas, Smart Lists y etiquetado avanzado.
+            - list [ref=e71]:
+              - listitem [ref=e72]:
+                - img [ref=e73]
+                - text: Contactos ilimitados
+              - listitem [ref=e76]:
+                - img [ref=e77]
+                - text: Smart Lists dinámicas con filtros múltiples
+              - listitem [ref=e80]:
+                - img [ref=e81]
+                - text: "Feed unificado de conversaciones: , correo, llamadas, redes sociales"
+              - listitem [ref=e84]:
+                - img [ref=e85]
+                - text: Etiquetado y campos personalizados para segmentación granular
+          - generic [ref=e88]:
+            - img [ref=e90]
+            - heading "Gestión de Pipelines de Ventas" [level=3] [ref=e93]
+            - paragraph [ref=e94]: Visualiza y automatiza el flujo de oportunidades con pipelines personalizables, seguimiento de etapas y análisis de desempeño.
+            - list [ref=e95]:
+              - listitem [ref=e96]:
+                - img [ref=e97]
+                - text: Pipelines visuales personalizables
+              - listitem [ref=e100]:
+                - img [ref=e101]
+                - text: Movimiento automático de oportunidades basado en acciones
+              - listitem [ref=e104]:
+                - img [ref=e105]
+                - text: Visión del valor total de oportunidades y conversión por etapa
+              - listitem [ref=e108]:
+                - img [ref=e109]
+                - text: Alertas o flujos de seguimiento para oportunidades estancadas
+          - generic [ref=e112]:
+            - img [ref=e114]
+            - heading "Herramientas de Prospección" [level=3] [ref=e118]
+            - paragraph [ref=e119]: Captura y nutre leads automáticamente con flujos multicanal, scoring inteligente y seguimiento sin intervención manual constante.
+            - list [ref=e120]:
+              - listitem [ref=e121]:
+                - img [ref=e122]
+                - text: Formularios, embudos y anuncios integrados para captación
+              - listitem [ref=e125]:
+                - img [ref=e126]
+                - text: Scoring automático de leads basado en comportamiento
+              - listitem [ref=e129]:
+                - img [ref=e130]
+                - text: Nutrición mediante automatizaciones (envíos, seguimientos)
+              - listitem [ref=e133]:
+                - img [ref=e134]
+                - text: Acciones automáticas según estado del lead o respuesta
+          - generic [ref=e137]:
+            - img [ref=e139]
+            - heading "Calendarios y Reservas" [level=3] [ref=e141]
+            - paragraph [ref=e142]: Gestiona citas con calendarios ilimitados, diferentes tipos de servicio, sincronización, reservas automáticas y pagos anticipados.
+            - list [ref=e143]:
+              - listitem [ref=e144]:
+                - img [ref=e145]
+                - text: Calendarios ilimitados con distintos tipos de servicio
+              - listitem [ref=e148]:
+                - img [ref=e149]
+                - text: Sincronización y menú de servicios
+              - listitem [ref=e152]:
+                - img [ref=e153]
+                - text: Reservas automáticas y recordatorios previos
+              - listitem [ref=e156]:
+                - img [ref=e157]
+                - text: Pagos adelantados para asegurar citas
+          - generic [ref=e160]:
+            - img [ref=e162]
+            - heading "Generador de Propuestas y Cotizaciones" [level=3] [ref=e165]
+            - paragraph [ref=e166]: Crea y envía propuestas, estimaciones y facturas desde la plataforma, incluyendo cobros, suscripciones y enlaces de pago.
+            - list [ref=e167]:
+              - listitem [ref=e168]:
+                - img [ref=e169]
+                - text: Generador de propuestas y estimaciones profesionales
+              - listitem [ref=e172]:
+                - img [ref=e173]
+                - text: Facturación y suscripciones integradas
+              - listitem [ref=e176]:
+                - img [ref=e177]
+                - text: Enlaces de pago rápidos (ej. envío por email)
+              - listitem [ref=e180]:
+                - img [ref=e181]
+                - text: Plantillas personalizables de propuesta y cotización
+          - generic [ref=e184]:
+            - img [ref=e186]
+            - heading "Análisis y Reportes" [level=3] [ref=e188]
+            - paragraph [ref=e189]: Tableros personalizables con reportes detallados, seguimiento de métricas clave y visualización de datos de campañas publicitarias integradas.
+            - list [ref=e190]:
+              - listitem [ref=e191]:
+                - img [ref=e192]
+                - text: Dashboard personalizable con widgets definidos por usuario
+              - listitem [ref=e195]:
+                - img [ref=e196]
+                - text: Reportes a medida exportables
+              - listitem [ref=e199]:
+                - img [ref=e200]
+                - text: Integración de datos de anuncios de Google, Facebook, etc.
+              - listitem [ref=e203]:
+                - img [ref=e204]
+                - text: Análisis completo del rendimiento de ventas, marketing y reservas
+    - generic [ref=e208] [cursor=pointer]:
+      - img [ref=e210]
+      - generic [ref=e213]: ¡Chatea con nosotros!
+  - contentinfo [ref=e215]:
+    - generic [ref=e218]:
+      - heading "Transforma tu Empresa Hoy Mismo" [level=2] [ref=e219]:
+        - text: Transforma tu Empresa
+        - text: Hoy Mismo
+      - paragraph [ref=e220]: Únete a más de 100 empresas que ya confían en Lezgo Suite para impulsar su crecimiento
+      - generic [ref=e221]:
+        - link "Comenzar ahora" [ref=e222] [cursor=pointer]:
+          - /url: https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56
+          - text: Comenzar ahora
+          - img
+        - link "Agenda una llamada con un especialista" [ref=e223] [cursor=pointer]:
+          - /url: https://app.lezgosuite.com/widget/bookings/conocelezgosuite
+    - generic [ref=e224]:
+      - generic [ref=e225]:
+        - generic [ref=e226]:
+          - img "Lezgo Suite" [ref=e227]
+          - paragraph [ref=e228]: La plataforma empresarial más avanzada para transformar tu negocio con IA y automatizaciones.
+        - generic [ref=e229]:
+          - heading "Producto" [level=4] [ref=e230]
+          - list [ref=e231]:
+            - listitem [ref=e232]:
+              - link "Inicio" [ref=e233] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e234]:
+              - link "Funcionalidades" [ref=e235] [cursor=pointer]:
+                - /url: /#funcionalidades
+            - listitem [ref=e236]:
+              - link "Características" [ref=e237] [cursor=pointer]:
+                - /url: /#caracteristicas
+            - listitem [ref=e238]:
+              - link "Precios" [ref=e239] [cursor=pointer]:
+                - /url: "#precios"
+            - listitem [ref=e240]:
+              - link "Testimonios" [ref=e241] [cursor=pointer]:
+                - /url: "#testimonios"
+        - generic [ref=e242]:
+          - heading "Empresa" [level=4] [ref=e243]
+          - list [ref=e244]:
+            - listitem [ref=e245]:
+              - link "Sobre Nosotros" [ref=e246] [cursor=pointer]:
+                - /url: /sobre-nosotros
+            - listitem [ref=e247]:
+              - link "Contacto" [ref=e248] [cursor=pointer]:
+                - /url: /contacto
+            - listitem [ref=e249]:
+              - link "Terminos y condiciones" [ref=e250] [cursor=pointer]:
+                - /url: /terminos-y-condiciones
+            - listitem [ref=e251]:
+              - link "Aviso de privacidad" [ref=e252] [cursor=pointer]:
+                - /url: /aviso-privacidad
+        - generic [ref=e253]:
+          - heading "Soporte" [level=4] [ref=e254]
+          - list [ref=e255]:
+            - listitem [ref=e256]:
+              - link "Centro de Ayuda - PROXIMAMENTE" [ref=e257] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e258]:
+              - link "Documentación - PROXIMAMENTE" [ref=e259] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e260]:
+              - link "Comunidad - PROXIMAMENTE" [ref=e261] [cursor=pointer]:
+                - /url: "#"
+      - generic [ref=e262]:
+        - paragraph [ref=e263]: © 2025 Lezgo Suite. Todos los derechos reservados.
+        - generic [ref=e264]:
+          - link "Privacidad" [ref=e265] [cursor=pointer]:
+            - /url: "#"
+          - link "Términos y condiciones" [ref=e266] [cursor=pointer]:
+            - /url: /terminos-y-condiciones
+  - button "Open Next.js Dev Tools" [ref=e272] [cursor=pointer]:
+    - img [ref=e273]

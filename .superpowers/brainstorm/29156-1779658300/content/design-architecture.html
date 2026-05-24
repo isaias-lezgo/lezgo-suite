@@ -1,0 +1,71 @@
+<h2>Diseño — Sección 1: Arquitectura SEO</h2>
+<p class="subtitle">Archivos nuevos (🟢) y modificados (🟡). Nada se borra.</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:16px;">
+
+  <!-- New files -->
+  <div>
+    <span class="label">🟢 Archivos nuevos</span>
+    <div style="margin-top:12px;font-family:monospace;font-size:0.85em;line-height:2;">
+      <div style="background:#0d1f0d;border:1px solid #1a4a1a;border-radius:8px;padding:16px;">
+        <div style="color:#86efac;">app/</div>
+        <div style="color:#86efac;padding-left:20px;">├── sitemap.ts</div>
+        <div style="color:#aaa;padding-left:32px;font-size:0.8em;font-family:sans-serif;line-height:1.4;margin-bottom:8px;">Genera /sitemap.xml automáticamente.<br>Next.js lo sirve sin archivo en /public/.</div>
+        <div style="color:#86efac;padding-left:20px;">├── robots.ts</div>
+        <div style="color:#aaa;padding-left:32px;font-size:0.8em;font-family:sans-serif;line-height:1.4;margin-bottom:8px;">Genera /robots.txt. Apunta al sitemap.</div>
+        <div style="color:#86efac;padding-left:20px;">└── opengraph-image.tsx</div>
+        <div style="color:#aaa;padding-left:32px;font-size:0.8em;font-family:sans-serif;line-height:1.4;margin-bottom:8px;">OG image dinámica con @vercel/og.<br>Sin necesidad de /og-image.jpg manual.</div>
+        <div style="color:#86efac;">lib/</div>
+        <div style="color:#86efac;padding-left:20px;">└── seo.ts</div>
+        <div style="color:#aaa;padding-left:32px;font-size:0.8em;font-family:sans-serif;line-height:1.4;margin-bottom:8px;">Config central: dominio, nombre,<br>keywords base, función createMetadata().</div>
+        <div style="color:#86efac;">components/custom/</div>
+        <div style="color:#86efac;padding-left:20px;">└── JsonLd.tsx</div>
+        <div style="color:#aaa;padding-left:32px;font-size:0.8em;font-family:sans-serif;line-height:1.4;">Componente server-side reutilizable<br>para inyectar JSON-LD en cualquier página.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modified files -->
+  <div>
+    <span class="label">🟡 Archivos modificados</span>
+    <div style="margin-top:12px;font-family:monospace;font-size:0.85em;line-height:2;">
+      <div style="background:#1a1a0d;border:1px solid #3a3a10;border-radius:8px;padding:16px;">
+        <div style="color:#fde68a;">app/layout.tsx</div>
+        <div style="color:#aaa;padding-left:20px;font-size:0.8em;font-family:sans-serif;line-height:1.4;margin-bottom:8px;">+ metadataBase<br>+ Organization + LocalBusiness JSON-LD</div>
+        <div style="color:#fde68a;">app/page.tsx</div>
+        <div style="color:#aaa;padding-left:20px;font-size:0.8em;font-family:sans-serif;line-height:1.4;margin-bottom:8px;">Separar en shell (server) + contenido (client)<br>para poder exportar metadata desde la ruta /</div>
+        <div style="color:#fde68a;">app/gestion-ventas/page.tsx</div>
+        <div style="color:#fde68a;">app/automatizacion-ia/page.tsx</div>
+        <div style="color:#fde68a;">app/analisis-empresarial/page.tsx</div>
+        <div style="color:#fde68a;">app/integracion-total/page.tsx</div>
+        <div style="color:#fde68a;">app/sobre-nosotros/page.tsx</div>
+        <div style="color:#fde68a;">app/contacto/page.tsx</div>
+        <div style="color:#aaa;padding-left:20px;font-size:0.8em;font-family:sans-serif;line-height:1.4;margin-bottom:8px;">+ export const metadata con título,<br>description y canonical únicos por página</div>
+        <div style="color:#fde68a;">components/footer.tsx</div>
+        <div style="color:#aaa;padding-left:20px;font-size:0.8em;font-family:sans-serif;line-height:1.4;">© 2025 → © 2026</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background:#141a24;border:1px solid #1e3a5f;border-radius:8px;padding:16px;margin-top:20px;">
+  <strong style="color:#93c5fd;">¿Cómo funciona el flujo?</strong>
+  <div style="margin-top:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:0.88em;">
+    <span style="background:#1e3a5f;padding:6px 12px;border-radius:20px;color:#93c5fd;">lib/seo.ts<br><small style="color:#aaa;">config + helper</small></span>
+    <span style="color:#555;">→</span>
+    <span style="background:#1e3a5f;padding:6px 12px;border-radius:20px;color:#93c5fd;">page.tsx<br><small style="color:#aaa;">export metadata</small></span>
+    <span style="color:#555;">→</span>
+    <span style="background:#1e3a5f;padding:6px 12px;border-radius:20px;color:#93c5fd;">Next.js<br><small style="color:#aaa;">genera &lt;head&gt;</small></span>
+    <span style="color:#555;">→</span>
+    <span style="background:#1e3a5f;padding:6px 12px;border-radius:20px;color:#93c5fd;">Googlebot<br><small style="color:#aaa;">indexa correctamente</small></span>
+  </div>
+  <div style="margin-top:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:0.88em;">
+    <span style="background:#1e3a5f;padding:6px 12px;border-radius:20px;color:#93c5fd;">app/sitemap.ts<br><small style="color:#aaa;">auto-generado</small></span>
+    <span style="color:#555;">→</span>
+    <span style="background:#1e3a5f;padding:6px 12px;border-radius:20px;color:#93c5fd;">/sitemap.xml<br><small style="color:#aaa;">servido por Vercel</small></span>
+    <span style="color:#555;">+</span>
+    <span style="background:#1e3a5f;padding:6px 12px;border-radius:20px;color:#93c5fd;">app/robots.ts<br><small style="color:#aaa;">auto-generado</small></span>
+    <span style="color:#555;">→</span>
+    <span style="background:#1e3a5f;padding:6px 12px;border-radius:20px;color:#93c5fd;">/robots.txt<br><small style="color:#aaa;">servido por Vercel</small></span>
+  </div>
+</div>
