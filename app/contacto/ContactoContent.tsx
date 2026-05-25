@@ -395,19 +395,15 @@ export default function ContactoContent() {
               {[
                 {
                   question: "¿Cuánto tiempo toma implementar Lezgo Suite?",
-                  answer: "La implementación básica toma entre 24-48 horas. Para configuraciones más complejas, nuestro equipo puede completar la implementación en 1-2 semanas, dependiendo de tus necesidades específicas.",
+                  answer: "La implementación básica toma entre 24-48 horas. Para configuraciones más complejas, nuestro equipo puede completar la implementación en 4 semanas, dependiendo de tus necesidades específicas.",
                 },
                 {
                   question: "¿Ofrecen soporte técnico en español?",
                   answer: "Sí, nuestro equipo de soporte técnico habla español nativo y está disponible 24/7 para ayudarte con cualquier consulta o problema técnico que puedas tener.",
                 },
                 {
-                  question: "¿Puedo probar la plataforma antes de comprar?",
-                  answer: "¡Absolutamente! Ofrecemos una prueba gratuita de 30 días sin compromiso. Puedes explorar todas las funcionalidades y ver cómo Lezgo Suite puede transformar tu negocio.",
-                },
-                {
-                  question: "¿Qué incluye el soporte técnico?",
-                  answer: "Nuestro soporte técnico incluye asistencia por chat en vivo, llamadas telefónicas, videollamadas, documentación completa, videos tutoriales y un gerente de cuenta dedicado para empresas Enterprise.",
+                  question: "¿Qué incluye el soporte dedicado?",
+                  answer: "Nuestro soporte técnico incluye asistencia por chat en vivo, llamadas telefónicas, videollamadas, documentación completa, videos tutoriales y un gerente de cuenta dedicado para tu empresa.",
                 },
               ].map((faq, index) => (
                 <motion.div

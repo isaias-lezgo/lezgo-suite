@@ -33,7 +33,7 @@ export default function Footer() {
               <span className="text-orange-100">Hoy Mismo</span>
             </h2>
             <p className="text-xl text-orange-100 mb-8 leading-relaxed">
-              Únete a más de 100 empresas que ya confían en Lezgo Suite para impulsar su crecimiento
+              Únete a más de 50 empresas que ya confían en Lezgo Suite para impulsar su crecimiento
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">

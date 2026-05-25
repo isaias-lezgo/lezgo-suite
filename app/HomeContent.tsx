@@ -301,7 +301,7 @@ export default function HomeContent() {
             <div className="space-y-12">
               {[
                 {
-                  title: "Marketing Inteligente",
+                  title: "Plataforma Inteligente",
                   subtitle: "Campañas que Convierten",
                   description:
                     "Crea flujos de trabajo automáticos que disparan acciones según el comportamiento de tus contactos. Seguimientos por distintos canales como WhatsApp, Instagram, Facebook, etc. sin intervención manual.",
@@ -313,7 +313,7 @@ export default function HomeContent() {
                   reverse: false,
                 },
                 {
-                  title: "CRM Inteligente",
+                  title: "Visión completa",
                   subtitle: "Ventas Optimizadas",
                   description:
                     "Gestiona el ciclo completo de ventas con IA predictiva. Pipeline inteligente, scoring automático de leads y predicciones ML para cerrar más deals.",
