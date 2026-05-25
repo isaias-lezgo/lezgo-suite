@@ -4,9 +4,6 @@ const config: OnboardingConfig = {
   planLabel: 'LICENCIA ESTÁNDAR',
   heading: 'Bienvenido a Lezgo Suite',
   subtitle: 'Lee las condiciones de tu plan antes de agendar tu primera sesión.',
-  introTitle: '¿Qué incluye tu plan?',
-  introText:
-    'Texto introductorio — reemplaza este párrafo con tu propia explicación de lo que es el plan Licencia: qué acceso tienen, qué pueden esperar y el espíritu del servicio.',
   conditions: [
     {
       icon: '🏠',

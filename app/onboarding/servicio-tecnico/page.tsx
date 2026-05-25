@@ -4,9 +4,6 @@ const config: OnboardingConfig = {
   planLabel: 'SERVICIO TÉCNICO DEDICADO',
   heading: 'Bienvenido a Lezgo Suite',
   subtitle: 'Lee las condiciones de tu plan antes de agendar tu primera sesión.',
-  introTitle: '¿Qué incluye tu plan?',
-  introText:
-    'Texto introductorio — reemplaza este párrafo con tu propia explicación de lo que es el Servicio Técnico Dedicado: qué tipo de asesoría ofrece, cómo se diferencia de la licencia y qué puede esperar el cliente.',
   conditions: [
     {
       icon: '👨‍💻',

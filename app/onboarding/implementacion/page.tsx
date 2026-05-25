@@ -4,9 +4,6 @@ const config: OnboardingConfig = {
   planLabel: 'IMPLEMENTACIÓN',
   heading: 'Bienvenido a Lezgo Suite',
   subtitle: 'Lee las condiciones de tu plan antes de agendar tu primera sesión.',
-  introTitle: '¿Qué incluye tu plan?',
-  introText:
-    'Texto introductorio — reemplaza este párrafo con tu propia explicación de cómo funciona el proceso de implementación: qué construimos juntos, cómo trabajamos y qué necesitas tener listo.',
   conditions: [
     {
       icon: '🗺️',
