@@ -227,11 +227,30 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                   <div>
                     <p className="font-bold mb-2" style={{ color: '#1B2B4B' }}>¿Qué es el onboarding?</p>
                     <p className="leading-relaxed">
-                      El onboarding es el proceso de implementación inicial y adaptación que vive una empresa
-                      (y sus usuarios) cuando comienza a usar un sistema de gestión de relaciones con clientes
-                      como Lezgo Suite. Básicamente, es la fase de arranque donde se prepara todo lo básico para
-                      que el CRM se ajuste a las necesidades del negocio y los equipos aprendan a usarlo correctamente.
+                      El onboarding es el proceso de implementación inicial de arranque donde se prepara todo lo básico para
+                      que el CRM se ajuste a las necesidades del negocio.
                     </p>
+
+                    {/* Alerta: onboarding ≠ capacitación */}
+                    <div
+                      className="mt-4 rounded-xl p-4 flex items-start gap-3"
+                      style={{
+                        background: 'rgba(245,155,27,.1)',
+                        border: '1.5px solid #F59B1B',
+                      }}
+                    >
+                      <span className="text-lg flex-shrink-0" aria-hidden="true">⚠️</span>
+                      <div>
+                        <p className="font-bold text-sm mb-1" style={{ color: '#B45309' }}>
+                          El onboarding NO es una capacitación
+                        </p>
+                        <p className="text-sm leading-relaxed" style={{ color: '#92400E' }}>
+                          El objetivo del onboarding es realizar la configuración inicial de la plataforma,
+                          no capacitar a tu equipo en el uso del sistema. La formación y el aprendizaje
+                          de los usuarios son responsabilidad de cada empresa con los videos y apoyo proporcionado por Lezgo Suite después del Onboarding.
+                        </p>
+                      </div>
+                    </div>
                   </div>
 
                   {/* Notas importantes */}
@@ -240,9 +259,8 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                     <ul className="space-y-2">
                       {[
                         'Las sesiones serán siempre virtuales.',
-                        'No habrá sesiones de más de 10 personas; si son más de 10, se dividirán las sesiones.',
-                        'Si después de acordar el alcance de una implementación se agregan nuevos pendientes, quedan fuera del alcance original.',
-                        'A sesión y todas las futuras sesiones tenemos una tolerancia de 10 minutos de espera.',
+                        'No habrá sesiones de más de 10 personas.',
+                        'Para la sesión se tiene una tolerancia de 10 minutos de espera.',
                       ].map((note) => (
                         <li key={note} className="flex items-start gap-3">
                           <span

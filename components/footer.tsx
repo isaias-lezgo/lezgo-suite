@@ -80,7 +80,7 @@ export default function Footer() {
 
 
       <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div className="space-y-4">
             <img src="/LOGONUEVO.png" alt="Lezgo Suite" className="h-8 w-auto" />
             <p className="text-gray-300 leading-relaxed">
@@ -146,27 +146,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-semibold mb-4 text-[#F59B1B]">Soporte</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li>
-                <Link href="#" className="hover:text-white transition-colors">
-                  Centro de Ayuda - PROXIMAMENTE
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white transition-colors">
-                  Documentación - PROXIMAMENTE
-                </Link>
-              </li>
-
-              <li>
-                <Link href="#" className="hover:text-white transition-colors">
-                  Comunidad - PROXIMAMENTE
-                </Link>
-              </li>
-            </ul>
-          </div>
+     
         </div>
 
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
