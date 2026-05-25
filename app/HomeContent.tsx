@@ -304,14 +304,12 @@ export default function HomeContent() {
                   title: "Marketing Inteligente",
                   subtitle: "Campañas que Convierten",
                   description:
-                    "Automatiza campañas multi-canal con IA predictiva. Segmentación avanzada, personalización en tiempo real y análisis de comportamiento para maximizar el ROI de cada campaña.",
+                    "Crea flujos de trabajo automáticos que disparan acciones según el comportamiento de tus contactos. Seguimientos por distintos canales como WhatsApp, Instagram, Facebook, etc. sin intervención manual.",
                   features: [
                     "Segmentación IA",
                     "Automatización Multi-canal",
-                    "ROI Predictivo",
-                    "Personalización Dinámica",
                   ],
-                  image: "/MOCKUP1.png",
+                  video: "/Workflows.mp4",
                   reverse: false,
                 },
                 {
@@ -322,10 +320,9 @@ export default function HomeContent() {
                   features: [
                     "Pipeline Inteligente",
                     "Lead Scoring IA",
-                    "Predicciones ML",
                     "360° Cliente",
                   ],
-                  image: "/MOCKUP2.png",
+                  video: "/Informes.mp4",
                   reverse: true,
                 },
                 {
@@ -336,10 +333,9 @@ export default function HomeContent() {
                   features: [
                     "WhatsApp Business",
                     "Instagram Direct",
-                    "TikTok Messaging",
                     "Chatbots IA",
                   ],
-                  image: "/MOCKUP3.jpg",
+                  video: "/IA.mp4",
                   reverse: false,
                 },
                 {
@@ -353,7 +349,7 @@ export default function HomeContent() {
                     "Sync Tiempo Real",
                     "Conectores Nativos",
                   ],
-                  image: "/MOCKUP4.jpg",
+                  video: "/Redes Sociales.mp4",
                   reverse: true,
                 },
               ].map((item, index) => (
@@ -417,21 +413,16 @@ export default function HomeContent() {
                       item.reverse ? "lg:col-start-1" : ""
                     }`}
                   >
-                    <div
-                      className={`relative ${
-                        index === 0 || index === 1
-                          ? "rounded-none"
-                          : "rounded-2xl bg-white shadow-2xl border border-gray-100"
-                      } overflow-hidden`}
-                    >
-                      <img
-                        src={item.image || "/placeholder.svg"}
-                        alt={item.title}
+                    <div className="relative rounded-2xl bg-white shadow-2xl border border-gray-100 overflow-hidden">
+                      <video
+                        src={item.video}
                         className="w-full h-auto"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                       />
-                      {index !== 0 && index !== 1 && (
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
-                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
                     </div>
                     <motion.div
                       animate={{ rotate: [0, 360] }}
