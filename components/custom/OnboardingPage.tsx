@@ -59,7 +59,7 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
   }
 
   return (
-    <div className="min-h-screen" style={{ background: '#F7F8FA', color: '#1A202C' }}>
+    <div className="min-h-screen" style={{ background: '#F3F5F8', color: '#0F172A' }}>
 
       {/* ── Hero ──────────────────────────────────────────────────────────────── */}
       <header style={{ background: 'linear-gradient(135deg, #1B2B4B 0%, #2E5490 100%)' }}>
@@ -91,7 +91,7 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
       </header>
 
       {/* ── Body ──────────────────────────────────────────────────────────────── */}
-      <div className="max-w-4xl mx-auto px-4 md:px-6 py-10 space-y-6">
+      <div className="max-w-4xl mx-auto px-4 md:px-6 py-10 space-y-7">
 
         {/* ── Required-reading notice ─────────────────────────────────────────── */}
         <motion.div
@@ -129,7 +129,7 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
             className="text-xs font-bold uppercase tracking-widest px-1"
             style={{ color: '#64748B' }}
           >
-            Paso 1 — Alcance de tu plan
+            Paso 1: Alcance de tu plan
           </motion.p>
 
           {config.conditions.map((c, i) => {
@@ -146,7 +146,7 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                 style={
                   c.highlighted
                     ? { background: '#FEE2E2', borderColor: '#DC2626' }
-                    : { background: 'white', borderColor: '#E2E8F0' }
+                    : { background: '#FBFCFE', borderColor: '#D7DEE8' }
                 }
               >
                 <div
@@ -177,7 +177,7 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                   {!step1Done ? (
                     <label
                       htmlFor={conditionId}
-                      className="mt-4 pt-4 flex items-start gap-3 cursor-pointer border-t"
+                      className="mt-4 pt-4 flex items-center gap-3 cursor-pointer select-none border-t"
                       style={{
                         borderColor: c.highlighted ? 'rgba(220,38,38,.25)' : '#E2E8F0',
                       }}
@@ -186,10 +186,10 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                         id={conditionId}
                         checked={isChecked}
                         onCheckedChange={(checked) => toggleCondition(i, checked === true)}
-                        className="mt-0.5 size-5 rounded-md border-2 data-[state=checked]:border-[#F59B1B] data-[state=checked]:bg-[#F59B1B]"
+                        className="mt-0.5 size-5 shrink-0 rounded-md border-2 border-[#334155] cursor-pointer pointer-events-auto focus-visible:ring-2 focus-visible:ring-[#F59B1B]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#FBFCFE] data-[state=checked]:border-[#F59B1B] data-[state=checked]:bg-[#F59B1B]"
                       />
                       <span
-                        className="text-sm font-medium leading-snug"
+                        className="text-sm font-semibold leading-snug"
                         style={{ color: c.highlighted ? '#991B1B' : '#1B2B4B' }}
                       >
                         He leído y entiendo esta aclaración
@@ -229,7 +229,7 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                   type="button"
                   onClick={handleStep1}
                   disabled={!allConditionsChecked}
-                  className="w-full rounded-2xl p-4 font-bold text-sm transition-opacity"
+                  className="w-full rounded-2xl p-4 font-bold text-sm transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F59B1B]/40 focus-visible:ring-offset-2"
                   style={{
                     background: '#F59B1B',
                     color: 'white',
@@ -276,18 +276,18 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                 className="text-xs font-bold uppercase tracking-widest px-1"
                 style={{ color: '#64748B' }}
               >
-                Paso 2 — Información de tu onboarding
+                Paso 2: Información de tu onboarding
               </p>
 
               <div
                 className="rounded-2xl border overflow-hidden shadow-sm"
-                style={{ background: 'white', borderColor: '#E2E8F0' }}
+                style={{ background: '#FBFCFE', borderColor: '#D7DEE8' }}
               >
                 {/* Header */}
                 <div
                   className="px-6 py-5 border-b"
                   style={{
-                    borderColor: '#E2E8F0',
+                    borderColor: '#D7DEE8',
                     background: 'linear-gradient(135deg, #1B2B4B 0%, #2E5490 100%)',
                   }}
                 >
@@ -304,7 +304,7 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                   </p>
                 </div>
 
-                <div className="px-6 py-6 space-y-6 text-sm" style={{ color: '#374151' }}>
+                <div className="px-6 py-6 space-y-6 text-sm" style={{ color: '#334155' }}>
 
                   {/* Qué es el onboarding */}
                   <div>
@@ -361,7 +361,7 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                   {/* Requisitos previos */}
                   <div
                     className="rounded-xl p-5"
-                    style={{ background: '#F7F8FA', border: '1px solid #E2E8F0' }}
+                    style={{ background: '#F3F5F8', border: '1px solid #D7DEE8' }}
                   >
                     <p className="font-bold mb-1" style={{ color: '#1B2B4B' }}>
                       Requisitos previos para el onboarding
@@ -383,7 +383,7 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                             className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0"
                             style={{ background: '#2E5490' }}
                           />
-                          <span className="leading-relaxed" style={{ color: '#374151' }}>{req}</span>
+                          <span className="leading-relaxed" style={{ color: '#0F172A' }}>{req}</span>
                         </li>
                       ))}
                     </ul>
@@ -402,8 +402,9 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                     transition={{ duration: 0.3 }}
                   >
                     <button
+                      type="button"
                       onClick={handleStep2}
-                      className="w-full rounded-2xl p-4 font-bold text-sm cursor-pointer"
+                      className="w-full rounded-2xl p-4 font-bold text-sm cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B2B4B]/25 focus-visible:ring-offset-2"
                       style={{ background: '#1B2B4B', color: 'white' }}
                     >
                       Confirmo que leí la información del onboarding →
@@ -445,11 +446,11 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
             >
               <div
                 className="rounded-2xl overflow-hidden border shadow-sm"
-                style={{ borderColor: '#E2E8F0' }}
+                style={{ borderColor: '#D7DEE8' }}
               >
                 <div
                   className="p-5 text-center border-b"
-                  style={{ background: 'white', borderColor: '#E2E8F0' }}
+                  style={{ background: '#FBFCFE', borderColor: '#D7DEE8' }}
                 >
                   <p className="font-bold text-base" style={{ color: '#1B2B4B' }}>
                     Agenda tu sesión de onboarding
