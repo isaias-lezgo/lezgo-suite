@@ -1,7 +1,7 @@
 import OnboardingPage, { type OnboardingConfig } from '@/components/custom/OnboardingPage'
 
 const config: OnboardingConfig = {
-  planLabel: 'SERVICIO TÉCNICO DEDICADO',
+  planLabel: 'IMPLEMENTACIÓN + SERVICIO TÉCNICO',
   heading: 'Bienvenido a Lezgo Suite',
   subtitle: 'Revisa las condiciones de tu plan antes de agendar tu primera sesión.',
   conditions: [
@@ -42,10 +42,48 @@ const config: OnboardingConfig = {
         'La atención se canaliza a través de un representante designado por tu empresa, quien centraliza las consultas del equipo.',
     },
     {
+      icon: '🚨',
+      title: 'Primera sesión: mapeo de necesidades',
+      description:
+        'La primera sesión está dedicada a definir con precisión las automatizaciones e integraciones a implementar. Es indispensable que llegues con tus procesos y necesidades documentados.',
+      highlighted: true,
+    },
+    {
+      icon: '🚨',
+      title: 'Plazo de implementación: 4 semanas',
+      description:
+        'El proceso de implementación tiene una duración fija de 4 semanas a partir de la primera sesión. Este plazo no se extiende.',
+      highlighted: true,
+    },
+    {
+      icon: '⏰',
+      title: 'El plazo no se detiene',
+      description:
+        'Si no asistes a sesiones, no entregas información o no respondes a tiempo, el plazo de 4 semanas continúa sin pausas ni extensiones.',
+    },
+    {
+      icon: '🤝',
+      title: 'Tu participación es clave',
+      description:
+        'Para concluir la implementación en tiempo, debes mantenerte disponible, responder solicitudes y proporcionar los accesos que Lezgo Suite requiera.',
+    },
+    {
+      icon: '⚠️',
+      title: 'Responsabilidad por incumplimiento',
+      description:
+        'Si la implementación no concluye dentro de las 4 semanas por falta de seguimiento, información o disponibilidad de tu parte, la responsabilidad recae en el cliente. Lezgo Suite no está obligado a extender el plazo.',
+    },
+    {
+      icon: '⚙️',
+      title: 'Acompañamiento técnico',
+      description:
+        'Durante y después de la implementación, el acompañamiento es de asesoría, guía y resolución de dudas. No es un servicio inmediato las 24 horas ni incluye trabajo ilimitado fuera del alcance acordado.',
+    },
+    {
       icon: '⚠️',
       title: 'Ritmo de automatizaciones',
       description:
-        'El servicio incluye asesoría y acompañamiento para crear o mantener una automatización por semana. Según la complejidad, algunos proyectos pueden requerir más de una semana.',
+        'Después de la implementación, el servicio técnico incluye asesoría y acompañamiento para crear o mantener una automatización por semana. Según la complejidad, algunos proyectos pueden requerir más de una semana.',
     },
     {
       icon: '✅',
@@ -56,6 +94,6 @@ const config: OnboardingConfig = {
   ],
 }
 
-export default function ServicioTecnicoOnboarding() {
+export default function ImplementacionYServicioOnboarding() {
   return <OnboardingPage config={config} />
 }

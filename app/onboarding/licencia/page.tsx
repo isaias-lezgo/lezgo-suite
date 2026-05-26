@@ -3,31 +3,37 @@ import OnboardingPage, { type OnboardingConfig } from '@/components/custom/Onboa
 const config: OnboardingConfig = {
   planLabel: 'LICENCIA ESTÁNDAR',
   heading: 'Bienvenido a Lezgo Suite',
-  subtitle: 'Lee las condiciones de tu plan antes de agendar tu primera sesión.',
+  subtitle: 'Revisa las condiciones de tu plan antes de agendar tu primera sesión.',
   conditions: [
     {
       icon: '🏠',
       title: 'Acceso a la plataforma',
       description:
-        'Tienes acceso completo a Lezgo Suite (GoHighLevel). La plataforma es tuya para administrar y operar a tu ritmo.',
+        'Cuentas con acceso completo a Lezgo Suite para administrar y operar la plataforma a tu ritmo.',
     },
     {
       icon: '💬',
       title: 'Soporte vía WhatsApp',
       description:
-        'Puedes escribirnos por WhatsApp para resolver dudas puntuales. El soporte es únicamente para responder preguntas — no incluye configuraciones ni implementaciones.',
+        'Puedes contactarnos por WhatsApp para resolver dudas puntuales. El soporte se limita a responder preguntas; no incluye configuraciones ni implementaciones.',
     },
     {
       icon: '🕘',
       title: 'Horario de atención',
       description:
-        'Lunes a viernes de 9:00 a 18:00 hrs (hora del centro de México). Mensajes fuera de horario serán atendidos el siguiente día hábil.',
+        'Lunes a viernes de 9:00 a 18:00 h (hora del centro de México). Los mensajes recibidos fuera de este horario se atenderán el siguiente día hábil.',
     },
     {
       icon: '🚫',
       title: 'No incluye implementaciones',
       description:
-        'Este plan no contempla la creación de automatizaciones, flujos ni configuraciones adicionales por parte de Lezgo Suite. Tú eres responsable de administrar y operar tu plataforma.',
+        'Este plan no contempla la creación de automatizaciones, flujos ni configuraciones adicionales por parte de Lezgo Suite. La administración y operación de la plataforma son responsabilidad de tu empresa.',
+    },
+    {
+      icon: '📞',
+      title: 'Una videollamada al mes',
+      description:
+        'Incluye una videollamada de 1 hora al mes con un experto de la plataforma para orientarte en el uso del sistema.',
     },
   ],
 }

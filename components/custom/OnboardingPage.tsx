@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Script from 'next/script'
+import { Checkbox } from '@/components/ui/checkbox'
 
 const GHL_SCRIPT = 'https://app.lezgosuite.com/js/form_embed.js'
 const CALENDAR_URL = 'https://app.lezgosuite.com/widget/booking/AN1LKwpuOmHNHso08b8C'
@@ -11,6 +12,7 @@ interface Condition {
   icon: string
   title: string
   description: string
+  highlighted?: boolean
 }
 
 export interface OnboardingConfig {
@@ -23,10 +25,26 @@ export interface OnboardingConfig {
 export default function OnboardingPage({ config }: { config: OnboardingConfig }) {
   const [step1Done, setStep1Done] = useState(false)
   const [step2Done, setStep2Done] = useState(false)
+  const [checkedConditions, setCheckedConditions] = useState<boolean[]>(() =>
+    config.conditions.map(() => false),
+  )
   const onboardingRef = useRef<HTMLDivElement>(null)
   const calendarRef = useRef<HTMLDivElement>(null)
 
+  const allConditionsChecked = checkedConditions.every(Boolean)
+  const checkedCount = checkedConditions.filter(Boolean).length
+  const totalConditions = config.conditions.length
+
+  function toggleCondition(index: number, checked: boolean) {
+    setCheckedConditions((prev) => {
+      const next = [...prev]
+      next[index] = checked
+      return next
+    })
+  }
+
   function handleStep1() {
+    if (!allConditionsChecked) return
     setStep1Done(true)
     setTimeout(() => {
       onboardingRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -45,7 +63,7 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
 
       {/* ── Hero ──────────────────────────────────────────────────────────────── */}
       <header style={{ background: 'linear-gradient(135deg, #1B2B4B 0%, #2E5490 100%)' }}>
-        <div className="max-w-3xl mx-auto px-6 py-14">
+        <div className="max-w-4xl mx-auto px-6 py-14">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -73,7 +91,7 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
       </header>
 
       {/* ── Body ──────────────────────────────────────────────────────────────── */}
-      <div className="max-w-3xl mx-auto px-4 md:px-6 py-10 space-y-6">
+      <div className="max-w-4xl mx-auto px-4 md:px-6 py-10 space-y-6">
 
         {/* ── Required-reading notice ─────────────────────────────────────────── */}
         <motion.div
@@ -95,9 +113,9 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
               Antes de continuar, lee con atención
             </p>
             <p style={{ color: '#93c5fd' }} className="text-sm leading-relaxed">
-              Para poder agendar tu sesión de onboarding deberás confirmar el alcance de tu plan
-              y leer la información del proceso. El calendario se habilitará únicamente una vez
-              que completes ambos pasos.
+              Para agendar tu sesión de onboarding, marca cada aclaración del alcance de tu plan,
+              confirma que las entendiste y revisa la información del proceso. El calendario se
+              habilitará cuando completes ambos pasos.
             </p>
           </div>
         </motion.div>
@@ -114,32 +132,85 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
             Paso 1 — Alcance de tu plan
           </motion.p>
 
-          {config.conditions.map((c, i) => (
-            <motion.div
-              key={c.title}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.15 + i * 0.07 }}
-              className="rounded-2xl border p-5 flex items-start gap-4 shadow-sm"
-              style={{ background: 'white', borderColor: '#E2E8F0' }}
-            >
-              <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center text-lg flex-shrink-0"
-                style={{ background: 'linear-gradient(135deg, #1B2B4B, #2E5490)' }}
-                aria-hidden="true"
+          {config.conditions.map((c, i) => {
+            const conditionId = `onboarding-condition-${i}`
+            const isChecked = checkedConditions[i]
+
+            return (
+              <motion.div
+                key={`${c.title}-${i}`}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.15 + i * 0.07 }}
+                className={`rounded-2xl p-5 flex items-start gap-4 shadow-sm ${c.highlighted ? 'border-2' : 'border'}`}
+                style={
+                  c.highlighted
+                    ? { background: '#FEE2E2', borderColor: '#DC2626' }
+                    : { background: 'white', borderColor: '#E2E8F0' }
+                }
               >
-                {c.icon}
-              </div>
-              <div>
-                <p className="font-semibold text-sm mb-1" style={{ color: '#1B2B4B' }}>
-                  {c.title}
-                </p>
-                <p className="text-sm leading-relaxed" style={{ color: '#64748B' }}>
-                  {c.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center text-lg flex-shrink-0"
+                  style={
+                    c.highlighted
+                      ? { background: '#DC2626', border: '1px solid #B91C1C' }
+                      : { background: 'linear-gradient(135deg, #1B2B4B, #2E5490)' }
+                  }
+                  aria-hidden="true"
+                >
+                  {c.icon}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p
+                    className="font-semibold text-sm mb-1"
+                    style={{ color: c.highlighted ? '#991B1B' : '#1B2B4B' }}
+                  >
+                    {c.title}
+                  </p>
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ color: c.highlighted ? '#7F1D1D' : '#64748B' }}
+                  >
+                    {c.description}
+                  </p>
+
+                  {!step1Done ? (
+                    <label
+                      htmlFor={conditionId}
+                      className="mt-4 pt-4 flex items-start gap-3 cursor-pointer border-t"
+                      style={{
+                        borderColor: c.highlighted ? 'rgba(220,38,38,.25)' : '#E2E8F0',
+                      }}
+                    >
+                      <Checkbox
+                        id={conditionId}
+                        checked={isChecked}
+                        onCheckedChange={(checked) => toggleCondition(i, checked === true)}
+                        className="mt-0.5 size-5 rounded-md border-2 data-[state=checked]:border-[#F59B1B] data-[state=checked]:bg-[#F59B1B]"
+                      />
+                      <span
+                        className="text-sm font-medium leading-snug"
+                        style={{ color: c.highlighted ? '#991B1B' : '#1B2B4B' }}
+                      >
+                        He leído y entiendo esta aclaración
+                      </span>
+                    </label>
+                  ) : (
+                    <p
+                      className="mt-4 pt-4 flex items-center gap-2 text-sm font-semibold border-t"
+                      style={{
+                        borderColor: c.highlighted ? 'rgba(220,38,38,.25)' : '#E2E8F0',
+                        color: '#065f46',
+                      }}
+                    >
+                      <span aria-hidden="true">✓</span>
+                      Aclaración confirmada
+                    </p>
+                  )}
+                </div>
+              </motion.div>
+            )
+          })}
 
           <AnimatePresence>
             {!step1Done && (
@@ -149,10 +220,22 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                 exit={{ opacity: 0, y: -10, transition: { duration: 0.2 } }}
                 transition={{ duration: 0.35, delay: 0.15 + config.conditions.length * 0.07 }}
               >
+                <p className="text-center text-xs mb-2" style={{ color: '#64748B' }}>
+                  {allConditionsChecked
+                    ? 'Todas las aclaraciones están marcadas. Puedes continuar.'
+                    : `Marca todas las aclaraciones para continuar (${checkedCount} de ${totalConditions})`}
+                </p>
                 <button
+                  type="button"
                   onClick={handleStep1}
-                  className="w-full rounded-2xl p-4 font-bold text-sm cursor-pointer"
-                  style={{ background: '#F59B1B', color: 'white' }}
+                  disabled={!allConditionsChecked}
+                  className="w-full rounded-2xl p-4 font-bold text-sm transition-opacity"
+                  style={{
+                    background: '#F59B1B',
+                    color: 'white',
+                    opacity: allConditionsChecked ? 1 : 0.45,
+                    cursor: allConditionsChecked ? 'pointer' : 'not-allowed',
+                  }}
                 >
                   Confirmo que leí y entiendo el alcance de mi plan →
                 </button>
@@ -216,8 +299,8 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                   </p>
                   <p className="text-white font-bold text-lg">Onboarding Lezgo Suite</p>
                   <p className="text-sm mt-1" style={{ color: '#93c5fd' }}>
-                    Tendrás una sesión de onboarding con el objetivo de hacer una configuración
-                    inicial de la plataforma.
+                    En esta sesión realizaremos la configuración inicial de la plataforma según
+                    las necesidades de tu negocio.
                   </p>
                 </div>
 
@@ -227,8 +310,9 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                   <div>
                     <p className="font-bold mb-2" style={{ color: '#1B2B4B' }}>¿Qué es el onboarding?</p>
                     <p className="leading-relaxed">
-                      El onboarding es el proceso de implementación inicial de arranque donde se prepara todo lo básico para
-                      que el CRM se ajuste a las necesidades del negocio.
+                      El onboarding es la etapa inicial de implementación en la que configuramos
+                      los elementos básicos para que Lezgo Suite se adapte a la operación de tu
+                      negocio.
                     </p>
 
                     {/* Alerta: onboarding ≠ capacitación */}
@@ -245,9 +329,10 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                           El onboarding NO es una capacitación
                         </p>
                         <p className="text-sm leading-relaxed" style={{ color: '#92400E' }}>
-                          El objetivo del onboarding es realizar la configuración inicial de la plataforma,
-                          no capacitar a tu equipo en el uso del sistema. La formación y el aprendizaje
-                          de los usuarios son responsabilidad de cada empresa con los videos y apoyo proporcionado por Lezgo Suite después del Onboarding.
+                          El objetivo del onboarding es la configuración inicial de la plataforma,
+                          no la capacitación de tu equipo. La formación de usuarios corresponde a
+                          cada empresa, con el apoyo de los recursos y materiales que Lezgo Suite
+                          pone a disposición después del onboarding.
                         </p>
                       </div>
                     </div>
@@ -258,9 +343,9 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                     <p className="font-bold mb-3" style={{ color: '#1B2B4B' }}>Notas importantes</p>
                     <ul className="space-y-2">
                       {[
-                        'Las sesiones serán siempre virtuales.',
-                        'No habrá sesiones de más de 10 personas.',
-                        'Para la sesión se tiene una tolerancia de 10 minutos de espera.',
+                        'Todas las sesiones son virtuales.',
+                        'Cada sesión admite un máximo de 10 participantes.',
+                        'La tolerancia de espera al inicio de la sesión es de 10 minutos.',
                       ].map((note) => (
                         <li key={note} className="flex items-start gap-3">
                           <span
@@ -282,17 +367,16 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                       Requisitos previos para el onboarding
                     </p>
                     <p className="text-xs mb-4" style={{ color: '#64748B' }}>
-                      Para tu sesión de onboarding es importante contar con lo siguiente para asegurar
-                      una implementación ágil y efectiva:
+                      Ten listos los siguientes elementos para una sesión ágil y efectiva:
                     </p>
                     <ul className="space-y-2">
                       {[
-                        'Computadora con conexión a internet disponible.',
-                        'Teléfono disponible para instalar la aplicación.',
-                        'Definición de la estructura de comunicación de la empresa actual, o la deseada (ejemplo: un WhatsApp general, un WhatsApp por asesor, etc.).',
-                        'Lista de los números telefónicos utilizados en la operación (ejemplo: los números en las cuentas de WhatsApp).',
+                        'Computadora con conexión a internet estable.',
+                        'Teléfono móvil para instalar la aplicación.',
+                        'Estructura de comunicación definida (actual o deseada), por ejemplo: un WhatsApp general, uno por asesor, etc.',
+                        'Lista de números telefónicos utilizados en la operación (incluidos los vinculados a WhatsApp).',
                         'Acceso a Meta Business Suite de la empresa.',
-                        'Nombre completo, correo electrónico, número telefónico y puesto de las personas que tendrán acceso a la plataforma.',
+                        'Datos de cada usuario con acceso a la plataforma: nombre completo, correo electrónico, teléfono y puesto.',
                       ].map((req) => (
                         <li key={req} className="flex items-start gap-3">
                           <span
