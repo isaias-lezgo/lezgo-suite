@@ -17,7 +17,7 @@ export default function LeadPopup() {
   useEffect(() => {
     if (sessionStorage.getItem('leadPopupShown')) return
 
-    const target = document.getElementById('funcionalidades')
+    const target = document.getElementById('precios')
     if (!target) return
 
     const observer = new IntersectionObserver(
@@ -76,10 +76,10 @@ export default function LeadPopup() {
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative">
+      <div className="bg-[#0d0d0d] border border-white/10 rounded-2xl shadow-2xl max-w-md w-full p-8 relative">
         <button
           onClick={() => setIsVisible(false)}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+          className="absolute top-4 right-4 text-white/40 hover:text-white/80 transition-colors"
           aria-label="Cerrar"
         >
           <X className="w-5 h-5" />
@@ -92,31 +92,31 @@ export default function LeadPopup() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">¡Listo!</h3>
-            <p className="text-gray-600">Un especialista te contactará pronto.</p>
+            <h3 className="text-xl font-bold text-white mb-2">¡Listo!</h3>
+            <p className="text-white/60">Un especialista te contactará pronto.</p>
           </div>
         ) : (
           <>
-            <h2 className="text-2xl font-bold font-heading text-gray-900 mb-2">
+            <h2 className="text-2xl font-bold font-heading text-white mb-2">
               ¿Te interesa lo que viste?
             </h2>
-            <p className="text-gray-600 mb-6 leading-relaxed">
+            <p className="text-white/60 mb-6 leading-relaxed">
               Habla con un especialista y descubre cómo Lezgo Suite puede transformar tu negocio.
             </p>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-1.5">
-                <Label htmlFor="popup-nombre">Nombre *</Label>
+                <Label htmlFor="popup-nombre" className="text-white/70">Nombre *</Label>
                 <Input
                   id="popup-nombre"
                   value={formData.nombre}
                   onChange={(e) => setFormData(prev => ({ ...prev, nombre: e.target.value }))}
                   required
                   placeholder="Tu nombre"
-                  className="border-gray-300 focus-visible:border-[#F59B1B] focus-visible:ring-[#F59B1B]/30"
+                  className="bg-white/5 border-white/15 text-white placeholder:text-white/30 focus-visible:border-[#F59B1B] focus-visible:ring-[#F59B1B]/30"
                 />
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="popup-email">Email *</Label>
+                <Label htmlFor="popup-email" className="text-white/70">Email *</Label>
                 <Input
                   id="popup-email"
                   type="email"
@@ -124,11 +124,11 @@ export default function LeadPopup() {
                   onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                   required
                   placeholder="tu@empresa.com"
-                  className="border-gray-300 focus-visible:border-[#F59B1B] focus-visible:ring-[#F59B1B]/30"
+                  className="bg-white/5 border-white/15 text-white placeholder:text-white/30 focus-visible:border-[#F59B1B] focus-visible:ring-[#F59B1B]/30"
                 />
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="popup-telefono">Teléfono *</Label>
+                <Label htmlFor="popup-telefono" className="text-white/70">Teléfono *</Label>
                 <Input
                   id="popup-telefono"
                   type="tel"
@@ -136,10 +136,10 @@ export default function LeadPopup() {
                   onChange={(e) => setFormData(prev => ({ ...prev, telefono: e.target.value }))}
                   required
                   placeholder="+52 442 000 0000"
-                  className="border-gray-300 focus-visible:border-[#F59B1B] focus-visible:ring-[#F59B1B]/30"
+                  className="bg-white/5 border-white/15 text-white placeholder:text-white/30 focus-visible:border-[#F59B1B] focus-visible:ring-[#F59B1B]/30"
                 />
               </div>
-              {error && <p className="text-sm text-red-600">{error}</p>}
+              {error && <p className="text-sm text-red-400">{error}</p>}
               <Button
                 type="submit"
                 disabled={isSubmitting}

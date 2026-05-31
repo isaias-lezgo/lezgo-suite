@@ -559,7 +559,7 @@ export default function HomeContent() {
                   title: "Visión completa",
                   subtitle: "Ventas Optimizadas",
                   description:
-                    "Gestiona el ciclo completo de ventas con IA predictiva. Pipeline inteligente, scoring automático de leads y predicciones ML para cerrar más deals.",
+                    "Gestiona el ciclo completo de ventas con IA predictiva. Pipeline inteligente, automatizaciones con IA para cerrar más deals.",
                   features: [
                     "Pipeline Inteligente",
                     "Lead Scoring IA",
@@ -572,7 +572,7 @@ export default function HomeContent() {
                   title: "IA en tus diferentes canales de contacto",
                   subtitle: "Comunicación Inteligente",
                   description:
-                    "Integra IA conversacional en todos tus canales de comunicación. Respuestas automáticas inteligentes, chatbots avanzados y atención 24/7 en WhatsApp, Instagram, TikTok y más.",
+                    "Integra IA conversacional en todos tus canales de comunicación. Respuestas automáticas inteligentes, chatbots avanzados y atención 24/7 en WhatsApp, Instagram y más.",
                   features: [
                     "WhatsApp Business",
                     "Instagram Direct",
