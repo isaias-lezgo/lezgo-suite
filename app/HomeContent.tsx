@@ -23,6 +23,7 @@ import {
   ContactSpecialistButton,
 } from "@/components/custom/BotonesLanding"
 import { FaqSection } from "./landing/FAQ"
+import LeadPopup from "@/components/custom/LeadPopup"
 
 type OdometerPart = { type: 'digit'; target: number } | { type: 'char'; value: string }
 
@@ -84,28 +85,6 @@ function useCountProgress(durationMs: number, trigger: boolean): number {
   return progress
 }
 
-function useOdometerProgress(ref: React.RefObject<HTMLElement | null>): number {
-  const [progress, setProgress] = useState(0)
-  const prefersReduced = useReducedMotion()
-
-  useEffect(() => {
-    if (prefersReduced) { setProgress(1); return }
-    const update = () => {
-      const el = ref.current
-      if (!el) return
-      const rect = el.getBoundingClientRect()
-      const vh = window.innerHeight
-      // 0 when section top hits 80% of viewport; 1 when it reaches 30%
-      const p = (vh * 0.8 - rect.top) / (vh * 0.5)
-      setProgress(Math.max(0, Math.min(1, p)))
-    }
-    window.addEventListener('scroll', update, { passive: true })
-    update()
-    return () => window.removeEventListener('scroll', update)
-  }, [prefersReduced])
-
-  return progress
-}
 
 function HeroStatItem({ value, label, trigger }: { value: string; label: string; trigger: boolean }) {
   const parts = useMemo(() => parseOdometerParts(value), [value])
@@ -136,18 +115,39 @@ function HeroStatItem({ value, label, trigger }: { value: string; label: string;
   )
 }
 
-function ScrollOdometerStat({ value, label, delay, progress }: { value: string; label: string; delay: number; progress: number }) {
+function AnimatedStat({ value, label, delay }: { value: string; label: string; delay: number }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [triggered, setTriggered] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setTriggered(true), delay * 1000)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '-60px' }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [delay])
+
   const parts = useMemo(() => parseOdometerParts(value), [value])
-  const staggerOffset = delay * 0.15
-  const staggeredProgress = Math.max(0, Math.min(1, (progress - staggerOffset) / (1 - staggerOffset || 1)))
-  const fadeIn = Math.min(1, staggeredProgress * 8)
+  const countProgress = useCountProgress(1300, triggered)
 
   return (
     <motion.div
-      className="text-center cursor-default"
-      style={{ opacity: fadeIn }}
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay }}
+      viewport={{ once: true }}
       whileHover={{ scale: 1.04 }}
-      transition={{ duration: 0.15 }}
+      style={{ willChange: 'transform, opacity' }}
+      className="text-center cursor-default"
     >
       <dt
         className="text-4xl lg:text-6xl font-extrabold text-[#F59B1B] flex justify-center items-center"
@@ -155,12 +155,16 @@ function ScrollOdometerStat({ value, label, delay, progress }: { value: string; 
       >
         {parts.map((part, i) =>
           part.type === 'digit' ? (
-            <OdometerDigitColumn key={i} target={part.target} progress={staggeredProgress} />
+            <OdometerDigitColumn key={i} target={part.target} progress={countProgress} />
           ) : (
             <span key={i}>{part.value}</span>
           )
         )}
       </dt>
+      <div
+        className="mx-auto mt-2 h-[2px] rounded-full bg-[#F59B1B] transition-all duration-500 ease-out"
+        style={{ width: countProgress >= 1 ? '2.5rem' : '0', transitionDelay: countProgress >= 1 ? '80ms' : '0ms' }}
+      />
       <dd className="mt-3 text-lg font-medium text-gray-800">
         {label}
       </dd>
@@ -174,9 +178,6 @@ export default function HomeContent() {
     const t = setTimeout(() => setHeroReady(true), 900)
     return () => clearTimeout(t)
   }, [])
-
-  const statsSectionRef = useRef<HTMLElement>(null)
-  const odometerProgress = useOdometerProgress(statsSectionRef)
 
   return (
     <div className="relative overflow-hidden pt-8">
@@ -380,15 +381,140 @@ export default function HomeContent() {
         </section>
 
         {/* ── Stats ─────────────────────────────────────────── */}
-        <section ref={statsSectionRef} className="relative py-16 sm:py-20 overflow-hidden">
+        <section className="relative py-16 sm:py-20 overflow-hidden">
           <div className="container relative mx-auto px-6">
             <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
-              <ScrollOdometerStat value="50+" label="Clientes Atendidos" delay={0} progress={odometerProgress} />
-              <ScrollOdometerStat value="99.9%" label="Tiempo de Servicio Activo" delay={0.1} progress={odometerProgress} />
-              <ScrollOdometerStat value="400K+" label="Contactos Procesados" delay={0.2} progress={odometerProgress} />
-              <ScrollOdometerStat value="1000+" label="Horas Ahorradas" delay={0.3} progress={odometerProgress} />
+              <AnimatedStat value="50+" label="Clientes Atendidos" delay={0} />
+              <AnimatedStat value="99.9%" label="Tiempo de Servicio Activo" delay={0.1} />
+              <AnimatedStat value="400K+" label="Contactos Procesados" delay={0.2} />
+              <AnimatedStat value="1000+" label="Horas Ahorradas" delay={0.3} />
             </dl>
           </div>
+        </section>
+
+        {/* ── Testimonios ───────────────────────────────────── */}
+        <section id="testimonios" className="relative overflow-hidden py-16">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="mb-16"
+              style={{ willChange: "transform, opacity" }}
+            >
+              <p className="text-sm font-semibold text-[#F59B1B] uppercase tracking-widest mb-4">
+                Testimonios Empresariales
+              </p>
+              <h2 className="text-4xl lg:text-6xl font-bold font-heading mb-8 leading-tight max-w-xl">
+                <span className="text-[#F59B1B]">Líderes Confían</span>
+                <br />
+                <span className="text-gray-900">en Lezgo Suite</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
+                Empresas líderes han transformado sus operaciones con
+                resultados extraordinarios
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="relative w-full px-4">
+                <Image
+                  src="/empresas.png"
+                  alt="Empresas que confían en Lezgo Suite"
+                  width={500}
+                  height={700}
+                  className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto h-auto mb-8 sm:mb-12 md:mb-16 rounded-xl sm:rounded-2xl transition-all duration-500 transform hover:scale-105"
+                />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+                {[
+                  {
+                    quote:
+                      "Lezgo Suite transformó completamente nuestra operación. El ROI fue del 340% en el primer año.",
+                    author: "Jerry Medina",
+                    position: "Dueño",
+                    company: "Soy Jerry Medina",
+                    rating: 5,
+                    highlight: "340% ROI",
+                  },
+                  {
+                    quote:
+                      "Con Lezgo Suite logramos organizar nuestros procesos y escalar más rápido de lo esperado. La eficiencia en el equipo mejoró un 70%.",
+                    author: "Evelyn",
+                    position: "Directora de Operaciones",
+                    company: "Yconia",
+                    rating: 5,
+                    highlight: "70% más eficiencia",
+                  },
+                  {
+                    quote:
+                      "La automatización IA nos permitió escalar 10x sin aumentar el equipo. Increíble plataforma.",
+                    author: "Fernanda Villafana",
+                    position: "Directora de Operaciones",
+                    company: "Tiempo Cero",
+                    rating: 5,
+                    highlight: "10x Escalabilidad",
+                  },
+                  {
+                    quote:
+                      "Implementación perfecta y soporte excepcional. Nuestra productividad aumentó 250% en 6 meses.",
+                    author: "Líder de Ventas",
+                    position: "VP de Ventas",
+                    company: "Cellarium",
+                    rating: 5,
+                    highlight: "250% Productividad",
+                  },
+                ].map((testimonial, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.15 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -8, scale: 1.03 }}
+                    style={{ willChange: "transform, opacity" }}
+                    className="group"
+                  >
+                    <Card className="h-full bg-white border border-gray-100 shadow-md hover:shadow-xl hover:border-[#F59B1B]/20 transition-all duration-500 rounded-2xl overflow-hidden">
+                      <CardContent className="p-8 relative flex flex-col gap-4">
+                        <div className="flex justify-center">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className="h-5 w-5 text-[#F59B1B] fill-current mx-1"
+                            />
+                          ))}
+                        </div>
+                        <div className="text-center">
+                          <span className="inline-block bg-[#F59B1B]/10 text-[#F59B1B] px-4 py-1.5 rounded-full text-sm font-bold">
+                            {testimonial.highlight}
+                          </span>
+                        </div>
+                        <blockquote className="text-gray-700 italic leading-relaxed text-center">
+                          {testimonial.quote}
+                        </blockquote>
+                        <div className="text-center border-t border-gray-100 pt-4 mt-auto">
+                          <div className="font-bold text-gray-900 text-lg mb-1">
+                            {testimonial.author}
+                          </div>
+                          <div className="text-sm text-gray-600 mb-1">
+                            {testimonial.position}
+                          </div>
+                          <div className="text-sm font-semibold text-[#F59B1B]">
+                            {testimonial.company}
+                          </div>
+                        </div>
+                        <div className="absolute top-0 right-0 w-20 h-20 bg-[#F59B1B]/5 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-700" />
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="absolute top-0 left-0 w-64 h-64 bg-[#F59B1B]/5 rounded-full -translate-x-32 -translate-y-32" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#F59B1B]/5 rounded-full translate-x-48 translate-y-48" />
         </section>
 
         {/* ── Características ───────────────────────────────── */}
@@ -743,133 +869,9 @@ export default function HomeContent() {
           </div>
         </section>
 
-        {/* ── Testimonios ───────────────────────────────────── */}
-        <section id="testimonios" className="relative overflow-hidden py-16">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="mb-16"
-              style={{ willChange: "transform, opacity" }}
-            >
-              <p className="text-sm font-semibold text-[#F59B1B] uppercase tracking-widest mb-4">
-                Testimonios Empresariales
-              </p>
-              <h2 className="text-4xl lg:text-6xl font-bold font-heading mb-8 leading-tight max-w-xl">
-                <span className="text-[#F59B1B]">Líderes Confían</span>
-                <br />
-                <span className="text-gray-900">en Lezgo Suite</span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
-                Empresas líderes han transformado sus operaciones con
-                resultados extraordinarios
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="relative w-full px-4">
-                <Image
-                  src="/empresas.png"
-                  alt="Empresas que confían en Lezgo Suite"
-                  width={500}
-                  height={700}
-                  className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto h-auto mb-8 sm:mb-12 md:mb-16 rounded-xl sm:rounded-2xl transition-all duration-500 transform hover:scale-105"
-                />
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-                {[
-                  {
-                    quote:
-                      "Lezgo Suite transformó completamente nuestra operación. El ROI fue del 340% en el primer año.",
-                    author: "Jerry Medina",
-                    position: "Dueño",
-                    company: "Soy Jerry Medina",
-                    rating: 5,
-                    highlight: "340% ROI",
-                  },
-                  {
-                    quote:
-                      "Con Lezgo Suite logramos organizar nuestros procesos y escalar más rápido de lo esperado. La eficiencia en el equipo mejoró un 70%.",
-                    author: "Evelyn",
-                    position: "Directora de Operaciones",
-                    company: "Yconia",
-                    rating: 5,
-                    highlight: "70% más eficiencia",
-                  },
-                  {
-                    quote:
-                      "La automatización IA nos permitió escalar 10x sin aumentar el equipo. Increíble plataforma.",
-                    author: "Fernanda Villafana",
-                    position: "Directora de Operaciones",
-                    company: "Tiempo Cero",
-                    rating: 5,
-                    highlight: "10x Escalabilidad",
-                  },
-                  {
-                    quote:
-                      "Implementación perfecta y soporte excepcional. Nuestra productividad aumentó 250% en 6 meses.",
-                    author: "Líder de Ventas",
-                    position: "VP de Ventas",
-                    company: "Cellarium",
-                    rating: 5,
-                    highlight: "250% Productividad",
-                  },
-                ].map((testimonial, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.15 }}
-                    viewport={{ once: true }}
-                    whileHover={{ y: -8, scale: 1.03 }}
-                    style={{ willChange: "transform, opacity" }}
-                    className="group"
-                  >
-                    <Card className="h-full bg-white border border-gray-100 shadow-md hover:shadow-xl hover:border-[#F59B1B]/20 transition-all duration-500 rounded-2xl overflow-hidden">
-                      <CardContent className="p-8 relative flex flex-col gap-4">
-                        <div className="flex justify-center">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star
-                              key={i}
-                              className="h-5 w-5 text-[#F59B1B] fill-current mx-1"
-                            />
-                          ))}
-                        </div>
-                        <div className="text-center">
-                          <span className="inline-block bg-[#F59B1B]/10 text-[#F59B1B] px-4 py-1.5 rounded-full text-sm font-bold">
-                            {testimonial.highlight}
-                          </span>
-                        </div>
-                        <blockquote className="text-gray-700 italic leading-relaxed text-center">
-                          {testimonial.quote}
-                        </blockquote>
-                        <div className="text-center border-t border-gray-100 pt-4 mt-auto">
-                          <div className="font-bold text-gray-900 text-lg mb-1">
-                            {testimonial.author}
-                          </div>
-                          <div className="text-sm text-gray-600 mb-1">
-                            {testimonial.position}
-                          </div>
-                          <div className="text-sm font-semibold text-[#F59B1B]">
-                            {testimonial.company}
-                          </div>
-                        </div>
-                        <div className="absolute top-0 right-0 w-20 h-20 bg-[#F59B1B]/5 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-700" />
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="absolute top-0 left-0 w-64 h-64 bg-[#F59B1B]/5 rounded-full -translate-x-32 -translate-y-32" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#F59B1B]/5 rounded-full translate-x-48 translate-y-48" />
-        </section>
-
         <FaqSection />
       </div>
+      <LeadPopup />
     </div>
   )
 }
