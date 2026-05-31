@@ -63,9 +63,9 @@ export default function Navbar() {
             <div className="flex items-center space-x-3 xl:space-x-4 xl:ml-8">
               <Link
                 href="/contacto"
-                className="text-gray-300 hover:text-white transition-colors font-medium text-sm tracking-wide whitespace-nowrap"
+                className="text-gray-300 hover:text-white transition-colors font-semibold text-sm tracking-wide whitespace-nowrap"
               >
-                Contacto
+                Contáctanos
               </Link>
               <Button
                 asChild
@@ -118,10 +118,10 @@ export default function Navbar() {
               ))}
               <Link
                 href="/contacto"
-                className="text-gray-300 hover:text-white transition-colors font-medium text-center py-2 rounded-lg hover:bg-white/5"
+                className="text-gray-300 hover:text-white transition-colors font-semibold text-center py-2 rounded-lg hover:bg-white/5"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Contacto
+                Contáctanos
               </Link>
 
               

@@ -129,8 +129,8 @@ export default function Footer() {
               </li>
 
               <li>
-                <Link href="/contacto" className="hover:text-white transition-colors">
-                  Contacto
+                <Link href="/contacto" className="hover:text-white transition-colors font-semibold">
+                  Contáctanos
                 </Link>
               </li>
               <li>
