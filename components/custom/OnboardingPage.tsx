@@ -2,10 +2,8 @@
 
 import { useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Script from 'next/script'
 import { Checkbox } from '@/components/ui/checkbox'
 
-const GHL_SCRIPT = 'https://app.lezgosuite.com/js/form_embed.js'
 const CALENDAR_URL = 'https://app.lezgosuite.com/widget/booking/AN1LKwpuOmHNHso08b8C'
 
 interface Condition {
@@ -24,12 +22,10 @@ export interface OnboardingConfig {
 
 export default function OnboardingPage({ config }: { config: OnboardingConfig }) {
   const [step1Done, setStep1Done] = useState(false)
-  const [step2Done, setStep2Done] = useState(false)
   const [checkedConditions, setCheckedConditions] = useState<boolean[]>(() =>
     config.conditions.map(() => false),
   )
   const onboardingRef = useRef<HTMLDivElement>(null)
-  const calendarRef = useRef<HTMLDivElement>(null)
 
   const allConditionsChecked = checkedConditions.every(Boolean)
   const checkedCount = checkedConditions.filter(Boolean).length
@@ -48,13 +44,6 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
     setStep1Done(true)
     setTimeout(() => {
       onboardingRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }, 350)
-  }
-
-  function handleStep2() {
-    setStep2Done(true)
-    setTimeout(() => {
-      calendarRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }, 350)
   }
 
@@ -392,83 +381,22 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                 </div>
               </div>
 
-              {/* Step 2 confirm button */}
-              <AnimatePresence>
-                {!step2Done && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10, transition: { duration: 0.2 } }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <button
-                      type="button"
-                      onClick={handleStep2}
-                      className="w-full rounded-2xl p-4 font-bold text-sm cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B2B4B]/25 focus-visible:ring-offset-2"
-                      style={{ background: '#1B2B4B', color: 'white' }}
-                    >
-                      Confirmo que leí la información del onboarding →
-                    </button>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-
-              {/* Step 2 confirmed badge */}
-              <AnimatePresence>
-                {step2Done && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className="rounded-2xl p-4 flex items-center gap-3 text-sm font-semibold"
-                    style={{ background: '#d1fae5', color: '#065f46', border: '1px solid #6ee7b7' }}
-                  >
-                    <span>✓</span>
-                    Información de onboarding confirmada
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* ── Calendar reveal (after step 2) ──────────────────────────────────── */}
-        <AnimatePresence>
-          {step2Done && (
-            <motion.div
-              ref={calendarRef}
-              key="calendar"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
-              style={{ overflow: 'hidden' }}
-            >
-              <div
-                className="rounded-2xl overflow-hidden border shadow-sm"
-                style={{ borderColor: '#D7DEE8' }}
+              {/* Step 2: link to the booking calendar (gated behind step 1) */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
               >
-                <div
-                  className="p-5 text-center border-b"
-                  style={{ background: '#FBFCFE', borderColor: '#D7DEE8' }}
+                <a
+                  href={CALENDAR_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center rounded-2xl p-4 font-bold text-sm cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B2B4B]/25 focus-visible:ring-offset-2"
+                  style={{ background: '#1B2B4B', color: 'white' }}
                 >
-                  <p className="font-bold text-base" style={{ color: '#1B2B4B' }}>
-                    Agenda tu sesión de onboarding
-                  </p>
-                  <p className="text-xs mt-1" style={{ color: '#64748B' }}>
-                    Selecciona el horario que mejor te funcione
-                  </p>
-                </div>
-                <iframe
-                  src={CALENDAR_URL}
-                  title="Agendar sesión de onboarding"
-                  className="w-full border-none block"
-                  style={{ minHeight: '600px', height: '100%' }}
-                  allow="clipboard-write"
-                  loading="lazy"
-                />
-              </div>
-              <Script src={GHL_SCRIPT} strategy="afterInteractive" />
+                  Agendar mi sesión de onboarding →
+                </a>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
