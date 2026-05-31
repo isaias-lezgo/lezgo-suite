@@ -1,6 +1,7 @@
 
 'use client'
-import { motion } from "framer-motion"
+import { useState, useEffect, useMemo, useRef } from "react"
+import { motion, useReducedMotion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import {
   Users,
@@ -23,7 +24,160 @@ import {
 } from "@/components/custom/BotonesLanding"
 import { FaqSection } from "./landing/FAQ"
 
+type OdometerPart = { type: 'digit'; target: number } | { type: 'char'; value: string }
+
+function parseOdometerParts(str: string): OdometerPart[] {
+  const result: OdometerPart[] = []
+  for (let i = 0; i < str.length; i++) {
+    const d = parseInt(str[i], 10)
+    if (!isNaN(d)) {
+      result.push({ type: 'digit', target: d })
+    } else {
+      const last = result[result.length - 1]
+      if (last?.type === 'char') last.value += str[i]
+      else result.push({ type: 'char', value: str[i] })
+    }
+  }
+  return result
+}
+
+function OdometerDigitColumn({ target, progress }: { target: number; progress: number }) {
+  const rows = useMemo(() => Array.from({ length: target + 1 }, (_, i) => i), [target])
+  return (
+    <span className="inline-block overflow-hidden" style={{ height: '1em', lineHeight: 1 }}>
+      <span
+        className="flex flex-col"
+        style={{ transform: `translateY(${-(progress * target)}em)`, willChange: 'transform' }}
+      >
+        {rows.map((d) => (
+          <span
+            key={d}
+            style={{ height: '1em', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}
+          >
+            {d}
+          </span>
+        ))}
+      </span>
+    </span>
+  )
+}
+
+function useCountProgress(durationMs: number, trigger: boolean): number {
+  const [progress, setProgress] = useState(0)
+  const prefersReduced = useReducedMotion()
+
+  useEffect(() => {
+    if (!trigger) return
+    if (prefersReduced) { setProgress(1); return }
+    const start = performance.now()
+    let raf: number
+    const step = (now: number) => {
+      const t = Math.min((now - start) / durationMs, 1)
+      setProgress(1 - Math.pow(1 - t, 4))
+      if (t < 1) raf = requestAnimationFrame(step)
+      else setProgress(1)
+    }
+    raf = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(raf)
+  }, [trigger, durationMs, prefersReduced])
+
+  return progress
+}
+
+function useOdometerProgress(ref: React.RefObject<HTMLElement | null>): number {
+  const [progress, setProgress] = useState(0)
+  const prefersReduced = useReducedMotion()
+
+  useEffect(() => {
+    if (prefersReduced) { setProgress(1); return }
+    const update = () => {
+      const el = ref.current
+      if (!el) return
+      const rect = el.getBoundingClientRect()
+      const vh = window.innerHeight
+      // 0 when section top hits 80% of viewport; 1 when it reaches 30%
+      const p = (vh * 0.8 - rect.top) / (vh * 0.5)
+      setProgress(Math.max(0, Math.min(1, p)))
+    }
+    window.addEventListener('scroll', update, { passive: true })
+    update()
+    return () => window.removeEventListener('scroll', update)
+  }, [prefersReduced])
+
+  return progress
+}
+
+function HeroStatItem({ value, label, trigger }: { value: string; label: string; trigger: boolean }) {
+  const parts = useMemo(() => parseOdometerParts(value), [value])
+  const heroProgress = useCountProgress(1400, trigger)
+
+  return (
+    <motion.div
+      className="text-center"
+      whileHover={{ scale: 1.06 }}
+      transition={{ duration: 0.15, ease: 'easeOut' }}
+    >
+      <div
+        className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F59B1B] flex justify-center items-center"
+        style={{ lineHeight: 1 }}
+      >
+        {parts.map((part, i) =>
+          part.type === 'digit' ? (
+            <OdometerDigitColumn key={i} target={part.target} progress={heroProgress} />
+          ) : (
+            <span key={i}>{part.value}</span>
+          )
+        )}
+      </div>
+      <div className="text-xs sm:text-sm text-gray-600 max-w-[120px] mt-1">
+        {label}
+      </div>
+    </motion.div>
+  )
+}
+
+function ScrollOdometerStat({ value, label, delay, progress }: { value: string; label: string; delay: number; progress: number }) {
+  const parts = useMemo(() => parseOdometerParts(value), [value])
+  const staggerOffset = delay * 0.15
+  const staggeredProgress = Math.max(0, Math.min(1, (progress - staggerOffset) / (1 - staggerOffset || 1)))
+  const fadeIn = Math.min(1, staggeredProgress * 8)
+
+  return (
+    <motion.div
+      className="text-center cursor-default"
+      style={{ opacity: fadeIn }}
+      whileHover={{ scale: 1.04 }}
+      transition={{ duration: 0.15 }}
+    >
+      <dt
+        className="text-4xl lg:text-6xl font-extrabold text-[#F59B1B] flex justify-center items-center"
+        style={{ lineHeight: 1 }}
+      >
+        {parts.map((part, i) =>
+          part.type === 'digit' ? (
+            <OdometerDigitColumn key={i} target={part.target} progress={staggeredProgress} />
+          ) : (
+            <span key={i}>{part.value}</span>
+          )
+        )}
+      </dt>
+      <dd className="mt-3 text-lg font-medium text-gray-800">
+        {label}
+      </dd>
+    </motion.div>
+  )
+}
+
 export default function HomeContent() {
+  const [heroReady, setHeroReady] = useState(false)
+  useEffect(() => {
+    const t = setTimeout(() => setHeroReady(true), 900)
+    return () => clearTimeout(t)
+  }, [])
+
+  const statsSectionRef = useRef<HTMLElement>(null)
+  const odometerProgress = useOdometerProgress(statsSectionRef)
+
   return (
     <div className="relative overflow-hidden pt-8">
       {/* Single subtle background glow — no particles */}
@@ -70,44 +224,25 @@ export default function HomeContent() {
                   </div>
                 </motion.div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-heading leading-tight sm:text-center md:text-justify">
-                  <span className="text-[#F59B1B]">Transformación</span>
+                  <span className="text-[#F59B1B]">El CRM que</span>
                   <br />
-                  <span className="text-gray-900">Empresarial</span>
+                  <span className="text-gray-900">impulsa</span>
                   <br />
-                  <span className="text-gray-900">Completa</span>
+                  <span className="text-gray-900">tu negocio</span>
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl sm:text-center md:text-justify">
-                  Lezgo Suite revoluciona la gestión empresarial con IA
-                  avanzada, automatizaciones inteligentes e integraciones
-                  todo-en-uno para empresas que buscan liderar el futuro.
+                  Lezgo Suite es el CRM todo en uno con IA para empresas mexicanas.
+                  Gestiona contactos, automatiza ventas y conecta todos tus canales
+                  desde un solo lugar.
                 </p>
               </div>
               <HeroButtons />
-              <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-6 sm:gap-8 lg:gap-12 pt-6 sm:pt-8 lg:pt-10">
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F59B1B]">
-                    +40%
-                  </div>
-                  <div className="text-xs sm:text-sm text-gray-600 max-w-[120px]">
-                    Tiempo ahorrado
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F59B1B]">
-                    +60%
-                  </div>
-                  <div className="text-xs sm:text-sm text-gray-600 max-w-[120px]">
-                    Cierres de ventas
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F59B1B]">
-                    10+
-                  </div>
-                  <div className="text-xs sm:text-sm text-gray-600 max-w-[120px]">
-                    Canales juntos
-                  </div>
-                </div>
+              <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-6 sm:gap-8 lg:gap-10 pt-6 sm:pt-8 lg:pt-10">
+                <HeroStatItem value="+40%" label="Tiempo ahorrado" trigger={heroReady} />
+                <div className="hidden sm:block w-px h-7 bg-[#F59B1B]/25 shrink-0" aria-hidden="true" />
+                <HeroStatItem value="+60%" label="Cierres de ventas" trigger={heroReady} />
+                <div className="hidden sm:block w-px h-7 bg-[#F59B1B]/25 shrink-0" aria-hidden="true" />
+                <HeroStatItem value="10+" label="Canales juntos" trigger={heroReady} />
               </div>
             </motion.div>
 
@@ -245,31 +380,13 @@ export default function HomeContent() {
         </section>
 
         {/* ── Stats ─────────────────────────────────────────── */}
-        <section className="relative py-16 sm:py-20 overflow-hidden">
+        <section ref={statsSectionRef} className="relative py-16 sm:py-20 overflow-hidden">
           <div className="container relative mx-auto px-6">
             <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
-              {[
-                { value: "40+", label: "Clientes Atendidos", delay: 0 },
-                { value: "99.9%", label: "Tiempo de Servicio Activo", delay: 0.1 },
-                { value: "400K+", label: "Contactos Procesados", delay: 0.2 },
-                { value: "1000+", label: "Horas Ahorradas", delay: 0.3 },
-              ].map((stat, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: stat.delay }}
-                  viewport={{ once: true }}
-                  style={{ willChange: "transform, opacity" }}
-                >
-                  <dt className="text-4xl lg:text-6xl font-extrabold text-[#F59B1B]">
-                    {stat.value}
-                  </dt>
-                  <dd className="mt-2 text-lg font-medium text-gray-800">
-                    {stat.label}
-                  </dd>
-                </motion.div>
-              ))}
+              <ScrollOdometerStat value="50+" label="Clientes Atendidos" delay={0} progress={odometerProgress} />
+              <ScrollOdometerStat value="99.9%" label="Tiempo de Servicio Activo" delay={0.1} progress={odometerProgress} />
+              <ScrollOdometerStat value="400K+" label="Contactos Procesados" delay={0.2} progress={odometerProgress} />
+              <ScrollOdometerStat value="1000+" label="Horas Ahorradas" delay={0.3} progress={odometerProgress} />
             </dl>
           </div>
         </section>
@@ -309,7 +426,7 @@ export default function HomeContent() {
                     "Segmentación IA",
                     "Automatización Multi-canal",
                   ],
-                  video: "/Workflows.mp4",
+                  image: "/ImagenF1.jpeg",
                   reverse: false,
                 },
                 {
@@ -322,7 +439,7 @@ export default function HomeContent() {
                     "Lead Scoring IA",
                     "360° Cliente",
                   ],
-                  video: "/Informes.mp4",
+                  image: "/ImagenF2.jpeg",
                   reverse: true,
                 },
                 {
@@ -335,7 +452,7 @@ export default function HomeContent() {
                     "Instagram Direct",
                     "Chatbots IA",
                   ],
-                  video: "/IA.mp4",
+                  image: "/ImagenF3.jpeg",
                   reverse: false,
                 },
                 {
@@ -349,7 +466,7 @@ export default function HomeContent() {
                     "Sync Tiempo Real",
                     "Conectores Nativos",
                   ],
-                  video: "/Redes Sociales.mp4",
+                  image: "/ImagenF4.jpeg",
                   reverse: true,
                 },
               ].map((item, index) => (
@@ -414,13 +531,12 @@ export default function HomeContent() {
                     }`}
                   >
                     <div className="relative rounded-2xl bg-white shadow-2xl border border-gray-100 overflow-hidden">
-                      <video
-                        src={item.video}
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        width={800}
+                        height={500}
                         className="w-full h-auto"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
                     </div>
