@@ -232,16 +232,19 @@ export default function HomeContent() {
                   <div className="aspect-video bg-gradient-to-br lg:hidden from-gray-900 to-gray-800 flex relative rounded-2xl overflow-hidden">
                     <video
                       className="w-full h-full"
-                      poster=""
                       muted
                       loop
                       autoPlay
                       playsInline
                       controls
+                      onCanPlay={() => setVideoLoaded(true)}
                     >
                       <source src="/VIDEOSUITE.mp4" type="video/mp4" />
                       Tu navegador no soporta el elemento de video.
                     </video>
+                    <div className={`absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden transition-opacity duration-500 ${videoLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+                      <div className="absolute inset-0 shimmer-sweep" />
+                    </div>
                   </div>
                 </motion.div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-heading leading-tight sm:text-center md:text-justify">
