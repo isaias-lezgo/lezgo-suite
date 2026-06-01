@@ -199,6 +199,12 @@ export default function HomeContent() {
     return () => clearTimeout(t)
   }, [])
 
+  // Fallback: hide skeleton after 3s even if video never fires onLoadedData
+  useEffect(() => {
+    const t = setTimeout(() => setVideoLoaded(true), 3000)
+    return () => clearTimeout(t)
+  }, [])
+
   return (
     <div className="relative overflow-hidden pt-8">
       {/* Single subtle background glow — no particles */}
@@ -237,7 +243,7 @@ export default function HomeContent() {
                       autoPlay
                       playsInline
                       controls
-                      onCanPlay={() => setVideoLoaded(true)}
+                      onLoadedData={() => setVideoLoaded(true)}
                     >
                       <source src="/VIDEOSUITE.mp4" type="video/mp4" />
                       Tu navegador no soporta el elemento de video.
@@ -286,7 +292,7 @@ export default function HomeContent() {
                   autoPlay
                   playsInline
                   controls
-                  onCanPlay={() => setVideoLoaded(true)}
+                  onLoadedData={() => setVideoLoaded(true)}
                 >
                   <source src="/VIDEOSUITE.mp4" type="video/mp4" />
                   Tu navegador no soporta el elemento de video.
