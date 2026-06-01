@@ -250,6 +250,9 @@ export default function HomeContent() {
                     </video>
                     <div className={`absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden transition-opacity duration-500 ${videoLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
                       <div className="absolute inset-0 shimmer-sweep" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-xs text-white/40 animate-pulse tracking-widest uppercase">Cargando video...</span>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -299,6 +302,9 @@ export default function HomeContent() {
                 </video>
                 <div className={`absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden transition-opacity duration-500 ${videoLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
                   <div className="absolute inset-0 shimmer-sweep" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-xs text-white/40 animate-pulse tracking-widest uppercase">Cargando video...</span>
+                  </div>
                 </div>
               </div>
             </motion.div>
