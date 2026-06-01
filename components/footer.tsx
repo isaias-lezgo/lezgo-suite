@@ -49,114 +49,114 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#081737] text-white">
-      {/* Compact lead form */}
-      <section className="bg-[#081737] py-16 border-b border-white/10">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold font-heading text-white mb-2">
-              ¿Listo para transformar tu empresa?
-            </h2>
-            <p className="text-gray-300">Déjanos tus datos y un especialista te contactará.</p>
-          </div>
-          {footerFormSubmitted ? (
-            <p className="text-center text-[#F59B1B] font-semibold text-lg">
-              ¡Gracias! Te contactaremos pronto.
-            </p>
-          ) : (
-            <form
-              onSubmit={handleFooterFormSubmit}
-              className="flex flex-col sm:flex-row gap-4"
+      <section className="py-20 bg-gradient-to-br from-[#F59B1B] to-orange-600 relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            {/* Left: CTA */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
             >
-              <Input
-                value={footerForm.nombre}
-                onChange={(e) => setFooterForm(prev => ({ ...prev, nombre: e.target.value }))}
-                required
-                placeholder="Nombre"
-                className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus-visible:border-[#F59B1B] focus-visible:ring-[#F59B1B]/30"
-              />
-              <Input
-                type="email"
-                value={footerForm.email}
-                onChange={(e) => setFooterForm(prev => ({ ...prev, email: e.target.value }))}
-                required
-                placeholder="Email"
-                className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus-visible:border-[#F59B1B] focus-visible:ring-[#F59B1B]/30"
-              />
-              <Input
-                type="tel"
-                value={footerForm.telefono}
-                onChange={(e) => setFooterForm(prev => ({ ...prev, telefono: e.target.value }))}
-                required
-                placeholder="Teléfono"
-                className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus-visible:border-[#F59B1B] focus-visible:ring-[#F59B1B]/30"
-              />
-              <Button
-                type="submit"
-                disabled={footerFormSubmitting}
-                className="bg-gradient-to-r from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white font-semibold px-8 whitespace-nowrap shrink-0 transition-all duration-300"
-              >
-                {footerFormSubmitting
-                  ? <Loader2 className="w-4 h-4 animate-spin" />
-                  : 'Enviar'}
-              </Button>
-            </form>
-          )}
-        </div>
-      </section>
-
-      <section className="py-24 bg-gradient-to-br from-[#F59B1B] to-orange-600 relative overflow-hidden">
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
-          >
-            <h2 className="text-4xl lg:text-6xl font-bold font-heading text-white mb-6">
-              Transforma tu Empresa
-              <br />
-              <span className="text-orange-100">Hoy Mismo</span>
-            </h2>
-            <p className="text-xl text-orange-100 mb-8 leading-relaxed">
-              Únete a más de 50 empresas que ya confían en Lezgo Suite para impulsar su crecimiento
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button
-                asChild
-                size="lg"
-                className="bg-white text-[#F59B1B] hover:bg-orange-50 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                onClick={() =>
-                  handleTrackingAndNavigate(
-                    "CTA Footer",
-                    "https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
-                  )
-                }
-              >
-                <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56" target="_blank" rel="noopener noreferrer">
-                  Comenzar ahora
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-              </Button>
-
-              <Button asChild variant="outline"
-                onClick={() =>
-                  handleTrackingAndNavigate(
-                    "Demo Footer",
-                    "https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
-                  )
-                }>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
+              <h2 className="text-4xl lg:text-5xl font-bold font-heading text-white mb-4">
+                Transforma tu Empresa
+                <br />
+                <span className="text-orange-100">Hoy Mismo</span>
+              </h2>
+              <p className="text-lg text-orange-100 mb-8 leading-relaxed">
+                Únete a más de 50 empresas que ya confían en Lezgo Suite para impulsar su crecimiento
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-white text-[#F59B1B] hover:bg-orange-50 px-8 py-4 text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  onClick={() =>
+                    handleTrackingAndNavigate(
+                      "CTA Footer",
+                      "https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
+                    )
+                  }
                 >
-                  Agenda una llamada con un especialista
-                </a>
-              </Button>
-            </div>
-          </motion.div>
+                  <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56" target="_blank" rel="noopener noreferrer">
+                    Comenzar ahora
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </a>
+                </Button>
+                <Button asChild variant="outline"
+                  className="border-white text-white hover:bg-white/10"
+                  onClick={() =>
+                    handleTrackingAndNavigate(
+                      "Demo Footer",
+                      "https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
+                    )
+                  }>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
+                  >
+                    Agenda una llamada
+                  </a>
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Right: Lead form */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-[#081737] rounded-2xl p-8 border border-[#0a1f4a]"
+            >
+              <h3 className="text-xl font-bold font-heading text-white mb-1">
+                ¿Listo para transformar tu empresa?
+              </h3>
+              <p className="text-gray-400 text-sm mb-6">Déjanos tus datos y un especialista te contactará.</p>
+              {footerFormSubmitted ? (
+                <p className="text-center text-[#F59B1B] font-semibold text-lg py-8">
+                  ¡Gracias! Te contactaremos pronto.
+                </p>
+              ) : (
+                <form onSubmit={handleFooterFormSubmit} className="flex flex-col gap-3">
+                  <Input
+                    value={footerForm.nombre}
+                    onChange={(e) => setFooterForm(prev => ({ ...prev, nombre: e.target.value }))}
+                    required
+                    placeholder="Nombre"
+                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-500 focus-visible:border-[#F59B1B] focus-visible:ring-[#F59B1B]/30"
+                  />
+                  <Input
+                    type="email"
+                    value={footerForm.email}
+                    onChange={(e) => setFooterForm(prev => ({ ...prev, email: e.target.value }))}
+                    required
+                    placeholder="Email"
+                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-500 focus-visible:border-[#F59B1B] focus-visible:ring-[#F59B1B]/30"
+                  />
+                  <Input
+                    type="tel"
+                    value={footerForm.telefono}
+                    onChange={(e) => setFooterForm(prev => ({ ...prev, telefono: e.target.value }))}
+                    required
+                    placeholder="Teléfono"
+                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-500 focus-visible:border-[#F59B1B] focus-visible:ring-[#F59B1B]/30"
+                  />
+                  <Button
+                    type="submit"
+                    disabled={footerFormSubmitting}
+                    className="bg-gradient-to-r from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white font-semibold mt-1 transition-all duration-300"
+                  >
+                    {footerFormSubmitting
+                      ? <Loader2 className="w-4 h-4 animate-spin" />
+                      : 'Enviar'}
+                  </Button>
+                </form>
+              )}
+            </motion.div>
+          </div>
         </div>
       </section>
 

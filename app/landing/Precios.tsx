@@ -1,12 +1,33 @@
+"use client"
+
 import { ContactSpecialistButton, PricingButton } from '@/components/custom/BotonesLanding'
 import { Card, CardContent } from '@/components/ui/card'
 import { CheckCircle, MessageCircle, Play, Users } from 'lucide-react'
 import { motion } from "framer-motion"
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { Badge } from '@/components/ui/badge'
 
+type BillingPeriod = 'mensual' | 'trimestral' | 'semestral' | 'anual'
+
+const BILLING_OPTIONS: { key: BillingPeriod; label: string; discount: number }[] = [
+  { key: 'mensual',     label: 'Mensual',     discount: 0 },
+  { key: 'trimestral',  label: 'Trimestral',  discount: 0.05 },
+  { key: 'semestral',   label: 'Semestral',   discount: 0.10 },
+  { key: 'anual',       label: 'Anual',       discount: 0.20 },
+]
+
+function applyDiscount(basePrice: number, discount: number): string {
+  const discounted = Math.round(basePrice * (1 - discount))
+  return '$' + discounted.toLocaleString('es-MX')
+}
+
+const BASE_PRICES = { growth: 3527, pro: 5397, elite: 10567 }
+
 const Precios = () => {
+  const [billing, setBilling] = useState<BillingPeriod>('mensual')
+  const selectedOption = BILLING_OPTIONS.find(o => o.key === billing)!
+
   return (
     <section id="precios" className="py-24 relative">
     <div className="container mx-auto px-4">
@@ -42,13 +63,39 @@ const Precios = () => {
         <p className="text-sm text-gray-500 mt-4 italic">
           Precios en pesos mexicanos (MXN) + IVA
         </p>
+
+        {/* Billing period tabs */}
+        <div className="mt-8 inline-flex items-center bg-gray-100 rounded-xl p-1 gap-0.5">
+          {BILLING_OPTIONS.map((opt) => (
+            <button
+              key={opt.key}
+              onClick={() => setBilling(opt.key)}
+              className={`relative px-2.5 py-1.5 sm:px-5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap ${
+                billing === opt.key
+                  ? 'bg-white text-black shadow-md'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              {opt.label}
+              {opt.discount > 0 && (
+                <span className={`hidden sm:inline ml-1.5 text-xs font-bold px-1.5 py-0.5 rounded-full ${
+                  billing === opt.key
+                    ? 'bg-gradient-to-r from-[#F59B1B] to-orange-500 text-white'
+                    : 'bg-orange-100 text-orange-600'
+                }`}>
+                  -{opt.discount * 100}%
+                </span>
+              )}
+            </button>
+          ))}
+        </div>
       </motion.div>
 
       <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {[
           {
             name: "Lezgo Growth",
-            price: "$3,527",
+            price: applyDiscount(BASE_PRICES.growth, selectedOption.discount),
             period: "/mes",
             description: "Perfecto para equipos pequeños",
             features: [
@@ -62,7 +109,7 @@ const Precios = () => {
           },
           {
             name: "Lezgo Pro",
-            price: "$5,397",
+            price: applyDiscount(BASE_PRICES.pro, selectedOption.discount),
             period: "/mes",
             description: "Ideal para empresas en crecimiento",
             features: [
@@ -76,7 +123,7 @@ const Precios = () => {
           },
           {
             name: "Lezgo Elite",
-            price: "$10,567",
+            price: applyDiscount(BASE_PRICES.elite, selectedOption.discount),
             period: "/mes",
             description: "Para grandes organizaciones",
             features: [

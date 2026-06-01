@@ -60,7 +60,7 @@ export default function Navbar() {
               </Link>
             ))}
 
-            <div className="flex items-center space-x-3 xl:space-x-4 xl:ml-8">
+            <div className="flex items-center space-x-3 xl:space-x-8 xl:ml-8">
               <Link
                 href="/contacto"
                 className="text-gray-300 hover:text-white transition-colors font-semibold text-sm tracking-wide whitespace-nowrap"
