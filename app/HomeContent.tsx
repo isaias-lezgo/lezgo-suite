@@ -25,6 +25,22 @@ import {
 import { FaqSection } from "./landing/FAQ"
 import LeadPopup from "@/components/custom/LeadPopup"
 
+type BillingPeriod = 'mensual' | 'trimestral' | 'semestral' | 'anual'
+
+const BILLING_OPTIONS: { key: BillingPeriod; label: string; discount: number }[] = [
+  { key: 'mensual',    label: 'Mensual',    discount: 0 },
+  { key: 'trimestral', label: 'Trimestral', discount: 0.05 },
+  { key: 'semestral',  label: 'Semestral',  discount: 0.10 },
+  { key: 'anual',      label: 'Anual',      discount: 0.20 },
+]
+
+const HOME_BASE_PRICES = { growth: 3527, pro: 5397, elite: 10567 }
+
+function applyPriceDiscount(basePrice: number, discount: number): string {
+  const discounted = Math.round(basePrice * (1 - discount))
+  return '$' + discounted.toLocaleString('es-MX')
+}
+
 type OdometerPart = { type: 'digit'; target: number } | { type: 'char'; value: string }
 
 function parseOdometerParts(str: string): OdometerPart[] {
@@ -174,6 +190,10 @@ function AnimatedStat({ value, label, delay }: { value: string; label: string; d
 
 export default function HomeContent() {
   const [heroReady, setHeroReady] = useState(false)
+  const [billing, setBilling] = useState<BillingPeriod>('mensual')
+  const [videoLoaded, setVideoLoaded] = useState(false)
+  const selectedBilling = BILLING_OPTIONS.find(o => o.key === billing)!
+
   useEffect(() => {
     const t = setTimeout(() => setHeroReady(true), 900)
     return () => clearTimeout(t)
@@ -418,13 +438,13 @@ export default function HomeContent() {
             </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="relative w-full px-4">
+              <div className="relative w-full px-4 flex justify-center">
                 <Image
                   src="/empresas.png"
                   alt="Empresas que confían en Lezgo Suite"
-                  width={500}
-                  height={700}
-                  className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto h-auto mb-8 sm:mb-12 md:mb-16 rounded-xl sm:rounded-2xl transition-all duration-500 transform hover:scale-105"
+                  width={700}
+                  height={980}
+                  className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mb-8 sm:mb-12 md:mb-16 rounded-xl sm:rounded-2xl transition-all duration-500 transform hover:scale-105"
                 />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
@@ -603,14 +623,12 @@ export default function HomeContent() {
                   transition={{ duration: 0.8, delay: index * 0.1 }}
                   style={{ willChange: "transform, opacity" }}
                   viewport={{ once: true }}
-                  className={`grid lg:grid-cols-2 gap-16 items-center ${
-                    item.reverse ? "lg:grid-flow-col-dense" : ""
-                  }`}
+                  className={`grid lg:grid-cols-2 gap-16 items-center ${item.reverse ? "lg:grid-flow-col-dense" : ""
+                    }`}
                 >
                   <div
-                    className={`space-y-8 ${
-                      item.reverse ? "lg:col-start-2" : ""
-                    }`}
+                    className={`space-y-8 ${item.reverse ? "lg:col-start-2" : ""
+                      }`}
                   >
                     <div className="space-y-4">
                       <p className="text-sm font-semibold text-[#F59B1B] uppercase tracking-widest">
@@ -652,9 +670,8 @@ export default function HomeContent() {
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.02 }}
                     style={{ willChange: "transform, opacity" }}
-                    className={`relative ${
-                      item.reverse ? "lg:col-start-1" : ""
-                    }`}
+                    className={`relative ${item.reverse ? "lg:col-start-1" : ""
+                      }`}
                   >
                     <div className="relative rounded-2xl bg-white shadow-2xl border border-gray-100 overflow-hidden">
                       <Image
@@ -713,13 +730,42 @@ export default function HomeContent() {
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Elige el plan que se adapte a las necesidades de tu empresa
               </p>
+              <p className="text-sm text-gray-500 mt-4 italic">
+                Precios en pesos mexicanos (MXN) + IVA
+              </p>
+
+              {/* Billing period tabs */}
+              <div className="mt-8 inline-flex items-center bg-gray-100 rounded-xl p-1 gap-0.5">
+                {BILLING_OPTIONS.map((opt) => (
+                  <button
+                    key={opt.key}
+                    onClick={() => setBilling(opt.key)}
+                    className={`relative px-2.5 py-1.5 sm:px-5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap ${
+                      billing === opt.key
+                        ? 'bg-white text-black shadow-md'
+                        : 'text-gray-500 hover:text-gray-700'
+                    }`}
+                  >
+                    {opt.label}
+                    {opt.discount > 0 && (
+                      <span className={`hidden sm:inline ml-1.5 text-xs font-bold px-1.5 py-0.5 rounded-full ${
+                        billing === opt.key
+                          ? 'bg-gradient-to-r from-[#F59B1B] to-orange-500 text-white'
+                          : 'bg-orange-100 text-orange-600'
+                      }`}>
+                        -{opt.discount * 100}%
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {[
                 {
                   name: "Lezgo Growth",
-                  price: "$3,527",
+                  price: applyPriceDiscount(HOME_BASE_PRICES.growth, selectedBilling.discount),
                   period: "/mes",
                   description: "Perfecto para equipos pequeños",
                   features: [
@@ -733,7 +779,7 @@ export default function HomeContent() {
                 },
                 {
                   name: "Lezgo Pro",
-                  price: "$5,397",
+                  price: applyPriceDiscount(HOME_BASE_PRICES.pro, selectedBilling.discount),
                   period: "/mes",
                   description: "Ideal para empresas en crecimiento",
                   features: [
@@ -747,7 +793,7 @@ export default function HomeContent() {
                 },
                 {
                   name: "Lezgo Elite",
-                  price: "$10,567",
+                  price: applyPriceDiscount(HOME_BASE_PRICES.elite, selectedBilling.discount),
                   period: "/mes",
                   description: "Para grandes organizaciones",
                   features: [
@@ -779,9 +825,8 @@ export default function HomeContent() {
                     </div>
                   )}
                   <Card
-                    className={`h-full bg-white border-2 ${plan.color} ${
-                      plan.popular ? "shadow-2xl scale-105" : "shadow-lg"
-                    } hover:shadow-2xl transition-all duration-300`}
+                    className={`h-full bg-white border-2 ${plan.color} ${plan.popular ? "shadow-2xl scale-105" : "shadow-lg"
+                      } hover:shadow-2xl transition-all duration-300`}
                   >
                     <CardContent className="p-8">
                       <div className="text-center mb-8">
@@ -817,30 +862,14 @@ export default function HomeContent() {
                 </motion.div>
               ))}
             </div>
-            <div className="text-center mt-6 mb-4">
-              <p className="text-sm text-gray-600 italic">
-                * Precios en pesos mexicanos (MXN) + IVA
-              </p>
-            </div>
-            <div className="mt-8 p-8">
-              <div className="text-center">
-                <h3 className="font-semibold text-gray-900 mb-3">
-                  Todo plan incluye:
-                </h3>
-                <div className="space-y-3 text-sm text-gray-700">
-                  <div className="flex items-center justify-center space-x-2">
-                    <Users className="w-4 h-4 text-orange-500 flex-shrink-0" />
-                    <span>Sesión de onboarding personalizada</span>
-                  </div>
-                  <div className="flex items-center justify-center space-x-2">
-                    <Play className="w-4 h-4 text-orange-500 flex-shrink-0" />
-                    <span>Acceso a comunidad con video tutoriales</span>
-                  </div>
-                  <div className="flex items-center justify-center space-x-2">
-                    <MessageCircle className="w-4 h-4 text-orange-500 flex-shrink-0" />
-                    <span>Soporte a través de WhatsApp</span>
-                  </div>
-                </div>
+            <div className="mt-8 p-4">
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-gray-700">
+                <span className="font-semibold text-gray-900">Todo plan incluye:</span>
+                <span className="flex items-center gap-1.5"><Users className="w-4 h-4 text-orange-500 flex-shrink-0" />Sesión de onboarding personalizada</span>
+                <span className="text-gray-300">·</span>
+                <span className="flex items-center gap-1.5"><Play className="w-4 h-4 text-orange-500 flex-shrink-0" />Acceso a comunidad con video tutoriales</span>
+                <span className="text-gray-300">·</span>
+                <span className="flex items-center gap-1.5"><MessageCircle className="w-4 h-4 text-orange-500 flex-shrink-0" />Soporte a través de WhatsApp</span>
               </div>
             </div>
 
