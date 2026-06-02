@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useRef } from 'react'
 import { motion } from 'framer-motion'
 import type { LucideIcon } from 'lucide-react'
 import { Users, Target, Calendar, CheckSquare, BookOpen, X, Search, ChevronDown } from 'lucide-react'
@@ -395,6 +395,18 @@ export default function BaseConocimientoContent() {
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
   const [searchQuery, setSearchQuery] = useState('')
   const [filterSection, setFilterSection] = useState('')
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
 
   const searchResults = useMemo<SearchResult[]>(() => {
     const q = searchQuery.trim().toLowerCase()
@@ -470,18 +482,36 @@ export default function BaseConocimientoContent() {
             {/* Search bar */}
             <div className="flex max-w-lg mx-auto bg-white/5 border border-white/10 rounded-xl overflow-hidden focus-within:border-[#F59B1B]/50 transition-colors">
               {/* Section filter dropdown */}
-              <div className="relative flex-shrink-0 border-r border-white/10">
-                <select
-                  value={filterSection}
-                  onChange={(e) => setFilterSection(e.target.value)}
-                  className="h-full w-32 bg-[#1a1f2e] pl-3 pr-7 py-3 text-xs text-white focus:outline-none appearance-none cursor-pointer"
+              <div ref={dropdownRef} className="relative flex-shrink-0 border-r border-white/10">
+                <button
+                  type="button"
+                  onClick={() => setDropdownOpen((o) => !o)}
+                  className="flex items-center gap-1.5 h-full w-36 pl-3 pr-3 py-3 text-xs text-white focus:outline-none cursor-pointer whitespace-nowrap"
                 >
-                  <option value="">Todos</option>
-                  {SECTIONS.map((s) => (
-                    <option key={s.id} value={s.id}>{s.label}</option>
-                  ))}
-                </select>
-                <ChevronDown className="absolute right-1.5 top-1/2 -translate-y-1/2 h-3 w-3 text-[var(--muted-foreground)] pointer-events-none" />
+                  <span className="flex-1 text-left">
+                    {filterSection ? SECTIONS.find((s) => s.id === filterSection)?.label : 'Todos'}
+                  </span>
+                  <ChevronDown className={`h-3 w-3 text-white/50 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {dropdownOpen && (
+                  <div className="absolute left-0 top-full mt-1 w-40 bg-[#1a1f2e] border border-white/10 rounded-lg shadow-xl z-30 overflow-hidden">
+                    {[{ id: '', label: 'Todos los módulos' }, ...SECTIONS.map((s) => ({ id: s.id, label: s.label }))].map((opt) => (
+                      <button
+                        key={opt.id}
+                        type="button"
+                        onClick={() => { setFilterSection(opt.id); setDropdownOpen(false) }}
+                        className={`w-full text-left px-3 py-2 text-xs transition-colors ${
+                          filterSection === opt.id
+                            ? 'text-[#F59B1B] bg-[#F59B1B]/10'
+                            : 'text-white hover:bg-white/5'
+                        }`}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Text input */}
