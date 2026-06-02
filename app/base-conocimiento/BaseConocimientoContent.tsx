@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import type { LucideIcon } from 'lucide-react'
-import { Users, Target, Calendar, CheckSquare, BookOpen, X, Search } from 'lucide-react'
+import { Users, Target, Calendar, CheckSquare, BookOpen, X, Search, ChevronDown } from 'lucide-react'
 
 interface Video {
   id: string
@@ -394,12 +394,16 @@ export default function BaseConocimientoContent() {
   )
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
   const [searchQuery, setSearchQuery] = useState('')
+  const [filterSection, setFilterSection] = useState('')
 
   const searchResults = useMemo<SearchResult[]>(() => {
     const q = searchQuery.trim().toLowerCase()
     if (!q) return []
+    const sectionsToSearch = filterSection
+      ? SECTIONS.filter((s) => s.id === filterSection)
+      : SECTIONS
     const results: SearchResult[] = []
-    for (const section of SECTIONS) {
+    for (const section of sectionsToSearch) {
       for (const sub of section.subcategories) {
         for (const video of sub.videos) {
           const haystack = [video.title, video.description, ...video.keywords].join(' ').toLowerCase()
@@ -410,7 +414,7 @@ export default function BaseConocimientoContent() {
       }
     }
     return results
-  }, [searchQuery])
+  }, [searchQuery, filterSection])
 
   const isSearching = searchQuery.trim().length > 0
 
@@ -464,24 +468,42 @@ export default function BaseConocimientoContent() {
             </p>
 
             {/* Search bar */}
-            <div className="relative max-w-lg mx-auto">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--muted-foreground)] pointer-events-none" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Buscar tutoriales..."
-                className="w-full bg-white/5 border border-white/10 rounded-xl pl-11 pr-11 py-3 text-sm text-white placeholder:text-[var(--muted-foreground)] focus:outline-none focus:border-[#F59B1B]/50 focus:bg-white/8 transition-colors"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery('')}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--muted-foreground)] hover:text-white transition-colors"
-                  aria-label="Limpiar búsqueda"
+            <div className="flex max-w-lg mx-auto bg-white/5 border border-white/10 rounded-xl overflow-hidden focus-within:border-[#F59B1B]/50 transition-colors">
+              {/* Section filter dropdown */}
+              <div className="relative flex-shrink-0 border-r border-white/10">
+                <select
+                  value={filterSection}
+                  onChange={(e) => setFilterSection(e.target.value)}
+                  className="h-full bg-transparent pl-3 pr-7 py-3 text-xs text-[var(--muted-foreground)] focus:outline-none appearance-none cursor-pointer hover:text-white transition-colors"
                 >
-                  <X className="h-4 w-4" />
-                </button>
-              )}
+                  <option value="">Todos</option>
+                  {SECTIONS.map((s) => (
+                    <option key={s.id} value={s.id}>{s.label}</option>
+                  ))}
+                </select>
+                <ChevronDown className="absolute right-1.5 top-1/2 -translate-y-1/2 h-3 w-3 text-[var(--muted-foreground)] pointer-events-none" />
+              </div>
+
+              {/* Text input */}
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--muted-foreground)] pointer-events-none" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Buscar tutoriales..."
+                  className="w-full bg-transparent pl-9 pr-9 py-3 text-sm text-white placeholder:text-[var(--muted-foreground)] focus:outline-none"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--muted-foreground)] hover:text-white transition-colors"
+                    aria-label="Limpiar búsqueda"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                )}
+              </div>
             </div>
           </motion.div>
         </div>
