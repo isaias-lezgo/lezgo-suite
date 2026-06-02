@@ -475,94 +475,105 @@ export default function BaseConocimientoContent() {
             <h1 className="font-[var(--font-space-grotesk)] text-3xl font-bold tracking-tight md:text-5xl mb-4">
               Aprende a usar Lezgo Suite
             </h1>
-            <p className="text-[var(--muted-foreground)] text-base md:text-lg max-w-xl mx-auto mb-8">
+            <p className="text-[var(--muted-foreground)] text-base md:text-lg max-w-xl mx-auto">
               Tutoriales en video para dominar cada módulo de tu plataforma. Aprende a tu ritmo y saca el máximo provecho.
             </p>
-
-            {/* Search bar */}
-            <div className="flex max-w-lg mx-auto bg-white/5 border border-white/10 rounded-xl focus-within:border-[#F59B1B]/50 transition-colors relative">
-              {/* Section filter dropdown */}
-              <div ref={dropdownRef} className="relative flex-shrink-0 border-r border-white/10">
-                <button
-                  type="button"
-                  onClick={() => setDropdownOpen((o) => !o)}
-                  className="flex items-center gap-1.5 h-full w-36 pl-3 pr-3 py-3 text-xs text-white focus:outline-none cursor-pointer whitespace-nowrap"
-                >
-                  <span className="flex-1 text-left">
-                    {filterSection ? SECTIONS.find((s) => s.id === filterSection)?.label : 'Todos'}
-                  </span>
-                  <ChevronDown className={`h-3 w-3 text-white/50 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
-                </button>
-
-                {dropdownOpen && (
-                  <div className="absolute left-0 top-full mt-1 w-40 bg-[#1a1f2e] border border-white/10 rounded-lg shadow-xl z-30 overflow-hidden">
-                    {[{ id: '', label: 'Todos los módulos' }, ...SECTIONS.map((s) => ({ id: s.id, label: s.label }))].map((opt) => (
-                      <button
-                        key={opt.id}
-                        type="button"
-                        onClick={() => { setFilterSection(opt.id); setDropdownOpen(false) }}
-                        className={`w-full text-left px-3 py-2 text-xs transition-colors ${
-                          filterSection === opt.id
-                            ? 'text-[#F59B1B] bg-[#F59B1B]/10'
-                            : 'text-white hover:bg-white/5'
-                        }`}
-                      >
-                        {opt.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Text input */}
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--muted-foreground)] pointer-events-none" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Buscar tutoriales..."
-                  className="w-full bg-transparent pl-9 pr-9 py-3 text-sm text-white placeholder:text-[var(--muted-foreground)] focus:outline-none"
-                />
-                {searchQuery && (
-                  <button
-                    onClick={() => setSearchQuery('')}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--muted-foreground)] hover:text-white transition-colors"
-                    aria-label="Limpiar búsqueda"
-                  >
-                    <X className="h-4 w-4" />
-                  </button>
-                )}
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Sticky anchor nav — hidden while searching */}
-      {!isSearching && (
-        <div className="sticky top-16 z-20 bg-[var(--background)]/95 backdrop-blur border-b border-white/5">
-          <div className="mx-auto max-w-6xl px-6 py-3 flex gap-2 flex-wrap">
-            {SECTIONS.map((section) => {
-              const Icon = section.icon
-              return (
+      {/* Sticky nav — always visible */}
+      <div className="sticky top-16 z-20 bg-[var(--background)]/95 backdrop-blur border-b border-white/5">
+        <div className="mx-auto max-w-6xl px-6 py-3 flex items-center gap-3">
+
+          {/* Section pills — hidden while searching */}
+          {!isSearching && (
+            <div className="flex gap-2 flex-wrap flex-1">
+              {SECTIONS.map((section) => {
+                const Icon = section.icon
+                return (
+                  <button
+                    key={section.id}
+                    onClick={() => scrollToSection(section.id)}
+                    className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                      activeSection === section.id
+                        ? 'bg-[#F59B1B]/20 border border-[#F59B1B] text-[#F59B1B]'
+                        : 'bg-white/5 border border-white/10 text-[var(--muted-foreground)] hover:text-white hover:border-white/20'
+                    }`}
+                  >
+                    <Icon className="h-3.5 w-3.5" />
+                    {section.label}
+                  </button>
+                )
+              })}
+            </div>
+          )}
+
+          {/* Search bar — always visible, expands when searching */}
+          <div
+            ref={dropdownRef}
+            className={`relative flex items-center bg-white/5 border border-white/10 rounded-xl focus-within:border-[#F59B1B]/50 transition-all duration-200 ${
+              isSearching ? 'flex-1' : 'w-64'
+            }`}
+          >
+            {/* Section filter dropdown trigger */}
+            <div className="relative flex-shrink-0 border-r border-white/10">
+              <button
+                type="button"
+                onClick={() => setDropdownOpen((o) => !o)}
+                className="flex items-center gap-1 h-full w-28 pl-3 pr-2 py-2.5 text-xs text-white focus:outline-none cursor-pointer whitespace-nowrap"
+              >
+                <span className="flex-1 text-left truncate">
+                  {filterSection ? SECTIONS.find((s) => s.id === filterSection)?.label : 'Todos'}
+                </span>
+                <ChevronDown className={`h-3 w-3 text-white/50 flex-shrink-0 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {dropdownOpen && (
+                <div className="absolute left-0 top-full mt-1 w-44 bg-[#1a1f2e] border border-white/10 rounded-lg shadow-xl z-50 overflow-hidden">
+                  {[{ id: '', label: 'Todos los módulos' }, ...SECTIONS.map((s) => ({ id: s.id, label: s.label }))].map((opt) => (
+                    <button
+                      key={opt.id}
+                      type="button"
+                      onClick={() => { setFilterSection(opt.id); setDropdownOpen(false) }}
+                      className={`w-full text-left px-3 py-2 text-xs transition-colors ${
+                        filterSection === opt.id
+                          ? 'text-[#F59B1B] bg-[#F59B1B]/10'
+                          : 'text-white hover:bg-white/5'
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Text input */}
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-white/30 pointer-events-none" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Buscar tutoriales..."
+                className="w-full bg-transparent pl-8 pr-8 py-2.5 text-sm placeholder:text-white/30 focus:outline-none"
+                style={{ color: '#ffffff', caretColor: '#F59B1B' }}
+              />
+              {searchQuery && (
                 <button
-                  key={section.id}
-                  onClick={() => scrollToSection(section.id)}
-                  className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
-                    activeSection === section.id
-                      ? 'bg-[#F59B1B]/20 border border-[#F59B1B] text-[#F59B1B]'
-                      : 'bg-white/5 border border-white/10 text-[var(--muted-foreground)] hover:text-white hover:border-white/20'
-                  }`}
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-white/30 hover:text-white transition-colors"
+                  aria-label="Limpiar búsqueda"
                 >
-                  <Icon className="h-3.5 w-3.5" />
-                  {section.label}
+                  <X className="h-3.5 w-3.5" />
                 </button>
-              )
-            })}
+              )}
+            </div>
           </div>
+
         </div>
-      )}
+      </div>
 
       {/* Search results */}
       {isSearching ? (
