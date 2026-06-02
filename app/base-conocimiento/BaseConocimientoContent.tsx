@@ -474,7 +474,7 @@ export default function BaseConocimientoContent() {
                 <select
                   value={filterSection}
                   onChange={(e) => setFilterSection(e.target.value)}
-                  className="h-full bg-transparent pl-3 pr-7 py-3 text-xs text-[var(--muted-foreground)] focus:outline-none appearance-none cursor-pointer hover:text-white transition-colors"
+                  className="h-full w-32 bg-transparent pl-3 pr-7 py-3 text-xs text-[var(--muted-foreground)] focus:outline-none appearance-none cursor-pointer hover:text-white transition-colors"
                 >
                   <option value="">Todos</option>
                   {SECTIONS.map((s) => (
