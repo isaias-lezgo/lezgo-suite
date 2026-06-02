@@ -2,7 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { DM_Sans, Space_Grotesk } from "next/font/google"
 import "./globals.css"
-import Navbar from "@/components/navbar"
+import ConditionalNavbar from "@/components/custom/ConditionalNavbar"
 import ConditionalFooter from "@/components/custom/ConditionalFooter"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -86,7 +86,7 @@ export default function RootLayout({
         <Suspense>
           <GtmRouter />
         </Suspense>
-        <Navbar />
+        <ConditionalNavbar />
         <main className="pt-16">
           {children}
           <Analytics />
