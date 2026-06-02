@@ -1,0 +1,209 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e7]: Guía práctica
+        - heading "De ocupado a productivo." [level=1] [ref=e8]:
+          - text: De ocupado
+          - text: a productivo.
+        - paragraph [ref=e9]: Ordena tu operación, recupera enfoque y avanza con más claridad.
+        - generic [ref=e10]:
+          - paragraph [ref=e11]: Para leer en 10 minutos y aplicar esta semana.
+          - generic [ref=e12]: ·
+          - paragraph [ref=e13]: Iván Salazar · Liderazgo y productividad inmobiliaria
+      - generic [ref=e15]:
+        - paragraph [ref=e16]:
+          - text: "En la charla vimos una idea simple y a la vez incómoda:"
+          - strong [ref=e17]: estar ocupado no es lo mismo que estar avanzando.
+        - paragraph [ref=e18]: Esta guía no busca que trabajes más. Busca ayudarte a ver con claridad qué te está drenando, qué sí mueve tu negocio y cómo dar el siguiente paso con criterio. Léela con calma. Marca lo que te haga sentido. Aplica una sola cosa esta semana.
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - generic [ref=e22]: "01"
+          - generic [ref=e23]: Qué te está drenando de verdad
+        - heading "No siempre falta tiempo. Casi siempre sobra ruido." [level=2] [ref=e24]
+        - paragraph [ref=e25]: Demasiadas cosas parecen urgentes al mismo tiempo, y la operación termina dependiendo de la memoria, los chats y la reacción del momento.
+        - list [ref=e26]:
+          - listitem [ref=e27]:
+            - generic [ref=e29]: Tu día lo marcan los mensajes que llegan, no las prioridades que definiste.
+          - listitem [ref=e30]:
+            - generic [ref=e32]: Demasiadas cosas parecen urgentes a la vez, y todo compite por tu atención.
+          - listitem [ref=e33]:
+            - generic [ref=e35]: El seguimiento vive en tu memoria, en notas sueltas y en conversaciones de WhatsApp.
+          - listitem [ref=e36]:
+            - generic [ref=e38]: Hay mucho movimiento, pero no siempre avance en lo que de verdad mueve el negocio.
+          - listitem [ref=e39]:
+            - generic [ref=e41]: Cierras el día agotado, sin tener del todo claro qué resolviste.
+        - paragraph [ref=e42]: Si reconociste varias, no es falta de esfuerzo. Es falta de estructura.
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - generic [ref=e47]: "02"
+          - generic [ref=e48]: Ocupado vs. productivo
+        - heading "La diferencia no es trabajar más. Es decidir mejor." [level=2] [ref=e49]
+        - generic [ref=e50]:
+          - generic [ref=e51]:
+            - generic [ref=e52]: Ocupado
+            - generic [ref=e53]: Productivo
+          - generic [ref=e54]:
+            - generic [ref=e55]: Reacciona a lo que llega
+            - generic [ref=e56]: Diseña su día
+          - generic [ref=e57]:
+            - generic [ref=e58]: Responde a todo
+            - generic [ref=e59]: Prioriza lo que importa
+          - generic [ref=e60]:
+            - generic [ref=e61]: Se mueve mucho
+            - generic [ref=e62]: Avanza en lo importante
+          - generic [ref=e63]:
+            - generic [ref=e64]: Persigue cada lead
+            - generic [ref=e65]: Filtra por criterio
+          - generic [ref=e66]:
+            - generic [ref=e67]: Termina cansado
+            - generic [ref=e68]: Termina con progreso
+        - paragraph [ref=e69]: Estar ocupado se siente como avanzar. Pocas veces lo es.
+      - generic [ref=e71]:
+        - generic [ref=e72]:
+          - generic [ref=e73]: "03"
+          - generic [ref=e74]: Auditoría rápida
+        - heading "¿Qué tan estructurada está tu operación comercial?" [level=2] [ref=e75]
+        - paragraph [ref=e76]: Seis preguntas, dos minutos. Marca solo las que puedes responder con un sí claro y honesto.
+        - generic [ref=e77]:
+          - button "¿Sabes de qué canal vienen realmente tus cierres?" [ref=e78]:
+            - generic [ref=e80]: ¿Sabes de qué canal vienen realmente tus cierres?
+          - button "¿Tienes etapas claras de seguimiento por las que pasa cada prospecto?" [ref=e81]:
+            - generic [ref=e83]: ¿Tienes etapas claras de seguimiento por las que pasa cada prospecto?
+          - button "¿Sabes cuánto tarda, en promedio, en madurar un prospecto?" [ref=e84]:
+            - generic [ref=e86]: ¿Sabes cuánto tarda, en promedio, en madurar un prospecto?
+          - button "¿Tu equipo prioriza por criterio y no solo por la presión del momento?" [ref=e87]:
+            - generic [ref=e89]: ¿Tu equipo prioriza por criterio y no solo por la presión del momento?
+          - button "¿Tu operación deja de depender de tu memoria y de los chats?" [ref=e90]:
+            - generic [ref=e92]: ¿Tu operación deja de depender de tu memoria y de los chats?
+          - button "¿Tienes visibilidad real de tu pipeline en cualquier momento?" [ref=e93]:
+            - generic [ref=e95]: ¿Tienes visibilidad real de tu pipeline en cualquier momento?
+        - generic [ref=e96]:
+          - generic [ref=e97]:
+            - generic [ref=e98]: Tu resultado
+            - generic [ref=e99]: 0/6
+          - paragraph [ref=e101]: Operación reactiva
+          - paragraph [ref=e102]: Tu operación depende de la memoria y la reacción. Hay mucho ruido compitiendo por tu atención.
+      - generic [ref=e105]:
+        - generic [ref=e106]:
+          - generic [ref=e107]: "04"
+          - generic [ref=e108]: Quick wins para esta semana
+        - heading "Siete acciones que sí puedes aplicar ya." [level=2] [ref=e109]
+        - list [ref=e110]:
+          - listitem [ref=e111]:
+            - generic [ref=e112]: "01"
+            - paragraph [ref=e113]: Define 3 prioridades comerciales reales para la semana. No diez. Tres.
+          - listitem [ref=e114]:
+            - generic [ref=e115]: "02"
+            - paragraph [ref=e116]: "Clasifica tus leads por intención: listos, en proceso y fríos. No todos merecen la misma energía."
+          - listitem [ref=e117]:
+            - generic [ref=e118]: "03"
+            - paragraph [ref=e119]: Establece las etapas mínimas de seguimiento por las que pasa todo prospecto, de contacto a cierre.
+          - listitem [ref=e120]:
+            - generic [ref=e121]: "04"
+            - paragraph [ref=e122]: Reserva un bloque diario de trabajo profundo, sin notificaciones, para lo que de verdad mueve el negocio.
+          - listitem [ref=e123]:
+            - generic [ref=e124]: "05"
+            - paragraph [ref=e125]: Separa las urgencias reales del ruido que solo parece urgente. Pregúntate qué pasa si no lo atiendes hoy.
+          - listitem [ref=e126]:
+            - generic [ref=e127]: "06"
+            - paragraph [ref=e128]: Identifica qué tareas no deberían vivir en un chat para no perderse entre mensajes.
+          - listitem [ref=e129]:
+            - generic [ref=e130]: "07"
+            - paragraph [ref=e131]: "Ordena una visibilidad comercial mínima: qué tienes, en qué etapa está y qué sigue."
+      - generic [ref=e133]:
+        - generic [ref=e134]:
+          - generic [ref=e135]: "05"
+          - generic [ref=e136]: Qué sí debes medir
+        - heading "Lo que no se mide, se administra por intuición." [level=2] [ref=e137]
+        - paragraph [ref=e138]: No necesitas un tablero complejo. Necesitas mirar pocos números, pero los correctos, de forma constante.
+        - generic [ref=e139]:
+          - generic [ref=e140]:
+            - generic [ref=e141]: "01"
+            - generic [ref=e142]: Origen de tus leads
+          - generic [ref=e143]:
+            - generic [ref=e144]: "02"
+            - generic [ref=e145]: Tasa de contacto
+          - generic [ref=e146]:
+            - generic [ref=e147]: "03"
+            - generic [ref=e148]: Tasa de cita
+          - generic [ref=e149]:
+            - generic [ref=e150]: "04"
+            - generic [ref=e151]: Tasa de seguimiento
+          - generic [ref=e152]:
+            - generic [ref=e153]: "05"
+            - generic [ref=e154]: Tiempo de maduración
+          - generic [ref=e155]:
+            - generic [ref=e156]: "06"
+            - generic [ref=e157]: Conversión por asesor
+          - generic [ref=e158]:
+            - generic [ref=e159]: "07"
+            - generic [ref=e160]: Conversión por canal
+        - generic [ref=e161]:
+          - paragraph [ref=e162]: Si no mides, administras intuición.
+          - paragraph [ref=e163]: Si no diseñas, dependes del caos.
+      - generic [ref=e166]:
+        - generic [ref=e167]:
+          - generic [ref=e168]: "06"
+          - generic [ref=e169]: Cuando la claridad necesita sistema
+        - heading "Llega un punto en que el orden ya no cabe en la cabeza." [level=2] [ref=e170]
+        - paragraph [ref=e171]: "Una herramienta —un CRM— no inventa el orden. Lo sostiene. Empieza a tener sentido cuando:"
+        - list [ref=e172]:
+          - listitem [ref=e173]:
+            - generic [ref=e175]: Ya no quieres depender de tu memoria y de los chats para no perder un prospecto.
+          - listitem [ref=e176]:
+            - generic [ref=e178]: Necesitas un seguimiento ordenado que no se caiga cuando estás ocupado.
+          - listitem [ref=e179]:
+            - generic [ref=e181]: Quieres ver tu pipeline completo, no fragmentos sueltos.
+          - listitem [ref=e182]:
+            - generic [ref=e184]: Buscas medir mejor para poder decidir mejor.
+          - listitem [ref=e185]:
+            - generic [ref=e187]: Ya decidiste operar con más criterio y quieres llevarlo a sistema.
+        - generic [ref=e188]:
+          - paragraph [ref=e189]: Para ser justos
+          - paragraph [ref=e190]: Ninguna herramienta sustituye el liderazgo, el enfoque ni la estrategia. Un buen sistema potencia una operación que ya decidió ordenarse. No la ordena por ti.
+      - generic [ref=e192]:
+        - generic [ref=e193]:
+          - generic [ref=e194]: "07"
+          - generic [ref=e195]: Siguiente paso con ventaja AMII
+        - heading "Si ya decidiste ordenarte, Lezgo Suite lleva ese orden a sistema." [level=2] [ref=e196]
+        - paragraph [ref=e197]: No para resolver tu liderazgo, sino para dar estructura a una operación que ya quiere profesionalizarse.
+        - generic [ref=e198]:
+          - generic [ref=e201]: Centralización de contactos
+          - generic [ref=e204]: Seguimiento ordenado
+          - generic [ref=e207]: Visibilidad del pipeline
+          - generic [ref=e210]: Medición más clara
+          - generic [ref=e213]: Automatización de tareas repetitivas
+          - generic [ref=e216]: Mejor trazabilidad comercial
+        - generic [ref=e217]:
+          - paragraph [ref=e218]: Ventaja exclusiva AMII
+          - paragraph [ref=e219]: 20% de descuento mientras tu membresía esté activa.
+          - paragraph [ref=e220]: Cupo limitado por capacidad de acompañamiento.
+      - generic [ref=e223]:
+        - generic [ref=e224]:
+          - generic [ref=e225]: "08"
+          - generic [ref=e226]: El siguiente paso
+        - heading "No necesitas hacer más. Necesitas hacerlo con claridad." [level=2] [ref=e227]
+        - paragraph [ref=e228]: "Si este es tu momento de ordenar la operación y llevarla a sistema, da el siguiente paso desde aquí:"
+        - link "Ordenar mi operación con Lezgo Suite" [ref=e229] [cursor=pointer]:
+          - /url: https://app.lezgosuite.com/qr/OU9oCstbzzV-
+          - text: Ordenar mi operación con Lezgo Suite
+          - img [ref=e230]
+        - paragraph [ref=e232]: "Aplica el beneficio AMII: 20% de descuento mientras tu membresía esté activa."
+        - generic [ref=e233]:
+          - generic [ref=e234]: LezgoSuite
+          - generic [ref=e235]: ·
+          - generic [ref=e236]: app.lezgosuite.com
+          - img [ref=e237]
+    - link "¿Tienes dudas? Hablar con un asesor" [ref=e241] [cursor=pointer]:
+      - /url: https://app.lezgosuite.com/widget/bookings/conocelezgosuite
+      - img [ref=e243]
+      - generic [ref=e245]:
+        - text: ¿Tienes
+        - text: dudas?
+      - generic [ref=e246]:
+        - text: Hablar con
+        - text: un asesor
+    - img [ref=e250] [cursor=pointer]
+  - button "Open Next.js Dev Tools" [ref=e258] [cursor=pointer]:
+    - img [ref=e259]

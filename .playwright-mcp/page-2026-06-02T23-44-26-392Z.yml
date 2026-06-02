@@ -1,0 +1,112 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "Lezgo Suite" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Lezgo Suite" [ref=e8]
+      - button "Toggle menu" [ref=e10]:
+        - img [ref=e11]
+  - main [ref=e12]:
+    - main [ref=e13]:
+      - generic [ref=e14]:
+        - heading "404" [level=1] [ref=e16]
+        - generic [ref=e17]:
+          - heading "Página no encontrada" [level=2] [ref=e18]
+          - paragraph [ref=e19]: Lo sentimos, la página que estás buscando no existe.
+          - paragraph [ref=e20]: Es posible que haya sido movida, eliminada o que hayas ingresado la URL incorrecta.
+        - generic [ref=e21]:
+          - link "Regresar al Inicio" [ref=e22] [cursor=pointer]:
+            - /url: /
+            - img
+            - generic [ref=e23]: Regresar al Inicio
+          - button "Volver a página anterior" [ref=e24] [cursor=pointer]:
+            - img
+            - generic [ref=e25]: Volver a página anterior
+        - generic [ref=e26]:
+          - generic [ref=e27]:
+            - img [ref=e28]
+            - heading "¿Necesitas ayuda?" [level=3] [ref=e31]
+            - paragraph [ref=e32]: Si crees que esto es un error o necesitas asistencia, no dudes en contactarnos.
+          - link "Contáctanos" [ref=e33] [cursor=pointer]:
+            - /url: /contacto
+            - img
+            - generic [ref=e34]: Contáctanos
+    - link "¿Tienes dudas? Hablar con un asesor" [ref=e35] [cursor=pointer]:
+      - /url: https://app.lezgosuite.com/widget/bookings/conocelezgosuite
+      - img [ref=e37]
+      - generic [ref=e39]:
+        - text: ¿Tienes
+        - text: dudas?
+      - generic [ref=e40]:
+        - text: Hablar con
+        - text: un asesor
+    - img [ref=e44] [cursor=pointer]
+  - contentinfo [ref=e47]:
+    - generic [ref=e50]:
+      - generic [ref=e51]:
+        - heading "Transforma tu Empresa Hoy Mismo" [level=2] [ref=e52]:
+          - text: Transforma tu Empresa
+          - text: Hoy Mismo
+        - paragraph [ref=e53]: Únete a más de 50 empresas que ya confían en Lezgo Suite para impulsar su crecimiento
+        - generic [ref=e54]:
+          - link "Comenzar ahora" [ref=e55] [cursor=pointer]:
+            - /url: https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56
+            - text: Comenzar ahora
+            - img
+          - link "Agenda una llamada" [ref=e56] [cursor=pointer]:
+            - /url: https://app.lezgosuite.com/widget/bookings/conocelezgosuite
+      - generic [ref=e57]:
+        - heading "¿Listo para transformar tu empresa?" [level=3] [ref=e58]
+        - paragraph [ref=e59]: Déjanos tus datos y un especialista te contactará.
+        - generic [ref=e60]:
+          - textbox "Nombre" [ref=e61]
+          - textbox "Email" [ref=e62]
+          - textbox "Teléfono" [ref=e63]
+          - button "Enviar" [ref=e64]
+    - generic [ref=e65]:
+      - generic [ref=e66]:
+        - generic [ref=e67]:
+          - img "Lezgo Suite" [ref=e68]
+          - paragraph [ref=e69]: La plataforma empresarial más avanzada para transformar tu negocio con IA y automatizaciones.
+        - generic [ref=e70]:
+          - heading "Producto" [level=4] [ref=e71]
+          - list [ref=e72]:
+            - listitem [ref=e73]:
+              - link "Inicio" [ref=e74] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e75]:
+              - link "Funcionalidades" [ref=e76] [cursor=pointer]:
+                - /url: /#funcionalidades
+            - listitem [ref=e77]:
+              - link "Características" [ref=e78] [cursor=pointer]:
+                - /url: /#caracteristicas
+            - listitem [ref=e79]:
+              - link "Precios" [ref=e80] [cursor=pointer]:
+                - /url: "#precios"
+            - listitem [ref=e81]:
+              - link "Testimonios" [ref=e82] [cursor=pointer]:
+                - /url: "#testimonios"
+        - generic [ref=e83]:
+          - heading "Empresa" [level=4] [ref=e84]
+          - list [ref=e85]:
+            - listitem [ref=e86]:
+              - link "Sobre Nosotros" [ref=e87] [cursor=pointer]:
+                - /url: /sobre-nosotros
+            - listitem [ref=e88]:
+              - link "Contáctanos" [ref=e89] [cursor=pointer]:
+                - /url: /contacto
+            - listitem [ref=e90]:
+              - link "Terminos y condiciones" [ref=e91] [cursor=pointer]:
+                - /url: /terminos-y-condiciones
+            - listitem [ref=e92]:
+              - link "Aviso de privacidad" [ref=e93] [cursor=pointer]:
+                - /url: /aviso-privacidad
+      - generic [ref=e94]:
+        - paragraph [ref=e95]: © 2026 Lezgo Suite. Todos los derechos reservados.
+        - generic [ref=e96]:
+          - link "Privacidad" [ref=e97] [cursor=pointer]:
+            - /url: /aviso-privacidad
+          - link "Términos y condiciones" [ref=e98] [cursor=pointer]:
+            - /url: /terminos-y-condiciones
+  - button "Open Next.js Dev Tools" [ref=e104] [cursor=pointer]:
+    - img [ref=e105]
