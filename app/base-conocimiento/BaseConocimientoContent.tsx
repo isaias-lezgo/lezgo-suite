@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import type { LucideIcon } from 'lucide-react'
-import { Users, Target, Calendar, CheckSquare, BookOpen } from 'lucide-react'
+import { Users, Target, Calendar, CheckSquare, BookOpen, X } from 'lucide-react'
 
 interface Video {
   id: string
@@ -124,15 +124,28 @@ const SECTIONS: Section[] = [
 
 export default function BaseConocimientoContent() {
   const [activeSection, setActiveSection] = useState('contactos')
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
 
   function scrollToSection(id: string) {
     setActiveSection(id)
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
-  function openModal(_video: Video) {
-    // modal implemented in Task 5
+  function openModal(video: Video) {
+    setSelectedVideo(video)
   }
+
+  function closeModal() {
+    setSelectedVideo(null)
+  }
+
+  useEffect(() => {
+    function handleKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') closeModal()
+    }
+    window.addEventListener('keydown', handleKey)
+    return () => window.removeEventListener('keydown', handleKey)
+  }, [])
 
   return (
     <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
@@ -234,6 +247,33 @@ export default function BaseConocimientoContent() {
           )
         })}
       </div>
+      {/* YouTube Modal */}
+      {selectedVideo && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+          onClick={closeModal}
+        >
+          <div
+            className="relative w-full max-w-3xl aspect-video"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={closeModal}
+              className="absolute -top-10 right-0 text-white/70 hover:text-white transition-colors"
+              aria-label="Cerrar video"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            <iframe
+              src={`https://www.youtube.com/embed/${selectedVideo.id}?autoplay=1`}
+              title={selectedVideo.title}
+              className="w-full h-full rounded-xl"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
     </main>
   )
 }
