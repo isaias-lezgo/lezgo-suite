@@ -484,7 +484,7 @@ export default function BaseConocimientoContent() {
 
       {/* Sticky nav — always visible */}
       <div className="sticky top-16 z-20 bg-[var(--background)]/95 backdrop-blur border-b border-white/5">
-        <div className="mx-auto max-w-6xl px-6 py-3 flex items-center gap-3">
+        <div className="mx-auto max-w-6xl px-6 py-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
 
           {/* Section pills — hidden while searching */}
           {!isSearching && (
@@ -509,11 +509,11 @@ export default function BaseConocimientoContent() {
             </div>
           )}
 
-          {/* Search bar — always visible, expands when searching */}
+          {/* Search bar — always visible, full width on mobile */}
           <div
             ref={dropdownRef}
-            className={`relative flex items-center bg-white/5 border border-white/10 rounded-xl focus-within:border-[#F59B1B]/50 transition-all duration-200 ${
-              isSearching ? 'flex-1' : 'w-64'
+            className={`relative flex items-center bg-white/5 border border-white/10 rounded-xl focus-within:border-[#F59B1B]/50 transition-all duration-200 w-full sm:w-auto ${
+              isSearching ? 'sm:flex-1' : 'sm:w-64'
             }`}
           >
             {/* Section filter dropdown trigger */}
@@ -558,7 +558,7 @@ export default function BaseConocimientoContent() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Buscar tutoriales..."
                 className="w-full bg-transparent pl-8 pr-8 py-2.5 text-sm placeholder:text-white/30 focus:outline-none"
-                style={{ color: '#ffffff', caretColor: '#F59B1B' }}
+                style={{ color: '#ffffff', caretColor: '#F59B1B', WebkitTextFillColor: '#ffffff' }}
               />
               {searchQuery && (
                 <button
