@@ -7,13 +7,7 @@ export const metadata: Metadata = createMetadata({
   description:
     'Tutoriales en video para dominar cada módulo de Lezgo Suite: Contactos, Oportunidades, Calendarios y Tareas. Aprende a tu ritmo.',
   path: '/base-conocimiento',
-  keywords: [
-    'tutoriales Lezgo Suite',
-    'base de conocimiento',
-    'videos CRM',
-    'aprende Lezgo Suite',
-    'guías plataforma',
-  ],
+  noindex: true,
 })
 
 export default function BaseConocimientoPage() {
