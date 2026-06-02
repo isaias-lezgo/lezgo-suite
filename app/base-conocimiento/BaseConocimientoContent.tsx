@@ -130,6 +130,10 @@ export default function BaseConocimientoContent() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
+  function openModal(_video: Video) {
+    // modal implemented in Task 5
+  }
+
   return (
     <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
       {/* Hero */}
@@ -177,9 +181,58 @@ export default function BaseConocimientoContent() {
         </div>
       </div>
 
-      {/* Sections placeholder */}
-      <div className="mx-auto max-w-6xl px-6 py-12">
-        <p className="text-[var(--muted-foreground)]">Secciones van aquí — active: {activeSection}</p>
+      {/* Sections */}
+      <div className="mx-auto max-w-6xl px-6 py-12 space-y-16">
+        {SECTIONS.map((section, sectionIndex) => {
+          const Icon = section.icon
+          return (
+            <section key={section.id} id={section.id}>
+              {/* Section header */}
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-1 h-6 bg-[#F59B1B] rounded-full" />
+                <Icon className="h-5 w-5 text-[#F59B1B]" />
+                <h2 className="font-[var(--font-space-grotesk)] text-xl font-bold">{section.label}</h2>
+                <span className="bg-white/5 border border-white/10 text-[var(--muted-foreground)] text-xs px-2.5 py-0.5 rounded-full">
+                  {section.videos.length} videos
+                </span>
+              </div>
+
+              {/* Video grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {section.videos.map((video) => (
+                  <button
+                    key={video.id}
+                    onClick={() => openModal(video)}
+                    className="group text-left bg-[var(--card)] border border-white/5 rounded-xl overflow-hidden hover:border-[#F59B1B]/40 hover:bg-white/5 transition-all duration-200"
+                  >
+                    {/* Thumbnail */}
+                    <div className="relative bg-white/5 aspect-video flex items-center justify-center">
+                      <div className="w-10 h-10 bg-[#F59B1B] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span className="text-black text-sm ml-0.5">▶</span>
+                      </div>
+                      <span className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-1.5 py-0.5 rounded">
+                        {video.duration}
+                      </span>
+                    </div>
+                    {/* Info */}
+                    <div className="p-4">
+                      <p className="font-semibold text-sm mb-1 group-hover:text-[#F59B1B] transition-colors">
+                        {video.title}
+                      </p>
+                      <p className="text-[var(--muted-foreground)] text-xs leading-relaxed">
+                        {video.description}
+                      </p>
+                    </div>
+                  </button>
+                ))}
+              </div>
+
+              {sectionIndex < SECTIONS.length - 1 && (
+                <div className="mt-16 border-t border-white/5" />
+              )}
+            </section>
+          )
+        })}
       </div>
     </main>
   )
