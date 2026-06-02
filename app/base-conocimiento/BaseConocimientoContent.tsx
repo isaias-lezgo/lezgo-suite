@@ -12,11 +12,17 @@ interface Video {
   duration: string
 }
 
+interface Subcategory {
+  id: string
+  label: string
+  videos: Video[]
+}
+
 interface Section {
   id: string
   label: string
   icon: LucideIcon
-  videos: Video[]
+  subcategories: Subcategory[]
 }
 
 const SECTIONS: Section[] = [
@@ -24,24 +30,33 @@ const SECTIONS: Section[] = [
     id: 'contactos',
     label: 'Contactos',
     icon: Users,
-    videos: [
+    subcategories: [
       {
-        id: 'PLACEHOLDER_1',
-        title: 'Cómo crear un contacto',
-        description: 'Aprende a agregar contactos manualmente y por importación.',
-        duration: '0:00',
+        id: 'gestion',
+        label: 'Gestión básica',
+        videos: [
+          { id: 'PLACEHOLDER_1', title: 'Cómo crear un contacto', description: 'Agrega contactos manualmente y por importación masiva.', duration: '0:00' },
+          { id: 'PLACEHOLDER_2', title: 'Editar y eliminar contactos', description: 'Modifica datos y gestiona registros duplicados.', duration: '0:00' },
+          { id: 'PLACEHOLDER_3', title: 'Filtros y segmentación', description: 'Organiza tus contactos con etiquetas y filtros avanzados.', duration: '0:00' },
+        ],
       },
       {
-        id: 'PLACEHOLDER_2',
-        title: 'Filtros y segmentación',
-        description: 'Organiza tus contactos con etiquetas y filtros avanzados.',
-        duration: '0:00',
+        id: 'comunicacion',
+        label: 'Comunicación',
+        videos: [
+          { id: 'PLACEHOLDER_4', title: 'Enviar mensajes desde un contacto', description: 'SMS, email y WhatsApp directo desde el perfil.', duration: '0:00' },
+          { id: 'PLACEHOLDER_5', title: 'Historial de conversaciones', description: 'Revisa todo el historial de interacciones con un contacto.', duration: '0:00' },
+          { id: 'PLACEHOLDER_6', title: 'Notas y actividades', description: 'Registra llamadas, reuniones y notas internas.', duration: '0:00' },
+        ],
       },
       {
-        id: 'PLACEHOLDER_3',
-        title: 'Automatizaciones en contactos',
-        description: 'Configura flujos automáticos al añadir nuevos contactos.',
-        duration: '0:00',
+        id: 'automatizaciones-contactos',
+        label: 'Automatizaciones',
+        videos: [
+          { id: 'PLACEHOLDER_7', title: 'Flujos automáticos al crear un contacto', description: 'Configura acciones que se disparan al registrar un nuevo contacto.', duration: '0:00' },
+          { id: 'PLACEHOLDER_8', title: 'Etiquetas automáticas', description: 'Aplica etiquetas según el comportamiento del contacto.', duration: '0:00' },
+          { id: 'PLACEHOLDER_9', title: 'Notificaciones al equipo', description: 'Avisa a tu equipo cuando un contacto realiza una acción clave.', duration: '0:00' },
+        ],
       },
     ],
   },
@@ -49,24 +64,33 @@ const SECTIONS: Section[] = [
     id: 'oportunidades',
     label: 'Oportunidades',
     icon: Target,
-    videos: [
+    subcategories: [
       {
-        id: 'PLACEHOLDER_4',
-        title: 'Crear una oportunidad',
-        description: 'Registra y gestiona oportunidades de negocio en tu pipeline.',
-        duration: '0:00',
+        id: 'pipeline',
+        label: 'Pipeline',
+        videos: [
+          { id: 'PLACEHOLDER_10', title: 'Crear una oportunidad', description: 'Registra oportunidades de negocio y asígnalas a tu pipeline.', duration: '0:00' },
+          { id: 'PLACEHOLDER_11', title: 'Mover entre etapas', description: 'Avanza oportunidades por las etapas del proceso de venta.', duration: '0:00' },
+          { id: 'PLACEHOLDER_12', title: 'Personalizar el pipeline', description: 'Crea y reordena etapas según tu proceso comercial.', duration: '0:00' },
+        ],
       },
       {
-        id: 'PLACEHOLDER_5',
-        title: 'Mover oportunidades en el pipeline',
-        description: 'Aprende a avanzar oportunidades por las etapas de venta.',
-        duration: '0:00',
+        id: 'seguimiento',
+        label: 'Seguimiento',
+        videos: [
+          { id: 'PLACEHOLDER_13', title: 'Actividades de seguimiento', description: 'Programa llamadas, demos y recordatorios para cada oportunidad.', duration: '0:00' },
+          { id: 'PLACEHOLDER_14', title: 'Notas de oportunidad', description: 'Documenta avances y acuerdos dentro de cada trato.', duration: '0:00' },
+          { id: 'PLACEHOLDER_15', title: 'Asignar oportunidades al equipo', description: 'Distribuye tratos entre los vendedores de tu equipo.', duration: '0:00' },
+        ],
       },
       {
-        id: 'PLACEHOLDER_6',
-        title: 'Reportes de oportunidades',
-        description: 'Analiza tus resultados y proyecciones de ventas.',
-        duration: '0:00',
+        id: 'reportes',
+        label: 'Reportes',
+        videos: [
+          { id: 'PLACEHOLDER_16', title: 'Reportes de conversión', description: 'Analiza tu tasa de cierre por etapa y por vendedor.', duration: '0:00' },
+          { id: 'PLACEHOLDER_17', title: 'Proyección de ingresos', description: 'Estima ingresos futuros con base en tu pipeline actual.', duration: '0:00' },
+          { id: 'PLACEHOLDER_18', title: 'Exportar reportes', description: 'Descarga tus datos de ventas en Excel o PDF.', duration: '0:00' },
+        ],
       },
     ],
   },
@@ -74,24 +98,33 @@ const SECTIONS: Section[] = [
     id: 'calendarios',
     label: 'Calendarios',
     icon: Calendar,
-    videos: [
+    subcategories: [
       {
-        id: 'PLACEHOLDER_7',
-        title: 'Configurar tu calendario',
-        description: 'Ajusta disponibilidad, horarios y tipos de cita.',
-        duration: '0:00',
+        id: 'configuracion',
+        label: 'Configuración',
+        videos: [
+          { id: 'PLACEHOLDER_19', title: 'Configurar tu calendario', description: 'Define tu disponibilidad, zonas horarias y tipos de cita.', duration: '0:00' },
+          { id: 'PLACEHOLDER_20', title: 'Bloquear horarios', description: 'Marca periodos no disponibles y días de descanso.', duration: '0:00' },
+          { id: 'PLACEHOLDER_21', title: 'Personalizar el formulario de cita', description: 'Agrega campos personalizados a tu página de agendamiento.', duration: '0:00' },
+        ],
       },
       {
-        id: 'PLACEHOLDER_8',
-        title: 'Agendar una cita',
-        description: 'Crea y asigna citas a contactos o miembros del equipo.',
-        duration: '0:00',
+        id: 'citas',
+        label: 'Citas',
+        videos: [
+          { id: 'PLACEHOLDER_22', title: 'Agendar una cita manualmente', description: 'Crea citas directamente desde la plataforma sin link externo.', duration: '0:00' },
+          { id: 'PLACEHOLDER_23', title: 'Confirmar y reagendar citas', description: 'Gestiona cambios de horario y confirmaciones del cliente.', duration: '0:00' },
+          { id: 'PLACEHOLDER_24', title: 'Recordatorios automáticos', description: 'Configura recordatorios de cita por SMS y email.', duration: '0:00' },
+        ],
       },
       {
-        id: 'PLACEHOLDER_9',
-        title: 'Recordatorios automáticos',
-        description: 'Configura notificaciones automáticas para tus citas.',
-        duration: '0:00',
+        id: 'integraciones-cal',
+        label: 'Integraciones',
+        videos: [
+          { id: 'PLACEHOLDER_25', title: 'Conectar con Google Calendar', description: 'Sincroniza tus citas con Google Calendar en tiempo real.', duration: '0:00' },
+          { id: 'PLACEHOLDER_26', title: 'Conectar con Outlook', description: 'Mantén tu agenda de Outlook sincronizada con Lezgo Suite.', duration: '0:00' },
+          { id: 'PLACEHOLDER_27', title: 'Link de agendamiento público', description: 'Comparte tu enlace de citas con clientes y prospectos.', duration: '0:00' },
+        ],
       },
     ],
   },
@@ -99,24 +132,33 @@ const SECTIONS: Section[] = [
     id: 'tareas',
     label: 'Tareas',
     icon: CheckSquare,
-    videos: [
+    subcategories: [
       {
-        id: 'PLACEHOLDER_10',
-        title: 'Crear y asignar tareas',
-        description: 'Administra tareas individuales y del equipo.',
-        duration: '0:00',
+        id: 'gestion-tareas',
+        label: 'Gestión básica',
+        videos: [
+          { id: 'PLACEHOLDER_28', title: 'Crear y editar tareas', description: 'Agrega tareas individuales con fecha límite y prioridad.', duration: '0:00' },
+          { id: 'PLACEHOLDER_29', title: 'Marcar tareas como completadas', description: 'Actualiza el estado de tus tareas a medida que avanzas.', duration: '0:00' },
+          { id: 'PLACEHOLDER_30', title: 'Vistas de tareas', description: 'Cambia entre vista de lista, tablero y calendario.', duration: '0:00' },
+        ],
       },
       {
-        id: 'PLACEHOLDER_11',
-        title: 'Seguimiento de tareas',
-        description: 'Revisa el estado y progreso de tareas pendientes.',
-        duration: '0:00',
+        id: 'equipo',
+        label: 'Equipo',
+        videos: [
+          { id: 'PLACEHOLDER_31', title: 'Asignar tareas a miembros del equipo', description: 'Delega y distribuye responsabilidades dentro de tu equipo.', duration: '0:00' },
+          { id: 'PLACEHOLDER_32', title: 'Comentarios en tareas', description: 'Colabora con tu equipo con notas y actualizaciones en cada tarea.', duration: '0:00' },
+          { id: 'PLACEHOLDER_33', title: 'Seguimiento de progreso', description: 'Monitorea el avance de las tareas asignadas a tu equipo.', duration: '0:00' },
+        ],
       },
       {
-        id: 'PLACEHOLDER_12',
-        title: 'Tareas recurrentes',
-        description: 'Automatiza tareas que se repiten periódicamente.',
-        duration: '0:00',
+        id: 'automatizacion-tareas',
+        label: 'Automatización',
+        videos: [
+          { id: 'PLACEHOLDER_34', title: 'Tareas recurrentes', description: 'Crea tareas que se repitan automáticamente en intervalos fijos.', duration: '0:00' },
+          { id: 'PLACEHOLDER_35', title: 'Crear tareas desde flujos', description: 'Dispara la creación de tareas automáticamente con automatizaciones.', duration: '0:00' },
+          { id: 'PLACEHOLDER_36', title: 'Notificaciones de vencimiento', description: 'Recibe alertas cuando una tarea está próxima a vencer.', duration: '0:00' },
+        ],
       },
     ],
   },
@@ -124,11 +166,18 @@ const SECTIONS: Section[] = [
 
 export default function BaseConocimientoContent() {
   const [activeSection, setActiveSection] = useState('contactos')
+  const [activeSubs, setActiveSubs] = useState<Record<string, string>>(
+    () => Object.fromEntries(SECTIONS.map((s) => [s.id, s.subcategories[0].id]))
+  )
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
 
   function scrollToSection(id: string) {
     setActiveSection(id)
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  function setActiveSub(sectionId: string, subId: string) {
+    setActiveSubs((prev) => ({ ...prev, [sectionId]: subId }))
   }
 
   function openModal(video: Video) {
@@ -198,21 +247,42 @@ export default function BaseConocimientoContent() {
       <div className="mx-auto max-w-6xl px-6 py-12 space-y-16">
         {SECTIONS.map((section, sectionIndex) => {
           const Icon = section.icon
+          const totalVideos = section.subcategories.reduce((acc, s) => acc + s.videos.length, 0)
+          const activeSubId = activeSubs[section.id]
+          const activeVideos = section.subcategories.find((s) => s.id === activeSubId)?.videos ?? []
+
           return (
             <section key={section.id} id={section.id}>
               {/* Section header */}
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-4">
                 <div className="w-1 h-6 bg-[#F59B1B] rounded-full" />
                 <Icon className="h-5 w-5 text-[#F59B1B]" />
                 <h2 className="font-[var(--font-space-grotesk)] text-xl font-bold">{section.label}</h2>
                 <span className="bg-white/5 border border-white/10 text-[var(--muted-foreground)] text-xs px-2.5 py-0.5 rounded-full">
-                  {section.videos.length} videos
+                  {totalVideos} videos
                 </span>
+              </div>
+
+              {/* Subcategory tabs */}
+              <div className="flex gap-2 flex-wrap mb-6">
+                {section.subcategories.map((sub) => (
+                  <button
+                    key={sub.id}
+                    onClick={() => setActiveSub(section.id, sub.id)}
+                    className={`text-xs px-3 py-1.5 rounded-lg transition-colors ${
+                      activeSubId === sub.id
+                        ? 'bg-white/10 border border-white/20 text-white font-medium'
+                        : 'bg-transparent border border-white/5 text-[var(--muted-foreground)] hover:border-white/15 hover:text-white/70'
+                    }`}
+                  >
+                    {sub.label}
+                  </button>
+                ))}
               </div>
 
               {/* Video grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {section.videos.map((video) => (
+                {activeVideos.map((video) => (
                   <button
                     key={video.id}
                     onClick={() => openModal(video)}
@@ -247,6 +317,7 @@ export default function BaseConocimientoContent() {
           )
         })}
       </div>
+
       {/* YouTube Modal */}
       {selectedVideo && (
         <div

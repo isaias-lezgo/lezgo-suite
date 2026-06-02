@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { DM_Sans, Space_Grotesk } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/navbar"
-import Footer from "@/components/footer"
+import ConditionalFooter from "@/components/custom/ConditionalFooter"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import FloatingWhatsApp from "@/components/custom/FloatingWhatsapp"
@@ -93,7 +93,7 @@ export default function RootLayout({
           <SpeedInsights />
           <FloatingWhatsApp />
         </main>
-        <Footer />
+        <ConditionalFooter />
       </body>
     </html>
   )
