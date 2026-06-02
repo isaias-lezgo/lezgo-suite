@@ -1,7 +1,9 @@
 'use client'
 
+import { useState } from 'react'
+import { motion } from 'framer-motion'
 import type { LucideIcon } from 'lucide-react'
-import { Users, Target, Calendar, CheckSquare } from 'lucide-react'
+import { Users, Target, Calendar, CheckSquare, BookOpen } from 'lucide-react'
 
 interface Video {
   id: string
@@ -121,5 +123,64 @@ const SECTIONS: Section[] = [
 ]
 
 export default function BaseConocimientoContent() {
-  return <main className="min-h-screen">Base de Conocimiento — {SECTIONS.length} secciones</main>
+  const [activeSection, setActiveSection] = useState('contactos')
+
+  function scrollToSection(id: string) {
+    setActiveSection(id)
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  return (
+    <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+      {/* Hero */}
+      <section className="relative overflow-hidden border-b border-white/5">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_#F59B1B0d_0%,_transparent_70%)]" />
+        <div className="mx-auto max-w-4xl px-6 py-20 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#F59B1B]/40 bg-[#F59B1B]/10 px-3 py-1 text-xs text-[#F59B1B] mb-4">
+              <BookOpen className="h-3.5 w-3.5" /> Base de Conocimiento
+            </span>
+            <h1 className="font-[var(--font-space-grotesk)] text-3xl font-bold tracking-tight md:text-5xl mb-4">
+              Aprende a usar Lezgo Suite
+            </h1>
+            <p className="text-[var(--muted-foreground)] text-base md:text-lg max-w-xl mx-auto">
+              Tutoriales en video para dominar cada módulo de tu plataforma. Aprende a tu ritmo y saca el máximo provecho.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Sticky anchor nav */}
+      <div className="sticky top-16 z-20 bg-[var(--background)]/95 backdrop-blur border-b border-white/5">
+        <div className="mx-auto max-w-6xl px-6 py-3 flex gap-2 flex-wrap">
+          {SECTIONS.map((section) => {
+            const Icon = section.icon
+            return (
+              <button
+                key={section.id}
+                onClick={() => scrollToSection(section.id)}
+                className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                  activeSection === section.id
+                    ? 'bg-[#F59B1B]/20 border border-[#F59B1B] text-[#F59B1B]'
+                    : 'bg-white/5 border border-white/10 text-[var(--muted-foreground)] hover:text-white hover:border-white/20'
+                }`}
+              >
+                <Icon className="h-3.5 w-3.5" />
+                {section.label}
+              </button>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* Sections placeholder */}
+      <div className="mx-auto max-w-6xl px-6 py-12">
+        <p className="text-[var(--muted-foreground)]">Secciones van aquí — active: {activeSection}</p>
+      </div>
+    </main>
+  )
 }
