@@ -480,7 +480,7 @@ export default function BaseConocimientoContent() {
             </p>
 
             {/* Search bar */}
-            <div className="flex max-w-lg mx-auto bg-white/5 border border-white/10 rounded-xl overflow-hidden focus-within:border-[#F59B1B]/50 transition-colors">
+            <div className="flex max-w-lg mx-auto bg-white/5 border border-white/10 rounded-xl focus-within:border-[#F59B1B]/50 transition-colors relative">
               {/* Section filter dropdown */}
               <div ref={dropdownRef} className="relative flex-shrink-0 border-r border-white/10">
                 <button
