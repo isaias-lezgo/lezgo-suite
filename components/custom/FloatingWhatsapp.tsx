@@ -1,9 +1,13 @@
 'use client'
 import { track } from "@vercel/analytics";
-import { MessageCircleMore } from "lucide-react";
+import { CalendarCheck, MessageCircleMore } from "lucide-react";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const FloatingWhatsApp = () => {
+  const pathname = usePathname();
+  if (pathname === '/guia-productiva') return null;
+
   const phoneNumber = "5214426702559";
   const message =
     "¡Hola! Me interesa más información de Lezgo Suite. Vengo de la Página Web.";
@@ -26,16 +30,30 @@ const FloatingWhatsApp = () => {
 
   return (
     <>
-      {/* Advisor widget — right edge, compact card */}
+      {/* Advisor — mobile: pill button */}
       <a
         href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleAdvisorClick}
-        className="fixed right-0 bottom-4 sm:bottom-6 z-50 flex flex-col items-center gap-2.5 pt-4 px-3 pb-3 bg-[oklch(0.17_0.015_250)] border-t border-l border-b border-white/10 rounded-l-2xl shadow-2xl hover:bg-[oklch(0.21_0.015_250)] transition-colors duration-300 group w-[100px]"
+        className="sm:hidden fixed right-4 bottom-4 z-50 flex items-center gap-2 bg-[#F59B1B] hover:bg-[#e08d18] active:scale-95 transition-all duration-200 rounded-2xl px-4 py-3 shadow-lg"
+      >
+        <CalendarCheck className="text-white w-5 h-5 shrink-0" />
+        <span className="text-white text-sm font-bold leading-tight">
+          Agendar<br />demo
+        </span>
+      </a>
+
+      {/* Advisor — desktop: card anchored to right edge */}
+      <a
+        href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={handleAdvisorClick}
+        className="hidden sm:flex fixed right-0 bottom-6 z-50 flex-col items-center gap-2.5 pt-4 px-3 pb-3 bg-[oklch(0.17_0.015_250)] border-t border-l border-b border-white/10 rounded-l-2xl shadow-2xl hover:bg-[oklch(0.21_0.015_250)] transition-colors duration-300 group w-[100px]"
       >
         <div className="w-11 h-11 bg-[#F59B1B] rounded-full flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
-          <MessageCircleMore className="w-6 h-6 text-white" />
+          <CalendarCheck className="w-6 h-6 text-white" />
         </div>
         <span className="text-white/90 text-[11px] font-semibold text-center leading-snug">
           ¿Tienes<br />dudas?
