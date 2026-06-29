@@ -188,6 +188,11 @@
     color: #111827 !important; /* Dark text for good readability */
   }
 
+  /* Dark-themed containers (e.g. popups) need white input text */
+  .dark-popup input, .dark-popup textarea, .dark-popup select {
+    color: white !important;
+  }
+
   
   /* Subtle animated background */
   .animated-bg {

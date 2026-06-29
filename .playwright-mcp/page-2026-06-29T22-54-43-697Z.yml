@@ -1,0 +1,13 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: Dashboard protegido
+      - generic [ref=e6]: Ingresa la contraseña para continuar.
+    - generic [ref=e8]:
+      - generic [ref=e9]:
+        - text: Contraseña
+        - textbox "Contraseña" [active] [ref=e10]
+      - button "Entrar" [disabled]
+  - button "Open Next.js Dev Tools" [ref=e16] [cursor=pointer]:
+    - img [ref=e17]
+  - alert [ref=e20]

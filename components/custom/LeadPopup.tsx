@@ -82,7 +82,7 @@ export default function LeadPopup() {
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-[#0d0d0d] border border-white/10 rounded-2xl shadow-2xl max-w-md w-full p-8 relative">
+      <div className="dark-popup bg-[#0d0d0d] border border-white/10 rounded-2xl shadow-2xl max-w-md w-full p-8 relative">
         <button
           onClick={() => setIsVisible(false)}
           className="absolute top-4 right-4 text-white/40 hover:text-white/80 transition-colors"
