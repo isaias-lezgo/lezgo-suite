@@ -64,6 +64,12 @@ export default function LeadPopup() {
       if (typeof (window as any).fbq === 'function') {
         ;(window as any).fbq('trackCustom', 'Popup Funcionalidades - Submit')
       }
+      ;(window as any).dataLayer = (window as any).dataLayer || []
+      ;(window as any).dataLayer.push({
+        event: 'form_submit_success',
+        form_name: 'popup_funcionalidades',
+        form_location: window.location.pathname,
+      })
       setSubmitted(true)
     } catch {
       setError('No pudimos enviar tu información. Intenta de nuevo.')

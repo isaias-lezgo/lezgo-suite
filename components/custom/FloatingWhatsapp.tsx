@@ -17,6 +17,11 @@ const FloatingWhatsApp = () => {
     if (typeof (window as any).fbq === 'function') {
       (window as any).fbq('track', 'Contact');
     }
+    ;(window as any).dataLayer = (window as any).dataLayer || []
+    ;(window as any).dataLayer.push({
+      event: 'click_whatsapp',
+      form_location: window.location.pathname,
+    })
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
   };

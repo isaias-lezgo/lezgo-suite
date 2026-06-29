@@ -130,6 +130,13 @@ export default function ContactoContent() {
         newsletter: formData.newsletter,
       })
 
+      ;(window as any).dataLayer = (window as any).dataLayer || []
+      ;(window as any).dataLayer.push({
+        event: 'form_submit_success',
+        form_name: 'contacto_principal',
+        form_location: window.location.pathname,
+      })
+
       setSubmitSuccess(true)
       toast({
         title: "Mensaje recibido",
@@ -308,10 +315,10 @@ export default function ContactoContent() {
                         value={formData.industria}
                         onValueChange={(value) => handleInputChange("industria", value)}
                       >
-                        <SelectTrigger id="industria" className={`w-full ${inputClassName}`}>
+                        <SelectTrigger id="industria" className={`w-full text-gray-900 ${inputClassName}`}>
                           <SelectValue placeholder="Selecciona tu sector" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="bg-white text-gray-900 border-gray-200 [&_[data-slot=select-item]]:text-gray-900 [&_[data-slot=select-item]]:focus:bg-[#F59B1B]/10 [&_[data-slot=select-item]]:focus:text-gray-900">
                           <SelectItem value="tecnologia">Tecnología</SelectItem>
                           <SelectItem value="finanzas">Finanzas</SelectItem>
                           <SelectItem value="salud">Salud</SelectItem>

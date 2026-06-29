@@ -79,7 +79,7 @@ export default function Footer() {
                     )
                   }
                 >
-                  <a href="https://app.lezgosuite.com/payment-link/68ae46632ba55c5eda290d56" target="_blank" rel="noopener noreferrer">
+                  <a href="/#precios">
                     Comenzar ahora
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </a>
