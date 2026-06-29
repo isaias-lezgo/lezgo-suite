@@ -34,9 +34,15 @@ const BILLING_OPTIONS: { key: BillingPeriod; label: string; discount: number }[]
   { key: 'anual',      label: 'Anual',      discount: 0.20 },
 ]
 
-const HOME_BASE_PRICES = { growth: 3527, pro: 5397, elite: 10567 }
+const HOME_BASE_PRICES = { start: 1297, growth: 3527, pro: 5397, elite: 10567 }
 
 const STRIPE_LINKS: Record<string, Record<BillingPeriod, string>> = {
+  start: {
+    mensual:    'https://pagos.lezgosuite.com/b/9B68wQ9d06go82Z1aA3cc0x?paquete=start&plan=mensual',
+    trimestral: 'https://pagos.lezgosuite.com/b/28E00k60OeMUfvr1aA3cc0y?paquete=start&plan=trimestral',
+    semestral:  'https://pagos.lezgosuite.com/b/aFa8wQexkawE5UR1aA3cc0z?paquete=start&plan=semestral',
+    anual:      'https://pagos.lezgosuite.com/b/aFa7sM74SfQY4QNaLa3cc0A?paquete=start&plan=anual',
+  },
   growth: {
     mensual:    'https://pagos.lezgosuite.com/b/14A7sM2OC5ckfvr6uU3cc0l?paquete=growth&plan=mensual',
     trimestral: 'https://pagos.lezgosuite.com/b/eVq7sMgFs2089734mM3cc0r?paquete=growth&plan=trimestral',
@@ -758,14 +764,6 @@ export default function HomeContent() {
                 <br />
                 <span className="text-gray-900">para tu Crecimiento</span>
               </h2>
-              <div className="pb-8 flex justify-center">
-                <Image
-                  src="/tablafeatures.png"
-                  alt="Tabla de Features"
-                  width={800}
-                  height={1000}
-                />
-              </div>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Elige el plan que se adapte a las necesidades de tu empresa
               </p>
@@ -800,15 +798,29 @@ export default function HomeContent() {
               </div>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-7xl mx-auto">
               {[
+                {
+                  name: "Lezgo Start",
+                  price: applyPriceDiscount(HOME_BASE_PRICES.start, selectedBilling.discount),
+                  period: "/mes",
+                  description: "Para asesores independientes",
+                  features: [
+                    "Todas las funcionalidades",
+                    "1 usuario asesor",
+                    "1000 contactos",
+                  ],
+                  popular: false,
+                  color: "border-gray-200",
+                  link: STRIPE_LINKS.start[billing],
+                },
                 {
                   name: "Lezgo Growth",
                   price: applyPriceDiscount(HOME_BASE_PRICES.growth, selectedBilling.discount),
                   period: "/mes",
                   description: "Perfecto para equipos pequeños",
                   features: [
-                    "ACCESO A TODAS LAS FUNCIONALIDADES",
+                    "Todas las funcionalidades",
                     "Equipo de 3 usuarios",
                     "1000 contactos",
                   ],
@@ -822,7 +834,7 @@ export default function HomeContent() {
                   period: "/mes",
                   description: "Ideal para empresas en crecimiento",
                   features: [
-                    "ACCESO A TODAS LAS FUNCIONALIDADES",
+                    "Todas las funcionalidades",
                     "Equipo de 10 usuarios",
                     "15,000 contactos",
                   ],
@@ -836,7 +848,7 @@ export default function HomeContent() {
                   period: "/mes",
                   description: "Para grandes organizaciones",
                   features: [
-                    "ACCESO A TODAS LAS FUNCIONALIDADES",
+                    "Todas las funcionalidades",
                     "Usuarios ilímitados",
                     "Contactos ilímitados",
                   ],
@@ -867,24 +879,24 @@ export default function HomeContent() {
                     className={`h-full bg-white border-2 ${plan.color} ${plan.popular ? "shadow-2xl scale-105" : "shadow-lg"
                       } hover:shadow-2xl transition-all duration-300`}
                   >
-                    <CardContent className="p-8">
-                      <div className="text-center mb-8">
-                        <h3 className="text-2xl font-bold font-heading mb-2 text-gray-900">
+                    <CardContent className="p-5">
+                      <div className="text-center mb-5">
+                        <h3 className="text-lg font-bold font-heading mb-1 text-gray-900">
                           {plan.name}
                         </h3>
-                        <p className="text-gray-600 mb-4">{plan.description}</p>
-                        <div className="mb-6">
-                          <span className="text-4xl font-bold text-[#F59B1B]">
+                        <p className="text-sm text-gray-600 mb-3">{plan.description}</p>
+                        <div className="mb-4">
+                          <span className="text-3xl font-bold text-[#F59B1B]">
                             {plan.price}
                           </span>
-                          <span className="text-gray-600">{plan.period}</span>
+                          <span className="text-sm text-gray-600">{plan.period}</span>
                         </div>
                       </div>
-                      <ul className="space-y-4 mb-8">
+                      <ul className="space-y-2 mb-5">
                         {plan.features.map((feature, featureIndex) => (
                           <li key={featureIndex} className="flex items-center">
-                            <CheckCircle className="h-5 w-5 text-[#F59B1B] mr-3 flex-shrink-0" />
-                            <span className="text-gray-700">{feature}</span>
+                            <CheckCircle className="h-4 w-4 text-[#F59B1B] mr-2 flex-shrink-0" />
+                            <span className="text-sm text-gray-700">{feature}</span>
                           </li>
                         ))}
                       </ul>
@@ -901,6 +913,17 @@ export default function HomeContent() {
                 </motion.div>
               ))}
             </div>
+
+            <div className="mt-16 flex justify-center">
+              <Image
+                src="/tablafeatures.png"
+                alt="Tabla de Features"
+                width={800}
+                height={1000}
+                className="w-full max-w-3xl"
+              />
+            </div>
+
             <div className="mt-8 p-4">
               <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-gray-700">
                 <span className="font-semibold text-gray-900">Todo plan incluye:</span>
