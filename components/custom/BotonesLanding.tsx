@@ -40,8 +40,6 @@ export const HeroButtons = () => {
       >
         <a
           href="#precios"
-          target="_blank"
-          rel="noopener noreferrer"
           className="flex items-center justify-center"
         >
           <span className="text-sm sm:text-base lg:text-lg ">
