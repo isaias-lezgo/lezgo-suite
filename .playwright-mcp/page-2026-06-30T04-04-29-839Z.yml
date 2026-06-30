@@ -1,0 +1,205 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "Lezgo Suite" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Lezgo Suite" [ref=e8]
+      - generic [ref=e10]:
+        - link "Funcionalidades" [ref=e11] [cursor=pointer]:
+          - /url: /#funcionalidades
+          - text: Funcionalidades
+        - link "Características" [ref=e12] [cursor=pointer]:
+          - /url: /#caracteristicas
+          - text: Características
+        - link "Precios" [ref=e13] [cursor=pointer]:
+          - /url: /#precios
+          - text: Precios
+        - link "Testimonios" [ref=e14] [cursor=pointer]:
+          - /url: /#testimonios
+          - text: Testimonios
+        - generic [ref=e15]:
+          - link "Contáctanos" [ref=e16] [cursor=pointer]:
+            - /url: /contacto
+          - link "Comenzar ahora" [ref=e17] [cursor=pointer]:
+            - /url: /#precios
+            - generic [ref=e18]: Comenzar ahora
+          - link "Iniciar Sesión" [ref=e19] [cursor=pointer]:
+            - /url: https://login.lezgosuite.com
+            - generic [ref=e20]: Iniciar Sesión
+  - main [ref=e21]:
+    - generic [ref=e22]:
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - paragraph [ref=e26]: Contacto
+          - heading "Cuéntanos sobre tu operación" [level=1] [ref=e27]
+          - paragraph [ref=e28]: Agenda una conversación con un especialista. Respondemos en español y en menos de 24 horas.
+        - generic [ref=e29]:
+          - generic [ref=e31]:
+            - heading "Envíanos tu mensaje" [level=2] [ref=e32]
+            - generic [ref=e33]:
+              - generic [ref=e34]:
+                - generic [ref=e35]:
+                  - generic [ref=e36]: Nombre completo *
+                  - textbox "Nombre completo *" [ref=e37]:
+                    - /placeholder: Tu nombre
+                - generic [ref=e38]:
+                  - generic [ref=e39]: Correo electrónico *
+                  - textbox "Correo electrónico *" [ref=e40]:
+                    - /placeholder: tu@empresa.com
+              - generic [ref=e41]:
+                - generic [ref=e42]:
+                  - generic [ref=e43]: Teléfono
+                  - textbox "Teléfono" [ref=e44]:
+                    - /placeholder: +52 442 000 0000
+                - generic [ref=e45]:
+                  - generic [ref=e46]: Empresa
+                  - textbox "Empresa" [ref=e47]:
+                    - /placeholder: Nombre de tu empresa
+              - generic [ref=e48]:
+                - generic [ref=e49]:
+                  - generic [ref=e50]: Cargo
+                  - textbox "Cargo" [ref=e51]:
+                    - /placeholder: Director, dueño, gerente…
+                - generic [ref=e52]:
+                  - generic [ref=e53]: Industria
+                  - combobox "Industria" [ref=e54]:
+                    - generic: Selecciona tu sector
+                    - img
+                  - combobox [ref=e55]
+              - generic [ref=e56]:
+                - generic [ref=e57]: Mensaje *
+                - textbox "Mensaje *" [ref=e58]:
+                  - /placeholder: ¿Qué procesos quieres automatizar o qué resultado buscas?
+              - generic [ref=e59]:
+                - checkbox "Quiero recibir novedades y recursos para empresas en crecimiento" [ref=e60]
+                - checkbox
+                - generic [ref=e61] [cursor=pointer]: Quiero recibir novedades y recursos para empresas en crecimiento
+              - button "Enviar mensaje" [ref=e62]:
+                - img
+                - text: Enviar mensaje
+          - complementary [ref=e63]:
+            - generic [ref=e64]:
+              - heading "Habla con el equipo" [level=2] [ref=e65]
+              - paragraph [ref=e66]: Preferimos una conversación directa antes de proponerte un plan. Elige el canal que te convenga.
+            - list [ref=e67]:
+              - listitem [ref=e68]:
+                - img [ref=e69]
+                - generic [ref=e72]:
+                  - paragraph [ref=e73]: Correo
+                  - link "contacto@lezgosuite.com" [ref=e74] [cursor=pointer]:
+                    - /url: mailto:contacto@lezgosuite.com
+                  - paragraph [ref=e75]: Respuesta en 24 h
+              - listitem [ref=e76]:
+                - img [ref=e77]
+                - generic [ref=e79]:
+                  - paragraph [ref=e80]: Teléfono
+                  - link "+52 1 442 454 7818" [ref=e81] [cursor=pointer]:
+                    - /url: tel:+5214424547818
+                  - paragraph [ref=e82]: Lun–Vie, 9:00–18:00
+              - listitem [ref=e83]:
+                - img [ref=e84]
+                - generic [ref=e87]:
+                  - paragraph [ref=e88]: Oficina
+                  - paragraph [ref=e89]: Coorporativo High Park, Lic. Manuel Gómez Morin 3960-Torre 100 Oficina 7A, Centro Sur, 76090 Santiago de Querétaro, Qro.
+                  - paragraph [ref=e90]: Sede en Querétaro
+      - generic [ref=e92]:
+        - generic [ref=e93]:
+          - paragraph [ref=e94]: Preguntas frecuentes
+          - heading "Antes de escribirnos" [level=2] [ref=e95]
+        - generic [ref=e96]:
+          - generic [ref=e97]:
+            - button "¿Cuánto tarda la implementación?" [expanded] [ref=e98]:
+              - generic [ref=e99]: ¿Cuánto tarda la implementación?
+              - img [ref=e101]
+            - paragraph [ref=e104]: La configuración inicial suele completarse en 24 a 48 horas. Proyectos con integraciones o migraciones de datos pueden tomar hasta 4 semanas, según el alcance acordado.
+          - generic [ref=e105]:
+            - button "¿El soporte es en español?" [ref=e106]:
+              - generic [ref=e107]: ¿El soporte es en español?
+              - img [ref=e109]
+            - paragraph [ref=e111]: Sí. Todo el equipo de implementación y soporte atiende en español, con horario de oficina en zona centro de México y canales de chat y videollamada.
+          - generic [ref=e112]:
+            - button "¿Qué incluye el acompañamiento?" [ref=e113]:
+              - generic [ref=e114]: ¿Qué incluye el acompañamiento?
+              - img [ref=e116]
+            - paragraph [ref=e118]: Onboarding guiado, documentación, sesiones de capacitación y un canal directo con tu especialista asignado durante la implementación.
+    - link "¿Tienes dudas? Hablar con un asesor" [ref=e119] [cursor=pointer]:
+      - /url: https://app.lezgosuite.com/widget/bookings/conocelezgosuite
+      - img [ref=e121]
+      - generic [ref=e124]:
+        - text: ¿Tienes
+        - text: dudas?
+      - generic [ref=e125]:
+        - text: Hablar con
+        - text: un asesor
+    - generic [ref=e127] [cursor=pointer]:
+      - img [ref=e129]
+      - generic [ref=e132]: ¡Chatea con nosotros!
+  - contentinfo [ref=e134]:
+    - generic [ref=e137]:
+      - generic [ref=e138]:
+        - heading "Transforma tu Empresa Hoy Mismo" [level=2] [ref=e139]:
+          - text: Transforma tu Empresa
+          - text: Hoy Mismo
+        - paragraph [ref=e140]: Únete a más de 50 empresas que ya confían en Lezgo Suite para impulsar su crecimiento
+        - generic [ref=e141]:
+          - link "Comenzar ahora" [ref=e142] [cursor=pointer]:
+            - /url: /#precios
+            - text: Comenzar ahora
+            - img
+          - link "Agenda una llamada" [ref=e143] [cursor=pointer]:
+            - /url: https://app.lezgosuite.com/widget/bookings/conocelezgosuite
+      - generic [ref=e144]:
+        - heading "¿Listo para transformar tu empresa?" [level=3] [ref=e145]
+        - paragraph [ref=e146]: Déjanos tus datos y un especialista te contactará.
+        - generic [ref=e147]:
+          - textbox "Nombre" [ref=e148]
+          - textbox "Email" [ref=e149]
+          - textbox "Teléfono" [ref=e150]
+          - button "Enviar" [ref=e151]
+    - generic [ref=e152]:
+      - generic [ref=e153]:
+        - generic [ref=e154]:
+          - img "Lezgo Suite" [ref=e155]
+          - paragraph [ref=e156]: La plataforma empresarial más avanzada para transformar tu negocio con IA y automatizaciones.
+        - generic [ref=e157]:
+          - heading "Producto" [level=4] [ref=e158]
+          - list [ref=e159]:
+            - listitem [ref=e160]:
+              - link "Inicio" [ref=e161] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e162]:
+              - link "Funcionalidades" [ref=e163] [cursor=pointer]:
+                - /url: /#funcionalidades
+            - listitem [ref=e164]:
+              - link "Características" [ref=e165] [cursor=pointer]:
+                - /url: /#caracteristicas
+            - listitem [ref=e166]:
+              - link "Precios" [ref=e167] [cursor=pointer]:
+                - /url: "#precios"
+            - listitem [ref=e168]:
+              - link "Testimonios" [ref=e169] [cursor=pointer]:
+                - /url: "#testimonios"
+        - generic [ref=e170]:
+          - heading "Empresa" [level=4] [ref=e171]
+          - list [ref=e172]:
+            - listitem [ref=e173]:
+              - link "Sobre Nosotros" [ref=e174] [cursor=pointer]:
+                - /url: /sobre-nosotros
+            - listitem [ref=e175]:
+              - link "Contáctanos" [ref=e176] [cursor=pointer]:
+                - /url: /contacto
+            - listitem [ref=e177]:
+              - link "Terminos y condiciones" [ref=e178] [cursor=pointer]:
+                - /url: /terminos-y-condiciones
+            - listitem [ref=e179]:
+              - link "Aviso de privacidad" [ref=e180] [cursor=pointer]:
+                - /url: /aviso-privacidad
+      - generic [ref=e181]:
+        - paragraph [ref=e182]: © 2026 Lezgo Suite. Todos los derechos reservados.
+        - generic [ref=e183]:
+          - link "Privacidad" [ref=e184] [cursor=pointer]:
+            - /url: /aviso-privacidad
+          - link "Términos y condiciones" [ref=e185] [cursor=pointer]:
+            - /url: /terminos-y-condiciones
+  - button "Open Next.js Dev Tools" [ref=e191] [cursor=pointer]:
+    - img [ref=e192]

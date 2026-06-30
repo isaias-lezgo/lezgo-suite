@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import Footer from '@/components/footer'
 
-const ROUTES_WITHOUT_FOOTER = ['/base-conocimiento', '/guia-productiva']
+const ROUTES_WITHOUT_FOOTER = ['/base-conocimiento', '/guia-productiva', '/launchpad']
 
 export default function ConditionalFooter() {
   const pathname = usePathname()
