@@ -127,6 +127,7 @@ export default function Footer() {
                     required
                     placeholder="Nombre"
                     className="bg-white/10 border-white/20 text-white placeholder:text-gray-500 focus-visible:border-[#F59B1B] focus-visible:ring-[#F59B1B]/30"
+                    style={{ color: 'white', WebkitTextFillColor: 'white' }}
                   />
                   <Input
                     type="email"
@@ -135,6 +136,7 @@ export default function Footer() {
                     required
                     placeholder="Email"
                     className="bg-white/10 border-white/20 text-white placeholder:text-gray-500 focus-visible:border-[#F59B1B] focus-visible:ring-[#F59B1B]/30"
+                    style={{ color: 'white', WebkitTextFillColor: 'white' }}
                   />
                   <Input
                     type="tel"
@@ -143,6 +145,7 @@ export default function Footer() {
                     required
                     placeholder="Teléfono"
                     className="bg-white/10 border-white/20 text-white placeholder:text-gray-500 focus-visible:border-[#F59B1B] focus-visible:ring-[#F59B1B]/30"
+                    style={{ color: 'white', WebkitTextFillColor: 'white' }}
                   />
                   <Button
                     type="submit"
