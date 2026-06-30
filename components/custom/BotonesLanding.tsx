@@ -56,6 +56,16 @@ export const HeroButtons = () => {
 }
 
 export const ExploreFeatureButton = ({ href }: { href: string }) => {
+  const handleClick = () => {
+    handleTrackingAndNavigate("Explorar funcionalidades", href, { target_href: href })
+    ;(window as any).dataLayer = (window as any).dataLayer || []
+    ;(window as any).dataLayer.push({
+      event: 'click_explorar_funcionalidad',
+      functionality_name: href.startsWith('/') ? href.slice(1) : href,
+      button_text: 'Explorar más',
+      button_location: 'funcionalidades',
+    })
+  }
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -67,9 +77,7 @@ export const ExploreFeatureButton = ({ href }: { href: string }) => {
       <Button
         asChild
         variant="ghost"
-        onClick={() => 
-          handleTrackingAndNavigate("Explorar funcionalidades", href, { target_href: href })
-        }
+        onClick={handleClick}
         className="text-[#F59B1B] cursor-pointer p-0 font-semibold"
       >
         <Link href={href}>
@@ -82,16 +90,24 @@ export const ExploreFeatureButton = ({ href }: { href: string }) => {
 }
 
 export const PricingButton = ({ plan }: { plan: Plan }) => {
+  const handleClick = () => {
+    const paquete = plan.name.toLowerCase().replace('lezgo ', '')
+    const planMatch = plan.link.match(/[?&]plan=([^&]+)/)
+    const planPeriod = planMatch ? planMatch[1] : 'mensual'
+    ;(window as any).dataLayer = (window as any).dataLayer || []
+    ;(window as any).dataLayer.push({
+      event: 'click_payment_link',
+      paquete,
+      plan: planPeriod,
+      button_text: `Comenzar ${plan.name.replace('Lezgo ', '')}`,
+      button_location: 'precios',
+    })
+    handleTrackingAndNavigate(`Empezar plan - ${plan}`, plan.link, { plan_name: plan.name })
+  }
   return (
     <Button
       asChild
-      onClick={() =>
-        handleTrackingAndNavigate(
-          `Empezar plan - ${plan}`,
-          plan.link,
-          { plan_name: plan.name }
-        )
-      }
+      onClick={handleClick}
       className={`w-full ${
         plan.popular
           ? "bg-gradient-to-r from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white"
@@ -107,14 +123,17 @@ export const PricingButton = ({ plan }: { plan: Plan }) => {
 }
 
 export const ContactSpecialistButton = () => {
+  const handleClick = () => {
+    ;(window as any).dataLayer = (window as any).dataLayer || []
+    ;(window as any).dataLayer.push({
+      event: 'click_agendar_demo',
+      button_text: 'Agenda una llamada con un especialista',
+      button_location: 'precios',
+    })
+    handleTrackingAndNavigate("Demo", "https://app.lezgosuite.com/widget/bookings/conocelezgosuite")
+  }
   return (
-    <Button asChild variant="secondary" className="animate-bounce"
-        onClick={() =>
-          handleTrackingAndNavigate(
-            "Demo",
-            "https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
-          )
-        }>
+    <Button asChild variant="secondary" className="animate-bounce" onClick={handleClick}>
       <a
         target="_blank"
         rel="noopener noreferrer"

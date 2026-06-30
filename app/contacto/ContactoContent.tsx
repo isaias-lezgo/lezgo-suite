@@ -133,7 +133,7 @@ export default function ContactoContent() {
       ;(window as any).dataLayer = (window as any).dataLayer || []
       ;(window as any).dataLayer.push({
         event: 'form_submit_success',
-        form_name: 'contacto_principal',
+        form_name: 'contacto_final_pagina',
         form_location: window.location.pathname,
       })
 

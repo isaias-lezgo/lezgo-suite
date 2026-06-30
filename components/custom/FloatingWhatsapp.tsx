@@ -20,7 +20,8 @@ const FloatingWhatsApp = () => {
     ;(window as any).dataLayer = (window as any).dataLayer || []
     ;(window as any).dataLayer.push({
       event: 'click_whatsapp',
-      form_location: window.location.pathname,
+      button_text: 'WhatsApp flotante',
+      button_location: 'flotante',
     })
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
@@ -31,6 +32,12 @@ const FloatingWhatsApp = () => {
     if (typeof (window as any).fbq === 'function') {
       (window as any).fbq('trackCustom', 'Botón Asesor Flotante');
     }
+    ;(window as any).dataLayer = (window as any).dataLayer || []
+    ;(window as any).dataLayer.push({
+      event: 'click_agendar_demo',
+      button_text: 'Hablar con un asesor',
+      button_location: 'flotante',
+    })
   };
 
   return (

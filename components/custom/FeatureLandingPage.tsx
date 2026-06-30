@@ -74,6 +74,14 @@ function trackCta(eventName: string, href: string) {
   if (typeof window !== "undefined" && typeof (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq === "function") {
     ;(window as unknown as { fbq: (...args: unknown[]) => void }).fbq("trackCustom", eventName, { href })
   }
+  if (typeof window !== "undefined") {
+    ;(window as any).dataLayer = (window as any).dataLayer || []
+    ;(window as any).dataLayer.push({
+      event: 'click_agendar_demo',
+      button_text: 'Hablar con un especialista',
+      button_location: window.location.pathname.replace(/^\//, ''),
+    })
+  }
 }
 
 const fadeUp = (reduced: boolean, delay = 0) =>

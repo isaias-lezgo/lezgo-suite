@@ -51,7 +51,7 @@ const STRIPE_LINKS: Record<string, Record<BillingPeriod, string>> = {
   },
   pro: {
     mensual:    'https://pagos.lezgosuite.com/b/8x24gAexkgV22IF3iI3cc0m?paquete=pro&plan=mensual',
-    trimestral: 'https://pagos.lezgosuite.com/b/dRm14oah4awEdnj1aA3cc0o?uete=pro&plan=trimestral',
+    trimestral: 'https://pagos.lezgosuite.com/b/dRm14oah4awEdnj1aA3cc0o?paquete=pro&plan=trimestral',
     semestral:  'https://pagos.lezgosuite.com/b/bJe7sM0GueMUcjfbPe3cc0p?paquete=pro&plan=semestral',
     anual:      'https://pagos.lezgosuite.com/b/bJe14obl8dIQernaLa3cc0q?paquete=pro&plan=anual',
   },
