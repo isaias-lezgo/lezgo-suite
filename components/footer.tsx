@@ -32,6 +32,12 @@ export default function Footer() {
       if (typeof (window as any).fbq === 'function') {
         ;(window as any).fbq('trackCustom', 'Formulario Footer - Submit')
       }
+      ;(window as any).dataLayer = (window as any).dataLayer || []
+      ;(window as any).dataLayer.push({
+        event: 'form_submit_success',
+        form_name: 'contacto_final_pagina',
+        form_location: window.location.pathname,
+      })
       setFooterFormSubmitted(true)
     } catch {
       // silent fail — form stays visible
