@@ -6,6 +6,8 @@ import { ArrowRight, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { track } from "@vercel/analytics" // Import Vercel's track function
+import type { MouseEvent } from "react"
+import { withGAClientId } from "@/lib/utils"
 
 // Handler for all button clicks with Pixel and Vercel tracking
 const handleTrackingAndNavigate = (eventName: string, link: string, params?: Record<string, any>) => {
@@ -88,7 +90,14 @@ export const ExploreFeatureButton = ({ href }: { href: string }) => {
 }
 
 export const PricingButton = ({ plan }: { plan: Plan }) => {
-  const handleClick = () => {
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    // Rewrite the anchor's href to carry the GA client_id into Stripe Checkout
+    // so the conversion (and future renewals) can be attributed back to GA.
+    // `asChild` renders an <a> at runtime, so currentTarget is the anchor.
+    // Done before the browser follows the link; no-op when the _ga cookie is absent.
+    const finalUrl = withGAClientId(plan.link)
+    ;(e.currentTarget as unknown as HTMLAnchorElement).href = finalUrl
+
     const paquete = plan.name.toLowerCase().replace('lezgo ', '')
     const planMatch = plan.link.match(/[?&]plan=([^&]+)/)
     const planPeriod = planMatch ? planMatch[1] : 'mensual'
@@ -100,7 +109,7 @@ export const PricingButton = ({ plan }: { plan: Plan }) => {
       button_text: `Comenzar ${plan.name.replace('Lezgo ', '')}`,
       button_location: 'precios',
     })
-    handleTrackingAndNavigate(`Empezar plan - ${plan}`, plan.link, { plan_name: plan.name })
+    handleTrackingAndNavigate(`Empezar plan - ${plan}`, finalUrl, { plan_name: plan.name })
   }
   return (
     <Button
