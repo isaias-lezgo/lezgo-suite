@@ -112,6 +112,13 @@ export default function ContactoContent() {
 
     setIsSubmitting(true)
 
+    ;(window as any).dataLayer = (window as any).dataLayer || []
+    ;(window as any).dataLayer.push({
+      event: 'form_submit',
+      form_name: 'contacto_final_pagina',
+      form_location: window.location.pathname,
+    })
+
     try {
       const response = await fetch(webhookUrl, {
         method: "POST",

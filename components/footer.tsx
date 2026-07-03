@@ -17,6 +17,12 @@ export default function Footer() {
     const webhookUrl = process.env.NEXT_PUBLIC_WEBHOOK_URL
     if (!webhookUrl) return
     setFooterFormSubmitting(true)
+    ;(window as any).dataLayer = (window as any).dataLayer || []
+    ;(window as any).dataLayer.push({
+      event: 'form_submit',
+      form_name: 'contacto_final_pagina',
+      form_location: window.location.pathname,
+    })
     try {
       const response = await fetch(webhookUrl, {
         method: 'POST',
