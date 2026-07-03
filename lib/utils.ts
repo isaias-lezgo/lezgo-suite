@@ -17,20 +17,22 @@ export function getGAClientId(): string | null {
 }
 
 /**
- * Appends the GA client_id to a Stripe payment link so conversions and future
- * renewals can be attributed back to the originating session.
+ * Rewrites a Stripe payment link so it carries the GA client_id as the sole
+ * `client_reference_id`, dropping any pre-existing query params. `paquete`,
+ * `plan` and `subscription_data[metadata][ga_client_id]` are no longer needed
+ * on the Stripe side (they stay in the source link only for the client-side
+ * GA4 dataLayer push).
  *
- * - `client_reference_id` → stored on the Checkout Session
- * - `subscription_data[metadata][ga_client_id]` → stored on the Subscription
+ * Stripe Payment Links silently reject a `client_reference_id` that contains a
+ * dot, so the GA client_id (e.g. `922793244.1778021346`) has its dot swapped
+ * for an underscore (`922793244_1778021346`).
  *
- * When no `_ga` cookie is present the original URL is returned unchanged.
+ * When no `_ga` cookie is present the cleaned base URL is returned unchanged.
  */
 export function withGAClientId(baseUrl: string): string {
+  const cleanUrl = baseUrl.split("?")[0]
   const clientId = getGAClientId()
-  if (!clientId) return baseUrl
-  const separator = baseUrl.includes("?") ? "&" : "?"
-  const params = new URLSearchParams()
-  params.append("client_reference_id", clientId)
-  params.append("subscription_data[metadata][ga_client_id]", clientId)
-  return `${baseUrl}${separator}${params.toString()}`
+  if (!clientId) return cleanUrl
+  const clientIdSafe = clientId.replace(".", "_")
+  return `${cleanUrl}?client_reference_id=${clientIdSafe}`
 }

@@ -92,7 +92,7 @@ export const ExploreFeatureButton = ({ href }: { href: string }) => {
 export const PricingButton = ({ plan }: { plan: Plan }) => {
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     // Rewrite the anchor's href to carry the GA client_id into Stripe Checkout
-    // so the conversion (and future renewals) can be attributed back to GA.
+    // as client_reference_id so the conversion can be attributed back to GA.
     // `asChild` renders an <a> at runtime, so currentTarget is the anchor.
     // Done before the browser follows the link; no-op when the _ga cookie is absent.
     const finalUrl = withGAClientId(plan.link)
