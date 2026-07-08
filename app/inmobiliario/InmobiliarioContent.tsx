@@ -6,6 +6,10 @@ import WhatsAppDiferenciador from "./sections/WhatsAppDiferenciador"
 import Funcionalidades from "./sections/Funcionalidades"
 import ComoFunciona from "./sections/ComoFunciona"
 import Testimonios from "./sections/Testimonios"
+import Precios from "./sections/Precios"
+import TablaComparativa from "./sections/TablaComparativa"
+import FAQ from "./sections/FAQ"
+import DemoForm from "./sections/DemoForm"
 
 export default function InmobiliarioContent() {
   return (
@@ -16,7 +20,10 @@ export default function InmobiliarioContent() {
       <Funcionalidades />
       <ComoFunciona />
       <Testimonios />
-      {/* Precios, TablaComparativa, FAQ, DemoForm wired in later tasks */}
+      <Precios />
+      <TablaComparativa />
+      <FAQ />
+      <DemoForm />
     </div>
   )
 }
