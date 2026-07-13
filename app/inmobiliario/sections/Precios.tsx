@@ -155,11 +155,7 @@ export default function Precios() {
 
         {/* Included in every plan */}
         <div className="mt-14 max-w-3xl mx-auto text-center">
-          <p className="text-gray-700 leading-relaxed">
-            Todos los planes incluyen: onboarding personalizado, snapshot inmobiliario listo para usar
-            (pipelines de Ventas y Rentas), 11 automatizaciones, 2 bots de IA, dashboard de 7 widgets y
-            soporte por WhatsApp. Precios + IVA.
-          </p>
+         
           <div className="mt-6 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-gray-600">
             <span className="flex items-center gap-2">
               <Users className="w-4 h-4 text-[#F59B1B]" /> Onboarding personalizado

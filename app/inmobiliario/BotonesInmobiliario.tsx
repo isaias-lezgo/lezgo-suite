@@ -18,9 +18,11 @@ function fbqTrack(event: string, params?: Record<string, unknown>) {
 export function AgendarDemoButton({
   location,
   children,
+  compact = false,
 }: {
   location: string
   children?: ReactNode
+  compact?: boolean
 }) {
   const handleClick = () => {
     ;(window as any).dataLayer = (window as any).dataLayer || []
@@ -35,9 +37,13 @@ export function AgendarDemoButton({
   return (
     <Button
       asChild
-      size="lg"
+      size={compact ? "default" : "lg"}
       onClick={handleClick}
-      className="bg-gradient-to-r from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white px-8 py-4 text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transition-all rounded-full duration-300 w-full sm:w-auto"
+      className={
+        compact
+          ? "bg-gradient-to-r from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white px-5 py-2 text-sm font-semibold shadow-md hover:shadow-lg transition-all rounded-full duration-300 w-auto"
+          : "bg-gradient-to-r from-[#F59B1B] to-orange-600 hover:from-orange-600 hover:to-[#F59B1B] text-white px-8 py-4 text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transition-all rounded-full duration-300 w-full sm:w-auto"
+      }
     >
       <a
         href={BOOKING_URL}
