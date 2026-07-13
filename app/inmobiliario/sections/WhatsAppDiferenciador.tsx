@@ -31,14 +31,14 @@ export default function WhatsAppDiferenciador() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="max-w-5xl mx-auto rounded-2xl overflow-hidden border border-gray-200 shadow-lg bg-white"
+          className="max-w-[720px] mx-auto rounded-2xl overflow-hidden border border-gray-200 shadow-lg bg-white"
         >
           <Image
             src="/WhatsApp_API_Y_QR.jpeg"
             alt="WhatsApp API para atención masiva con IA y conexión del WhatsApp de cada asesor mediante QR en Lezgo Suite"
             width={2000}
             height={1333}
-            sizes="(max-width: 1024px) 100vw, 1024px"
+            sizes="(max-width: 768px) 100vw, 720px"
             className="w-full h-auto"
             priority={false}
           />

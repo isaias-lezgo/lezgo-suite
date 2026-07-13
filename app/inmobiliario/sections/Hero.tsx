@@ -16,7 +16,7 @@ export default function Hero() {
   return (
     <section className="relative pt-16 pb-20 sm:pt-20 sm:pb-24">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-10 items-center max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-[1fr_1.35fr] gap-12 lg:gap-10 items-center max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -48,14 +48,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15, ease: EASE }}
-            className="relative w-full max-w-xl mx-auto lg:max-w-none"
+            className="relative w-full max-w-2xl mx-auto lg:max-w-none"
           >
             <Image
               src="/hero-laptop-inmobiliario-v2.png"
               alt="Dashboard de Lezgo Suite en una laptop: contactos, oportunidades, ingreso ganado y el embudo de ventas de una inmobiliaria"
               width={2000}
               height={1236}
-              sizes="(max-width: 640px) 88vw, (max-width: 1024px) 60vw, 560px"
+              sizes="(max-width: 640px) 92vw, (max-width: 1024px) 70vw, 720px"
               priority
               className="w-full h-auto"
             />
@@ -64,7 +64,7 @@ export default function Hero() {
               alt="La misma información en el celular del asesor: estado del negocio y distribución por fases"
               width={900}
               height={1858}
-              sizes="(max-width: 640px) 22vw, 150px"
+              sizes="(max-width: 640px) 23vw, 180px"
               className="absolute right-[3%] -bottom-[9%] w-[24%] h-auto drop-shadow-2xl"
             />
           </motion.div>
