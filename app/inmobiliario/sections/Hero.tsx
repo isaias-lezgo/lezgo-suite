@@ -51,10 +51,10 @@ export default function Hero() {
             className="relative w-full max-w-xl mx-auto lg:max-w-none"
           >
             <Image
-              src="/hero-laptop-inmobiliario.png"
+              src="/hero-laptop-inmobiliario-v2.png"
               alt="Dashboard de Lezgo Suite en una laptop: contactos, oportunidades, ingreso ganado y el embudo de ventas de una inmobiliaria"
-              width={2400}
-              height={1482}
+              width={2000}
+              height={1236}
               sizes="(max-width: 640px) 88vw, (max-width: 1024px) 60vw, 560px"
               priority
               className="w-full h-auto"
