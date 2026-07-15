@@ -5,10 +5,12 @@ import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { track } from "@vercel/analytics"
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   const handleTrackingAndNavigate = (eventName: string, link: string, params?: Record<string, any>) => {
     // Vercel Analytics
@@ -21,13 +23,30 @@ export default function Navbar() {
   };
 
 
-  // Centralized navigation links for consistency
-  const navLinks = [
-    { href: "/#funcionalidades", label: "Funcionalidades" },
-    { href: "/#caracteristicas", label: "Características" },
-    { href: "/#precios", label: "Precios" },
-    { href: "/#testimonios", label: "Testimonios" },
-  ]
+  // En la landing /inmobiliario los enlaces apuntan a las secciones de esa
+  // misma página; en el resto del sitio apuntan a la home.
+  const isInmobiliario = pathname?.startsWith("/inmobiliario")
+
+  const navLinks = isInmobiliario
+    ? [
+        { href: "/inmobiliario#funcionalidades", label: "Funcionalidades" },
+        { href: "/inmobiliario#como-funciona", label: "Cómo funciona" },
+        { href: "/inmobiliario#precios", label: "Precios" },
+        { href: "/inmobiliario#testimonios", label: "Testimonios" },
+      ]
+    : [
+        { href: "/#funcionalidades", label: "Funcionalidades" },
+        { href: "/#caracteristicas", label: "Características" },
+        { href: "/#precios", label: "Precios" },
+        { href: "/#testimonios", label: "Testimonios" },
+      ]
+
+  // Destino del CTA principal "Comenzar ahora" (precios de la página actual).
+  const ctaHref = isInmobiliario ? "/inmobiliario#precios" : "/#precios"
+
+  // "Contáctanos": en el inmobiliario lleva al CTA de agendar demo de la
+  // misma página; en el resto del sitio, a la página de contacto.
+  const contactoHref = isInmobiliario ? "/inmobiliario#demo" : "/contacto"
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#081737]/95 via-[#0a1a3a]/95 to-[#081737]/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl shadow-[#081737]/30">
@@ -62,7 +81,7 @@ export default function Navbar() {
 
             <div className="flex items-center space-x-3 xl:space-x-8 xl:ml-8">
               <Link
-                href="/contacto"
+                href={contactoHref}
                 className="text-gray-300 hover:text-white transition-colors font-semibold text-sm tracking-wide whitespace-nowrap"
               >
                 Contáctanos
@@ -71,7 +90,7 @@ export default function Navbar() {
                 asChild
                 className="relative bg-gradient-to-r from-[#F59B1B] to-orange-500 hover:from-orange-500 hover:to-[#F59B1B] text-white font-semibold px-4 xl:px-6 py-2.5 rounded-full shadow-lg shadow-[#F59B1B]/25 hover:shadow-[#F59B1B]/40 transition-all duration-300 transform hover:scale-105 text-sm whitespace-nowrap"
               >
-                <a href="/#precios">
+                <a href={ctaHref}>
                   <span className="relative z-10">Comenzar ahora</span>
                 </a>
               </Button>
@@ -117,7 +136,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link
-                href="/contacto"
+                href={contactoHref}
                 className="text-gray-300 hover:text-white transition-colors font-semibold text-center py-2 rounded-lg hover:bg-white/5"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -132,10 +151,10 @@ export default function Navbar() {
                   onClick={(e) => {
                     e.preventDefault();
                     setIsMenuOpen(false);
-                    handleTrackingAndNavigate("CTA Navbar", "/#precios");
+                    handleTrackingAndNavigate("CTA Navbar", ctaHref);
                   }}
                 >
-                  <a href="/#precios">
+                  <a href={ctaHref}>
                     Comenzar ahora
                   </a>
                 </Button>

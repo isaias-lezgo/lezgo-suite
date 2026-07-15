@@ -133,7 +133,7 @@ const PASOS: { title: string; body: string; preview: () => React.JSX.Element }[]
     preview: SnapshotPreview,
   },
   {
-    title: "Conectamos a tu equipo",
+    title: "Conecta a tu equipo",
     body: "En el onboarding conectas el WhatsApp de cada asesor y cargas tu base de datos, con nosotros guiándote.",
     preview: WhatsAppPreview,
   },
@@ -146,7 +146,7 @@ const PASOS: { title: string; body: string; preview: () => React.JSX.Element }[]
 
 export default function ComoFunciona() {
   return (
-    <section className="py-24 relative">
+    <section id="como-funciona" className="py-24 relative">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-14">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-gray-900">

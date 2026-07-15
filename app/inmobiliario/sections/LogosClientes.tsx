@@ -5,12 +5,18 @@
 // distintos colores/estilos; al pasar el cursor recuperan su color de marca.
 // `h` = altura óptica en px (se ajusta por logo para equilibrar imagotipos vs. iconos cuadrados).
 const CLIENTES = [
-  { nombre: "Grupo DRT", src: "/logos-clientes/drt.png", h: 34 },
-  { nombre: "Kapitaliza", src: "/logos-clientes/kapitaliza.png", h: 46 },
+  { nombre: "Grupo DRT", src: "/logos-clientes/drt.png", h: 42 },
   { nombre: "VAEO", src: "/logos-clientes/vaeo.svg", h: 30 },
   { nombre: "Grand Center", src: "/logos-clientes/grandcenter.svg", h: 30 },
-  { nombre: "Yconia", src: "/logos-clientes/yconia-user.png", h: 42 },
+  { nombre: "Yconia", src: "/logos-clientes/yconia-user.png", h: 50 },
   { nombre: "Grupo HAI", src: "/logos-clientes/hai-user.png", h: 44 },
+  { nombre: "Balvanera", src: "/logos-clientes/balvanera.png", h: 44 },
+  { nombre: "Acecob Grupo Inmobiliario", src: "/logos-clientes/acecob.png", h: 40 },
+  { nombre: "Imagine Inmobiliaria", src: "/logos-clientes/imagine.png", h: 38 },
+  { nombre: "Hausmen Real Estate", src: "/logos-clientes/hausmen.png", h: 46 },
+  { nombre: "Domus", src: "/logos-clientes/domus.png", h: 48 },
+  { nombre: "Jerry Medina", src: "/logos-clientes/jerry-medina.png", h: 44 },
+  { nombre: "Herrera Real Estate", src: "/logos-clientes/herrera.png", h: 48 },
 ]
 
 export default function LogosClientes() {

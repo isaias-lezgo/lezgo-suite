@@ -297,7 +297,7 @@ export default function Funcionalidades() {
   useEffect(() => cancelAnim, [])
 
   return (
-    <section className="py-24 relative bg-white/50 border-y border-gray-200 overflow-hidden">
+    <section id="funcionalidades" className="py-24 relative bg-white/50 border-y border-gray-200 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto mb-12">
           <span className="inline-block text-xs font-bold tracking-widest uppercase text-[#F59B1B] mb-3">

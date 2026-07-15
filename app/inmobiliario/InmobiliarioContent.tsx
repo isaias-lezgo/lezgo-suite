@@ -31,7 +31,7 @@ export default function InmobiliarioContent() {
         title="¿Listo para dejar de perder leads en WhatsApp?"
         subtitle="Agenda una demo gratis y descubre cómo agencias y desarrolladoras en México venden más con Lezgo Suite."
         location="cta_final"
-        note="Demo sin costo · Sin tarjeta · Sin permanencia"
+        note="Demo sin costo · Sin permanencia"
       />
     </div>
   )
