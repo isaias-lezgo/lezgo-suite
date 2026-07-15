@@ -28,7 +28,7 @@ export function AgendarDemoButton({
     ;(window as any).dataLayer = (window as any).dataLayer || []
     ;(window as any).dataLayer.push({
       event: "click_agendar_demo",
-      button_text: "Agendar demo",
+      button_text: typeof children === "string" ? children : "Agendar demo gratis",
       button_location: location,
     })
     track("CTA Agendar Demo", { location })
