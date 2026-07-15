@@ -20,14 +20,13 @@
 
 ---
 
-## Paso 0 · Limpieza previa: quitar las 2 conversiones basura
+## Paso 0 · Limpieza previa: quitar la conversión genérica que sobra
 
-En Google Ads → **Objetivos → Conversiones → Resumen**, quitar (no reciclar):
+En Google Ads → **Objetivos → Conversiones → Resumen → "Ver todas las acciones de conversión"**, quitar (no reciclar):
 
-1. **"Compra"** — fuente *Sitio web / Evento manual*, sin URL. Es el `purchase` que **NO** usamos en Ads (la venta ya se mide en GA4 vía Stripe→Make; duplicarla causa doble conteo).
-2. **"Lead - Formulario sitio"** — fuente *Importar desde los clics*, no editable, error "sin conexión asociada". Nunca recibirá los eventos de GTM.
+1. **"Envío de formulario para clientes potenciales"** — fuente *Sitio web*, estado "Esperando conversiones". La creó el asistente de campaña; es genérica y se reemplaza por las 4 de abajo. Nunca recibirá los eventos de GTM tal como está.
 
-Cómo: entrar a cada acción → menú ⋮ / botón **Quitar**. Con 0 datos y 0 campañas el riesgo es nulo (se pueden restaurar). Quitarlas **no** desvincula GA4. Tras esto, el resumen debe quedar vacío.
+Cómo: entrar a la acción → menú ⋮ → **Quitar**. Con 0 datos y la campaña en borrador/pausa el riesgo es nulo (se puede restaurar). Quitarla **no** desvincula GA4. Tras esto, el resumen debe quedar vacío antes de crear las 4.
 
 ---
 
@@ -35,12 +34,14 @@ Cómo: entrar a cada acción → menú ⋮ / botón **Quitar**. Con 0 datos y 0 
 
 Para cada fila: **+ Nueva acción de conversión → Sitio web → "Crear acción de conversión manualmente con código" / "Configurarla tú mismo"** (saltar la detección automática).
 
+> Nombre de la acción = **el nombre crudo del evento** (así el mapeo Ads↔GTM es inequívoco).
+
 | Nombre | Categoría | Valor | Recuento | Prioridad |
 |---|---|---|---|---|
-| **Lead - Demo agendada** | Envío de formulario de clientes potenciales | No usar valor | Uno | Primaria |
-| **Lead - Formulario enviado** | Envío de formulario de clientes potenciales | No usar valor | Uno | Primaria |
-| **Contacto - WhatsApp** | Contacto | No usar valor | Uno | Secundaria |
-| **Intención - Payment link** | Otra | No usar valor | Uno | Secundaria |
+| **form_submit_success** | Enviar formulario de cliente potencial | No usar valor | Una | Principal |
+| **click_agendar_demo** | Reservar cita | No usar valor | Una | Principal |
+| **click_whatsapp** | Contacto | No usar valor | Una | Secundaria |
+| **click_payment_link** | Otra | No usar valor | Una | Secundaria |
 
 - **Valor: "No usar valor"** en las 4, sin excepción (la puja será Maximizar clics → Maximizar conversiones; ninguna usa valor). El dinero real vive en GA4.
 - **Ventana de conversión:** dejar el default (30 días clic).
@@ -64,15 +65,32 @@ Por cada una de las 4 acciones:
 
 | Tag | Trigger (Custom Event, nombre exacto) |
 |---|---|
-| Lead - Demo agendada | `click_agendar_demo` |
-| Lead - Formulario enviado | `form_submit_success` |
-| Contacto - WhatsApp | `click_whatsapp` |
-| Intención - Payment link | `click_payment_link` |
+| form_submit_success | `form_submit_success` |
+| click_agendar_demo | `click_agendar_demo` |
+| click_whatsapp | `click_whatsapp` |
+| click_payment_link | `click_payment_link` |
+
+> ⚠️ El trigger de la primera es `form_submit_success`, **NO** `form_submit`. El sitio dispara ambos: `form_submit` al iniciar el envío y `form_submit_success` solo tras el OK del webhook. La conversión debe colgar del segundo.
 
 > Si el trigger no existe, crearlo: **Triggers → Nuevo → Custom Event**, campo "Event name" = el nombre exacto de la tabla. No hay que crear eventos nuevos en el sitio; solo triggers que los escuchen.
 
 ### 2.3 Enhanced Conversions for Leads (recomendado)
-En los dos tags de Lead, activar **Enhanced Conversions** y mapear los datos del formulario (email, teléfono con hash) usando el objeto `user_data` con la **estructura actual de Google** (cambió en abril 2026, no usar la vieja). Alimenta el match de conversiones y el futuro Customer Match. Si complica, puede quedar para una 2ª iteración — no bloquea el lanzamiento.
+Aplica **solo al tag `form_submit_success`** (es el único con datos del usuario en la landing).
+
+> **Código ya listo.** El push de `form_submit_success` (`DemoForm.tsx`) ahora incluye un objeto `user_data` con `email` (normalizado a minúsculas) y `phone_number` (sin espacios) en claro. GTM los hashea client-side antes de enviarlos — nunca salen sin hashear. Ya desplegado, no hay nada que tocar en el sitio.
+
+Montaje en GTM:
+1. **Variables → Nueva → "Datos proporcionados por el usuario"** (User-Provided Data), tipo **Manual**:
+   - Email → variable de capa de datos `user_data.email`
+   - Teléfono → variable de capa de datos `user_data.phone_number`
+2. En el tag **`form_submit_success`**, expandir **"Incluir datos proporcionados por el usuario"** → seleccionar la variable del paso 1.
+3. Usar la estructura de `user_data` **actual de Google** (cambió en abril 2026, no la vieja).
+
+Alimenta el match de conversiones y el futuro Customer Match de Iván.
+
+> **`click_agendar_demo` NO lleva Enhanced Conversions.** Dispara en el clic (antes de que el usuario escriba nada) y va a un booking externo (Calendar); la landing no tiene email/teléfono en ese punto. El match de esa cita, si se quiere, sale del widget de Calendar, no de aquí. Confirmárselo a Iván (su brief lo pedía en las 2 principales).
+
+**Ojo con el teléfono:** para buen match conviene E.164 (`+52...`). El placeholder del form ya sugiere `+52 442 000 0000`, pero el usuario puede omitir el lada. Google/GTM normaliza, pero el match será mejor cuanto más completo venga.
 
 ---
 

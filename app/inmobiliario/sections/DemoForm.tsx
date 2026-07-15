@@ -110,6 +110,12 @@ export default function DemoForm() {
         event: "form_submit_success",
         form_name: "inmobiliario_demo",
         form_location: window.location.pathname,
+        // Enhanced Conversions: raw email/phone for GTM to normalize + hash.
+        // GTM's Google Ads tag hashes these client-side; they are never sent in clear.
+        user_data: {
+          email: clean.email.trim().toLowerCase(),
+          phone_number: clean.whatsapp.replace(/\s+/g, ""),
+        },
       })
       track("Formulario Inmobiliario Enviado", { equipo: clean.equipo || "sin_especificar" })
       if (typeof (window as any).fbq === "function") {
