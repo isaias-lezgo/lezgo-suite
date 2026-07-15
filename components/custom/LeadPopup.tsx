@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { track } from '@vercel/analytics'
+import { buildUserData } from '@/lib/utils'
 
 export default function LeadPopup() {
   const [isVisible, setIsVisible] = useState(false)
@@ -75,6 +76,7 @@ export default function LeadPopup() {
         event: 'form_submit_success',
         form_name: 'popup_funcionalidades',
         form_location: window.location.pathname,
+        user_data: buildUserData(formData.email, formData.telefono),
       })
       setSubmitted(true)
     } catch {

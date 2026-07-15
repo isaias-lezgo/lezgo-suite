@@ -26,6 +26,7 @@ import { useState } from "react"
 import { useToast } from "@/hooks/use-toast"
 import { track } from "@vercel/analytics"
 import { SITE_CONFIG } from "@/lib/seo"
+import { buildUserData } from "@/lib/utils"
 
 const OFFICE_LINE = `Coorporativo High Park, ${SITE_CONFIG.address.streetAddress}, Centro Sur, ${SITE_CONFIG.address.postalCode} ${SITE_CONFIG.address.addressLocality}, ${SITE_CONFIG.address.addressRegion}`
 
@@ -142,6 +143,7 @@ export default function ContactoContent() {
         event: 'form_submit_success',
         form_name: 'contacto_final_pagina',
         form_location: window.location.pathname,
+        user_data: buildUserData(formData.email, formData.telefono),
       })
 
       setSubmitSuccess(true)

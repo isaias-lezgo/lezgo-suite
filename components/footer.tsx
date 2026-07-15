@@ -6,6 +6,7 @@ import { Input } from "./ui/input"
 import { ArrowRight, Loader2, Facebook, Instagram } from "lucide-react"
 import { motion } from "framer-motion"
 import { track } from "@vercel/analytics"
+import { buildUserData } from "@/lib/utils"
 
 export default function Footer() {
   const [footerForm, setFooterForm] = useState({ nombre: '', email: '', telefono: '' })
@@ -43,6 +44,7 @@ export default function Footer() {
         event: 'form_submit_success',
         form_name: 'contacto_final_pagina',
         form_location: window.location.pathname,
+        user_data: buildUserData(footerForm.email, footerForm.telefono),
       })
       setFooterFormSubmitted(true)
     } catch {

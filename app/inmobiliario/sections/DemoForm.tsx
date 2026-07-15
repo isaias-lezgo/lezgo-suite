@@ -15,6 +15,7 @@ import { CheckCircle, Loader2, Send } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { track } from "@vercel/analytics"
 import { WhatsAppButton } from "../BotonesInmobiliario"
+import { buildUserData } from "@/lib/utils"
 
 const inputClassName =
   "border-gray-300 bg-white focus-visible:border-[#F59B1B] focus-visible:ring-[#F59B1B]/30 placeholder:text-gray-500"
@@ -112,10 +113,7 @@ export default function DemoForm() {
         form_location: window.location.pathname,
         // Enhanced Conversions: raw email/phone for GTM to normalize + hash.
         // GTM's Google Ads tag hashes these client-side; they are never sent in clear.
-        user_data: {
-          email: clean.email.trim().toLowerCase(),
-          phone_number: clean.whatsapp.replace(/\s+/g, ""),
-        },
+        user_data: buildUserData(clean.email, clean.whatsapp),
       })
       track("Formulario Inmobiliario Enviado", { equipo: clean.equipo || "sin_especificar" })
       if (typeof (window as any).fbq === "function") {
