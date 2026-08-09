@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/bienvenida', '/launchpad'],
+        disallow: ['/bienvenida', '/launchpad', '/base-conocimiento'],
       },
     ],
     sitemap: 'https://www.lezgosuite.com/sitemap.xml',
