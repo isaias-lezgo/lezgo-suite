@@ -1,9 +1,10 @@
 'use client'
 
 import { useState, useEffect, useMemo, useRef } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import type { LucideIcon } from 'lucide-react'
-import { Users, Target, Calendar, CheckSquare, BookOpen, X, Search, ChevronDown } from 'lucide-react'
+import { Users, Target, MessageCircle, BookOpen, X, Search, ChevronDown } from 'lucide-react'
 
 interface Video {
   id: string
@@ -11,6 +12,8 @@ interface Video {
   description: string
   duration: string
   keywords: string[]
+  /** Ruta en /public/thumbnails. Sin ella, la tarjeta cae al placeholder con botón de play. */
+  thumbnail?: string
 }
 
 interface Subcategory {
@@ -37,79 +40,133 @@ const SECTIONS: Section[] = [
         label: 'Gestión básica',
         videos: [
           {
-            id: 'PLACEHOLDER_1',
-            title: 'Cómo crear un contacto',
-            description: 'Agrega contactos manualmente y por importación masiva.',
-            duration: '0:00',
-            keywords: ['crear', 'agregar', 'nuevo', 'importar', 'contacto', 'registro', 'csv'],
+            id: 'h1e5Cu4FfGI',
+            thumbnail: '/thumbnails/02-agregar-contacto.png',
+            title: 'Agregar un contacto',
+            description: 'Crea un contacto nuevo desde cero y captura su información.',
+            duration: '1:40',
+            keywords: ['crear', 'agregar', 'nuevo', 'contacto', 'registro', 'alta', 'capturar'],
           },
           {
-            id: 'PLACEHOLDER_2',
-            title: 'Editar y eliminar contactos',
-            description: 'Modifica datos y gestiona registros duplicados.',
-            duration: '0:00',
-            keywords: ['editar', 'eliminar', 'modificar', 'borrar', 'duplicados', 'actualizar', 'datos'],
+            id: '5Qp1kqZzi7s',
+            thumbnail: '/thumbnails/03-importacion-de-contactos.png',
+            title: 'Importación de contactos',
+            description: 'Sube tu base completa desde un archivo y evita la captura manual.',
+            duration: '2:18',
+            keywords: ['importar', 'importación', 'csv', 'excel', 'masiva', 'base de datos', 'subir', 'carga'],
           },
           {
-            id: 'PLACEHOLDER_3',
-            title: 'Filtros y segmentación',
-            description: 'Organiza tus contactos con etiquetas y filtros avanzados.',
-            duration: '0:00',
-            keywords: ['filtros', 'segmentación', 'etiquetas', 'tags', 'organizar', 'buscar', 'grupos'],
-          },
-        ],
-      },
-      {
-        id: 'comunicacion',
-        label: 'Comunicación',
-        videos: [
-          {
-            id: 'PLACEHOLDER_4',
-            title: 'Enviar mensajes desde un contacto',
-            description: 'SMS, email y WhatsApp directo desde el perfil.',
-            duration: '0:00',
-            keywords: ['sms', 'email', 'whatsapp', 'mensaje', 'correo', 'enviar', 'comunicar'],
+            id: 'eKEBgRuPwak',
+            thumbnail: '/thumbnails/09-secciones-del-contacto-y-reasignacion.png',
+            title: 'Secciones del contacto y reasignación',
+            description: 'Recorre las secciones del perfil y reasigna el contacto a otro usuario.',
+            duration: '3:32',
+            keywords: ['secciones', 'perfil', 'reasignar', 'reasignación', 'propietario', 'asignar', 'usuario', 'detalle'],
           },
           {
-            id: 'PLACEHOLDER_5',
-            title: 'Historial de conversaciones',
-            description: 'Revisa todo el historial de interacciones con un contacto.',
-            duration: '0:00',
-            keywords: ['historial', 'conversaciones', 'interacciones', 'seguimiento', 'registro', 'actividad'],
-          },
-          {
-            id: 'PLACEHOLDER_6',
-            title: 'Notas y actividades',
-            description: 'Registra llamadas, reuniones y notas internas.',
-            duration: '0:00',
-            keywords: ['notas', 'actividades', 'llamadas', 'reuniones', 'anotaciones', 'comentarios'],
+            id: 'xwnTLDQ4fms',
+            thumbnail: '/thumbnails/01-restaurar-contactos.png',
+            title: 'Restaurar contactos',
+            description: 'Recupera contactos eliminados sin perder su información.',
+            duration: '1:11',
+            keywords: ['restaurar', 'recuperar', 'eliminados', 'borrados', 'papelera', 'deshacer'],
           },
         ],
       },
       {
-        id: 'automatizaciones-contactos',
-        label: 'Automatizaciones',
+        id: 'vistas-listas',
+        label: 'Vistas y listas',
         videos: [
           {
-            id: 'PLACEHOLDER_7',
-            title: 'Flujos automáticos al crear un contacto',
-            description: 'Configura acciones que se disparan al registrar un nuevo contacto.',
-            duration: '0:00',
-            keywords: ['flujos', 'automatización', 'workflow', 'disparador', 'trigger', 'acciones', 'nuevo contacto'],
+            id: '4LDmR2q2UsA',
+            thumbnail: '/thumbnails/08-personalizar-vistas-de-contactos.png',
+            title: 'Personalizar vistas de contactos',
+            description: 'Ajusta cómo se ven tus listas y guarda las vistas que más usas.',
+            duration: '2:18',
+            keywords: ['vistas', 'personalizar', 'guardar', 'lista', 'configurar', 'tablero'],
           },
           {
-            id: 'PLACEHOLDER_8',
-            title: 'Etiquetas automáticas',
-            description: 'Aplica etiquetas según el comportamiento del contacto.',
-            duration: '0:00',
-            keywords: ['etiquetas', 'automáticas', 'tags', 'comportamiento', 'reglas', 'condiciones'],
+            id: 'rQarPRYQDNc',
+            thumbnail: '/thumbnails/04-listas-inteligentes.png',
+            title: 'Listas inteligentes',
+            description: 'Crea listas que se actualizan solas según las condiciones que definas.',
+            duration: '2:06',
+            keywords: ['listas inteligentes', 'smart list', 'dinámica', 'automática', 'segmento', 'condiciones'],
           },
           {
-            id: 'PLACEHOLDER_9',
-            title: 'Notificaciones al equipo',
-            description: 'Avisa a tu equipo cuando un contacto realiza una acción clave.',
-            duration: '0:00',
-            keywords: ['notificaciones', 'equipo', 'alertas', 'avisos', 'acción', 'alerta'],
+            id: '0eWluic1bhw',
+            thumbnail: '/thumbnails/05-columnas-engrane.png',
+            title: 'Columnas: menú de engrane',
+            description: 'Usa el ícono de engrane para elegir qué columnas ves en la lista.',
+            duration: '1:23',
+            keywords: ['columnas', 'engrane', 'engranaje', 'ajustes', 'mostrar', 'ocultar', 'configuración'],
+          },
+          {
+            id: 'NWgRzrX8k-4',
+            title: '¿Cómo editar las columnas de una lista?',
+            description: 'Agrega, quita y reordena las columnas de cualquier lista.',
+            duration: '1:23',
+            keywords: ['editar', 'columnas', 'lista', 'reordenar', 'agregar', 'quitar', 'campos'],
+          },
+        ],
+      },
+      {
+        id: 'busqueda',
+        label: 'Búsqueda y orden',
+        videos: [
+          {
+            id: 'QEHjp0Ubvtg',
+            thumbnail: '/thumbnails/13-buscador.png',
+            title: 'Buscador',
+            description: 'Encuentra cualquier contacto en segundos con el buscador.',
+            duration: '1:27',
+            keywords: ['buscador', 'buscar', 'búsqueda', 'encontrar', 'localizar'],
+          },
+          {
+            id: 'jUGk8u07Wc8',
+            thumbnail: '/thumbnails/07-filtros-contactos.png',
+            title: 'Filtros de contactos',
+            description: 'Filtra tu base por los criterios que necesites para segmentarla.',
+            duration: '1:28',
+            keywords: ['filtros', 'filtrar', 'segmentar', 'criterios', 'condiciones', 'depurar'],
+          },
+          {
+            id: 'm14_4DojSOg',
+            thumbnail: '/thumbnails/06-ordenar-contactos.png',
+            title: 'Ordenar contactos',
+            description: 'Ordena la lista por fecha, nombre o cualquier otro campo.',
+            duration: '1:17',
+            keywords: ['ordenar', 'orden', 'clasificar', 'fecha', 'alfabético', 'ascendente', 'descendente'],
+          },
+        ],
+      },
+      {
+        id: 'configuracion-contactos',
+        label: 'Configuración',
+        videos: [
+          {
+            id: 'TkZA7zgMvK4',
+            thumbnail: '/thumbnails/12-editar-campos-personalizados.png',
+            title: 'Editar campos personalizados',
+            description: 'Crea y modifica los campos que tu negocio necesita capturar.',
+            duration: '1:42',
+            keywords: ['campos personalizados', 'custom fields', 'editar', 'crear', 'campos', 'formulario', 'datos'],
+          },
+          {
+            id: 'HItuFJDEWqw',
+            thumbnail: '/thumbnails/15-mapear-formularios.png',
+            title: 'Mapear formularios',
+            description: 'Conecta cada pregunta de tu formulario con el campo correcto del contacto.',
+            duration: '1:29',
+            keywords: ['mapear', 'mapeo', 'formularios', 'campos', 'conectar', 'lead', 'captura'],
+          },
+          {
+            id: 'zp5fH1Le40o',
+            thumbnail: '/thumbnails/14-registro-de-auditoria.png',
+            title: 'Registro de auditoría',
+            description: 'Revisa quién hizo cada cambio y cuándo lo hizo.',
+            duration: '1:52',
+            keywords: ['auditoría', 'registro', 'historial', 'cambios', 'log', 'trazabilidad', 'quién'],
           },
         ],
       },
@@ -125,255 +182,57 @@ const SECTIONS: Section[] = [
         label: 'Pipeline',
         videos: [
           {
-            id: 'PLACEHOLDER_10',
-            title: 'Crear una oportunidad',
-            description: 'Registra oportunidades de negocio y asígnalas a tu pipeline.',
-            duration: '0:00',
-            keywords: ['oportunidad', 'crear', 'negocio', 'pipeline', 'trato', 'deal', 'venta'],
+            id: '1tTc-5Pfm2M',
+            thumbnail: '/thumbnails/10-crear-pipeline.png',
+            title: 'Crear un pipeline',
+            description: 'Arma tu embudo de ventas con las etapas de tu proceso comercial.',
+            duration: '2:16',
+            keywords: ['pipeline', 'crear', 'embudo', 'etapas', 'proceso', 'ventas', 'funnel', 'oportunidades'],
           },
           {
-            id: 'PLACEHOLDER_11',
-            title: 'Mover entre etapas',
-            description: 'Avanza oportunidades por las etapas del proceso de venta.',
-            duration: '0:00',
-            keywords: ['etapas', 'mover', 'avanzar', 'proceso', 'venta', 'embudo', 'funnel'],
-          },
-          {
-            id: 'PLACEHOLDER_12',
-            title: 'Personalizar el pipeline',
-            description: 'Crea y reordena etapas según tu proceso comercial.',
-            duration: '0:00',
-            keywords: ['personalizar', 'pipeline', 'etapas', 'configurar', 'reordenar', 'comercial'],
-          },
-        ],
-      },
-      {
-        id: 'seguimiento',
-        label: 'Seguimiento',
-        videos: [
-          {
-            id: 'PLACEHOLDER_13',
-            title: 'Actividades de seguimiento',
-            description: 'Programa llamadas, demos y recordatorios para cada oportunidad.',
-            duration: '0:00',
-            keywords: ['seguimiento', 'actividades', 'llamadas', 'demos', 'recordatorios', 'programar'],
-          },
-          {
-            id: 'PLACEHOLDER_14',
-            title: 'Notas de oportunidad',
-            description: 'Documenta avances y acuerdos dentro de cada trato.',
-            duration: '0:00',
-            keywords: ['notas', 'oportunidad', 'acuerdos', 'documentar', 'avances', 'trato'],
-          },
-          {
-            id: 'PLACEHOLDER_15',
-            title: 'Asignar oportunidades al equipo',
-            description: 'Distribuye tratos entre los vendedores de tu equipo.',
-            duration: '0:00',
-            keywords: ['asignar', 'equipo', 'vendedores', 'distribuir', 'responsable', 'delegación'],
-          },
-        ],
-      },
-      {
-        id: 'reportes',
-        label: 'Reportes',
-        videos: [
-          {
-            id: 'PLACEHOLDER_16',
-            title: 'Reportes de conversión',
-            description: 'Analiza tu tasa de cierre por etapa y por vendedor.',
-            duration: '0:00',
-            keywords: ['reportes', 'conversión', 'tasa', 'cierre', 'análisis', 'métricas', 'vendedor'],
-          },
-          {
-            id: 'PLACEHOLDER_17',
-            title: 'Proyección de ingresos',
-            description: 'Estima ingresos futuros con base en tu pipeline actual.',
-            duration: '0:00',
-            keywords: ['proyección', 'ingresos', 'forecast', 'predicción', 'ventas', 'futuro'],
-          },
-          {
-            id: 'PLACEHOLDER_18',
-            title: 'Exportar reportes',
-            description: 'Descarga tus datos de ventas en Excel o PDF.',
-            duration: '0:00',
-            keywords: ['exportar', 'descargar', 'excel', 'pdf', 'datos', 'reporte', 'informe'],
+            id: 'Q5YESyswX34',
+            thumbnail: '/thumbnails/11-editar-gestionar-permisos-pipeline.png',
+            title: 'Editar y gestionar permisos de pipeline',
+            description: 'Define qué pipelines puede ver y editar cada miembro del equipo.',
+            duration: '2:15',
+            keywords: ['permisos', 'pipeline', 'editar', 'accesos', 'equipo', 'roles', 'visibilidad', 'gestionar'],
           },
         ],
       },
     ],
   },
   {
-    id: 'calendarios',
-    label: 'Calendarios',
-    icon: Calendar,
+    id: 'whatsapp',
+    label: 'WhatsApp',
+    icon: MessageCircle,
     subcategories: [
       {
-        id: 'configuracion',
-        label: 'Configuración',
+        id: 'conexion',
+        label: 'Conexión y plantillas',
         videos: [
           {
-            id: 'PLACEHOLDER_19',
-            title: 'Configurar tu calendario',
-            description: 'Define tu disponibilidad, zonas horarias y tipos de cita.',
-            duration: '0:00',
-            keywords: ['configurar', 'calendario', 'disponibilidad', 'horarios', 'zona horaria', 'citas'],
+            id: 'AkI8P3Kg2-c',
+            thumbnail: '/thumbnails/16-diferencias-tipos-whatsapp.png',
+            title: 'Diferencias entre tipos de WhatsApp',
+            description: 'Entiende qué tipo de WhatsApp le conviene a tu operación antes de conectarlo.',
+            duration: '6:49',
+            keywords: ['whatsapp', 'tipos', 'diferencias', 'business', 'api', 'qr', 'comparación', 'cuál elegir'],
           },
           {
-            id: 'PLACEHOLDER_20',
-            title: 'Bloquear horarios',
-            description: 'Marca periodos no disponibles y días de descanso.',
-            duration: '0:00',
-            keywords: ['bloquear', 'horarios', 'no disponible', 'descanso', 'vacaciones', 'restricciones'],
+            id: '2LmypbpJbJE',
+            thumbnail: '/thumbnails/18-conectar-whatsapp-codigo-qr.png',
+            title: 'Conectar WhatsApp por código QR',
+            description: 'Vincula tu número escaneando el código QR paso a paso.',
+            duration: '3:30',
+            keywords: ['whatsapp', 'conectar', 'qr', 'código', 'vincular', 'escanear', 'número', 'integración'],
           },
           {
-            id: 'PLACEHOLDER_21',
-            title: 'Personalizar el formulario de cita',
-            description: 'Agrega campos personalizados a tu página de agendamiento.',
-            duration: '0:00',
-            keywords: ['formulario', 'personalizar', 'campos', 'agendamiento', 'página', 'booking'],
-          },
-        ],
-      },
-      {
-        id: 'citas',
-        label: 'Citas',
-        videos: [
-          {
-            id: 'PLACEHOLDER_22',
-            title: 'Agendar una cita manualmente',
-            description: 'Crea citas directamente desde la plataforma sin link externo.',
-            duration: '0:00',
-            keywords: ['agendar', 'cita', 'programar', 'manualmente', 'crear', 'reunión'],
-          },
-          {
-            id: 'PLACEHOLDER_23',
-            title: 'Confirmar y reagendar citas',
-            description: 'Gestiona cambios de horario y confirmaciones del cliente.',
-            duration: '0:00',
-            keywords: ['confirmar', 'reagendar', 'cambiar', 'cancelar', 'cita', 'cliente', 'horario'],
-          },
-          {
-            id: 'PLACEHOLDER_24',
-            title: 'Recordatorios automáticos',
-            description: 'Configura recordatorios de cita por SMS y email.',
-            duration: '0:00',
-            keywords: ['recordatorios', 'automáticos', 'sms', 'email', 'notificación', 'cita', 'aviso'],
-          },
-        ],
-      },
-      {
-        id: 'integraciones-cal',
-        label: 'Integraciones',
-        videos: [
-          {
-            id: 'PLACEHOLDER_25',
-            title: 'Conectar con Google Calendar',
-            description: 'Sincroniza tus citas con Google Calendar en tiempo real.',
-            duration: '0:00',
-            keywords: ['google calendar', 'sincronizar', 'integración', 'conectar', 'google', 'calendario'],
-          },
-          {
-            id: 'PLACEHOLDER_26',
-            title: 'Conectar con Outlook',
-            description: 'Mantén tu agenda de Outlook sincronizada con Lezgo Suite.',
-            duration: '0:00',
-            keywords: ['outlook', 'microsoft', 'sincronizar', 'integración', 'conectar', 'agenda'],
-          },
-          {
-            id: 'PLACEHOLDER_27',
-            title: 'Link de agendamiento público',
-            description: 'Comparte tu enlace de citas con clientes y prospectos.',
-            duration: '0:00',
-            keywords: ['link', 'enlace', 'agendamiento', 'público', 'compartir', 'booking', 'calendly'],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'tareas',
-    label: 'Tareas',
-    icon: CheckSquare,
-    subcategories: [
-      {
-        id: 'gestion-tareas',
-        label: 'Gestión básica',
-        videos: [
-          {
-            id: 'PLACEHOLDER_28',
-            title: 'Crear y editar tareas',
-            description: 'Agrega tareas individuales con fecha límite y prioridad.',
-            duration: '0:00',
-            keywords: ['crear', 'tareas', 'editar', 'fecha límite', 'prioridad', 'nueva tarea'],
-          },
-          {
-            id: 'PLACEHOLDER_29',
-            title: 'Marcar tareas como completadas',
-            description: 'Actualiza el estado de tus tareas a medida que avanzas.',
-            duration: '0:00',
-            keywords: ['completar', 'marcar', 'estado', 'finalizar', 'hecho', 'tarea completa'],
-          },
-          {
-            id: 'PLACEHOLDER_30',
-            title: 'Vistas de tareas',
-            description: 'Cambia entre vista de lista, tablero y calendario.',
-            duration: '0:00',
-            keywords: ['vistas', 'lista', 'tablero', 'kanban', 'calendario', 'organizar'],
-          },
-        ],
-      },
-      {
-        id: 'equipo',
-        label: 'Equipo',
-        videos: [
-          {
-            id: 'PLACEHOLDER_31',
-            title: 'Asignar tareas a miembros del equipo',
-            description: 'Delega y distribuye responsabilidades dentro de tu equipo.',
-            duration: '0:00',
-            keywords: ['asignar', 'delegar', 'equipo', 'miembros', 'responsabilidades', 'distribuir'],
-          },
-          {
-            id: 'PLACEHOLDER_32',
-            title: 'Comentarios en tareas',
-            description: 'Colabora con tu equipo con notas y actualizaciones en cada tarea.',
-            duration: '0:00',
-            keywords: ['comentarios', 'colaborar', 'notas', 'equipo', 'comunicación', 'actualizaciones'],
-          },
-          {
-            id: 'PLACEHOLDER_33',
-            title: 'Seguimiento de progreso',
-            description: 'Monitorea el avance de las tareas asignadas a tu equipo.',
-            duration: '0:00',
-            keywords: ['seguimiento', 'progreso', 'avance', 'monitorear', 'equipo', 'tareas'],
-          },
-        ],
-      },
-      {
-        id: 'automatizacion-tareas',
-        label: 'Automatización',
-        videos: [
-          {
-            id: 'PLACEHOLDER_34',
-            title: 'Tareas recurrentes',
-            description: 'Crea tareas que se repitan automáticamente en intervalos fijos.',
-            duration: '0:00',
-            keywords: ['recurrentes', 'repetir', 'automático', 'intervalo', 'periódico', 'programar'],
-          },
-          {
-            id: 'PLACEHOLDER_35',
-            title: 'Crear tareas desde flujos',
-            description: 'Dispara la creación de tareas automáticamente con automatizaciones.',
-            duration: '0:00',
-            keywords: ['flujos', 'automatización', 'workflow', 'crear', 'disparador', 'trigger'],
-          },
-          {
-            id: 'PLACEHOLDER_36',
-            title: 'Notificaciones de vencimiento',
-            description: 'Recibe alertas cuando una tarea está próxima a vencer.',
-            duration: '0:00',
-            keywords: ['notificaciones', 'vencimiento', 'alertas', 'fecha límite', 'aviso', 'recordatorio'],
+            id: 'ky1dCzNKrnw',
+            thumbnail: '/thumbnails/17-plantilla-de-whatsapp.png',
+            title: 'Plantillas de WhatsApp',
+            description: 'Crea plantillas para responder más rápido y mantener un mensaje consistente.',
+            duration: '4:38',
+            keywords: ['plantilla', 'plantillas', 'whatsapp', 'template', 'mensajes', 'respuestas', 'crear'],
           },
         ],
       },
@@ -385,6 +244,35 @@ interface SearchResult {
   section: Section
   sub: Subcategory
   video: Video
+}
+
+function VideoThumbnail({ video, className = '' }: { video: Video; className?: string }) {
+  return (
+    <div className={`relative aspect-video bg-white/5 overflow-hidden ${className}`}>
+      {video.thumbnail && (
+        <Image
+          src={video.thumbnail}
+          alt={video.title}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
+          className="object-cover transition-transform duration-300 group-hover:scale-[1.04]"
+        />
+      )}
+      {/* Play: siempre visible sin thumbnail, al hover cuando sí hay */}
+      <div
+        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-200 ${
+          video.thumbnail ? 'bg-black/45 opacity-0 group-hover:opacity-100' : ''
+        }`}
+      >
+        <div className="w-11 h-11 bg-[#F59B1B] rounded-full flex items-center justify-center shadow-lg">
+          <span className="text-black text-sm ml-0.5">▶</span>
+        </div>
+      </div>
+      <span className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-1.5 py-0.5 rounded">
+        {video.duration}
+      </span>
+    </div>
+  )
 }
 
 export default function BaseConocimientoContent() {
@@ -612,14 +500,7 @@ export default function BaseConocimientoContent() {
                       <span className="text-[10px] text-[var(--muted-foreground)]">{sub.label}</span>
                     </div>
                     {/* Thumbnail */}
-                    <div className="relative bg-white/5 aspect-video flex items-center justify-center mx-4 mt-2 rounded-lg overflow-hidden">
-                      <div className="w-10 h-10 bg-[#F59B1B] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <span className="text-black text-sm ml-0.5">▶</span>
-                      </div>
-                      <span className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-1.5 py-0.5 rounded">
-                        {video.duration}
-                      </span>
-                    </div>
+                    <VideoThumbnail video={video} className="mx-4 mt-2 rounded-lg" />
                     {/* Info */}
                     <div className="p-4">
                       <p className="font-semibold text-sm mb-1 group-hover:text-[#F59B1B] transition-colors">
@@ -682,14 +563,7 @@ export default function BaseConocimientoContent() {
                       className="group text-left bg-[var(--card)] border border-white/5 rounded-xl overflow-hidden hover:border-[#F59B1B]/40 hover:bg-white/5 transition-all duration-200"
                     >
                       {/* Thumbnail */}
-                      <div className="relative bg-white/5 aspect-video flex items-center justify-center">
-                        <div className="w-10 h-10 bg-[#F59B1B] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                          <span className="text-black text-sm ml-0.5">▶</span>
-                        </div>
-                        <span className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-1.5 py-0.5 rounded">
-                          {video.duration}
-                        </span>
-                      </div>
+                      <VideoThumbnail video={video} />
                       {/* Info */}
                       <div className="p-4">
                         <p className="font-semibold text-sm mb-1 group-hover:text-[#F59B1B] transition-colors">
