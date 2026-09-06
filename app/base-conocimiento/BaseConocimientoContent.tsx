@@ -45,7 +45,7 @@ const SECTIONS: Section[] = [
             title: 'Agregar un contacto',
             description: 'Crea un contacto nuevo desde cero y captura su información.',
             duration: '1:40',
-            keywords: ['crear', 'agregar', 'nuevo', 'contacto', 'registro', 'alta', 'capturar'],
+            keywords: ['crear', 'agregar', 'nuevo', 'contacto', 'registro', 'alta', 'capturar', 'prospecto', 'cliente', 'lead'],
           },
           {
             id: '5Qp1kqZzi7s',
@@ -53,7 +53,7 @@ const SECTIONS: Section[] = [
             title: 'Importación de contactos',
             description: 'Sube tu base completa desde un archivo y evita la captura manual.',
             duration: '2:18',
-            keywords: ['importar', 'importación', 'csv', 'excel', 'masiva', 'base de datos', 'subir', 'carga'],
+            keywords: ['importar', 'importación', 'csv', 'excel', 'masiva', 'base de datos', 'subir', 'carga', 'migrar', 'archivo', 'contactos'],
           },
           {
             id: 'eKEBgRuPwak',
@@ -61,7 +61,7 @@ const SECTIONS: Section[] = [
             title: 'Secciones del contacto y reasignación',
             description: 'Recorre las secciones del perfil y reasigna el contacto a otro usuario.',
             duration: '3:32',
-            keywords: ['secciones', 'perfil', 'reasignar', 'reasignación', 'propietario', 'asignar', 'usuario', 'detalle'],
+            keywords: ['secciones', 'perfil', 'reasignar', 'reasignación', 'propietario', 'asignar', 'usuario', 'detalle', 'ficha', 'responsable', 'cambiar dueño'],
           },
           {
             id: 'xwnTLDQ4fms',
@@ -69,7 +69,7 @@ const SECTIONS: Section[] = [
             title: 'Restaurar contactos',
             description: 'Recupera contactos eliminados sin perder su información.',
             duration: '1:11',
-            keywords: ['restaurar', 'recuperar', 'eliminados', 'borrados', 'papelera', 'deshacer'],
+            keywords: ['restaurar', 'recuperar', 'eliminados', 'borrados', 'papelera', 'deshacer', 'perdidos', 'reactivar', 'basura'],
           },
         ],
       },
@@ -83,7 +83,7 @@ const SECTIONS: Section[] = [
             title: 'Personalizar vistas de contactos',
             description: 'Ajusta cómo se ven tus listas y guarda las vistas que más usas.',
             duration: '2:18',
-            keywords: ['vistas', 'personalizar', 'guardar', 'lista', 'configurar', 'tablero'],
+            keywords: ['vistas', 'personalizar', 'guardar', 'lista', 'configurar', 'tablero', 'layout', 'acomodar', 'pantalla'],
           },
           {
             id: 'rQarPRYQDNc',
@@ -91,7 +91,7 @@ const SECTIONS: Section[] = [
             title: 'Listas inteligentes',
             description: 'Crea listas que se actualizan solas según las condiciones que definas.',
             duration: '2:06',
-            keywords: ['listas inteligentes', 'smart list', 'dinámica', 'automática', 'segmento', 'condiciones'],
+            keywords: ['listas inteligentes', 'smart list', 'dinámica', 'automática', 'segmento', 'condiciones', 'audiencia', 'reglas', 'filtro guardado'],
           },
           {
             id: '0eWluic1bhw',
@@ -99,14 +99,7 @@ const SECTIONS: Section[] = [
             title: 'Columnas: menú de engrane',
             description: 'Usa el ícono de engrane para elegir qué columnas ves en la lista.',
             duration: '1:23',
-            keywords: ['columnas', 'engrane', 'engranaje', 'ajustes', 'mostrar', 'ocultar', 'configuración'],
-          },
-          {
-            id: 'NWgRzrX8k-4',
-            title: '¿Cómo editar las columnas de una lista?',
-            description: 'Agrega, quita y reordena las columnas de cualquier lista.',
-            duration: '1:23',
-            keywords: ['editar', 'columnas', 'lista', 'reordenar', 'agregar', 'quitar', 'campos'],
+            keywords: ['columnas', 'engrane', 'engranaje', 'ajustes', 'mostrar', 'ocultar', 'configuración', 'tuerca', 'ícono', 'personalizar tabla'],
           },
         ],
       },
@@ -120,7 +113,7 @@ const SECTIONS: Section[] = [
             title: 'Buscador',
             description: 'Encuentra cualquier contacto en segundos con el buscador.',
             duration: '1:27',
-            keywords: ['buscador', 'buscar', 'búsqueda', 'encontrar', 'localizar'],
+            keywords: ['buscador', 'buscar', 'búsqueda', 'encontrar', 'localizar', 'lupa', 'nombre', 'teléfono'],
           },
           {
             id: 'jUGk8u07Wc8',
@@ -128,7 +121,7 @@ const SECTIONS: Section[] = [
             title: 'Filtros de contactos',
             description: 'Filtra tu base por los criterios que necesites para segmentarla.',
             duration: '1:28',
-            keywords: ['filtros', 'filtrar', 'segmentar', 'criterios', 'condiciones', 'depurar'],
+            keywords: ['filtros', 'filtrar', 'segmentar', 'criterios', 'condiciones', 'depurar', 'etiquetas', 'tags', 'acotar'],
           },
           {
             id: 'm14_4DojSOg',
@@ -136,7 +129,7 @@ const SECTIONS: Section[] = [
             title: 'Ordenar contactos',
             description: 'Ordena la lista por fecha, nombre o cualquier otro campo.',
             duration: '1:17',
-            keywords: ['ordenar', 'orden', 'clasificar', 'fecha', 'alfabético', 'ascendente', 'descendente'],
+            keywords: ['ordenar', 'orden', 'clasificar', 'fecha', 'alfabético', 'ascendente', 'descendente', 'a-z', 'reciente', 'antiguo'],
           },
         ],
       },
@@ -150,7 +143,7 @@ const SECTIONS: Section[] = [
             title: 'Editar campos personalizados',
             description: 'Crea y modifica los campos que tu negocio necesita capturar.',
             duration: '1:42',
-            keywords: ['campos personalizados', 'custom fields', 'editar', 'crear', 'campos', 'formulario', 'datos'],
+            keywords: ['campos personalizados', 'custom fields', 'editar', 'crear', 'campos', 'formulario', 'datos', 'atributos', 'propiedades', 'campo nuevo'],
           },
           {
             id: 'HItuFJDEWqw',
@@ -158,7 +151,7 @@ const SECTIONS: Section[] = [
             title: 'Mapear formularios',
             description: 'Conecta cada pregunta de tu formulario con el campo correcto del contacto.',
             duration: '1:29',
-            keywords: ['mapear', 'mapeo', 'formularios', 'campos', 'conectar', 'lead', 'captura'],
+            keywords: ['mapear', 'mapeo', 'formularios', 'campos', 'conectar', 'lead', 'captura', 'form', 'vincular', 'landing'],
           },
           {
             id: 'zp5fH1Le40o',
@@ -166,7 +159,7 @@ const SECTIONS: Section[] = [
             title: 'Registro de auditoría',
             description: 'Revisa quién hizo cada cambio y cuándo lo hizo.',
             duration: '1:52',
-            keywords: ['auditoría', 'registro', 'historial', 'cambios', 'log', 'trazabilidad', 'quién'],
+            keywords: ['auditoría', 'registro', 'historial', 'cambios', 'log', 'trazabilidad', 'quién', 'bitácora', 'actividad', 'seguridad'],
           },
         ],
       },
@@ -187,7 +180,7 @@ const SECTIONS: Section[] = [
             title: 'Crear un pipeline',
             description: 'Arma tu embudo de ventas con las etapas de tu proceso comercial.',
             duration: '2:16',
-            keywords: ['pipeline', 'crear', 'embudo', 'etapas', 'proceso', 'ventas', 'funnel', 'oportunidades'],
+            keywords: ['pipeline', 'crear', 'embudo', 'etapas', 'proceso', 'ventas', 'funnel', 'oportunidades', 'tablero', 'kanban', 'negocio'],
           },
           {
             id: 'Q5YESyswX34',
@@ -195,7 +188,7 @@ const SECTIONS: Section[] = [
             title: 'Editar y gestionar permisos de pipeline',
             description: 'Define qué pipelines puede ver y editar cada miembro del equipo.',
             duration: '2:15',
-            keywords: ['permisos', 'pipeline', 'editar', 'accesos', 'equipo', 'roles', 'visibilidad', 'gestionar'],
+            keywords: ['permisos', 'pipeline', 'editar', 'accesos', 'equipo', 'roles', 'visibilidad', 'gestionar', 'privacidad', 'restringir', 'usuarios'],
           },
         ],
       },
@@ -216,7 +209,7 @@ const SECTIONS: Section[] = [
             title: 'Diferencias entre tipos de WhatsApp',
             description: 'Entiende qué tipo de WhatsApp le conviene a tu operación antes de conectarlo.',
             duration: '6:49',
-            keywords: ['whatsapp', 'tipos', 'diferencias', 'business', 'api', 'qr', 'comparación', 'cuál elegir'],
+            keywords: ['whatsapp', 'tipos', 'diferencias', 'business', 'api', 'qr', 'comparación', 'cuál elegir', 'wa', 'personal', 'oficial'],
           },
           {
             id: '2LmypbpJbJE',
@@ -224,7 +217,7 @@ const SECTIONS: Section[] = [
             title: 'Conectar WhatsApp por código QR',
             description: 'Vincula tu número escaneando el código QR paso a paso.',
             duration: '3:30',
-            keywords: ['whatsapp', 'conectar', 'qr', 'código', 'vincular', 'escanear', 'número', 'integración'],
+            keywords: ['whatsapp', 'conectar', 'qr', 'código', 'vincular', 'escanear', 'número', 'integración', 'wa', 'celular', 'sincronizar'],
           },
           {
             id: 'ky1dCzNKrnw',
@@ -232,7 +225,7 @@ const SECTIONS: Section[] = [
             title: 'Plantillas de WhatsApp',
             description: 'Crea plantillas para responder más rápido y mantener un mensaje consistente.',
             duration: '4:38',
-            keywords: ['plantilla', 'plantillas', 'whatsapp', 'template', 'mensajes', 'respuestas', 'crear'],
+            keywords: ['plantilla', 'plantillas', 'whatsapp', 'template', 'mensajes', 'respuestas', 'crear', 'wa', 'rápidas', 'automático'],
           },
         ],
       },
@@ -244,6 +237,14 @@ interface SearchResult {
   section: Section
   sub: Subcategory
   video: Video
+}
+
+/** Minúsculas y sin acentos, para que "auditoria" encuentre "auditoría". */
+function normalize(text: string) {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
 }
 
 function VideoThumbnail({ video, className = '' }: { video: Video; className?: string }) {
@@ -297,8 +298,10 @@ export default function BaseConocimientoContent() {
   }, [])
 
   const searchResults = useMemo<SearchResult[]>(() => {
-    const q = searchQuery.trim().toLowerCase()
-    if (!q) return []
+    // Cada palabra debe aparecer en algún lado: "importar contactos" encuentra
+    // el video aunque esa frase exacta no exista en el texto.
+    const terms = normalize(searchQuery).split(/\s+/).filter(Boolean)
+    if (terms.length === 0) return []
     const sectionsToSearch = filterSection
       ? SECTIONS.filter((s) => s.id === filterSection)
       : SECTIONS
@@ -306,8 +309,10 @@ export default function BaseConocimientoContent() {
     for (const section of sectionsToSearch) {
       for (const sub of section.subcategories) {
         for (const video of sub.videos) {
-          const haystack = [video.title, video.description, ...video.keywords].join(' ').toLowerCase()
-          if (haystack.includes(q)) {
+          const haystack = normalize(
+            [video.title, video.description, section.label, sub.label, ...video.keywords].join(' ')
+          )
+          if (terms.every((term) => haystack.includes(term))) {
             results.push({ section, sub, video })
           }
         }
