@@ -161,8 +161,8 @@ const Precios = () => {
             description: "Para grandes organizaciones",
             features: [
               "Todas las funcionalidades",
-              "Usuarios ilímitados",
-              "Contactos ilímitados",
+              "Usuarios ilimitados",
+              "Contactos ilimitados",
             ],
             note: "Limitado a 20 conexiones por WhatsApp QR",
             link: STRIPE_LINKS.elite[billing],

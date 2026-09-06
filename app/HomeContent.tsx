@@ -849,8 +849,8 @@ export default function HomeContent() {
                   description: "Para grandes organizaciones",
                   features: [
                     "Todas las funcionalidades",
-                    "Usuarios ilímitados",
-                    "Contactos ilímitados",
+                    "Usuarios ilimitados",
+                    "Contactos ilimitados",
                   ],
                   link: STRIPE_LINKS.elite[billing],
                   popular: false,

@@ -199,7 +199,7 @@ export default function ComoFunciona() {
         </div>
 
         <p className="mx-auto mt-6 max-w-2xl text-center text-sm text-gray-500">
-          ¿Quieres ir aún más rápido? Existen opciones de acompañamiento (Servicio Tecnico dedicado y/o
+          ¿Quieres ir aún más rápido? Existen opciones de acompañamiento (Servicio Técnico dedicado y/o
           Implementación) que puedes contratar por aparte. Estos se contratan en tu sesión de ventas.
         </p>
       </div>
