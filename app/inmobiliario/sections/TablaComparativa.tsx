@@ -7,7 +7,7 @@ type Row = { label: string; values: [string, string, string, string] }
 
 const ROWS: Row[] = [
   { label: "Usuarios", values: ["1", "3", "10", "Ilimitados"] },
-  { label: "Contactos", values: ["100", "1,000", "15,000", "Ilimitados"] },
+  { label: "Contactos", values: ["Ilimitados", "Ilimitados", "Ilimitados", "Ilimitados"] },
   { label: "Pipelines (Ventas + Rentas)", values: ["✓", "✓", "✓", "✓"] },
   { label: "Conexión WhatsApp (todas las versiones)", values: ["✓", "✓", "✓", "✓"] },
   { label: "Bots de IA", values: ["2", "2", "2", "2"] },

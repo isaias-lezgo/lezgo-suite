@@ -808,7 +808,7 @@ export default function HomeContent() {
                   features: [
                     "Todas las funcionalidades",
                     "1 usuario asesor",
-                    "1000 contactos",
+                    "Contactos ilimitados",
                   ],
                   popular: false,
                   color: "border-gray-200",
@@ -822,7 +822,7 @@ export default function HomeContent() {
                   features: [
                     "Todas las funcionalidades",
                     "Equipo de 3 usuarios",
-                    "1000 contactos",
+                    "Contactos ilimitados",
                   ],
                   popular: false,
                   color: "border-gray-200",
@@ -836,7 +836,7 @@ export default function HomeContent() {
                   features: [
                     "Todas las funcionalidades",
                     "Equipo de 10 usuarios",
-                    "15,000 contactos",
+                    "Contactos ilimitados",
                   ],
                   link: STRIPE_LINKS.pro[billing],
                   popular: true,
