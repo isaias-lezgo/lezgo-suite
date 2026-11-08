@@ -10,6 +10,7 @@ import FloatingWhatsApp from "@/components/custom/FloatingWhatsapp"
 import PixelPrincipal from "@/components/custom/Pixel/PixelPrincipal"
 import PixelRouter from "@/components/custom/Pixel/PixelRouter"
 import GtmRouter from "@/components/custom/Pixel/GtmRouter"
+import AttributionCapture from "@/components/custom/AttributionCapture"
 import { Suspense } from "react"
 import { JsonLd } from "@/components/custom/JsonLd"
 import { SITE_CONFIG } from "@/lib/seo"
@@ -98,6 +99,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         <JsonLd data={[organizationJsonLd, localBusinessJsonLd]} />
+        <AttributionCapture />
         <PixelPrincipal />
         <Suspense>
           <PixelRouter />

@@ -49,10 +49,28 @@ The form sends the following data structure:
   "mensaje": "I'm interested in your platform...",
   "newsletter": true,
   "contacto": "email",
+  "utm_source": "chatgpt",
+  "utm_medium": "cpc",
+  "utm_campaign": "test",
+  "utm_term": "",
+  "utm_content": "test",
+  "oppref": "test123",
+  "gclid": "",
+  "fbclid": "",
+  "landing_url": "https://www.lezgosuite.com/inmobiliario?utm_source=chatgpt&...",
+  "referrer": "https://chatgpt.com/",
   "timestamp": "2024-01-15T10:30:00.000Z",
   "source": "Lezgo Suite Contact Form"
 }
 ```
+
+### Attribution fields
+
+Every lead form (footer, home popup, `/contacto`) adds the 10 attribution
+fields above. They come from the first-touch cookie `lz_attribution`
+(30 days, never overwritten; see `lib/attribution.ts`). All keys are always
+present, sent as `""` when unknown. `source` is the form identifier, not the
+traffic source: use `utm_source` for the channel.
 
 ## Testing
 

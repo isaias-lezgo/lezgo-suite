@@ -16,6 +16,7 @@ import { useToast } from "@/hooks/use-toast"
 import { track } from "@vercel/analytics"
 import { WhatsAppButton } from "../BotonesInmobiliario"
 import { buildUserData } from "@/lib/utils"
+import { getAttributionPayload } from "@/lib/attribution"
 
 const inputClassName =
   "border-gray-300 bg-white focus-visible:border-[#F59B1B] focus-visible:ring-[#F59B1B]/30 placeholder:text-gray-500"
@@ -101,6 +102,7 @@ export default function DemoForm() {
         body: JSON.stringify({
           ...clean,
           equipo: clean.equipo || "sin_especificar",
+          ...getAttributionPayload(),
           timestamp: new Date().toISOString(),
           source: "Lezgo Suite Inmobiliario Landing",
         }),

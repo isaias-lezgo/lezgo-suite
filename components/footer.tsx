@@ -7,8 +7,11 @@ import { ArrowRight, Loader2, Facebook, Instagram } from "lucide-react"
 import { motion } from "framer-motion"
 import { track } from "@vercel/analytics"
 import { buildUserData } from "@/lib/utils"
+import { getAttributionPayload } from "@/lib/attribution"
+import { useBookingUrl } from "@/hooks/use-attribution"
 
 export default function Footer() {
+  const bookingUrl = useBookingUrl()
   const [footerForm, setFooterForm] = useState({ nombre: '', email: '', telefono: '' })
   const [footerFormSubmitting, setFooterFormSubmitting] = useState(false)
   const [footerFormSubmitted, setFooterFormSubmitted] = useState(false)
@@ -30,6 +33,7 @@ export default function Footer() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...footerForm,
+          ...getAttributionPayload(),
           timestamp: new Date().toISOString(),
           source: 'formulario-footer',
         }),
@@ -109,7 +113,7 @@ export default function Footer() {
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
+                    href={bookingUrl}
                   >
                     Agenda una llamada
                   </a>

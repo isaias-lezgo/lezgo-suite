@@ -5,11 +5,7 @@ import { ArrowRight } from "lucide-react"
 import { track } from "@vercel/analytics"
 import { withGAClientId } from "@/lib/utils"
 import type { MouseEvent, ReactNode } from "react"
-
-const BOOKING_URL = "https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
-const WHATSAPP_URL =
-  "https://wa.me/5214426702559?text=" +
-  encodeURIComponent("Hola, quiero información sobre el CRM inmobiliario de Lezgo Suite.")
+import { useBookingUrl, useWhatsAppUrl } from "@/hooks/use-attribution"
 
 function fbqTrack(event: string, params?: Record<string, unknown>) {
   if (typeof (window as any).fbq === "function") (window as any).fbq("trackCustom", event, params)
@@ -24,6 +20,7 @@ export function AgendarDemoButton({
   children?: ReactNode
   compact?: boolean
 }) {
+  const bookingUrl = useBookingUrl()
   const handleClick = () => {
     ;(window as any).dataLayer = (window as any).dataLayer || []
     ;(window as any).dataLayer.push({
@@ -46,7 +43,7 @@ export function AgendarDemoButton({
       }
     >
       <a
-        href={BOOKING_URL}
+        href={bookingUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center"
@@ -72,6 +69,7 @@ export function VerPlanesButton() {
 }
 
 export function WhatsAppButton({ location }: { location: string }) {
+  const whatsappUrl = useWhatsAppUrl()
   const handleClick = () => {
     ;(window as any).dataLayer = (window as any).dataLayer || []
     ;(window as any).dataLayer.push({ event: "click_whatsapp", button_location: location })
@@ -80,7 +78,7 @@ export function WhatsAppButton({ location }: { location: string }) {
   }
   return (
     <a
-      href={WHATSAPP_URL}
+      href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleClick}

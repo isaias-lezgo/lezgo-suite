@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation"
 import { track } from "@vercel/analytics" // Import Vercel's track function
 import type { MouseEvent } from "react"
 import { withGAClientId } from "@/lib/utils"
+import { useBookingUrl } from "@/hooks/use-attribution"
 
 // Handler for all button clicks with Pixel and Vercel tracking
 const handleTrackingAndNavigate = (eventName: string, link: string, params?: Record<string, any>) => {
@@ -109,7 +110,7 @@ export const PricingButton = ({ plan }: { plan: Plan }) => {
       button_text: `Comenzar ${plan.name.replace('Lezgo ', '')}`,
       button_location: 'precios',
     })
-    handleTrackingAndNavigate(`Empezar plan - ${plan}`, finalUrl, { plan_name: plan.name })
+    handleTrackingAndNavigate("Empezar plan", finalUrl, { plan_name: plan.name })
   }
   return (
     <Button
@@ -130,6 +131,7 @@ export const PricingButton = ({ plan }: { plan: Plan }) => {
 }
 
 export const ContactSpecialistButton = () => {
+  const bookingUrl = useBookingUrl()
   const handleClick = () => {
     ;(window as any).dataLayer = (window as any).dataLayer || []
     ;(window as any).dataLayer.push({
@@ -144,7 +146,7 @@ export const ContactSpecialistButton = () => {
       <a
         target="_blank"
         rel="noopener noreferrer"
-        href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
+        href={bookingUrl}
       >
         Agenda una llamada con un especialista
       </a>

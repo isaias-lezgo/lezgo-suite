@@ -6,9 +6,10 @@ import { CheckCircle } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { track } from "@vercel/analytics"
+import { BOOKING_URL as DEMO_URL } from "@/lib/attribution"
+import { useBookingUrl } from "@/hooks/use-attribution"
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
-const DEMO_URL = "https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
 
 export type FeatureStat = { value: string; label: string }
 
@@ -131,6 +132,7 @@ function SectionHeader({
 
 export default function FeatureLandingPage({ config }: { config: FeatureLandingConfig }) {
   const reducedMotion = useReducedMotion()
+  const bookingUrl = useBookingUrl()
   const KickerIcon = config.kickerIcon
   const demoEvent = `CTA Especialista - ${config.pageName}`
 
@@ -161,7 +163,7 @@ export default function FeatureLandingPage({ config }: { config: FeatureLandingC
                 className="bg-[#F59B1B] text-white hover:bg-[#e08d18] font-semibold"
               >
                 <a
-                  href={DEMO_URL}
+                  href={bookingUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackCta(demoEvent, DEMO_URL)}

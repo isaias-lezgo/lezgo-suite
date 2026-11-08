@@ -3,14 +3,13 @@ import { track } from "@vercel/analytics";
 import { CalendarCheck, MessageCircleMore } from "lucide-react";
 import { usePathname } from "next/navigation";
 import React from "react";
+import { getWhatsAppUrl } from "@/lib/attribution";
+import { useBookingUrl } from "@/hooks/use-attribution";
 
 const FloatingWhatsApp = () => {
   const pathname = usePathname();
+  const bookingUrl = useBookingUrl();
   if (pathname === '/guia-productiva') return null;
-
-  const phoneNumber = "5214426702559";
-  const message =
-    "¡Hola! Me interesa más información de Lezgo Suite. Vengo de la Página Web.";
 
   const handleWhatsAppClick = () => {
     track("Botón Whatsapp Página");
@@ -23,8 +22,7 @@ const FloatingWhatsApp = () => {
       button_text: 'WhatsApp flotante',
       button_location: 'flotante',
     })
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
+    window.open(getWhatsAppUrl(), "_blank");
   };
 
   const handleAdvisorClick = () => {
@@ -44,7 +42,7 @@ const FloatingWhatsApp = () => {
     <>
       {/* Advisor — mobile: pill button */}
       <a
-        href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
+        href={bookingUrl}
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleAdvisorClick}
@@ -58,7 +56,7 @@ const FloatingWhatsApp = () => {
 
       {/* Advisor — desktop: card anchored to right edge */}
       <a
-        href="https://app.lezgosuite.com/widget/bookings/conocelezgosuite"
+        href={bookingUrl}
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleAdvisorClick}

@@ -27,6 +27,7 @@ import { useToast } from "@/hooks/use-toast"
 import { track } from "@vercel/analytics"
 import { SITE_CONFIG } from "@/lib/seo"
 import { buildUserData } from "@/lib/utils"
+import { getAttributionPayload } from "@/lib/attribution"
 
 const OFFICE_LINE = `Coorporativo High Park, ${SITE_CONFIG.address.streetAddress}, Centro Sur, ${SITE_CONFIG.address.postalCode} ${SITE_CONFIG.address.addressLocality}, ${SITE_CONFIG.address.addressRegion}`
 
@@ -126,6 +127,7 @@ export default function ContactoContent() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
+          ...getAttributionPayload(),
           timestamp: new Date().toISOString(),
           source: "Lezgo Suite Contact Form",
         }),

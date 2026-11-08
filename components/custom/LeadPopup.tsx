@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { track } from '@vercel/analytics'
 import { buildUserData } from '@/lib/utils'
+import { getAttributionPayload } from '@/lib/attribution'
 
 export default function LeadPopup() {
   const [isVisible, setIsVisible] = useState(false)
@@ -62,6 +63,7 @@ export default function LeadPopup() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
+          ...getAttributionPayload(),
           timestamp: new Date().toISOString(),
           source: 'popup-funcionalidades',
         }),
