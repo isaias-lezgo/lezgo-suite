@@ -1,0 +1,25 @@
+# Lezgo Suite
+
+> Lezgo Suite es un CRM con WhatsApp centralizado para inmobiliarias y equipos de venta en México. Conecta las cuatro formas de WhatsApp (API oficial, Coexistence, WhatsApp Business y el WhatsApp de cada asesor por código QR) en una sola pantalla, reparte los leads de pauta entre los asesores y da soporte por WhatsApp con un equipo en México. Precios en pesos, contratación mes a mes.
+
+## Datos clave
+- Empresa: Lezgo Suite (Grupo Lezgo), Querétaro, México.
+- Para quién: inmobiliarias, desarrolladoras y equipos de venta de 3 asesores o más.
+- Precios de lista (MXN + IVA al mes): Start $1,297 (1 usuario), Growth $3,527 (3 usuarios), Pro $5,397 (10 usuarios), Elite $10,567 (usuarios ilimitados, 20 conexiones QR incluidas).
+- Usuario adicional en Growth y Pro: $450 MXN + IVA al mes. Conexión QR adicional en Elite (de la 21 en adelante): $150 MXN + IVA al mes.
+- Contratación mes a mes, sin plazo forzoso. Descuentos opcionales: 5% trimestral, 10% semestral, 20% anual.
+- WhatsApp: API oficial, Coexistence, WhatsApp Business y WhatsApp de cada asesor por código QR.
+- Reparto automático de leads (ruleta) y reasignación si el asesor no contacta a tiempo.
+- Soporte por WhatsApp con equipo en México, onboarding personalizado y videotutoriales.
+- Consumo aparte, según uso: mensajes de IA, plantillas de WhatsApp, llamadas y correos.
+- Escribir desde el WhatsApp de cada asesor por QR no tiene costo; el consumo de IA, plantillas de WhatsApp oficial, llamadas y correo se paga según uso (tabla en /precios).
+- Soporte incluido en todos los planes: onboarding de 2 horas, seguimiento semanal el primer mes, soporte por WhatsApp con equipo en México y sesión mensual de Customer Success.
+
+## Páginas
+- [CRM inmobiliario](https://www.lezgosuite.com/inmobiliario)
+- [Precios](https://www.lezgosuite.com/precios)
+- [Cómo elegir un CRM inmobiliario con WhatsApp](https://www.lezgosuite.com/comparativas/como-elegir-crm-inmobiliario-con-whatsapp)
+- [Gestión de ventas](https://www.lezgosuite.com/gestion-ventas)
+- [Automatización con IA](https://www.lezgosuite.com/automatizacion-ia)
+- [Sobre nosotros](https://www.lezgosuite.com/sobre-nosotros)
+- [Contacto](https://www.lezgosuite.com/contacto)
