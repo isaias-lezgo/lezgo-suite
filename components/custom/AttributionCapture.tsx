@@ -3,8 +3,9 @@ import { useEffect } from 'react'
 import { getAttribution } from '@/lib/attribution'
 
 /**
- * Mounted once in the root layout: stores the first-touch attribution cookie
- * on the initial page load of any route (see lib/attribution.ts).
+ * Mounted once in the root layout: on the initial page load of any route,
+ * stores the attribution cookie if the URL carries campaign params
+ * (see lib/attribution.ts).
  */
 export default function AttributionCapture() {
   useEffect(() => {

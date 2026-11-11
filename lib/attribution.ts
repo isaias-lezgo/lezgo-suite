@@ -1,11 +1,16 @@
 /**
- * First-touch marketing attribution.
+ * First-campaign-touch marketing attribution.
  *
- * On the visitor's first page load we read the campaign params from the URL,
- * plus the landing URL and document.referrer, and keep them in a first-party
- * cookie for 30 days. The cookie is never overwritten while it exists, so a
- * lead keeps the channel that first brought them in even if they browse other
- * pages (or come back days later) before converting.
+ * The first time a visitor arrives with at least one campaign param in the URL
+ * (see URL_PARAM_KEYS) we keep those params, plus the landing URL and
+ * document.referrer, in a first-party cookie for 30 days. Visits without
+ * params never create the cookie, so a direct visit can't hide a later ad
+ * click. Once a cookie with params exists it is not overwritten, so the lead
+ * keeps that channel even if they browse other pages (or come back days later)
+ * before converting.
+ *
+ * Without cookie or params, forms still send the current page's landing_url
+ * and referrer; nothing is stored.
  *
  * The stored values are then attached to the webhook payload of every lead
  * form, to the demo booking links and to the WhatsApp message.
@@ -43,8 +48,9 @@ export const WHATSAPP_PHONE = "5214426702559"
 export const WHATSAPP_BASE_MESSAGE =
   "¡Hola! Me interesa más información de Lezgo Suite. Vengo de la Página Web."
 
-// Survives within the page session even when cookies are blocked, so a later
-// client-side navigation never re-captures the wrong page as the landing URL.
+// Only set when there are campaign params. Survives within the page session
+// even when cookies are blocked, so a later client-side navigation (where the
+// params are gone from the URL) doesn't lose them.
 let cached: Attribution | null = null
 
 function normalize(raw: Record<string, unknown>): Attribution {
@@ -85,20 +91,36 @@ function captureFromLocation(): Attribution {
   return normalize(raw)
 }
 
+function hasCampaignParams(data: Attribution): boolean {
+  return URL_PARAM_KEYS.some((key) => data[key] !== "")
+}
+
 /**
- * Returns the stored first-touch attribution, capturing it from the current
- * URL if none exists yet. Safe to call repeatedly; it only writes once.
- * Call it from effects or event handlers, never during server render.
+ * Returns the stored attribution, or captures it from the current URL.
+ *
+ * - A stored cookie with campaign params always wins (first campaign touch).
+ * - Otherwise, if the current URL has campaign params, they are stored. This
+ *   also replaces a legacy cookie that was saved without any param.
+ * - Otherwise nothing is stored and the current page's landing_url / referrer
+ *   are returned as-is.
+ *
+ * Safe to call repeatedly. Call it from effects or event handlers, never
+ * during server render.
  */
 export function getAttribution(): Attribution | null {
   if (typeof window === "undefined") return null
   if (cached) return cached
-  cached = readCookie()
-  if (!cached) {
-    cached = captureFromLocation()
-    writeCookie(cached)
+  const stored = readCookie()
+  if (stored && hasCampaignParams(stored)) {
+    cached = stored
+    return cached
   }
-  return cached
+  const current = captureFromLocation()
+  if (hasCampaignParams(current)) {
+    writeCookie(current)
+    cached = current
+  }
+  return current
 }
 
 /**

@@ -67,8 +67,11 @@ The form sends the following data structure:
 ### Attribution fields
 
 Every lead form (footer, home popup, `/contacto`) adds the 10 attribution
-fields above. They come from the first-touch cookie `lz_attribution`
-(30 days, never overwritten; see `lib/attribution.ts`). All keys are always
+fields above. They come from the cookie `lz_attribution` (30 days; see
+`lib/attribution.ts`), which is only created when the URL carries at least one
+of the 8 campaign params and is not overwritten once it has them. Without
+cookie or params, `landing_url` and `referrer` are those of the page where the
+form was submitted and nothing is stored. All keys are always
 present, sent as `""` when unknown. `source` is the form identifier, not the
 traffic source: use `utm_source` for the channel.
 
