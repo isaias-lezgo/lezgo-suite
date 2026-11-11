@@ -319,12 +319,28 @@ export default function OnboardingPage({ config }: { config: OnboardingConfig })
                         </p>
                         <p className="text-sm leading-relaxed" style={{ color: '#92400E' }}>
                           El objetivo del onboarding es la configuración inicial de la plataforma,
-                          no la capacitación de tu equipo. La formación de usuarios corresponde a
-                          cada empresa, con el apoyo de los recursos y materiales que Lezgo Suite
-                          pone a disposición después del onboarding.
+                          no la capacitación de tu equipo. Después de las sesiones que damos, la
+                          formación de usuarios corresponde a cada empresa, con el apoyo de los
+                          recursos y materiales que Lezgo Suite pone a disposición después del
+                          onboarding.
                         </p>
                       </div>
                     </div>
+                  </div>
+
+                  {/* Sesiones de seguimiento posteriores al onboarding */}
+                  <div
+                    className="rounded-xl p-5"
+                    style={{ background: 'rgba(46,84,144,.07)', border: '1px solid #BFD0E8' }}
+                  >
+                    <p className="font-bold mb-2" style={{ color: '#1B2B4B' }}>
+                      Después del onboarding: 4 sesiones de seguimiento
+                    </p>
+                    <p className="leading-relaxed" style={{ color: '#334155' }}>
+                      Al terminar tu onboarding puedes agendar 4 sesiones de seguimiento, una por
+                      semana. Tú decides en qué usarlas: resolver dudas, capacitar a tu equipo o
+                      revisar cualquier otro tema que necesites.
+                    </p>
                   </div>
 
                   {/* Notas importantes */}

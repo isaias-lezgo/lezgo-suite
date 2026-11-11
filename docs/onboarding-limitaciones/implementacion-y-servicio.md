@@ -56,7 +56,10 @@ Puedes consultar el uso de funcionalidades, interpretar errores y recibir recome
 ## Limitaciones generales del onboarding (aplican a todos los planes)
 
 ### ⚠️ El onboarding NO es una capacitación
-El objetivo del onboarding es la **configuración inicial** de la plataforma, no la capacitación de tu equipo. La formación de usuarios corresponde a cada empresa, con el apoyo de los recursos y materiales que Lezgo Suite pone a disposición después del onboarding.
+El objetivo del onboarding es la **configuración inicial** de la plataforma, no la capacitación de tu equipo. Después de las sesiones que damos, la formación de usuarios corresponde a cada empresa, con el apoyo de los recursos y materiales que Lezgo Suite pone a disposición después del onboarding.
+
+### Después del onboarding: 4 sesiones de seguimiento
+Al terminar tu onboarding puedes agendar **4 sesiones de seguimiento**, una por semana. Tú decides en qué usarlas: resolver dudas, capacitar a tu equipo o revisar cualquier otro tema que necesites.
 
 ### Notas importantes
 - Todas las sesiones son virtuales.
