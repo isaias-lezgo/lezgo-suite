@@ -58,8 +58,9 @@ const PLANS: Plan[] = [
 ]
 
 export default function Precios() {
-  // Anual selected by default — best offer for the customer.
-  const [billing, setBilling] = useState<BillingPeriod>("anual")
+  // Mensual by default, same as the home: the server-rendered HTML (what
+  // search engines and AI assistants read) must show the monthly list price.
+  const [billing, setBilling] = useState<BillingPeriod>("mensual")
   const selected = BILLING_OPTIONS.find((o) => o.key === billing)!
 
   return (
@@ -132,6 +133,11 @@ export default function Precios() {
                         </span>
                         <span className="text-gray-600 text-sm">/mes</span>
                       </div>
+                      {selected.discount > 0 && (
+                        <p className="text-xs text-gray-500">
+                          equivalente por mes, pagando {selected.label.toLowerCase()}
+                        </p>
+                      )}
                     </div>
                     <ul className="space-y-2 mb-6 flex-1">
                       {plan.features.map((feature) => (

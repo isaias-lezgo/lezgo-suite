@@ -1,0 +1,42 @@
+name: IndexNow
+
+# Tells IndexNow (Bing and the engines that share its index) that the site
+# changed, right after each successful production deployment on Vercel.
+# Submits every URL in the live sitemap. Can also be run by hand.
+
+on:
+  deployment_status:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  submit:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' &&
+       startsWith(github.event.deployment.environment, 'Production'))
+    runs-on: ubuntu-latest
+    env:
+      HOST: www.lezgosuite.com
+      # Public by design: served at https://www.lezgosuite.com/<key>.txt
+      # (public/<key>.txt in this repo).
+      KEY: c267f4babc38844a1ce1bfaeb669a4e5
+    steps:
+      - name: Submit sitemap URLs
+        run: |
+          set -euo pipefail
+          urls=$(curl -fsS "https://$HOST/sitemap.xml" | grep -o '<loc>[^<]*</loc>' | sed -e 's/<loc>//' -e 's/<\/loc>//')
+          test -n "$urls"
+          body=$(printf '%s\n' "$urls" | jq -R . | jq -s \
+            --arg host "$HOST" --arg key "$KEY" \
+            '{host: $host, key: $key, keyLocation: "https://\($host)/\($key).txt", urlList: .}')
+          echo "$body"
+          code=$(curl -sS -o /tmp/indexnow.out -w '%{http_code}' \
+            -X POST 'https://api.indexnow.org/indexnow' \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            --data "$body")
+          cat /tmp/indexnow.out
+          echo "IndexNow responded HTTP $code"
+          # 200 = accepted, 202 = accepted, key validation pending
+          test "$code" = 200 || test "$code" = 202
