@@ -68,7 +68,13 @@ export function VerPlanesButton() {
   )
 }
 
-export function WhatsAppButton({ location }: { location: string }) {
+export function WhatsAppButton({
+  location,
+  children,
+}: {
+  location: string
+  children?: ReactNode
+}) {
   const whatsappUrl = useWhatsAppUrl()
   const handleClick = () => {
     ;(window as any).dataLayer = (window as any).dataLayer || []
@@ -84,7 +90,7 @@ export function WhatsAppButton({ location }: { location: string }) {
       onClick={handleClick}
       className="inline-flex items-center gap-2 text-[#F59B1B] font-semibold hover:underline"
     >
-      O escríbenos directo por WhatsApp
+      {children ?? "O escríbenos directo por WhatsApp"}
     </a>
   )
 }

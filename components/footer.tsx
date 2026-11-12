@@ -1,6 +1,7 @@
 'use client'
 import Link from "next/link"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { ArrowRight, Loader2, Facebook, Instagram } from "lucide-react"
@@ -12,6 +13,7 @@ import { useBookingUrl } from "@/hooks/use-attribution"
 
 export default function Footer() {
   const bookingUrl = useBookingUrl()
+  const hideCta = usePathname() === "/gracias-demo"
   const [footerForm, setFooterForm] = useState({ nombre: '', email: '', telefono: '' })
   const [footerFormSubmitting, setFooterFormSubmitting] = useState(false)
   const [footerFormSubmitted, setFooterFormSubmitted] = useState(false)
@@ -67,6 +69,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#081737] text-white">
+      {/* Sin CTA de venta en la página de gracias: quien llega ahí ya agendó. */}
+      {!hideCta && (
       <section className="py-20 bg-gradient-to-br from-[#F59B1B] to-orange-600 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -180,6 +184,7 @@ export default function Footer() {
           </div>
         </div>
       </section>
+      )}
 
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-12">

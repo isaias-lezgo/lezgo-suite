@@ -10,6 +10,8 @@ const FloatingWhatsApp = () => {
   const pathname = usePathname();
   const bookingUrl = useBookingUrl();
   if (pathname === '/guia-productiva') return null;
+  // Quien llega a la página de gracias ya agendó: no ofrecerle agendar otra vez.
+  const showAdvisor = pathname !== '/gracias-demo';
 
   const handleWhatsAppClick = () => {
     track("Botón Whatsapp Página");
@@ -41,7 +43,7 @@ const FloatingWhatsApp = () => {
   return (
     <>
       {/* Advisor — mobile: pill button */}
-      <a
+      {showAdvisor && <a
         href={bookingUrl}
         target="_blank"
         rel="noopener noreferrer"
@@ -52,10 +54,10 @@ const FloatingWhatsApp = () => {
         <span className="text-white text-sm font-bold leading-tight">
           Agendar<br />demo
         </span>
-      </a>
+      </a>}
 
       {/* Advisor — desktop: card anchored to right edge */}
-      <a
+      {showAdvisor && <a
         href={bookingUrl}
         target="_blank"
         rel="noopener noreferrer"
@@ -71,7 +73,7 @@ const FloatingWhatsApp = () => {
         <span className="bg-[#F59B1B] text-white text-[10px] font-bold px-2 py-1.5 rounded-lg text-center leading-tight w-full block">
           Hablar con<br />un asesor
         </span>
-      </a>
+      </a>}
 
       <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50">
         <div
